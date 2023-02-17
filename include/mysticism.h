@@ -2,9 +2,10 @@
 #define MYSTICISM_H
 
 /* 游戏目录 */
-#define PATH_DIR /"
+#define PATH_DIR "/"
 
-
+// 游戏driver版本
+#define VERSION "0.0.1"
 
 
 // 游戏管理员账号
