@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-20 18:46:10
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-02-21 02:19:04
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -20,8 +20,13 @@
 /* 核心对象 */
 #define MYSTICISM_LOGIN_OB PATH_DIR "system/obj/login"
 
+
 /* 守护进程 */
 #define MYSTICISM_LOGIN_D  PATH_DIR "system/daemons/login_d"
+
+/* inherit 特性文件 */
+#define CORE_STD_ROOM           PATH_DIR "inherit/room"
+
 
 // 游戏管理员账号
 #define WIZARD  "mysticism"
@@ -32,8 +37,16 @@
 /* 守护进程 */
 #define LOGIN_D     MYSTICISM_LOGIN_D
 
+
+
 // START_ROOM   游戏出生点
 #define START_ROOM  PATH_DIR "World/00/map/start_room"
+
+
+// CMD_PATH_WIZ   巫师指令
+#define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})
+// CMD_PATH_STD   玩家指令
+#define CMD_PATH_STD ({PATH_DIR "cmds/player/"})
 
 
 #endif

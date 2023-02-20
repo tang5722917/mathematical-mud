@@ -1,0 +1,4 @@
+inherit CORE_ROOM;
+
+
+
