@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-17 15:02:16
+ * @LastEditTime: 2023-02-20 18:46:10
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -31,5 +31,9 @@
 
 /* 守护进程 */
 #define LOGIN_D     MYSTICISM_LOGIN_D
+
+// START_ROOM   游戏出生点
+#define START_ROOM  PATH_DIR "World/00/map/start_room"
+
 
 #endif
