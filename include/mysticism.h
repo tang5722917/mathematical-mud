@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-21 11:23:18
+ * @LastEditTime: 2023-02-21 15:08:39
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -47,5 +47,10 @@
 // CMD_PATH_STD   玩家指令
 #define CMD_PATH_STD ({PATH_DIR "cmds/player/"})
 #define VERB_DIR PATH_DIR "verbs/"
+
+/* 核心对象 (覆盖用)*/
+#define VOID_OB     PATH_DIR "system/obj/void"
+
+
 
 #endif
