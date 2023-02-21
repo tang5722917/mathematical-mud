@@ -1,4 +1,6 @@
-inherit CORE_VERB;
+#include <ansi.h>
+
+inherit CORE_DIR "verbs/common/look";
 
 int look_room(object me, object env)
 {
@@ -11,7 +13,7 @@ int look_room(object me, object env)
     }
 
     str = sprintf(HIC + "%s" + NOR + "%s\n    %s" + NOR,
-                  env->short(), wizardp(me) ? " - " + env : env->coordinate(),
+                  env->short(), wizardp(me) ? " - " + env : env->Room_name(),
                   sort_string(env->long(), 72, 4));
     // env->long());
 

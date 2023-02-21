@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-02-21 02:19:04
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-02-21 11:23:18
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -27,7 +27,6 @@
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 
-
 // 游戏管理员账号
 #define WIZARD  "mysticism"
 
@@ -47,6 +46,6 @@
 #define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})
 // CMD_PATH_STD   玩家指令
 #define CMD_PATH_STD ({PATH_DIR "cmds/player/"})
-
+#define VERB_DIR PATH_DIR "verbs/"
 
 #endif
