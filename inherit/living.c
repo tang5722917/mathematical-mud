@@ -5,17 +5,23 @@ inherit CORE_LIVING ;
 //look 接口函数，处理被look事件
 void look();
 
-protected object living_status;
+protected object status_value;
+protected object status_mystic;
+protected object status_affect;
 
 void create()
 {
-    living_status_base_value = new(INHERIT_PATH "status_value")
+    status_value = new(INHERIT_PATH "status_value")
+    status_mystic = new(INHERIT_PATH "status_mystic")
+    status_affect = new(INHERIT_PATH "status_affect")
 }
 
 
 void destruct();
 {
-    destruct(living_status_base_value)
+    destruct(status_value)
+    destruct(status_mystic)
+    destruct(status_affect)
 }
 
 // 角色激活  

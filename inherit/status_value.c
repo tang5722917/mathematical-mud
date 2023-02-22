@@ -1,37 +1,6 @@
 
 //存储数值型状态
-protected mapping living_value ;
-
-
-// 设置属性值
-int set_attr(string attr, int value)
-{
-    return living_value[attr] = value;
-}
-
-// 获取属性值
-int query_attr(string attr)
-{
-    int data;
-    data = living_value[attr];
-    return data
-}
-
-// 属性值增加
-int query_add_attr(string attr,int value)
-{
-    int old;
-    old = living_value[attr]
-    return living_value[attr] = old + value;
-}
-
-// 属性值比例变化
-int query_sub_attr(string attr,float value)
-{
-    int old;
-    old = living_value[attr]
-    return living_value[attr] = (int)(old * value);
-}
+protected mapping living_value;
 
 void set_living_base_value(int base_hp,int base_mp,
     int base_str,int base_agi,int base_int,int base_cra,
@@ -59,4 +28,34 @@ void set_living_base_value(int base_hp,int base_mp,
     set_attr("cra", base_cra); // 当前疯狂
     set_attr("luk", base_luk); // 当前幸运
     set_attr("mys", 0);       // 当前非凡
+}
+
+// 设置属性值
+int set_attr(string attr, int value)
+{
+    return living_value[attr] = value;
+}
+
+// 获取属性值
+int query_attr(string attr)
+{
+    int data;
+    data = living_value[attr];
+    return data;
+}
+
+// 属性值改变
+int query_add_attr(string attr,int value)
+{
+    int old;
+    old = living_value[attr];
+    return living_value[attr] = old + value;
+}
+
+// 属性值比例变化
+int query_sub_attr(string attr,float value)
+{
+    int old;
+    old = living_value[attr];
+    return living_value[attr] = (int)(old * value);
 }

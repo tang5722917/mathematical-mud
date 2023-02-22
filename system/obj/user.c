@@ -1,1 +1,1 @@
-inherit CORE_USER_OB
+inherit CORE_USER_OB;
