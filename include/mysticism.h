@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-21 18:02:43
+ * @LastEditTime: 2023-02-22 18:54:53
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -10,6 +10,8 @@
  */
 #ifndef MYSTICISM_H
 #define MYSTICISM_H
+
+#define  INHERIT_PATH     PATH_DIR "inherit/"
 
 /* 游戏目录 */
 #define PATH_DIR "/"
@@ -28,6 +30,7 @@
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 #define CORE_STD_LIVING         PATH_DIR "inherit/living"
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
+
 
 // 游戏管理员账号
 #define WIZARD  "mysticism"
@@ -52,7 +55,7 @@
 
 /* 核心对象 (覆盖用)*/
 #define VOID_OB     PATH_DIR "system/obj/void"
-
+#define USER_OB     PATH_DIR "system/obj/user"
 
 
 #endif
