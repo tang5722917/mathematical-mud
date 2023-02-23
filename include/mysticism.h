@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-22 18:54:53
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-02-23 02:50:38
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -28,8 +28,10 @@
 
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
-#define CORE_STD_LIVING         PATH_DIR "inherit/living"
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
+
+/* inherit 特性文件 (覆盖用)*/
+#define _LIVING         PATH_DIR "inherit/living"
 
 
 // 游戏管理员账号

@@ -22,19 +22,18 @@ string score(object me)
 
     msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + me->short(),
-                   "职业：" + chinese(my["vocation"]));
+                   "非凡途径：" + chinese(my["vocation"]));
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-34s%-16s| \n", " 生日:" + ctime(my["birthday"]), "性别：" + my["gender"]);
     msg += " |--------------------------------------------------| \n" NOR;
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-17s%-17s%-16s| \n", "ＨＰ：" + me->query_hp() + " / " + me->query_max_hp(), "ＭＰ：" + me->query_mp() + " / " + me->query_max_mp(), "ＳＰ：" + me->query_sp() + " / " + me->query_max_sp());
+    msg += sprintf(" |%-17s%-17s%-16s| \n", "血气：" + me->query_hp() + " / " + me->query_max_hp(), "精力：" + me->query_mp() + " / " + me->query_max_mp(),"");
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_str(), "速度：" + me->query_agi(), "耐力：" + me->query_vit());
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "幸运：" + me->query_luk(), "魅力：" + me->query_charm(), "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "回复魔力：" + me->query_mend(), "攻击魔力：" + me->query_magic(), "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "攻击：" + me->query_attack(), "防御：" + me->query_defense(), "");
+    msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_str(), "敏捷：" + me->query_agi(),"幸运：" + me->query_mend());
+    msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_luk(), "疯狂：" + me->query_charm(), "");
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "等级：" + my["lv"], "经验：" + my["exp"], "金币：" + my["coin"]);
+    msg += sprintf(" |%-15s%-15s%-20s| \n", "冒险等级：" + my["lv"], "非凡序列：" + my["exp"], "");
+    msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");
 
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;

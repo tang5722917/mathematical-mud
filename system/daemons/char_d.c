@@ -44,7 +44,7 @@ void setup(object ob)
             break;
         case "魔物":
             if (undefinedp(my["attr"])){
-                ob->set_attr("str", 15); // 力量
+                ob->set_attr("str", 15); //力量
                 ob->set_attr("agi", 8); // 速度
                 ob->set_attr("vit", 7); // 耐力
                 ob->set_attr("max_hp", 20); // 最大ＨＰ
