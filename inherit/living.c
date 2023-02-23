@@ -1,21 +1,29 @@
 #include <dbase.h>
+#include <ansi.h>
 
 inherit CORE_LIVING ;
 
 //look 接口函数，处理被look事件
 void look();
 
-protected object status_value;
-protected object status_mystic;
-protected object status_affect;
+object status_value;
+object status_mystic;
+object status_affect;
 
-void create()
+object query_status_value()
+{
+    return status_value;
+}
+
+void living_init()
 {
     status_value = new(INHERIT_PATH "status_value");
     status_mystic = new(INHERIT_PATH "status_mystic");
     status_affect = new(INHERIT_PATH "status_affect");
+    write(WHT "对象初始化" NOR);
+    if (status_value == 0)
+    write(WHT "初始化错误"NOR);
 }
-
 
 int move_or_destruct(object dest)
 {

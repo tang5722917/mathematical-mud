@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-23 15:56:07
+ * @LastEditTime: 2023-02-23 17:42:12
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -25,6 +25,8 @@
 
 /* 守护进程 */
 #define MYSTICISM_LOGIN_D  PATH_DIR "system/daemons/login_d"
+#define MYSTICISM_CHAR_D   PATH_DIR "system/daemons/char_d"
+
 
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
@@ -42,7 +44,7 @@
 
 /* 守护进程 */
 #define LOGIN_D     MYSTICISM_LOGIN_D
-
+#define CHAR_D      MYSTICISM_CHAR_D
 
 
 // START_ROOM   游戏出生点

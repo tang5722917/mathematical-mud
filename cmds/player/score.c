@@ -1,3 +1,13 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-02-23 10:02:15
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-02-23 17:28:03
+ * @FilePath: \mysticism-mud\cmds\player\score.c
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved. 
+ */
 inherit CORE_CLEAN_UP;
 #include <ansi.h>
 
@@ -22,9 +32,9 @@ string score(object me)
 
     msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + me->short(),
-                   "非凡途径：" + chinese(my["vocation"]));
-    msg += sprintf(" |%-50s| \n", "");
+                   "主要职业：" + chinese(my["vocation"]));
     msg += sprintf(" |%-34s%-16s| \n", " 生日:" + ctime(my["birthday"]), "性别：" + my["gender"]);
+    msg += sprintf(" |%-50s| \n", "");
     msg += " |--------------------------------------------------| \n" NOR;
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-17s%-17s%-16s| \n", "血气：" + me->query_hp() + " / " + me->query_max_hp(), "精力：" + me->query_mp() + " / " + me->query_max_mp(),"");
@@ -32,7 +42,7 @@ string score(object me)
     msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_str(), "敏捷：" + me->query_agi(),"幸运：" + me->query_mend());
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_luk(), "疯狂：" + me->query_charm(), "");
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "冒险等级：" + my["lv"], "非凡序列：" + my["exp"], "");
+    msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");
 

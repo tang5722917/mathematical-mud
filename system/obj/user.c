@@ -2,6 +2,12 @@ inherit CORE_USER_OB;
 
 protected mapping user_data;
 
+void create()
+{
+    seteuid(0); // export_uid
+}
+
+
 // 从游戏中移除这个角色
 void remove()
 {
