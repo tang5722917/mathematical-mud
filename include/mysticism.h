@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-02-23 02:50:38
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-02-23 15:56:07
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -32,7 +32,7 @@
 
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living"
-
+#define _USER           PATH_DIR "inherit/user"
 
 // 游戏管理员账号
 #define WIZARD  "mysticism"

@@ -1,0 +1,1 @@
+inherit PATH_DIR "inherit/living" ;

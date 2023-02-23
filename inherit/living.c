@@ -11,17 +11,17 @@ protected object status_affect;
 
 void create()
 {
-    status_value = new(INHERIT_PATH "status_value")
-    status_mystic = new(INHERIT_PATH "status_mystic")
-    status_affect = new(INHERIT_PATH "status_affect")
+    status_value = new(INHERIT_PATH "status_value");
+    status_mystic = new(INHERIT_PATH "status_mystic");
+    status_affect = new(INHERIT_PATH "status_affect");
 }
 
 
-void destruct();
+int move_or_destruct(object dest)
 {
-    destruct(status_value)
-    destruct(status_mystic)
-    destruct(status_affect)
+    destruct( status_value );
+    destruct( status_mystic );
+    destruct( status_affect );
 }
 
 // 角色激活  

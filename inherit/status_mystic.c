@@ -9,5 +9,5 @@ int set_living_mystic(int max_mys)
 
 void add_mystic(object mys)
 {
-    living_mystic += mys;
+    living_mystic += ({mys}) ;
 }
