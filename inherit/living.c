@@ -15,21 +15,17 @@ object query_status_value()
     return status_value;
 }
 
-void living_init()
+void create()
 {
+    debug_message("开始status_value初始化\n");
     status_value = new(INHERIT_PATH "status_value");
-    status_mystic = new(INHERIT_PATH "status_mystic");
-    status_affect = new(INHERIT_PATH "status_affect");
-    write(WHT "对象初始化" NOR);
-    if (status_value == 0)
-    write(WHT "初始化错误"NOR);
-}
 
-int move_or_destruct(object dest)
-{
-    destruct( status_value );
-    destruct( status_mystic );
-    destruct( status_affect );
+    status_mystic = new(INHERIT_PATH "status_mystic");
+    debug_message("开始status_mystic初始化\n");
+    status_affect = new(INHERIT_PATH "status_value");
+    //status_affect = new(INHERIT_PATH "status_affect");
+    debug_message("开始status_affec初始化\n");
+    debug_message("living 初始化\n");
 }
 
 // 角色激活  

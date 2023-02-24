@@ -2,6 +2,12 @@
 //存储数值型状态
 protected mapping living_value;
 
+void create()
+{
+    debug_message("status_living 初始化\n");
+}
+
+
 // 设置属性值
 int set_attr(string attr, int value)
 {
@@ -32,9 +38,7 @@ int query_sub_attr(string attr,float value)
     return living_value[attr] = (int)(old * value);
 }
 
-void set_living_base_value(int base_hp,int base_mp,
-    int base_str,int base_agi,int base_int,int base_cra,
-    int base_luk,int max_mys)
+void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int base_int,int base_cra,int base_luk,int max_mys)
 {
     set_attr("base_hp", base_hp); // 基础HP
     set_attr("base_mp", base_mp); // 基础MP

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-23 17:42:12
+ * @LastEditTime: 2023-02-24 19:26:21
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -11,10 +11,10 @@
 #ifndef MYSTICISM_H
 #define MYSTICISM_H
 
-#define  INHERIT_PATH     PATH_DIR "inherit/"
 
 /* 游戏目录 */
 #define PATH_DIR "/"
+#define  INHERIT_PATH     PATH_DIR "/inherit/"
 
 // 游戏driver版本
 #define VERSION "0.0.1"
