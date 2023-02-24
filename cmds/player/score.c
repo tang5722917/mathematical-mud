@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-24 18:37:12
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-02-25 05:39:04
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -38,10 +38,10 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += " |--------------------------------------------------| \n" NOR;
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-17s%-17s%-16s| \n", "血气：" + my_status_value->query_attr("hp") + " / " + me->query_max_hp(), "精力：" + me->query_mp() + " / " + me->query_max_mp(),"");
+    msg += sprintf(" |%-25s%-25s| \n", "血气：" + my_status_value->query_attr("hp") + " / " + my_status_value->query_attr("max_hp"), "精力：" + my_status_value->query_attr("mp") + " / " + my_status_value->query_attr("max_mp") );
     msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_str(), "敏捷：" + me->query_agi(),"幸运：" + me->query_mend());
-    msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_luk(), "疯狂：" + me->query_charm(), "");
+    msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + my_status_value->query_attr("str"), "敏捷：" + my_status_value->query_attr("agi"),"灵性：" + my_status_value->query_attr("sen"));
+    msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + my_status_value->query_attr("int"), "疯狂：" + my_status_value->query_attr("cra"), "幸运：" + my_status_value->query_attr("luk"));
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);

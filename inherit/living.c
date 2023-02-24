@@ -15,17 +15,12 @@ object query_status_value()
     return status_value;
 }
 
-void create()
+void init_status(string uid)
 {
-    debug_message("开始status_value初始化\n");
+    seteuid(uid);
     status_value = new(INHERIT_PATH "status_value");
-
     status_mystic = new(INHERIT_PATH "status_mystic");
-    debug_message("开始status_mystic初始化\n");
     status_affect = new(INHERIT_PATH "status_value");
-    //status_affect = new(INHERIT_PATH "status_affect");
-    debug_message("开始status_affec初始化\n");
-    debug_message("living 初始化\n");
 }
 
 // 角色激活  

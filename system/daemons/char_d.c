@@ -12,7 +12,7 @@ void init_player(object user, mixed *data...)
     user->set("exp_equ", 0); // 对战经验_平
     user->set("wlv", 0);  // 世界等级
     my_status_value = user -> query_status_value();
-    my_status_value->set_living_base_value(100,100,10,10,100,0,0,175);
+    my_status_value->set_living_base_value(100,100,10,10,10,100,0,0,175);
 }
 
 void setup(object ob)

@@ -2,15 +2,12 @@
 //存储数值型状态
 protected mapping living_value;
 
-void create()
-{
-    debug_message("status_living 初始化\n");
-}
-
 
 // 设置属性值
 int set_attr(string attr, int value)
 {
+    if (!mapp(living_value))
+        living_value = ([]);
     return living_value[attr] = value;
 }
 
@@ -38,12 +35,13 @@ int query_sub_attr(string attr,float value)
     return living_value[attr] = (int)(old * value);
 }
 
-void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int base_int,int base_cra,int base_luk,int max_mys)
+void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int base_sen,int base_int,int base_cra,int base_luk,int max_mys)
 {
     set_attr("base_hp", base_hp); // 基础HP
     set_attr("base_mp", base_mp); // 基础MP
     set_attr("base_str", base_str); // 基础力量
     set_attr("base_agi", base_agi); // 基础敏捷
+    set_attr("base_sen", base_sen); // 基础灵性
     set_attr("base_int", base_int); // 基础理智
     set_attr("base_cra", base_cra); // 基础疯狂
     set_attr("base_luk", base_luk); // 基础幸运
@@ -58,6 +56,7 @@ void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int
     set_attr("mp", base_mp); // 当前MP
     set_attr("str", base_str); // 当前力量
     set_attr("agi", base_agi); // 当前敏捷
+    set_attr("sen", base_sen); // 当前灵性
     set_attr("int", base_int); // 当前理智
     set_attr("cra", base_cra); // 当前疯狂
     set_attr("luk", base_luk); // 当前幸运
