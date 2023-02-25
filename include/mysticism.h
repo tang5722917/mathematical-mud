@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-24 19:26:21
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-02-25 17:24:14
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -31,6 +31,7 @@
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
+#define CORE_STD_NPC            PATH_DIR "inherit/person_npc"
 
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living"
@@ -50,6 +51,8 @@
 // START_ROOM   游戏出生点
 #define START_ROOM  PATH_DIR "World/00/map/start_room"
 
+// 游戏内容路径
+#define GAME_00 PATH_DIR "World/00/game_00.h"
 
 // CMD_PATH_WIZ   巫师指令
 #define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})

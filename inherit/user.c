@@ -6,6 +6,3 @@ inherit _USER_QUEST;
 
 #include <ansi.h>
 
-void create()
-{
-}

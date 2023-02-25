@@ -2,26 +2,12 @@
 #include <ansi.h>
 
 inherit CORE_LIVING ;
+inherit INHERIT_PATH "status_value" ;
+inherit INHERIT_PATH "status_mystic" ;
+inherit INHERIT_PATH "status_affect" ;
 
 //look 接口函数，处理被look事件
 void look();
-
-object status_value;
-object status_mystic;
-object status_affect;
-
-object query_status_value()
-{
-    return status_value;
-}
-
-void init_status(string uid)
-{
-    seteuid(uid);
-    status_value = new(INHERIT_PATH "status_value");
-    status_mystic = new(INHERIT_PATH "status_mystic");
-    status_affect = new(INHERIT_PATH "status_value");
-}
 
 // 角色激活  
 void setup()

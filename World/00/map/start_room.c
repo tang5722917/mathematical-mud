@@ -14,4 +14,7 @@ void create()
     set("no_get", 0); // 是否禁止拾起
     set("no_drop", 0); // 是否禁止丢弃
     set("no_fight", 1); // 是否禁止战斗
+    set("objects",([
+        
+    ]))
 }
