@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-02-25 17:24:14
+ * @LastEditTime: 2023-02-27 02:17:09
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -50,9 +50,7 @@
 
 // START_ROOM   游戏出生点
 #define START_ROOM  PATH_DIR "World/00/map/start_room"
-
-// 游戏内容路径
-#define GAME_00 PATH_DIR "World/00/game_00.h"
+ 
 
 // CMD_PATH_WIZ   巫师指令
 #define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})

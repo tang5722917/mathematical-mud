@@ -1,5 +1,6 @@
 // 标准室内环境模板STD_ROOM
 #include <ansi.h>
+#include <game_world.h>
 
 inherit CORE_STD_ROOM;
 
@@ -15,6 +16,8 @@ void create()
     set("no_drop", 0); // 是否禁止丢弃
     set("no_fight", 1); // 是否禁止战斗
     set("objects",([
-        
-    ]))
+        PATH_00_NPC  "start_up_npc":1
+    ]));
+
+    setup();
 }
