@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-02-27 02:17:09
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-02-27 18:09:16
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -53,9 +53,10 @@
  
 
 // CMD_PATH_WIZ   巫师指令
-#define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})
+#define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/", PATH_DIR "verbs/common/"})
 // CMD_PATH_STD   玩家指令
-#define CMD_PATH_STD ({PATH_DIR "cmds/player/"})
+#define CMD_PATH_STD ({PATH_DIR "cmds/player/" ,PATH_DIR "verbs/common/"})
+
 #define VERB_DIR PATH_DIR "verbs/"
 
 /* 核心对象 (覆盖用)*/

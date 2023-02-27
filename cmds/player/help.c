@@ -13,6 +13,10 @@ int main(object me, string arg)
             // notify_fail("有这个指令存在，但是并没有详细的说明文件。\n");
             return file->help(me);
         }
+        if( objectp(file = COMMAND_D->find_command(arg)) ) {
+            // notify_fail("有这个指令存在，但是并没有详细的说明文件。\n");
+            return file->help(me);
+        }
     }
 
     return help(me);
