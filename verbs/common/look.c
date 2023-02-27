@@ -1,6 +1,7 @@
 #include <ansi.h>
 
 inherit CORE_DIR "verbs/common/look";
+inherit "/verbs/inherit/obj_func";
 
 int look_room(object me, object env)
 {
@@ -36,4 +37,41 @@ int look_room(object me, object env)
     str += list_all_inventory_of_object(me, env);
     tell_object(me, str);
     return 1;
+}
+
+    //  查看NPC/玩家
+mixed do_look_at_str(string str, string arg)
+{
+    object ob;
+    object me = this_player();
+    object env = environment(me);
+    mapping exits = env->query("exits");
+    string tar = list_all_inventory_of_object(me, env);
+    tell_object(me, tar);
+    if (str == "here")
+    {
+        return do_look();
+    }
+    // 查看出口方向
+    if (mapp(exits))
+    {
+        if (stringp(exits[str]))
+            return look_room(me, load_object(exits[str]));
+        else if (mapp(exits[str]))
+        {
+            cecho("此方向是区域环境，无法观察。");
+            return 0;
+        }
+    }
+    if (env->is_area())
+        return env->do_look(me, str);
+    //查看NPC
+
+    ob = object_search_env(str,env);
+    if (ob != 0)
+        return do_look_at_obj(ob);
+        
+    cecho("这里没有你想看的呢。");
+
+    return 0;
 }
