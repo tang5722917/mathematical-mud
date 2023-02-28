@@ -7,7 +7,10 @@ inherit INHERIT_PATH "status_mystic" ;
 inherit INHERIT_PATH "status_affect" ;
 
 //look 接口函数，处理被look事件
-void look(object me){};
+void look(object me){}
+
+// search接口函数，处理search事件
+void search(object me){write("没有什么特别的发现。\N ");}
 
 // 角色激活  
 void setup()

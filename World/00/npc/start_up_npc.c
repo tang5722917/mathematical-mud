@@ -9,5 +9,10 @@ protected void create()
 
 void look(object me)
 {
-    write("你感到有些头晕，并且忘了刚才还在想些什么");
+    write("你感到有些头晕，并且忘了刚才还在想些什么。\N （你可以试着向那位未知存在问个问题） \n");
+}
+
+void answer(object me)
+{
+    
 }
