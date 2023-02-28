@@ -69,7 +69,11 @@ mixed do_look_at_str(string str, string arg)
 
     ob = object_search_env(str,env);
     if (ob != 0)
-        return do_look_at_obj(ob);
+    {
+        do_look_at_obj(ob);
+        ob->look(me);
+        return 1;
+    }
         
     cecho("这里没有你想看的呢。");
 
