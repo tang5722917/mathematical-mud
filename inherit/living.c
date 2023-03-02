@@ -6,6 +6,30 @@ inherit INHERIT_PATH "status_value" ;
 inherit INHERIT_PATH "status_mystic" ;
 inherit INHERIT_PATH "status_affect" ;
 
+
+//living status
+//是否可以战斗
+protected int living_status_fight = 0;
+//是否可以被复制
+protected int living_status_copy = 0;
+//该生物是否已经被复制
+protected int living_copy = 0;
+
+int is_fight_living()
+{
+    return living_status_fight;
+}
+
+int is_copy_living()
+{
+    return living_status_copy;
+}
+
+int is_copy()
+{
+    return living_copy;
+}
+
 //look 接口函数，处理被look事件
 void look(object me){}
 
