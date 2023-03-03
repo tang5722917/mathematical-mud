@@ -14,5 +14,5 @@ void look(object me)
 
 void answer(object me)
 {
-    
+    write("你提了一个问题。\n ");
 }

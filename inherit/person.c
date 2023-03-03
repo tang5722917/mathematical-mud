@@ -11,7 +11,7 @@ void create()
 void answer(object me){write("不清楚你要问什么\n ");}
 
 //say 接口函数，处理被say事件
-void say(object me){write("你好\n ");}
+void sayinfo(object me){write("你好\n ");}
 
 // pray接口函数，处理pray事件
 void pray(object me){write("....... 不清楚向那位神灵祈祷 \n");}
