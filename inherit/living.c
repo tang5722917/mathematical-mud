@@ -9,11 +9,11 @@ inherit INHERIT_PATH "status_affect" ;
 
 //living status
 //是否可以战斗
-protected int living_status_fight = 0;
+protected int living_status_fight=0;
 //是否可以被复制
-protected int living_status_copy = 0;
+protected int living_status_copy=0;
 //该生物是否已经被复制
-protected int living_copy = 0;
+protected int living_copy=0;
 
 int is_fight_living()
 {
@@ -34,7 +34,7 @@ int is_copy()
 void look(object me){}
 
 // search接口函数，处理search事件
-void search(object me){write("没有什么特别的发现。\N ");}
+void search(object me){write("没有什么特别的发现。\n ");}
 
 // 角色激活  
 void setup()
