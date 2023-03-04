@@ -14,5 +14,12 @@ void look(object me)
 
 void answer(object me)
 {
-    write("你提了一个问题。\n ");
+    write("神秘的存在： ............... \n 这时你突然发现面前多了个光团 ");
 }
+
+string honor_name(object me,object ob)
+{
+    return "神秘的那位存在";
+}
+
+

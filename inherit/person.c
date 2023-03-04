@@ -22,3 +22,9 @@ void blessing(object me){write("祝你好运，朋友！\n ");}
 // pray_gesture 接口函数，处理pray_gesture事件
 void pray_gesture(object me){}
 
+string honor_name(object me, object ob)
+{
+    string * honor_name = ({"你","您","阁下","殿下","冕下"}) ;
+    return "你";
+}
+
