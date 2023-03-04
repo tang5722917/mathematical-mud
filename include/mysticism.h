@@ -32,6 +32,7 @@
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/person_npc"
+#define CORE_STD_TASK           PATH_DIR "inherit/task"
 
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living"
