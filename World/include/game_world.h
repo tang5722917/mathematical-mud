@@ -10,8 +10,8 @@
  */
 
  //
-#define Know_how_versiom "0.0.1"
-#define World_versiom "0.0.1"
+#define Know_how_version "0.0.1"
+#define World_version "0.0.1"
 
  //初始游戏内容路径
 #define PATH_00 PATH_DIR "World/00/"

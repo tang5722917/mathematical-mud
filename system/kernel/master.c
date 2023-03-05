@@ -7,7 +7,6 @@ private object connect(int port)
     mixed err;
 
     err = catch (login_ob = new(MYSTICISM_LOGIN_OB));
-
     if (err)
     {
         write("服务器维护中，请稍候……\n");
@@ -16,3 +15,8 @@ private object connect(int port)
     return login_ob;
 }
 
+private void create()
+{
+    debug_message("[" + ctime() + "]CORE_MASTER_OB->create()!");
+    preload(Game_World);
+}
