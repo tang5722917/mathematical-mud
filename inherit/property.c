@@ -58,5 +58,5 @@ void set_property_init(int move,int get,int visible,int num,string* id,string na
     property_get = get;
     property_visible = visible;
     property_number = num;
-    set_name(name,id);
+    set_name(YEL+name+NOR,id);
 }
