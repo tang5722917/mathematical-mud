@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-05 00:31:36
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-06 13:49:39
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -51,7 +51,7 @@
 
 
 // START_ROOM   游戏出生点
-#define START_ROOM  PATH_DIR "World/00/map/start_room"
+#define START_ROOM  PATH_DIR "World/00/start_room"
 #define Game_World  PATH_DIR "World/world_create"
 
 // CMD_PATH_WIZ   巫师指令
