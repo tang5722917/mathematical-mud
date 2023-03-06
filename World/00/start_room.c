@@ -12,11 +12,12 @@ void create()
     set("dq", 0); // 设置所属世界
     set("outdoors", 0); // 设置是否户外
     setArea(0, 0, 0, 0,"未知区域"); // 设置所属地区和x,y,z坐标
-    set("no_get", 0); // 是否禁止拾起
-    set("no_drop", 0); // 是否禁止丢弃
+    set("no_get", 1); // 是否禁止拾起
+    set("no_drop", 1); // 是否禁止丢弃
     set("no_fight", 1); // 是否禁止战斗
     set("objects",([
-        PATH_00_NPC  "start_up_npc":1
+        PATH_00_NPC  "start_up_npc":1,
+        PATH_00_PRO  "start_up_property":1
     ]));
 
     setup();

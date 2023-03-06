@@ -8,7 +8,8 @@ varargs void setArea(mixed area, int x, int y, int z, string name)
         "x":x,
         "y":y,
         "z":z,
-        "name":name
+        "name":name,
+        "visible":1
     ]));
 }
 

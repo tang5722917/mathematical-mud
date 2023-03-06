@@ -65,8 +65,7 @@ mixed do_look_at_str(string str, string arg)
     }
     if (env->is_area())
         return env->do_look(me, str);
-    //查看NPC
-
+//查看NPC
     ob = object_search_env(str,env);
     if (ob != 0)
     {
@@ -74,7 +73,8 @@ mixed do_look_at_str(string str, string arg)
         ob->look(me);
         return 1;
     }
-        
+// 只有该玩家可以看到的NPC/物品/出口
+
     cecho("这里没有你想看的呢。");
 
     return 0;

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-06 14:21:24
+ * @LastEditTime: 2023-03-06 17:11:54
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -33,11 +33,12 @@
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/person_npc"
 #define CORE_STD_TASK           PATH_DIR "inherit/task"
+#define CORE_STD_PROPERTY       PATH_DIR "inherit/property"
 
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living"
 #define _USER           PATH_DIR "inherit/user"
-#define _USER_QUEST     PATH_DIR "inherit/user_current"
+#define _USER_QUEST     PATH_DIR "inherit/user_quest"
 
 // 游戏管理员账号
 #define WIZARD  "mysticism"
