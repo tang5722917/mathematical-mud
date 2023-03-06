@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-06 13:49:39
+ * @LastEditTime: 2023-03-06 14:21:24
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -55,7 +55,7 @@
 #define Game_World  PATH_DIR "World/world_create"
 
 // CMD_PATH_WIZ   巫师指令
-#define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/", PATH_DIR "cmds/player/" ,PATH_DIR "verbs/common/"})
+#define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})
 // CMD_PATH_STD   玩家指令
 #define CMD_PATH_STD ({PATH_DIR "cmds/player/" ,PATH_DIR "verbs/common/"})
 

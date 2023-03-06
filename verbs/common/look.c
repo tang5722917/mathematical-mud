@@ -1,7 +1,7 @@
 #include <ansi.h>
 
 inherit CORE_DIR "verbs/common/look";
-inherit "/verbs/inherit/obj_func";
+inherit PATH_DIR "verbs/inherit/obj_func";
 
 int look_room(object me, object env)
 {

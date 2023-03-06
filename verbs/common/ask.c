@@ -1,6 +1,6 @@
 #include <ansi.h>
 inherit _VERB;
-inherit "/verbs/inherit/obj_func";
+inherit PATH_DIR "verbs/inherit/obj_func";
 
 protected void create()
 {

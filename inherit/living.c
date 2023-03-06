@@ -12,7 +12,7 @@ inherit INHERIT_PATH "status_affect" ;
 protected int living_status_fight=0;
 //是否可以被复制
 protected int living_status_copy=0;
-//该生物是否已经被复制
+//是否是一个复制的品
 protected int living_copy=0;
 
 int is_fight_living()
