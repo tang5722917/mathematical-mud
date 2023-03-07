@@ -1,4 +1,15 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-03-03 18:22:14
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-07 10:13:06
+ * @FilePath: \mysticism-mud\inherit\room.c
+ * @Description: 房间基类
+ * 
+ * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ */
 inherit CORE_ROOM;
+inherit CORE_STD_TEST;
 protected int room_type=0;
 
 // 设置环境区域和坐标

@@ -5,7 +5,7 @@ inherit CORE_LIVING ;
 inherit INHERIT_PATH "status_value" ;
 inherit INHERIT_PATH "status_mystic" ;
 inherit INHERIT_PATH "status_affect" ;
-
+inherit CORE_STD_TEST;
 
 //living status
 //是否可以战斗
