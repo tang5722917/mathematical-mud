@@ -1,4 +1,5 @@
 inherit CORE_ROOM;
+protected int room_type=0;
 
 // 设置环境区域和坐标
 varargs void setArea(mixed area, int x, int y, int z, string name)
@@ -42,6 +43,11 @@ string Room_name()
         coordinate = ([]);
     name = coordinate["name"];
     return sprintf("(%s)", name);
+}
+
+int get_room_type()
+{
+    return room_type;
 }
 
 

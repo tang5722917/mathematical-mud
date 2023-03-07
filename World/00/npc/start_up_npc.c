@@ -14,7 +14,8 @@ void look(object me)
 
 void answer(object me)
 {
-    write("神秘的存在： ............... \n 这时你突然发现面前多了个光团 ");
+    write("神秘的存在： ............... \n 这时你突然发现面前多了个光团\n(使用look(l)试着看一下吧)");
+    
 }
 
 string honor_name(object me,object ob)

@@ -3,6 +3,36 @@
 inherit CORE_DIR "verbs/common/look";
 inherit PATH_DIR "verbs/inherit/obj_func";
 
+int show_look(int arg,object me,object ob)
+{
+    if(ob == me)
+        return 0;
+    if (ob->is_visible() == 0)
+        return 0;
+    else return 1;
+}
+
+string list_all_inventory_of_object(object me, object env)
+{
+    object *inv;
+    object *obs;
+    string str = "";
+
+    if (!env || !me)
+        return "";
+
+    inv = all_inventory(env);
+    if (!sizeof(inv))
+        return str;
+
+    obs = filter_array(inv, (:show_look,env->get_room_type(),me:));
+    str += desc_of_objects(obs);
+
+    return str;
+}
+
+
+
 int look_room(object me, object env)
 {
     string str, *dirs;

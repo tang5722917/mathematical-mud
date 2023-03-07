@@ -14,6 +14,8 @@ protected int living_status_fight=0;
 protected int living_status_copy=0;
 //是否是一个复制的品
 protected int living_copy=0;
+// 该生物是否可见
+protected int property_visible=1;
 
 int is_fight_living()
 {
@@ -28,6 +30,11 @@ int is_copy_living()
 int is_copy()
 {
     return living_copy;
+}
+
+int is_visible()
+{
+    return property_visible;
 }
 
 //look 接口函数，处理被look事件
