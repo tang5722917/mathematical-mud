@@ -5,8 +5,15 @@ inherit PATH_DIR "verbs/inherit/obj_func";
 
 int show_look(int arg,object me,object ob)
 {
+    string str;
     if(ob == me)
         return 0;
+    str = ob->query("NPC_NUM");
+    write("数据："+me->query_status(ob->query(file_name(ob)))+"\n");
+    if(userp(ob))
+        return 1;
+    if(me->query_status(str) & 1 == 1)
+        return 1;
     if (ob->is_visible() == 0)
         return 0;
     else return 1;
@@ -100,7 +107,7 @@ mixed do_look_at_str(string str, string arg)
     if (ob != 0)
     {
         do_look_at_obj(ob);
-        ob->look(me);
+        ob->look(me,env);
         return 1;
     }
 // 只有该玩家可以看到的NPC/物品/出口

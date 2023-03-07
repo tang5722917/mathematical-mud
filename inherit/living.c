@@ -17,6 +17,7 @@ protected int living_copy=0;
 // 该生物是否可见
 protected int property_visible=1;
 
+
 int is_fight_living()
 {
     return living_status_fight;
@@ -38,10 +39,12 @@ int is_visible()
 }
 
 //look 接口函数，处理被look事件
-void look(object me){}
+void look(object me,object env){}
 
 // search接口函数，处理search事件
-void search(object me){write("没有什么特别的发现。\n ");}
+void search(object me,object env){write("没有什么特别的发现。\n ");}
+//answer 接口函数，处理被ask事件
+void answer(object me,object env){write("你近视吗！这个东西怎么会回答你的问题\n ");}
 
 // 角色激活  
 void setup()
@@ -56,6 +59,12 @@ void setup()
 void remove()
 {
     destruct(this_object());
+}
+
+mixed modify_user_status(string status_name,mixed value)
+{
+    object me=this_player();
+    return me->set_status(status_name, value);
 }
 
 

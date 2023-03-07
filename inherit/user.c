@@ -3,6 +3,8 @@ inherit  CORE_STD_PERSON;
 inherit _USER_COMBAT_RECORD;
 inherit _USER_GMCP;
 inherit _USER_QUEST;
+inherit INHERIT_PATH "status" ;
+
 
 #include <ansi.h>
 //临时显示在玩家眼前的对象

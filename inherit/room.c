@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-07 10:13:06
+ * @LastEditTime: 2023-03-07 17:16:20
  * @FilePath: \mysticism-mud\inherit\room.c
  * @Description: 房间基类
  * 
@@ -59,6 +59,25 @@ string Room_name()
 int get_room_type()
 {
     return room_type;
+}
+
+int obs_num_in_room()
+{
+    mapping obs;
+    obs = query_temp("objects");
+    return sizeof(obs);
+}
+
+object ob_in_room(string id)
+{
+    mapping obs;
+    obs = query_temp("objects");
+    foreach (string key,object ob in obs)
+    {
+        if (id == ob->query("id"))
+            return ob;
+    }
+    return 0;
 }
 
 

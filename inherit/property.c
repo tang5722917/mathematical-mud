@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-06 16:36:53
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-07 10:12:43
+ * @LastEditTime: 2023-03-07 16:33:18
  * @FilePath: \mysticism-mud\inherit\property.c
  * @Description: 物品基类
  * 
@@ -22,8 +22,7 @@ protected int property_move = 0;
 protected int property_get = 0;
 //是否默认可见
 protected int property_visible = 1;
-//物品编号
-protected int property_number = 0;
+
 
 
 int is_move()
@@ -41,10 +40,6 @@ int is_visible()
     return property_visible;
 }
 
-int prop_vnumber()
-{
-    return property_visible;
-}
 
 // 设置属性值
 mixed set(string pron, mixed value)
@@ -62,11 +57,19 @@ mixed query(string pron)
     return data;
 }
 
-void set_property_init(int move,int get,int visible,int num,string* id,string name)
+void set_property_init(int move,int get,int visible,string* id,string name)
 {
     property_move = move;
     property_get = get;
     property_visible = visible;
-    property_number = num;
     set_name(YEL+name+NOR,id);
 }
+
+//look 接口函数，处理被look事件
+void look(object me,object env){}
+
+// search接口函数，处理search事件
+void search(object me,object env){write("没有什么特别的发现。\n ");}
+
+//ask 接口函数，处理被ask事件
+void answer(object me,object env){write("不清楚你有什么好问的。\n");}

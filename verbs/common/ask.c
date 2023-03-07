@@ -38,7 +38,7 @@ mixed do_ask_str(string str)
     if (ob != 0)
     {
         msg("MAG", "$ME向"+ob->honor_name(me,ob)+"提出疑问。", me,ob);
-        ob->answer(me);
+        ob->answer(me,env);
         return 1;
     }
     return 0;
