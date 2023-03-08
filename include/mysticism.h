@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-07 10:06:49
+ * @LastEditTime: 2023-03-08 14:37:33
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -39,6 +39,7 @@
 #define _LIVING         PATH_DIR "inherit/living"
 #define _USER           PATH_DIR "inherit/user"
 #define _USER_QUEST     PATH_DIR "inherit/user_quest"
+#define _COMMAND        PATH_DIR "inherit/command"
 
 // 游戏管理员账号
 #define WIZARD  "mysticism"

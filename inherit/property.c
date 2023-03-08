@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-06 16:36:53
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-07 16:33:18
+ * @LastEditTime: 2023-03-08 11:51:58
  * @FilePath: \mysticism-mud\inherit\property.c
  * @Description: 物品基类
  * 
@@ -72,4 +72,9 @@ void look(object me,object env){}
 void search(object me,object env){write("没有什么特别的发现。\n ");}
 
 //ask 接口函数，处理被ask事件
-void answer(object me,object env){write("不清楚你有什么好问的。\n");}
+void answer(object me,object env){write("这个东西明显没有办法回答你的问题\n");}
+
+string honor_name(object me, object ob)
+{
+    return "这个奇怪的东西";
+}

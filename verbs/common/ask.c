@@ -15,7 +15,6 @@ protected void create()
 mixed do_ask()
 {
     object me = this_player();
-    object env = environment(me);
     write("你想问什么\n");
     return 1;
 }
