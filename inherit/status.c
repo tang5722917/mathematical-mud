@@ -2,13 +2,16 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 17:34:08
+ * @LastEditTime: 2023-03-08 17:53:39
  * @FilePath: \mysticism-mud\inherit\status.c
  * @Description: 玩家状态类
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
 
+#define VISIBLE 1   //不可见的object可见
+#define FIGHT   3   //不可战斗的object可以战斗
+#define GET     5  //不可获取的object可以获取
 
 protected mapping user_cur_status;
 protected nosave mapping temp_user_cur_status;
