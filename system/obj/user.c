@@ -31,3 +31,11 @@ int query_user(string attr)
     data = user_data[attr];
     return data;
 }
+
+
+void window_size(int width, int height)
+{
+    set_temp("window_size/width", width);
+    set_temp("window_size/height", height);
+    //message("system", "终端窗口大小设置为 " + width + " × " + height + "。\n", this_object());
+}

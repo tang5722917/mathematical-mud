@@ -61,10 +61,5 @@ void remove()
     destruct(this_object());
 }
 
-mixed modify_user_status(string status_name,mixed value)
-{
-    object me=this_player();
-    return me->set_status(status_name, value);
-}
 
 

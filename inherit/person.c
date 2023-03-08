@@ -25,7 +25,11 @@ void pray_gesture(object me,object env){}
 
 string honor_name(object me, object ob)
 {
-    string * honor_name = ({"你","您","阁下","殿下","冕下"}) ;
-    return "你";
+    string name;
+    string * honor_name = ({"先生","女士","阁下","殿下","冕下"}) ;
+    if(ob->query("gender") == "女性")
+        name = ob->query("name")+honor_name[1];
+    else name = ob->query("name")+honor_name[0];
+    return name;
 }
 

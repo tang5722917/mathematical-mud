@@ -5,14 +5,14 @@ inherit PATH_DIR "verbs/inherit/obj_func";
 
 int show_look(int arg,object me,object ob)
 {
-    string str;
+    //string str;
     if(ob == me)
         return 0;
-    str = ob->query("NPC_NUM");
-    write("数据："+me->query_status(ob->query(file_name(ob)))+"\n");
     if(userp(ob))
         return 1;
-    if(me->query_status(str) & 1 == 1)
+    if(me->query_status(file_name(ob)) & 1 == 1)
+        return 1;
+    if(me->temp_query_status(file_name(ob)) & 1 == 1)
         return 1;
     if (ob->is_visible() == 0)
         return 0;

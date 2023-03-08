@@ -61,6 +61,8 @@ mixed direct_ask_obj(object ob, string id)
     return environment(this_player()) == environment(ob);
 }
 
+
+
 mixed direct_verb_rule(mixed *data...)
 {
     // debug_message(sprintf("direct_verb_rule : %O", data));
@@ -88,7 +90,8 @@ mixed do_ask_obj(object ob)
 mixed do_ask_obj_by_str(object ob,string str)
 {
     object me = this_player() ;
-    msg("MAG", "$ME向"+ob->honor_name(me,ob)+"问到：" + str, me,ob);
+    write("你向"+me->honor_name(me,ob)+"问到：" + str);
+    message("info", me->honor_name(me,me)+"向你问到：" + str ,ob);
     return 1;
 }
 
