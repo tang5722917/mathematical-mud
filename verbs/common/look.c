@@ -10,13 +10,64 @@ int show_look(int arg,object me,object ob)
         return 0;
     if(userp(ob))
         return 1;
-    if(me->query_status(file_name(ob)) & 1 == 1)
+    if(me->query_status(ob->query("id")) & 1 == 1)
         return 1;
     if(me->temp_query_status(file_name(ob)) & 1 == 1)
         return 1;
     if (ob->is_visible() == 0)
         return 0;
     else return 1;
+}
+
+string is_fight(object ob)
+{
+    object me;
+    me = this_player();
+    write("数据"+me->temp_query_status(file_name(ob))+"\n");
+    if(ob->is_fight_living())
+        return RED"->该目标有攻击性，请小心" NOR;
+    if(me->query_status(ob->query("id")) == 3)
+        return RED"->该目标有攻击性，请小心" NOR;
+    if(me->temp_query_status(file_name(ob)) == 3){
+        return RED"->该目标有攻击性，请小心" NOR;}
+    else return "";
+}
+
+string desc_of_objects(object *obs)
+{
+    int i;
+    string str;
+    mapping list, unit;
+    string short_name;
+    string *ob;
+
+    if (obs && sizeof(obs) > 0)
+    {
+        str = "";
+        list = ([]);
+        unit = ([]);
+
+        for (i = 0; i < sizeof(obs); i++)
+        {
+            short_name = obs[i]->short() + is_fight(obs[i]) ;
+
+            list[short_name] += obs[i]->query_temp("amount") ? obs[i]->query_temp("amount") : 1;
+            unit[short_name] = obs[i]->query("unit") ? obs[i]->query("unit") : "个";
+        }
+
+        ob = sort_array(keys(list), 1);
+        for (i = 0; i < sizeof(ob); i++)
+        {
+            str += "  ";
+            if (list[ob[i]] > 1)
+                str += list[ob[i]] + unit[ob[i]] + ob[i]+ "\n";
+            else
+                str += ob[i]+ "\n";
+        }
+        return str;
+    }
+
+    return "";
 }
 
 string list_all_inventory_of_object(object me, object env)

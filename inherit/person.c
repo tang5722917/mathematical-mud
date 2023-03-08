@@ -5,7 +5,8 @@ inherit PATH_DIR "inherit/living" ;
 
 void create()
 {
-    property_visible=1;
+    living_visible=1;
+    living_status_fight=0;
 }
 
 //answer 接口函数，处理被ask事件

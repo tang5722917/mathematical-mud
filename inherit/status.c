@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 10:46:29
+ * @LastEditTime: 2023-03-08 17:34:08
  * @FilePath: \mysticism-mud\inherit\status.c
  * @Description: 玩家状态类
  * 
@@ -77,7 +77,7 @@ int temp_delete_status(string status)
     }
 }
 
-mixed modify_user_status(string status_name,mixed value,int type)
+mixed modify_user_status(string status_name,int value,int type)
 {
     object me=this_player();
     if (type)
@@ -85,3 +85,4 @@ mixed modify_user_status(string status_name,mixed value,int type)
     else
     return me->temp_set_status(status_name, value);
 }
+

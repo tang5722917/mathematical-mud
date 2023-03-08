@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-02-25 13:00:00
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-08 14:58:09
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -47,7 +47,8 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
 
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += YEL "  提示：使用 score -s 查看详细的个人状态。\n" NOR;
+    msg += YEL "  提示：使用 score -s 查看简略状态。\n" NOR;
+    msg += YEL "  提示：使用 score -a 查看详细个人状况。\n" NOR;
     return msg;
 }
 
@@ -63,8 +64,8 @@ string score_hp(object me)
         msg = "*队伍成员状态*\n";
         foreach(object member in team)
         {
-            hpbar = graph_draw(member->query_hp(),member->query_max_hp(), 2, 1, 10);
-            mpbar = graph_draw(member->query_mp(),member->query_max_mp(), 4, 7, 10);
+            hpbar = graph_draw(member->query_attr("hp"),member->query_attr("max_hp"), 2, 1, 10);
+            mpbar = graph_draw(member->query_attr("mp"),member->query_attr("max_mp"), 4, 7, 10);
             msg += sprintf(HIM "%-20s" HIG "HP：%-15s\t" HIB "MP：%s\n" NOR,member->short(), hpbar, mpbar);
         }
     }
@@ -78,14 +79,19 @@ string score_hp(object me)
             }
         }
 
-        hpbar = graph_draw(me->query_hp(),me->query_max_hp(), 2, 1, 10);
-        mpbar = graph_draw(me->query_mp(),me->query_max_mp(), 4, 7, 10);
+        hpbar = graph_draw(me->query_attr("hp"),me->query_attr("max_hp"), 2, 1, 10);
+        mpbar = graph_draw(me->query_attr("mp"),me->query_attr("max_mp"), 4, 7, 10);
         msg = sprintf(HIG "HP：%s\t" HIB "MP：%s" NOR, hpbar, mpbar);
         msg += "\n------------------------------------------------------\n";
         msg += sprintf("状态：%s\n", status);
     }
 
     return msg;
+}
+
+string score_detail(object me)
+{
+    return "T.B.D";
 }
 
 int main(object me, string arg)
@@ -97,7 +103,9 @@ int main(object me, string arg)
     case "-s":
         msg = score_hp(me);
         break;
-
+    case "-a":
+        msg = score_detail(me);
+        break;
     default:
         msg = score(me);
     }

@@ -16,7 +16,12 @@ object object_search_env(string str,object env)
     foreach (object ob in obs)
     {
         if (str == (ob->query("id")))
-            return ob;
+            if (ob->is_visible())
+                return ob;
+            if(me->query_status(file_name(ob)) & 1 == 1)
+                return ob;
+            if(me->temp_query_status(file_name(ob)) & 1 == 1)
+                return ob;
     }
     return 0;
 }

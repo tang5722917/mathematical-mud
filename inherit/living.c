@@ -15,12 +15,18 @@ protected int living_status_copy=0;
 //是否是一个复制的品
 protected int living_copy=0;
 // 该生物是否可见
-protected int property_visible=1;
+protected int living_visible=1;
 
 
 int is_fight_living()
 {
     return living_status_fight;
+}
+
+//0 不可以攻击，1可以攻击
+void set_fight_living(int is_fight_living)
+{
+    living_status_fight = is_fight_living;
 }
 
 int is_copy_living()
@@ -35,7 +41,13 @@ int is_copy()
 
 int is_visible()
 {
-    return property_visible;
+    return living_visible;
+}
+
+//0 默认不可见，1默认可见
+void set_visible(int is_visible)
+{
+    living_visible = is_visible;
 }
 
 //look 接口函数，处理被look事件
@@ -45,6 +57,8 @@ void look(object me,object env){}
 void search(object me,object env){write("没有什么特别的发现。\n ");}
 //answer 接口函数，处理被ask事件
 void answer(object me,object env){write("你近视吗！这个东西怎么会回答你的问题\n ");}
+
+string honor_name(object me,object ob){return "它";}
 
 // 角色激活  
 void setup()
