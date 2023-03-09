@@ -2,8 +2,8 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 11:07:08
- * @FilePath: \mysticism-mud\inherit\combat.c
+ * @LastEditTime: 2023-03-09 14:14:14
+ * @FilePath: \mysticism-mud\inherit\combat_single.c
  * @Description:  战斗基类
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -12,19 +12,20 @@
 inherit CORE_CLEAN_UP;
 #include <ansi.h>
 
-nosave protected object * obs1=({});
-nosave protected object * obs2=({});
+nosave protected object ob1;
+nosave protected object ob2;
 
-void create()
+void create(object o1,object o2)
 {
-    ;
+    ob1 = o1;
+    ob2 = o2;
 }
 
-string fight_main_UI(object me)
+string fight_main_UI()
 {
     string msg;
     mapping my;
-
+    object me = this_player();
     my = me->query_entire_dbase();
 
     msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;

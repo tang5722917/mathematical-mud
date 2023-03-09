@@ -9,6 +9,8 @@ inherit INHERIT_PATH "status" ;
 #include <ansi.h>
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
+//user 战斗对象
+protected nosave object fight_ob = 0;
 
 //user status
 //是否正在战斗
@@ -30,5 +32,14 @@ int add_object_temp_list(object ob)
 
 }
 
+object * fight(object me,object ob)
+{
+    return ({me});
+}
 
+int into_cur_fight(object fob)
+{
+    fight_ob = fob;
+    write("你进入战斗状态!\n");
+}
 

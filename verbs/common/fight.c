@@ -30,14 +30,18 @@ mixed can_fight()
 
 mixed do_fight_str(string str)
 {
-    object ob;
+    object ob, fob;
+    object *ob1,*ob2;
     object me = this_player();
     object env = environment(me);
     ob = object_search_env(str,env);
     if (ob != 0)
     {
-        write("你向"+me->honor_name(me,ob)+"发动攻击\n");
-        ob->fight(me,ob);
+        write("你向"+ob->honor_name(me,ob)+"发动攻击\n");
+        ob2 = ob->fight(me,ob);
+        ob1 = me->fight(me,ob);
+        fob = new(FIGHT_D,ob1,ob2);
+        me->into_cur_fight(fob);
         return 1;
     }
     return 0;
@@ -80,7 +84,7 @@ mixed do_fight_obj(object ob)
     if(userp(ob))
     {
         object me = this_player() ;
-        write("你向"+me->honor_name(me,ob)+"发起挑战\n");
+        write("你向"+ob->honor_name(me,ob)+"发起挑战\n");
         message("info", me->honor_name(me,me)+"向你发起挑战" ,ob);
         write("要和平相处，不要打架！\n");
         message("info", "要和平相处，不要打架！" ,ob);

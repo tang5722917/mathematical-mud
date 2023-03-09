@@ -17,3 +17,11 @@ void search(object me,object env)
     ob = this_object();
     me->modify_user_status(file_name(ob),3,0);
 }
+
+object * fight(object me,object ob)
+{
+    object *fob = ({this_object()});
+    write("神秘光团周围弥漫起了迷雾，并且慢慢变成了一个人的形状
+但是无法看清面容\n");
+    return fob;
+}

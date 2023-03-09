@@ -58,9 +58,9 @@ void search(object me,object env){write("没有什么特别的发现。\n ");}
 //answer 接口函数，处理被ask事件
 void answer(object me,object env){write("你近视吗！这个东西怎么会回答你的问题\n ");}
 //honor_name 称呼接口
-string honor_name(object me,object ob){return "它";}
+string honor_name(object me,object ob){return " 它";}
 //fight 战斗接口
-void fight(object me,object ob){write("你怎么这么暴力，动不动就打架！\n ");}
+object * fight(object me,object ob){write("你怎么这么暴力，动不动就打架！\n "); return 0;}
 
 // 角色激活  
 void setup()
