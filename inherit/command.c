@@ -4,7 +4,9 @@ inherit  CORE_COMMAND;
 
 string process_input(string arg)
 {
-    if(!is_fight_user())
+    object me;
+    me = this_player();
+    if(!me->is_fight_user())
     {
         switch(arg)
         {

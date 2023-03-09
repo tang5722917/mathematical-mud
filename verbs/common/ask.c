@@ -97,8 +97,8 @@ mixed do_ask_obj_by_str(object ob,string str)
 int help(object me)
 {
     write(@HELP
-指令格式 : ask
-
+指令格式 : ask（a） + 玩家/NPC ID
+           ask（a） + 玩家/NPC ID by 内容（字符串）
 ask指令可以向NPC或玩家提问。
 HELP );
     return 1;

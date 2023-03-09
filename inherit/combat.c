@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 18:11:28
+ * @LastEditTime: 2023-03-09 11:07:08
  * @FilePath: \mysticism-mud\inherit\combat.c
  * @Description:  战斗基类
  * 
@@ -20,7 +20,7 @@ void create()
     ;
 }
 
-string fight_main(object me)
+string fight_main_UI(object me)
 {
     string msg;
     mapping my;
@@ -44,7 +44,5 @@ string fight_main(object me)
     msg += sprintf(" |%-50s| \n", "");
 
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += YEL "  提示：使用 score -s 查看简略状态。\n" NOR;
-    msg += YEL "  提示：使用 score -a 查看详细个人状况。\n" NOR;
     return msg;
 }
