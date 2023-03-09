@@ -47,9 +47,9 @@ int main(object me, string arg)
     }
     else
     {
-        msg = WHT BBLU "\n Mud名称       运行时间            游戏地址   端口   在线人数" NOR;
+        msg = WHT BBLU "\n Mud名称       运行时间                           游戏地址                         端口   在线人数" NOR;
         msg += "\n-------------------------------------------------------------\n";
-        msg += sprintf(" %-14s%-20s%-11s%-10d%-5d" NOR, MUD_NAME, duration(), "mud.ren", __PORT__, sizeof(users()));
+        msg += sprintf(" %-14s%-18s%-50s%-10d%-5d" NOR, MUD_NAME, duration(), "https://gitee.com/mysticism-mud-org/mysticism-mud", __PORT__, sizeof(users()));
         msg += "\n-------------------------------------------------------------\n";
         msg += " " + TIME_D->real_time_description() + "\n";
         msg += " 游戏日历：" + TIME_D->game_time_description() + "\n";

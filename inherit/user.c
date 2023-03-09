@@ -40,6 +40,6 @@ object * fight(object me,object ob)
 int into_cur_fight(object fob)
 {
     fight_ob = fob;
-    write("你进入战斗状态!\n");
+    write(HBYEL "你已进入战斗状态!\n" NOR);
 }
 

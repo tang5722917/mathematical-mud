@@ -23,7 +23,6 @@ string is_fight(object ob)
 {
     object me;
     me = this_player();
-    write("数据"+me->temp_query_status(file_name(ob))+"\n");
     if(ob->is_fight_living())
         return RED"->该目标有攻击性，请小心" NOR;
     if(me->query_status(ob->query("id")) == 3)

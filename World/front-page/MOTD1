@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 11:53:06
+ * @LastEditTime: 2023-03-09 16:25:37
  * @FilePath: \mysticism-mud\World\front-page\MOTD1
  * @Description: 
  * 
@@ -52,3 +52,4 @@ $YEL$
                      ————————————————————————————————
                     |$RED$命运的馈赠，你准备付出什么代价？$NOR$|
                      ————————————————————————————————
+本游戏基于mudcore开发，同时特别感谢@雪风的LPC系列教程（bbs.mud.ren）
