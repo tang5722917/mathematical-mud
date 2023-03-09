@@ -94,7 +94,7 @@ int help(object me)
 指令格式 : search（sh） + + 玩家/NPC ID
 
 这是search指令，可以详细的调查NPC或玩家。
-search 能力与自身的灵性相关。灵性越强，越能看到神秘。
+search 能力与自身的灵性相关。灵性越强，越能看到隐秘。
 但search 有时候会带来意想不到的危险，请谨慎调查。
 HELP );
     return 1;

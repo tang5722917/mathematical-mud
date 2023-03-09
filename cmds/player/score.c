@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 14:58:09
+ * @LastEditTime: 2023-03-09 18:57:22
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -116,10 +116,8 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-指令格式 : score [-s]
-
+指令格式 : score(sc) [-s][-a]
 这个指令可以让你查看个人档案资料。
-
 HELP );
     return 1;
 }

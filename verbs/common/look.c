@@ -166,3 +166,13 @@ mixed do_look_at_str(string str, string arg)
 
     return 0;
 }
+
+int help(object me)
+{
+    write(@HELP
+指令格式 : look + NPC/物品/玩家
+这是MUDCORE框架提供的最基本的look指令，可以查看当前环境。
+标准环境需要有环境名称(short)、环境描述(long)和环境出口(exits)。
+HELP );
+    return 1;
+}

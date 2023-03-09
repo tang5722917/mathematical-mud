@@ -14,7 +14,6 @@ int help(object me)
 指令格式 : say [内容]
 
 这个指令可以让你和房间里的其他玩家聊天。
-
 HELP );
     return 1;
 }

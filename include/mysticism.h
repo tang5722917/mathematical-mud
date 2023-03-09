@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 14:03:05
+ * @LastEditTime: 2023-03-09 19:01:00
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -27,7 +27,7 @@
 #define MYSTICISM_LOGIN_D  PATH_DIR "system/daemons/login_d"
 #define MYSTICISM_CHAR_D   PATH_DIR "system/daemons/char_d"
 #define MYSTICISM_FIGHT_D  PATH_DIR "system/daemons/combat_d"
-
+#define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 #define CORE_STD_PERSON         PATH_DIR "inherit/person"
@@ -54,7 +54,7 @@
 #define LOGIN_D     MYSTICISM_LOGIN_D
 #define CHAR_D      MYSTICISM_CHAR_D
 #define FIGHT_D     MYSTICISM_FIGHT_D
-
+#define COMMAND_D   MYSTICISM_COMMAND_D
 
 // START_ROOM   游戏出生点
 #define START_ROOM  PATH_DIR "World/00/start_room"

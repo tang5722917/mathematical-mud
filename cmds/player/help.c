@@ -28,7 +28,6 @@ int help(object me)
 指令格式 : help [topic]
 
 这个指令可以查看指定主题的帮助说明。
-
 HELP );
     return 1;
 }

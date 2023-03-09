@@ -98,7 +98,6 @@ int help(object me)
 {
     write(@HELP
 指令格式 : fight (f) + 玩家/NPC ID
-
 这是fight指令，可以向NPC或玩家发起战斗。
 HELP );
     return 1;
