@@ -1,8 +1,8 @@
 /*** 
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-02-25 17:19:23
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-06 17:18:07
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-03-11 13:42:38
  * @FilePath: \mysticism-mud\World\include\game_world.h
  * @Description: 
  * @
@@ -18,3 +18,4 @@
 #define PATH_00_NPC PATH_DIR "World/00/npc/"
 #define PATH_00_MAP PATH_DIR "World/00/map/"
 #define PATH_00_PRO PATH_DIR "World/00/property/"
+#define PATH_00_FIG PATH_DIR "World/00/combat/"

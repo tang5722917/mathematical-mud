@@ -1,4 +1,5 @@
 #include <ansi.h>
+#include <game_world.h> 
 inherit PATH_DIR "inherit/living";
 
 void create()
@@ -24,4 +25,9 @@ object * fight(object me,object ob)
     write("神秘光团周围弥漫起了迷雾，并且慢慢变成了一个人的形状
 但是无法看清面容\n");
     return fob;
+}
+
+string combat_env(object env)
+{
+    return PATH_00_FIG "start_up_fight";
 }

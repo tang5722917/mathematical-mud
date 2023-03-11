@@ -26,14 +26,14 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     if(fight_type == FIGHT_PVE){
     if((sizeof(ob1)==1) &&(sizeof(ob2)==1))
     {
-        if(env != 0)
-            combat = new(CORE_STD_FIGHT_S,ob1[0],ob2[0],env);
+        if(env != 0 && ob2[0]->combat_env() != 0)
+            combat = new(ob2[0]->combat_env(),ob1[0],ob2[0],env);
         else return;
     }
     else
     {
-        if(env != 0)
-            combat = new(CORE_STD_FIGHT_M,ob1,ob2,env);
+        if(env != 0 && ob2[0]->combat_env() != 0)
+            combat = new(ob2[0]->combat_env(),CORE_STD_FIGHT_M,ob1,ob2,env);
         else return;
     }}
     else {
