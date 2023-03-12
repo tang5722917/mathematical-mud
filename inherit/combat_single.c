@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-12 00:41:44
+ * @LastEditTime: 2023-03-13 03:05:34
  * @FilePath: \mysticism-mud\inherit\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -23,9 +23,22 @@ void create(object o1,object o2,object env)
     fight_env = env;
 }
 
-string fight_init()
+string * fight_init_user(){return 0;}
+string * fight_init_comp(){return 0;}
+
+int fight_init()
 {
-    return ("你的对手为："+ ob2->short()) ;
+    string * str;
+    str = ({"你的对手为："+ ob2->short()});
+    fight_info += str;
+    str = fight_init_user();
+    if (str != 0)
+        fight_info += str;
+    str = fight_init_comp();
+    if (str != 0)
+        fight_info += str;
+    fight_info += ({"End One Round"});
+    return sizeof(fight_info);
 }
 
 string ob2_status(object ob2)
@@ -84,12 +97,19 @@ string ob1_equip(object ob1)
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     return msg;
 }
+
+string status_line(object ob1)
+{
+    string msg="";
+    msg += sprintf(" |%-7s%-7s%-7s%-7s%-7s%-7s%-8s| \n", "--", "--", "--", "--", "--", "--", "--");
+    return msg;
+}
+
 string ob1_status(object ob1)
 {
     string msg;
     msg = sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-50s| \n", "");
+    msg += status_line(ob1);
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
     msg += "<数字x> 为0-9数字，p 后面的每一个数字代表相应的手牌，最多10张 ";
