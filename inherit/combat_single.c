@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 17:34:48
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-03-12 00:41:44
  * @FilePath: \mysticism-mud\inherit\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -91,7 +91,8 @@ string ob1_status(object ob1)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-50s| \n", "");
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += "请选择出牌顺序（p + 数字1 + 数字2 + .....）注意请用空格分隔数字";
+    msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
+    msg += "<数字x> 为0-9数字，p 后面的每一个数字代表相应的手牌，最多10张 ";
     return msg;
 }
 

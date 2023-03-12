@@ -22,6 +22,18 @@ int is_fight_user()
     return user_status_fight;
 }
 
+int start_fight()
+{
+    return user_status_fight = 1;
+}
+
+int end_fight()
+{
+    user_status_fight = 0;
+}
+
+
+
 int is_temp_object_user()
 {
     return sizeof(temp_object_list);
