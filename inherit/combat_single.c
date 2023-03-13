@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-13 03:05:34
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-13 12:38:17
  * @FilePath: \mysticism-mud\inherit\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -16,6 +16,9 @@ nosave protected object ob1;
 nosave protected object ob2;
 nosave protected object fight_env;
 
+#define USER 0
+#define ENV 1
+
 void create(object o1,object o2,object env)
 {
     ob1 = o1;
@@ -24,7 +27,39 @@ void create(object o1,object o2,object env)
 }
 
 string * fight_init_user(){return 0;}
-string * fight_init_comp(){return 0;}
+string * fight_init_env(){return 0;}
+
+//战斗过程颜色控制
+string * print_color_fig(string * str,int type)
+{
+    string s;
+    int n;
+    n = sizeof(str);
+    if(n == 0)
+        return 0;
+    if(type == USER )
+    {
+        for(int i =0;i < n ;i++)
+        {
+            s = str[i];
+            s = GRN + s + NOR;
+            str[i] = s;
+        } 
+        return str;
+    }
+    if(type == ENV )
+    {
+        for(int i =0;i < n ;i++)
+        {
+            s = str[i];
+            s = RED + s + NOR;
+            str[i] = s;
+        } 
+        return str;
+    }
+    return 0;
+}
+
 
 int fight_init()
 {
@@ -33,11 +68,16 @@ int fight_init()
     fight_info += str;
     str = fight_init_user();
     if (str != 0)
+    {
+        str = print_color_fig(str,USER);
         fight_info += str;
-    str = fight_init_comp();
-    if (str != 0)
+    }
+    str = fight_init_env();
+    if (str != 0){
+        str = print_color_fig(str,ENV);
         fight_info += str;
-    fight_info += ({"End One Round"});
+    }
+    fight_info += ({"新的回合开始"});
     return sizeof(fight_info);
 }
 

@@ -91,7 +91,7 @@ mixed do_search_obj(object ob)
 int help(object me)
 {
     write(@HELP
-指令格式 : search（sh） + + 玩家/NPC ID
+指令格式 : search（sh） + 玩家/NPC ID
 
 这是search指令，可以详细的调查NPC或玩家。
 search 能力与自身的灵性相关。灵性越强，越能看到隐秘。

@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-13 03:09:46
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-13 13:51:33
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  * 
@@ -69,14 +69,14 @@ int combat_event(object fig)
     str = fig->print_one_fight();
     if(str != 0){
         fig->print_fight(str);
-        if (str == "End One Round")
+        if (str == "新的回合开始")
         {
             fig->print_fight(combat->fight_main_UI(fight_time,fight_round));
             fig->next_round();
+            fight_round += 1;
         }
     }
-    fight_round += 1;
-    return fight_round;
+    return fight_round+1;
 }
 
 void heart_beat( void )
