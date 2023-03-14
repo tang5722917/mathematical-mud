@@ -1,5 +1,7 @@
 inherit CORE_MASTER_OB;
 // 玩家连线入口方法，返回连线对象
+#include "master/parser.c"
+
 private object connect(int port)
 {
     object login_ob;

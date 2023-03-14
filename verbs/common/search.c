@@ -22,7 +22,9 @@ mixed do_search()
 mixed can_search()
 {
     if (!environment(this_player()))
-        return "没有调查的对象\n";
+        return "没有询问的对象\n";
+    if(this_player()->is_fight_user())
+        return "战斗中无法调查\n";
     else
         return 1;
 }

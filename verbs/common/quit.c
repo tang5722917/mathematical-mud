@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-13 14:42:19
+ * @LastEditTime: 2023-03-14 15:39:38
  * @FilePath: \mysticism-mud\verbs\common\quit.c
  * @Description:  quit(q) 指令
  *               退出战斗或某些场景
@@ -32,8 +32,8 @@
 
 mixed can_quit()
 {
-    if (!environment(this_player()))
-        return "没有询问的对象\n";
+    if(! this_player()->is_fight_user())
+        return "目前不在战斗当中\n";
     else
         return 1;
 }

@@ -2,7 +2,7 @@
 #include <ansi.h>
 inherit  CORE_COMMAND;
 
-string process_input(string arg)
+mixed process_input(string arg)
 {
     object me;
     me = this_player();
@@ -43,8 +43,18 @@ string process_input(string arg)
                 break;
             default:break;
         }
-        write(RED"战斗当中不支持该命令"+arg+"\n " NOR);
-        return 0;
+        switch(arg)
+        {
+            case "know":
+            case "k":
+            case "bag":
+            case "b":
+                write(RED"战斗当中不支持该命令"+arg+"\n " NOR);
+                return 1;
+                break;
+            default:
+        }
+        return COMMAND_D->default_alias(arg);
     }
 
 }

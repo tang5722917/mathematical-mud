@@ -1,7 +1,125 @@
+inherit _VERB;
 #include <ansi.h>
 
-inherit CORE_DIR "verbs/common/look";
 inherit PATH_DIR "verbs/inherit/obj_func";
+
+int look_room(object me, object env);
+string desc_of_objects(object *obs);
+string list_all_inventory_of_object(object me, object env);
+mixed do_look_at_str(string str, string arg);
+
+protected void create()
+{
+    verb::create();
+    setVerb("look");
+    setSynonyms("l");
+    setRules("", "STR", "OBJ", "at STR", "at OBJ", "on OBJ", "in OBJ", "inside OBJ",
+             "at OBJ in OBJ", "OBJ inside OBJ", "at OBJ on OBJ", "at STR on OBJ");
+    setErrorMessage("你想看什么?");
+}
+
+
+mixed can_look()
+{
+    if (!environment(this_player()))
+        return "你的四周灰蒙蒙地一片，什么也没有。\n";
+    else if (this_player()->is_fight_user())
+    {
+        return "请专心致志地战斗，不要东张西望！\n";
+    }
+    else
+        return 1;
+}
+
+mixed can_verb_rule(mixed *data...)
+{
+    // debug_message(sprintf("can_verb_rule : %O", data));
+    return can_look();
+}
+
+mixed can_verb_word_str(mixed *data...)
+{
+    // debug_message(sprintf("can_verb_word_str : %O", data));
+    return can_look();
+}
+
+mixed direct_look_obj(object ob, string id)
+{
+    return environment(this_player()) == environment(ob);
+}
+
+mixed direct_verb_rule(mixed *data...)
+{
+    // debug_message(sprintf("direct_verb_rule : %O", data));
+    return can_look();
+}
+
+mixed direct_verb_word_obj(mixed *data...)
+{
+    // debug_message(sprintf("direct_verb_word_obj : %O", data));
+    return can_look();
+}
+
+mixed do_look()
+{
+    object me = this_player();
+    object env = environment(me);
+
+    return look_room(me, env);
+}
+
+mixed do_look_str(string str, string arg)
+{
+    return do_look_at_str(str, arg);
+}
+
+mixed do_look_at_obj(object ob)
+{
+    object me = this_player();
+
+    if (userp(ob))
+    {
+        msg("info", "$ME认真的看了$YOU一眼。", me, ob);
+        printf("%s 是一位 %d 级的%s。\n", ob->short(), ob->query("lv"), ob->query("gender"));
+    }
+    else
+    {
+        printf("%s\n", ob->long());
+    }
+
+    return 1;
+}
+
+mixed do_look_at_obj_in_obj(object ob1, object ob2, string id1, string id2)
+{
+    printf("%s\n", ob1->long());
+    return 1;
+}
+
+mixed do_look_obj(object ob)
+{
+    return do_look_at_obj(ob);
+}
+
+mixed do_look_in_obj(object ob)
+{
+    if (sizeof(all_inventory(ob)))
+    {
+        cecho(sprintf("%s里有:\n%s", ob->short(), list_all_inventory_of_object(ob, ob)));
+    }
+    else
+    {
+        cecho(sprintf("%s里什么也没有。", ob->short()));
+    }
+
+    return 1;
+}
+
+mixed do_verb_rule(mixed *data...)
+{
+    debug(data);
+    return 1;
+}
 
 int show_look(int arg,object me,object ob)
 {

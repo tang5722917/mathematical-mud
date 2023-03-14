@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-13 14:41:55
+ * @LastEditTime: 2023-03-14 17:49:15
  * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
@@ -26,17 +26,32 @@
 mixed do_put()
 {
     //object me = this_player();
-    write("你想问什么\n");
+    write("你想出什么牌？\n");
     return 1;
 }
 
 mixed can_put()
 {
-    if (!environment(this_player()))
-        return "没有询问的对象\n";
+    if(! this_player()->is_fight_user())
+        return "目前不在战斗当中\n";
     else
         return 1;
 }
+
+mixed can_put_str(string str)
+{
+    if(! this_player()->is_fight_user())
+        return "目前不在战斗当中\n";
+    else
+        return 1;
+}
+
+mixed do_put_str(string str)
+{
+    write(str + "\n");
+    return 1;
+}
+
 
 
 int help(object me)

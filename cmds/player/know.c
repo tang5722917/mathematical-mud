@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-27 18:17:18
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-02-28 14:23:11
+ * @LastEditTime: 2023-03-14 17:32:27
  * @FilePath: \mysticism-mud\cmds\player\know.c
  * @Description:  游戏中的知识界面
  *                包括冒险帮助与冒险经历
@@ -59,8 +59,8 @@ KNOW );
 int main(object me, int arg )
 {
     object file;
-    write(BYEL "                  诡秘见闻录                   \n" NOR);
-    write(WHT  "                 version:"Know_how_versiom"               \n" NOR);
+    write(BYEL"                  诡秘见闻录                   \n" NOR);
+    write(WHT"                 version:"Know_how_version"               \n" NOR);
     if(arg)
     {
         if( objectp(file = COMMAND_D->find_know(arg)) ) {

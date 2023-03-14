@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 19:01:00
+ * @LastEditTime: 2023-03-14 16:49:16
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -11,6 +11,8 @@
 #ifndef MYSTICISM_H
 #define MYSTICISM_H
 
+//开启调试模式
+//#define DEBUG_MYSTICISM
 
 /* 游戏目录 */
 #define PATH_DIR "/"

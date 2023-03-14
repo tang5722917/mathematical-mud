@@ -22,7 +22,9 @@ mixed do_fight()
 mixed can_fight()
 {
     if (!environment(this_player()))
-        return "没有攻击的对象\n";
+        return "没有询问的对象\n";
+    if(this_player()->is_fight_user())
+        return "已经在战斗当中\n";
     else
         return 1;
 }
