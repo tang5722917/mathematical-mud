@@ -23,6 +23,8 @@ mixed can_ask()
 {
     if (!environment(this_player()))
         return "没有询问的对象\n";
+    if(this_player()->is_fight_user())
+        return "战斗中无法提问题\n";
     else
         return 1;
 }
