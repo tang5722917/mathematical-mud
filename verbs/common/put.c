@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-14 17:49:15
+ * @LastEditTime: 2023-03-15 18:09:45
  * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
@@ -38,12 +38,31 @@ mixed can_put()
         return 1;
 }
 
+
+
 mixed can_put_str(string str)
 {
+    string *item;
+    int n=0;
     if(! this_player()->is_fight_user())
         return "目前不在战斗当中\n";
     else
-        return 1;
+    {   
+        item = explode(str," ");
+        foreach( string s in item)
+        {   
+            if((s[0] != 0) )
+            {
+                if((strlen(s) != 1)|| (s[0] < 48) || (s[0] > 57))
+                    return "错误地出牌指令！\n";
+                write(s+"\n");
+                n++;
+            }
+        }
+        if(n != 0)
+            return 1;
+        else return "没有有效地出牌指令\n"; 
+    }
 }
 
 mixed do_put_str(string str)

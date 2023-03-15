@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-14 15:39:38
+ * @LastEditTime: 2023-03-14 18:43:47
  * @FilePath: \mysticism-mud\verbs\common\quit.c
  * @Description:  quit(q) 指令
  *               退出战斗或某些场景
@@ -19,14 +19,14 @@
      verb::create();
      setVerb("quit");
      setSynonyms("q");
-     setRules("", "STR", "OBJ");
+     setRules("", "STR");
      setErrorMessage("没有什么能退出的");
  }
 
  mixed do_quit()
 {
     //object me = this_player();
-    write("你想问什么\n");
+    write("你想从哪里退出\n");
     return 1;
 }
 
