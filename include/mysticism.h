@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 14:47:00
+ * @LastEditTime: 2023-03-17 18:59:16
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -32,17 +32,18 @@
 #define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
 /* inherit 特性文件 */
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
-#define CORE_STD_PERSON         PATH_DIR "inherit/person"
-#define CORE_STD_NPC            PATH_DIR "inherit/person_npc"
-#define CORE_STD_TASK           PATH_DIR "inherit/task"
+#define CORE_STD_PERSON         PATH_DIR "inherit/living/person"
+#define CORE_STD_NPC            PATH_DIR "inherit/living/person_npc"
 #define CORE_STD_PROPERTY       PATH_DIR "inherit/property"
+
+#define CORE_STD_TASK           PATH_DIR "inherit/task"
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
 #define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"
 #define CORE_STD_FIGHT_M        PATH_DIR "inherit/combat/combat_multi"
 
 /* inherit 特性文件 (覆盖用)*/
-#define _LIVING         PATH_DIR "inherit/living"
-#define _USER           PATH_DIR "inherit/user"
+#define _LIVING         PATH_DIR "inherit/living/living"
+#define _USER           PATH_DIR "inherit/living/user"
 #define _USER_QUEST     PATH_DIR "inherit/user_quest"
 #define _COMMAND        PATH_DIR "inherit/command"
 

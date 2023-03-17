@@ -1,4 +1,4 @@
-inherit PATH_DIR "inherit/living" ;
+inherit _LIVING;
 
 #include <ansi.h>
 

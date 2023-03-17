@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-16 22:34:11
- * @FilePath: \mysticism-mud\inherit\combat_UI.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-17 18:51:09
+ * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗的基础类
  *               具体战斗继承该类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -111,7 +111,8 @@ string status_line(object ob1)
 string ob1_status(object ob1)
 {
     string msg;
-    msg = sprintf(" |%-50s| \n", "");
+    msg = sprintf(" |%-22s%-14s%-14s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
+    ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"));
     msg += status_line(ob1);
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";

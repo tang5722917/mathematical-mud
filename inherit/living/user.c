@@ -3,7 +3,7 @@ inherit  CORE_STD_PERSON;
 inherit _USER_COMBAT_RECORD;
 inherit _USER_GMCP;
 inherit _USER_QUEST;
-inherit INHERIT_PATH "status" ;
+inherit INHERIT_PATH "living/status" ;
 
 
 #include <ansi.h>

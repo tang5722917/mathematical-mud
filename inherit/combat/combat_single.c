@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 14:47:32
+ * @LastEditTime: 2023-03-17 18:54:51
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -32,8 +32,9 @@ void create(object o1,object o2,object env)
     ob2 = o2;
     fight_env = env;
 }
-
+//定义玩家的初始行为
 string * fight_init_user(){return 0;}
+//定义电脑地初始行为
 string * fight_init_env(){return 0;}
 object get_player1()
 {

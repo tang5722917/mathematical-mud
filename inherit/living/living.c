@@ -2,9 +2,9 @@
 #include <ansi.h>
 
 inherit CORE_LIVING ;
-inherit INHERIT_PATH "status_value" ;
-inherit INHERIT_PATH "status_mystic" ;
-inherit INHERIT_PATH "status_affect" ;
+inherit INHERIT_PATH "living/status_value" ;
+inherit INHERIT_PATH "living/status_mystic" ;
+inherit INHERIT_PATH "living/status_affect" ;
 inherit CORE_STD_TEST;
 
 //living status
