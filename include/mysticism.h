@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-14 16:49:16
+ * @LastEditTime: 2023-03-17 14:47:00
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -37,8 +37,8 @@
 #define CORE_STD_TASK           PATH_DIR "inherit/task"
 #define CORE_STD_PROPERTY       PATH_DIR "inherit/property"
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
-#define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat_single"
-#define CORE_STD_FIGHT_M        PATH_DIR "inherit/combat_multi"
+#define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"
+#define CORE_STD_FIGHT_M        PATH_DIR "inherit/combat/combat_multi"
 
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living"

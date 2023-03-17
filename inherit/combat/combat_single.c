@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-16 22:39:01
- * @FilePath: \mysticism-mud\inherit\combat_single.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-17 14:47:32
+ * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -13,8 +13,8 @@
 #define USER 0
 #define ENV 1
 
-inherit INHERIT_PATH "combat_UI";
-inherit INHERIT_PATH "combat_base";
+inherit INHERIT_PATH "combat/combat_UI";
+inherit INHERIT_PATH "combat/combat_base";
 
 nosave protected object ob1;
 nosave protected object ob2;
