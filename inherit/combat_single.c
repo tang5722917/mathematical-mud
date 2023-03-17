@@ -1,23 +1,30 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-13 12:38:17
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-03-16 22:39:01
  * @FilePath: \mysticism-mud\inherit\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
-
 #include <ansi.h>
+
+#define USER 0
+#define ENV 1
+
+inherit INHERIT_PATH "combat_UI";
 inherit INHERIT_PATH "combat_base";
 
 nosave protected object ob1;
 nosave protected object ob2;
 nosave protected object fight_env;
 
-#define USER 0
-#define ENV 1
+void print_fight(string msg)
+{
+    message("FIG",msg,ob1);
+}
+
 
 void create(object o1,object o2,object env)
 {
@@ -28,38 +35,10 @@ void create(object o1,object o2,object env)
 
 string * fight_init_user(){return 0;}
 string * fight_init_env(){return 0;}
-
-//战斗过程颜色控制
-string * print_color_fig(string * str,int type)
+object get_player1()
 {
-    string s;
-    int n;
-    n = sizeof(str);
-    if(n == 0)
-        return 0;
-    if(type == USER )
-    {
-        for(int i =0;i < n ;i++)
-        {
-            s = str[i];
-            s = GRN + s + NOR;
-            str[i] = s;
-        } 
-        return str;
-    }
-    if(type == ENV )
-    {
-        for(int i =0;i < n ;i++)
-        {
-            s = str[i];
-            s = RED + s + NOR;
-            str[i] = s;
-        } 
-        return str;
-    }
-    return 0;
+    return ob1;
 }
-
 
 int fight_init()
 {
@@ -81,80 +60,7 @@ int fight_init()
     return sizeof(fight_info);
 }
 
-string ob2_status(object ob2)
-{
-    string msg;
-    msg = HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += sprintf(" |%-50s| \n", "");
-    return msg;
-}
 
-string ob2_equip(object ob2)
-{
-    string msg;
-    msg = " |--------------------------------------------------| \n" NOR;
-    msg += sprintf(" |%-50s| \n", "");
-    return msg;
-}
-
-string ob2_cards(object ob2)
-{
-    string msg;
-    msg = " |--------------------------------------------------| \n" NOR;
-    msg += sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-50s| \n", "");
-    return msg;
-}
-
-string out_area()
-{
-    string msg;
-    msg = HIR "≡" HIR "----------------------------------------------------" HIR "≡\n" NOR;
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += GRN " ----------------------------------------------------"  "\n" NOR;
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += GRN" ----------------------------------------------------"  "\n" NOR;
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += sprintf(HIR" |"NOR "%-50s"HIR"|"NOR "\n", "");
-    msg += HIR "≡" HIR "----------------------------------------------------" HIR "≡\n" NOR;
-    return msg;
-}
-
-string ob1_cards(object ob1)
-{
-    string msg;
-    msg = sprintf(" |%-50s| \n", "");
-    msg += sprintf(" |%-50s| \n", "");
-    msg += " |--------------------------------------------------| \n" NOR;
-    return msg;
-}
-string ob1_equip(object ob1)
-{
-    string msg;
-    msg = sprintf(" |%-50s| \n", "");
-    msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    return msg;
-}
-
-string status_line(object ob1)
-{
-    string msg="";
-    msg += sprintf(" |%-7s%-7s%-7s%-7s%-7s%-7s%-8s| \n", "--", "--", "--", "--", "--", "--", "--");
-    return msg;
-}
-
-string ob1_status(object ob1)
-{
-    string msg;
-    msg = sprintf(" |%-50s| \n", "");
-    msg += status_line(ob1);
-    msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
-    msg += "<数字x> 为0-9数字，p 后面的每一个数字代表相应的手牌，最多10张 ";
-    return msg;
-}
 
 string fight_main_UI(int fight_time,int fight_round)
 {
@@ -170,14 +76,7 @@ string fight_main_UI(int fight_time,int fight_round)
     return msg;
 }
 
-void print_fight(string msg)
-{
-    message("FIG",msg,ob1);
-}
 
 
-object get_player1()
-{
-    return ob1;
-}
+
 

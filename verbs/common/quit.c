@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:27
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-14 18:43:47
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-03-16 22:41:58
  * @FilePath: \mysticism-mud\verbs\common\quit.c
  * @Description:  quit(q) 指令
  *               退出战斗或某些场景
@@ -25,8 +25,14 @@
 
  mixed do_quit()
 {
-    //object me = this_player();
-    write("你想从哪里退出\n");
+    object me = this_player();
+    object fob =me->fight_ob
+    if (me->is_fight_user())
+    {
+        
+    }
+    else 
+        write("你想从哪里退出\n");
     return 1;
 }
 
