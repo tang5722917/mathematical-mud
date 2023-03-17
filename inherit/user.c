@@ -49,9 +49,15 @@ object * fight(object me,object ob)
     return ({me});
 }
 
+object fight_object()
+{
+    return fight_ob;
+}
+
 int into_cur_fight(object fob)
 {
     fight_ob = fob;
-    write(HBYEL "你已进入战斗状态!\n" NOR);
+    if(fob != 0)
+        write(HBYEL "你已进入战斗状态!\n" NOR);
 }
 

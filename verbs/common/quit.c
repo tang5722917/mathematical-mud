@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:27
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-16 22:41:58
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-17 14:40:01
  * @FilePath: \mysticism-mud\verbs\common\quit.c
  * @Description:  quit(q) 指令
  *               退出战斗或某些场景
@@ -26,13 +26,27 @@
  mixed do_quit()
 {
     object me = this_player();
-    object fob =me->fight_ob
-    if (me->is_fight_user())
+    object ob;
+    if(me->fight_object() != 0)
     {
-        
+        ob=me->fight_object()->combat_object();
+        if (me->is_fight_user())
+        {
+            if(ob->is_quit_fight() != 0)
+            {
+                me->fight_object()->combat_end();
+                me->end_fight();
+            }
+            else
+            {
+                write("无法逃离敌人!\n");
+            }
+        }
+        else write("你想从哪里退出?\n");
     }
     else 
-        write("你想从哪里退出\n");
+        write("没有需要退出地场景！\n");
+
     return 1;
 }
 
@@ -83,27 +97,6 @@ mixed direct_verb_rule(mixed *data...)
     // debug_message(sprintf("direct_verb_rule : %O", data));
     return can_quit();
 }
-
-mixed direct_verb_word_obj(mixed *data...)
-{
-    // debug_message(sprintf("direct_verb_word_obj : %O", data));
-    return can_quit();
-}
-
-
-mixed do_quit_obj(object ob)
-{
-    if(userp(ob))
-    {
-        object me = this_player() ;
-        msg("MAG", "$ME向"+ob->honor_name(me,ob)+"提问。", me,ob);
-        return 1;
-    }
-    return 0;
-}
-
-
-
 
  int help(object me)
 {

@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-13 13:51:33
+ * @LastEditTime: 2023-03-17 14:37:50
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  * 
@@ -89,6 +89,18 @@ void heart_beat( void )
     }
 }
 
+object combat_object()
+{
+    return combat;
+}
+
+void combat_end()
+{
+    combat->fight_end();
+    destruct(combat);
+    write("退出战斗!\n");
+    destruct(this_object());
+}
 
 
 
