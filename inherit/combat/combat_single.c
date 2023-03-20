@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 18:54:51
+ * @LastEditTime: 2023-03-20 18:08:12
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -61,6 +61,11 @@ int fight_init()
     return sizeof(fight_info);
 }
 
+//定义战斗是否能退出， 默认不能退出
+int is_quit_combat()
+{
+    return 0;
+}
 
 
 string fight_main_UI(int fight_time,int fight_round)

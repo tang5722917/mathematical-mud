@@ -2,13 +2,13 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-20 16:34:25
+ * @LastEditTime: 2023-03-20 16:47:50
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
- * @Description: 
+ * @Description:  游戏开发ToDo list
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
 -->
-# 1st ToDo list 
+# 1st ToDo list 2023/3/20
 ***
 ## 游戏驱动 
 - [ ] 基于mudcore 完成自定义指令开发
@@ -25,6 +25,7 @@
 - [ ] 完成势力组织基本框架开发
 - [ ] 完成游戏运气/战斗概率事件基本框架开发
 - [ ] 完成任务基本框架开发
+- [ ] 完成玩家信息（状态/任务/剧情/背包）存档开发
 
 ***
 ## 游戏内容
