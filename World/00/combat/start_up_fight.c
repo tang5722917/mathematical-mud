@@ -14,3 +14,5 @@ string * fight_init_env()
     str +=({"模糊的人影抬起头注视着你"});
     return str;
 }
+
+MYSTIC_PATH
