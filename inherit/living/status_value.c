@@ -63,4 +63,19 @@ void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int
     set_attr("mys", 0);       // 当前非凡
 }
 
+void update_base_value()
+{
+    set_attr("max_hp", query_attr("base_hp")); // 当前HP
+    set_attr("max_mp", query_attr("base_mp")); // 当前MP
+    set_attr("hp", query_attr("max_hp")); // 当前HP
+    set_attr("mp", query_attr("max_mp")); // 当前MP
+    set_attr("str", query_attr("base_str")); // 当前力量
+    set_attr("agi", query_attr("base_agi")); // 当前敏捷
+    set_attr("sen", query_attr("base_sen")); // 当前灵性
+    set_attr("max_int", query_attr("base_int")); // 当前理智
+    set_attr("max_cra", query_attr("base_cra")); // 当前疯狂
+    set_attr("luk", query_attr("base_luk")); // 当前幸运
+    set_attr("mys", 0);       // 当前非凡
+}
+
 

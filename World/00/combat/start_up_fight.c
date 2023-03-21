@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-14 17:52:37
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 17:10:42
+ * @LastEditTime: 2023-03-21 19:32:36
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
  * @Description: 新手引导的战斗过程对象
  * 
@@ -11,10 +11,11 @@
 
 #include <game_world.h> 
 inherit CORE_STD_FIGHT_S;
+object mys;
 
 string * fight_init_user(object user)
 {   
-    object mys;
+    
     string * str=({});
     str +=({"突然感觉体内涌现一股神秘的力量！"});
     mys = new(MYSTIC_PATH "other/mystic_init_help");
@@ -32,7 +33,12 @@ string * fight_init_env(object env)
 
 string * fight_end_user(object user)
 {   
-
-    return ({"你感到身上的力量衰退了\n"});
+    if(user->delete_mystic(mys));
+    {
+        user->update_mystic();
+        return ({"你感到身上的力量衰退了\n"});
+    }
+    write("Error !\n");
+    return 0;
 }
 

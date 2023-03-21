@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 18:10:25
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 16:18:38
+ * @LastEditTime: 2023-03-21 19:32:59
  * @FilePath: \mysticism-mud\inherit\mystic\mystic_value.c
  * @Description: 处理非凡特性对数值的影响
  * 

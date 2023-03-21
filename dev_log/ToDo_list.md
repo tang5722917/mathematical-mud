@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-20 16:47:50
+ * @LastEditTime: 2023-03-21 18:58:19
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
  * @Description:  游戏开发ToDo list
  * 
@@ -23,6 +23,7 @@
 - [ ] 完成非凡能力基本框架开发
 - [ ] 完成非凡物品基本框架开发
 - [ ] 完成势力组织基本框架开发
+- [ ] 完成卡牌/状态的MXP显示框架开发
 - [ ] 完成游戏运气/战斗概率事件基本框架开发
 - [ ] 完成任务基本框架开发
 - [ ] 完成玩家信息（状态/任务/剧情/背包）存档开发
