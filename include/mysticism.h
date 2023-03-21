@@ -1,8 +1,8 @@
 /*** 
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-20 17:55:03
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-03-21 01:33:40
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -35,7 +35,7 @@
 #define CORE_STD_PERSON         PATH_DIR "inherit/living/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/living/person_npc"
 #define CORE_STD_PROPERTY       PATH_DIR "inherit/property"
-
+#define CORE_STD_MYSTIC         PATH_DIR "inherit/mystic/mystic"
 #define CORE_STD_TASK           PATH_DIR "inherit/task"
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
 #define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"

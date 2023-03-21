@@ -36,35 +36,6 @@ inherit INHERIT_PATH "mystic/value";
 22 怪物	机器	幸运儿	灾祸教士	赢家	厄运法师	混乱行者	先知	水银之蛇	命运之轮
 */
 protected int mystic_num=0;
-//序列等级 0-9
-protected int mystic_rank=0;
-
-//定义非凡特性对数值的影响
-//hp
-int hp_val=0;
-float hp_per=1.0;
-//mp
-int mp_val=0;
-float mp_per=1.0;
-//str
-int str_val=0;
-float str_per=1.0;
-//agi
-int agi_val=0;
-float agi_per=1.0;
-//sen
-int sen_val=0;
-float sen_per=1.0;
-//int
-int cra_val=0;
-float cra_per=1.0;
-//cra
-int luk_val=0;
-float luk_per=1.0;
-//luk
-int mys_val=0;
-float mys_per=1.0;
-
 
 int mystic_id()
 {
