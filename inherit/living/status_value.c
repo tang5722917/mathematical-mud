@@ -32,7 +32,7 @@ int query_sub_attr(string attr,float value)
 {
     int old;
     old = living_value[attr];
-    return living_value[attr] = (int)(old * value);
+    return living_value[attr] = to_int(old * value);
 }
 
 void set_living_base_value(int base_hp,int base_mp,int base_str,int base_agi,int base_sen,int base_int,int base_cra,int base_luk,int max_mys)

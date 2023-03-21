@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 18:10:25
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-21 01:30:34
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-21 16:18:38
  * @FilePath: \mysticism-mud\inherit\mystic\mystic_value.c
  * @Description: 处理非凡特性对数值的影响
  * 
@@ -12,29 +12,29 @@
 protected int mystic_rank=9;
 //定义非凡特性对数值的影响
 //hp
-int hp_val=0;
-float hp_per=1.0;
+int hp_val(){return 0;}
+float hp_per(){return 1.0;}
 //mp
-int mp_val=0;
-float mp_per=1.0;
+int mp_val(){return 0;}
+float mp_per(){return 1.0;}
 //str
-int str_val=0;
-float str_per=1.0;
+int str_val(){return 0;}
+float str_per(){return 1.0;}
 //agi
-int agi_val=0;
-float agi_per=1.0;
+int agi_val(){return 0;}
+float agi_per(){return 1.0;}
 //sen
-int sen_val=0;
-float sen_per=1.0;
+int sen_val(){return 0;}
+float sen_per(){return 1.0;}
 //int
-int cra_val=0;
-float cra_per=1.0;
+int int_val(){return 0;}
+float int_per(){return 1.0;}
 //cra
-int luk_val=0;
-float luk_per=1.0;
+int cra_val(){return 0;}
+float cra_per(){return 1.0;}
 //luk
-int mys_val=0;
-float mys_per=1.0;
+int luk_val(){return 0;}
+float luk_per(){return 1.0;}
 //mys
 int value_mys()
 {
@@ -42,30 +42,30 @@ int value_mys()
 }
 
 
-vodi update_init_value(object living)
+void update_init_value(object living)
 {
-    living->query_sub_attr("max_hp",hp_per);
-    living->query_add_attr("max_hp",hp_val);
-    living->query_sub_attr("max_mp",hp_per);
-    living->query_add_attr("max_mp",hp_val);
-    living->query_sub_attr("max_int",hp_per);
-    living->query_add_attr("max_int",hp_val);
-    living->query_sub_attr("max_cra",hp_per);
-    living->query_add_attr("max_cra",hp_val);
+    living->query_sub_attr("max_hp",hp_per());
+    living->query_add_attr("max_hp",hp_val());
+    living->query_sub_attr("max_mp",mp_per());
+    living->query_add_attr("max_mp",mp_val());
+    living->query_sub_attr("max_int",int_per());
+    living->query_add_attr("max_int",int_val());
+    living->query_sub_attr("max_cra",cra_per());
+    living->query_add_attr("max_cra",cra_val());
 
-    living->query_sub_attr("str",hp_per);
-    living->query_add_attr("str",hp_val);
-    living->query_sub_attr("agi",hp_per);
-    living->query_add_attr("agi",hp_val);
-    living->query_sub_attr("sen",hp_per);
-    living->query_add_attr("sen",hp_val);
-    living->query_sub_attr("luk",hp_per);
-    living->query_add_attr("luk",hp_val);
+    living->query_sub_attr("str",str_per());
+    living->query_add_attr("str",str_val());
+    living->query_sub_attr("agi",agi_per());
+    living->query_add_attr("agi",agi_val());
+    living->query_sub_attr("sen",sen_per());
+    living->query_add_attr("sen",sen_val());
+    living->query_sub_attr("luk",luk_per());
+    living->query_add_attr("luk",luk_val());
 
-    living->set_attr("max_hp", base_hp);   // 当前HP
-    living->set_attr("max_mp", base_mp);   // 当前MP
-    living->set_attr("max_int", base_int); // 当前理智
-    living->set_attr("max_cra", base_cra); // 当前疯狂
+    living->set_attr("hp", living->query_attr("max_hp"));   // 当前HP
+    living->set_attr("mp", living->query_attr("max_mp"));   // 当前MP
+    living->set_attr("int", living->query_attr("max_int")); // 当前理智
+    living->set_attr("cra", living->query_attr("max_cra")); // 当前疯狂
 
     living->query_add_attr("mys",value_mys());
 }

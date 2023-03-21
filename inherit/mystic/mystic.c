@@ -2,14 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-21 18:09:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-20 19:22:02
+ * @LastEditTime: 2023-03-21 11:28:46
  * @FilePath: \mysticism-mud\inherit\mystic\mystic.c
  * @Description:  非凡能力基础类
  * 
  * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved. 
  */
 
-inherit INHERIT_PATH "mystic/value";
+inherit INHERIT_PATH "mystic/mystic_value";
 /*
 序列编号 1-22
 1  占卜家	小丑	魔术师	无面人	秘偶大师	诡法师	古代学者	奇迹师	诡秘侍者	愚者
@@ -41,7 +41,12 @@ int mystic_id()
 {
     if((mystic_rank>=0)&&(mystic_rank<=9))
         return mystic_num*10+mystic_rank;
-    else return 1000+mystic_num
+    else return 1000+mystic_num;
+}
+// 返回该非凡特性等级
+int rank_num()
+{
+    return mystic_rank;
 }
 
 
