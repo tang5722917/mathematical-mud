@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 18:58:19
+ * @LastEditTime: 2023-03-22 11:26:03
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
  * @Description:  游戏开发ToDo list
  * 
@@ -13,7 +13,7 @@
 ## 游戏驱动 
 - [ ] 基于mudcore 完成自定义指令开发
     - [ ] 基本行为指令  ask/search/look/say/use
-    - [ ] 战斗行为指令  fight/put/quit
+    - [ ] 战斗行为指令  fight/put/quit/equip/jifa
     - [ ] 玩家信息指令  score/show/skill
     - [ ] 物品信息指令  bag/inventory
     - [ ] 任务指令      quest

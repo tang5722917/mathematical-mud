@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 19:50:23
+ * @LastEditTime: 2023-03-22 19:11:09
  * @FilePath: \mysticism-mud\inherit\mxp.c
  * @Description: MXP 功能基类
  * 
@@ -20,7 +20,6 @@ return has_mxp(this_player());
 }
 
 public void init_mxp() {
-
  if (!interactive() || !QueryMXP())
         return;
   mxp_version_info = ([]);
@@ -32,7 +31,6 @@ public void init_mxp() {
   efun::write(process_mxp(MXPTAG("!ELEMENT RExits FLAG=\"RoomExit\""), QueryMXP()));
   efun::write(process_mxp(MXPTAG("!ELEMENT Prompt FLAG=\"Prompt\""), QueryMXP()));
   efun::write(process_mxp(MXPTAG("!ELEMENT Ex \"<send>\""), QueryMXP()));
-
 }
 
 public void SetMXPVersion(mapping m) {
