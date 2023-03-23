@@ -6,6 +6,9 @@ mixed process_input(string arg)
 {
     object me;
     me = this_player();
+#ifdef DEBUG_MYSTICISM
+    debug_message("[" + ctime() + "]"+arg+"\n");
+#endif
     if(!me->is_fight_user())
     {
         switch(arg)

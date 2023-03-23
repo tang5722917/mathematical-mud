@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 18:59:16
+ * @LastEditTime: 2023-03-22 17:36:41
  * @FilePath: \mysticism-mud\include\mysticism.h
  * @Description: 
  * @
@@ -12,7 +12,7 @@
 #define MYSTICISM_H
 
 //开启调试模式
-//#define DEBUG_MYSTICISM
+#define DEBUG_MYSTICISM
 
 /* 游戏目录 */
 #define PATH_DIR "/"
@@ -35,7 +35,7 @@
 #define CORE_STD_PERSON         PATH_DIR "inherit/living/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/living/person_npc"
 #define CORE_STD_PROPERTY       PATH_DIR "inherit/property"
-
+#define CORE_STD_MYSTIC         PATH_DIR "inherit/mystic/mystic"
 #define CORE_STD_TASK           PATH_DIR "inherit/task"
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
 #define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"
@@ -46,7 +46,8 @@
 #define _USER           PATH_DIR "inherit/living/user"
 #define _USER_QUEST     PATH_DIR "inherit/user_quest"
 #define _COMMAND        PATH_DIR "inherit/command"
-
+#define _MESSAGE        PATH_DIR "inherit/message"
+#define _MXP            PATH_DIR "inherit/mxp"
 // 游戏管理员账号
 #define WIZARD  "mysticism"
 

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-09 18:57:22
+ * @LastEditTime: 2023-03-21 17:56:45
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -41,7 +41,7 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_attr("str"), "敏捷：" + me->query_attr("agi"),"灵性：" + me->query_attr("sen"));
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_attr("int"), "疯狂：" + me->query_attr("cra"), "幸运：" + me->query_attr("luk"));
-    msg += sprintf(" |%-50s| \n", "");
+    msg += sprintf(" |%-50s| \n", "非凡特性："+me->query_attr("mys"));
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");

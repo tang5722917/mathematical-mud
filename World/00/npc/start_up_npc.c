@@ -5,12 +5,13 @@ protected void create()
 {
     set_name(MAG "未知神秘存在"NOR,({"?????"})  );
     set("long", HIC "位于上首的椅子上坐着一位未知神秘存在，但由于灰雾的阻挡什么都无法看清" NOR);
-
 } 
 
 void look(object me,object env)
-{
-    write("你感到有些头晕，并且忘了刚才还在想些什么。\n （你可以试着向那位未知存在问个问题） \n 请试着输入<ask ?????> \n");
+{   
+    object mxp_test = new("/World/base/card/01/paper_replace");
+    write("你感到有些头晕，并且忘了刚才还在想些什么。\n （你可以试着向那位未知存在问个问题） \n 请试着输入（ask ?????） \n");
+    mxp_test->init_mxp();
 }
 
 void answer(object me,object env)
