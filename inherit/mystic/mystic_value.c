@@ -2,14 +2,13 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 18:10:25
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 19:32:59
+ * @LastEditTime: 2023-03-24 19:21:37
  * @FilePath: \mysticism-mud\inherit\mystic\mystic_value.c
  * @Description: 处理非凡特性对数值的影响
- * 
- * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ *
+ * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
-//序列等级 0-9
-protected int mystic_rank=9;
+
 //定义非凡特性对数值的影响
 //hp
 int hp_val(){return 0;}
@@ -36,9 +35,16 @@ float cra_per(){return 1.0;}
 int luk_val(){return 0;}
 float luk_per(){return 1.0;}
 //mys
+
+//序列等级 0-9
+int mystic_rank()
+{
+    return 9;
+}
+//返回非凡特性点数
 int value_mys()
 {
-    return (10-mystic_rank) * 5;
+    return ((10-mystic_rank()) * 5);
 }
 
 
@@ -69,4 +75,3 @@ void update_init_value(object living)
 
     living->query_add_attr("mys",value_mys());
 }
-

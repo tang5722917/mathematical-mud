@@ -2,11 +2,11 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-21 18:09:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 11:28:46
+ * @LastEditTime: 2023-03-24 19:23:34
  * @FilePath: \mysticism-mud\inherit\mystic\mystic.c
  * @Description:  非凡能力基础类
- * 
- * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved. 
+ *
+ * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved.
  */
 
 inherit INHERIT_PATH "mystic/mystic_value";
@@ -35,22 +35,16 @@ inherit INHERIT_PATH "mystic/mystic_value";
 21 通识者	考古学家	鉴定师	机械专家	天文学家	炼金术士	奥秘学者	知识导师	文明启蒙者	完美者
 22 怪物	机器	幸运儿	灾祸教士	赢家	厄运法师	混乱行者	先知	水银之蛇	命运之轮
 */
-protected int mystic_num=0;
-
-int mystic_id()
-{
-    if((mystic_rank>=0)&&(mystic_rank<=9))
-        return mystic_num*10+mystic_rank;
-    else return 1000+mystic_num;
-}
-// 返回该非凡特性等级
+// 返回该非凡特性编号
 int rank_num()
 {
-    return mystic_rank;
+    return 0;
 }
-
-
-
-
-
-
+//返回非凡特性编号
+int mystic_id()
+{
+    int rank = this_object()->mystic_rank();
+    if((rank>=0)&&(rank<=9))
+        return rank_num()*10+rank;
+    else return 1000+rank_num();
+}

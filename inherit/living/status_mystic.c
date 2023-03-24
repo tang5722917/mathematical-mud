@@ -2,11 +2,11 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 19:26:38
+ * @LastEditTime: 2023-03-24 19:31:18
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
- * 
- * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ *
+ * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
 
 //存储非凡状态对象
@@ -34,8 +34,8 @@ int query_mys(int rank)
 //rank 0-9 代表序列0-9， 10表示非序列途径加成
 void add_mystic(object mys)
 {
-    set_mys(mys->rank_num(),mys->mystic_id());
-    living_mystic[mys->rank_num()]=mys;
+    set_mys(mys->mystic_rank(),mys->mystic_id());
+    living_mystic[mys->mystic_rank()]=mys;
 }
 
 int delete_mystic(object mys)
