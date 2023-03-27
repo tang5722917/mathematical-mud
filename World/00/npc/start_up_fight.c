@@ -1,5 +1,15 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-03-09 17:39:39
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-27 19:35:57
+ * @FilePath: \mysticism-mud\World\00\npc\start_up_fight.c
+ * @Description: 初始玩家战斗NPC
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ */
+
 #include <ansi.h>
-#include <game_world.h> 
+#include <game_world.h>
 inherit _LIVING ;
 
 void create()
@@ -13,7 +23,7 @@ void create()
 void search(object me,object env)
 {
     object ob;
-    write("这个光团有着神秘的魅力，你的身体不知不觉的靠近了它\n 
+    write("这个光团有着神秘的魅力，你的身体不知不觉的靠近了它\n
 这时你的脑海中响起一个声音，“与它战斗吧！\n (使用fight或f命令攻击指定目标，请输入f ???)
 不过在这之前请先使用score(sc)查看一下自身状态");
     ob = this_object();

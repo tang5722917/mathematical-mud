@@ -2,13 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-27 16:08:30
+ * @LastEditTime: 2023-03-27 19:53:21
  * @FilePath: \mysticism-mud\inherit\mxp.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
- * Copyright (c) 2023 by git config user.email, All Rights Reserved.
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
+inherit CORE_CONDITION_MOD;
 #include <mxp.h>
 
 private mapping mxp_version_info;
