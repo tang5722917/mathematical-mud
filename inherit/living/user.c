@@ -4,7 +4,7 @@ inherit _USER_COMBAT_RECORD;
 inherit _USER_GMCP;
 inherit _USER_QUEST;
 inherit INHERIT_PATH "living/status" ;
-
+inherit _MXP ;
 
 #include <ansi.h>
 //临时显示在玩家眼前的对象
@@ -60,4 +60,3 @@ int into_cur_fight(object fob)
     if(fob != 0)
         write(HBYEL "你已进入战斗状态!\n" NOR);
 }
-

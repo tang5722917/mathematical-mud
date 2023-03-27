@@ -1,12 +1,12 @@
-/*** 
+/***
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
  * @LastEditTime: 2023-03-22 17:36:41
  * @FilePath: \mysticism-mud\include\mysticism.h
- * @Description: 
+ * @Description:
  * @
- * @Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved. 
+ * @Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved.
  */
 #ifndef MYSTICISM_H
 #define MYSTICISM_H
@@ -40,7 +40,7 @@
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
 #define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"
 #define CORE_STD_FIGHT_M        PATH_DIR "inherit/combat/combat_multi"
-
+#define CORE_STD_CARD           PATH_DIR "inherit/card"
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living/living"
 #define _USER           PATH_DIR "inherit/living/user"

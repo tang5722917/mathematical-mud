@@ -2,11 +2,11 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:48:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 19:48:37
+ * @LastEditTime: 2023-03-27 15:49:23
  * @FilePath: \mysticism-mud\system\kernel\simul_efun\process_mxp.c
  * @Description: MXP的 sefun
- * 
- * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ *
+ * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
 
 #ifndef MXP_H
@@ -22,6 +22,11 @@
 **
 **    Returns: string
 */
+
+public mixed QueryMXP(){
+    if(!this_player()) return 0;
+    return has_mxp(this_player());
+    }
 
 public string process_mxp(string msg, int does_mxp) {
     int line = 0;
