@@ -20,6 +20,7 @@ private object connect(int port)
 private void create()
 {
     debug_message("[" + ctime() + "]CORE_MASTER_OB->create()!");
+    preload(SYSTEM_OBJ);
     preload(Game_World);
 }
 

@@ -16,14 +16,14 @@
 
 /* 游戏目录 */
 #define PATH_DIR "/"
-#define  INHERIT_PATH     PATH_DIR "/inherit/"
+#define INHERIT_PATH     PATH_DIR "/inherit/"
 
 // 游戏driver版本
 #define VERSION "0.0.1"
 
 /* 核心对象 */
 #define MYSTICISM_LOGIN_OB PATH_DIR "system/obj/login"
-
+#define SYSTEM_OBJ PATH_DIR "system/obj/pre_object"
 
 /* 守护进程 */
 #define MYSTICISM_LOGIN_D  PATH_DIR "system/daemons/login_d"
@@ -68,7 +68,6 @@
 #define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})
 // CMD_PATH_STD   玩家指令
 #define CMD_PATH_STD ({PATH_DIR "cmds/player/" ,PATH_DIR "verbs/common/"})
-
 #define VERB_DIR PATH_DIR "verbs/"
 
 /* 核心对象 (覆盖用)*/
