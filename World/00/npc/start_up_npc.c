@@ -10,7 +10,6 @@ protected void create()
 
 void look(object me,object env)
 {
-    object mxp_test = new("/World/base/card/01/paper_replace");
     write("你感到有些头晕，并且忘了刚才还在想些什么。\n （你可以试着向那位未知存在问个问题） \n 请试着输入（ask ?????） \n");
 }
 

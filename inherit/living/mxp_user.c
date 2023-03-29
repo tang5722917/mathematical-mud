@@ -8,8 +8,6 @@
  *               用于记录客户端MXP返回的信息
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-
-inherit CORE_CONDITION_MOD;
 #include <mxp.h>
 
 private mapping mxp_version_info;
