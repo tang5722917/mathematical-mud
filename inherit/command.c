@@ -11,7 +11,13 @@ mixed process_input(string arg)
 #endif
     if(arg[0] == 32)  //MXP 返回信息以数字32开头
     {
-        me->MXP_info_get(arg,me);
+        if(strlen(arg) >= 13)
+        {
+            if(arg[5..11] == "VERSION")
+                me->SetMXPVersion(arg[13..strlen(arg)-2]);
+            if(arg[5..11] == "SUPPORT")
+                me->SetMXPSupportInfo(arg[14..strlen(arg)-2]);
+        }
         return 1;
     }
     if(!me->is_fight_user())

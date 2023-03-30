@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-03-30 08:51:31
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-03-30 16:14:28
  * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
@@ -11,53 +11,47 @@
 #include <mxp.h>
 #include <ansi.h>
 
-private mapping mxp_version_info;
-private mapping mxp_support_info;
+protected mapping mxp_version_info;
+protected mapping mxp_support_info;
 
-public void init_mxp() {
- if (!interactive() || !QueryMXP())
-        return;
-  mxp_version_info = ([]);
-  mxp_support_info = ([ MXP_SUPPORT_ENABLED: ({}), MXP_SUPPORT_DISABLED: ({}) ]);
-}
 void MXP_test_init()
 {
     MXP_write("<VERSION>");
+}
+
+void MXP_support_init()
+{
     MXP_write("<SUPPORT>");
 }
 
-void MXP_info_get(string arg,object me)
-{
-    message("MAG","字符串",me);
+
+public void SetMXPVersion(string s) {
+    if (!mxp_version_info)
+        mxp_version_info = ([]);
+    mxp_version_info[1] = s;
+    MXP_support_init();
 }
 
-public void SetMXPVersion(mapping m) {
-  if (!mxp_version_info)
-    mxp_version_info = ([]);
-  mxp_version_info = m;
-}
-
-public void SetEnabledMXPSupportInfo(string *s) {
+public void SetMXPSupportInfo(string s) {
   if (!mxp_support_info)
     mxp_support_info = ([]);
-  mxp_support_info[MXP_SUPPORT_ENABLED] = s;
-}
-
-public void SetDisabledMXPSupportInfo(string *s ) {
-  if (!mxp_support_info)
-    mxp_support_info = ([]);
-  mxp_support_info[MXP_SUPPORT_DISABLED] = s;
+  mxp_support_info[1] = s;
 }
 
 public mapping QueryMXPVersion() {
-  return mxp_version_info || ([]);
+  return mxp_version_info ||  ({});
 }
 
 public mapping QueryMXPSupportInfo() {
-  return mxp_support_info || ([ MXP_SUPPORT_ENABLED: ({}), MXP_SUPPORT_DISABLED: ({}) ]);
+  return mxp_support_info ||  ({});
 }
 
 int mxp_status()
 {
   return 1;
+}
+
+void MXP_info_get(string arg)
+{
+
 }

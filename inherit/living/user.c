@@ -4,7 +4,7 @@ inherit _USER_COMBAT_RECORD;
 inherit _USER_GMCP;
 inherit _USER_QUEST;
 inherit INHERIT_PATH "living/status" ;
-
+inherit INHERIT_PATH "living/mxp_user" ;
 #include <ansi.h>
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
