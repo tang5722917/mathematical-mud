@@ -9,6 +9,11 @@ mixed process_input(string arg)
 #ifdef DEBUG_MYSTICISM
     debug_message("[" + ctime() + "]"+arg+"\n");
 #endif
+    if(arg[0] == 32)  //MXP 返回信息以数字32开头
+    {
+        me->MXP_info_get(arg,me);
+        return 1;
+    }
     if(!me->is_fight_user())
     {
         switch(arg)

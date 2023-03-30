@@ -40,5 +40,5 @@ void enter_world(object ob, object user)
     user->save(); // 保存玩家数据
     user->move(start_room);
     tell_room(start_room, user->short() + "连线进入这个世界。\n", ({user}));
-    user->start_condition(file_name(SYS_OBJECT("start_mxp")),5,1);
+    user->start_condition(file_name(SYS_OBJECT("start_mxp")),3,1);
 }
