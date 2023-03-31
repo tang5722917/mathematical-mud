@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-28 00:12:46
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-31 15:41:54
- * @FilePath: \mysticism-mud\system\obj\start_mxp.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-01 07:38:33
+ * @FilePath: /mysticism-mud/system/obj/start_mxp.c
  * @Description: 玩家登录MXP检查
  * Copyright (c) 2023 by Tangzp email: tang5722917@163.com, All Rights Reserved.
  */
@@ -27,9 +27,18 @@ void heart_beat_effect(object ob)
 // 结束状态时的效果
 void stop_effect(object ob)
 {
+#ifdef DEBUG_MYSTICISM
+    mapping m;
     string s;
-    s = ob->QueryMXPVersion()[1];
-    //message("Info",s,ob);
+    m = ob->QueryMXPVersion();
+    if( sizeof(m)== 0 )
+    {
+        message("Info","目前客户端不支持MXP\n",ob);
+        return;
+    }
+    s = m[1];
+    message("Info",s,ob);
     s = ob->QueryMXPSupportInfo()[1];
-    //message("Info",s,ob);
+    message("Info",s,ob);
+#endif
 }
