@@ -11,9 +11,6 @@
 #ifndef MXP_H
 #define MXP_H
 
-#define MXP_SUPPORT_ENABLED  "mxp_enabled_features"
-#define MXP_SUPPORT_DISABLED "mxp_disabled_features"
-
 /* strings */
 
 #define MXP_BEG "\x03"

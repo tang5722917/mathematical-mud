@@ -2,13 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-30 16:14:28
+ * @LastEditTime: 2023-03-31 14:13:11
  * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <mxp.h>
+#include <msp.h>
 #include <ansi.h>
 
 protected mapping mxp_version_info;
@@ -22,8 +23,8 @@ void MXP_test_init()
 void MXP_support_init()
 {
     MXP_write("<SUPPORT>");
-}
 
+}
 
 public void SetMXPVersion(string s) {
     if (!mxp_version_info)

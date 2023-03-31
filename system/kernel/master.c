@@ -39,5 +39,19 @@ void flag(string str)
     default:
         write("[CORE_MASTER_OB]->flag():The only supproted flag is 'debug', got '" + str + "'.\n");
     }
-    // otherwise wait for auto shutdown
+}
+
+//MSSP 数据
+mapping get_mud_stats(void)
+{
+    mapping mssp=([]);
+    mssp["MXP"]="1";
+    mssp["MSP"]="1";
+    mssp["MSDP"] = "0";
+    mssp["MCP"] = "0";
+    mssp["GMCP"] = "0";
+    mssp["MCCP"] = "0";
+    mssp["LANGUAGE"] = "Chinese";
+    mssp["LOCATION"] = "China";
+    return mssp;
 }
