@@ -71,7 +71,7 @@ int combat_event(object fig)
         fig->print_fight(str);
         if (str == "新的回合开始")
         {
-            fig->print_fight(combat->fight_main_UI(fight_time,fight_round));
+            fig->print_fight_UI(combat->fight_main_UI(fight_time,fight_round));
             fig->next_round();
             fight_round += 1;
         }
@@ -101,6 +101,3 @@ void combat_end()
     write("退出战斗!\n");
     destruct(this_object());
 }
-
-
-

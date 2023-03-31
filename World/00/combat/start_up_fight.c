@@ -21,6 +21,7 @@ string * fight_init_user(object user)
     mys = new(MYSTIC_PATH "other/mystic_init_help");
     user->add_mystic(mys);
     str +=({"同时脑海中有一个清晰的声音响起——“你要准备开始战斗”"});
+    str += 
     user->update_mystic();
     return str;
 }
@@ -41,4 +42,3 @@ string * fight_end_user(object user)
     write("Error !\n");
     return 0;
 }
-

@@ -2,23 +2,28 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 17:07:42
+ * @LastEditTime: 2023-03-31 18:37:26
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
 #include <ansi.h>
+#include <mxp.h>
 
 #define USER 0
 #define ENV 1
 
 inherit INHERIT_PATH "combat/combat_UI";
-inherit INHERIT_PATH "combat/combat_base";
 
 nosave protected object ob1;
 nosave protected object ob2;
 nosave protected object fight_env;
+
+void print_fight_UI(string msg)
+{
+    MXP_message("FIG",msg,ob1);
+}
 
 void print_fight(string msg)
 {
@@ -94,7 +99,8 @@ int is_quit_combat()
 string fight_main_UI(int fight_time,int fight_round)
 {
     string msg;
-    msg = "第" + fight_round + "回合   |地点："+fight_env->short()+"\n";
+    msg ="<!ELEMENT UI FLAG='UI'><UI>";
+    msg +="第" + fight_round + "回合   |地点："+fight_env->short()+"\n";
     msg += ob2_status(ob2);
     msg += ob2_equip(ob2);
     msg += ob2_cards(ob2);
@@ -102,10 +108,6 @@ string fight_main_UI(int fight_time,int fight_round)
     msg += ob1_cards(ob1);
     msg += ob1_equip(ob1);
     msg += ob1_status(ob1);
+    msg += "</UI>";
     return msg;
 }
-
-
-
-
-
