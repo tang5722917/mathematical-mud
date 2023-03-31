@@ -14,10 +14,13 @@
 //开启调试模式
 #define DEBUG_MYSTICISM
 
+//开启音乐 0 OFF | 1 ON
+#define MYSTICISM_SOUND 1
+
 /* 游戏目录 */
 #define PATH_DIR "/"
-#define INHERIT_PATH     PATH_DIR "/inherit/"
-
+#define INHERIT_PATH     PATH_DIR "inherit/"
+#define SOUND    PATH_DIR "World/src/sound"     
 // 游戏driver版本
 #define VERSION "0.0.1"
 
@@ -52,7 +55,7 @@
 #define WIZARD  "mysticism"
 
 // 游戏欢迎界面
-#define MOTD    PATH_DIR "World/front-page/MOTD1"
+#define MOTD    PATH_DIR "World/src/front-page/MOTD1"
 
 /* 守护进程 */
 #define LOGIN_D     MYSTICISM_LOGIN_D
