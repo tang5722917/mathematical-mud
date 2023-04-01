@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-28 00:12:46
  * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-01 07:38:33
+ * @LastEditTime: 2023-04-01 07:40:45
  * @FilePath: /mysticism-mud/system/obj/start_mxp.c
  * @Description: 玩家登录MXP检查
  * Copyright (c) 2023 by Tangzp email: tang5722917@163.com, All Rights Reserved.

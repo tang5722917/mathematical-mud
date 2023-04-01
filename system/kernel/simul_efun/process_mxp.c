@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:48:21
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-27 15:49:23
- * @FilePath: \mysticism-mud\system\kernel\simul_efun\process_mxp.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-01 08:53:16
+ * @FilePath: /mysticism-mud/system/kernel/simul_efun/process_mxp.c
  * @Description: MXP的 sefun
  *
  * Copyright (c) 2023 by git config user.email, All Rights Reserved.
@@ -40,7 +40,7 @@ public string process_mxp(string msg, int does_mxp) {
     if(!does_mxp) return msg;
 
     for (line = 0; line < sizeof(original_lines); line++) {
-    processed_lines[line] = does_mxp ? MXPMODE(1) : "";
+    processed_lines[line] = does_mxp ? MXPMODE(4) : "";
 
         length = sizeof(original_lines[line]);
 

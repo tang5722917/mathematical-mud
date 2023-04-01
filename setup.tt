@@ -1,0 +1,695 @@
+#nop ????tt????
+
+#alias username mysticism
+#alias password 12345
+
+#nop ?? IP/???
+#ses mysticism-mud 127.0.0.1 2023;
+
+#nop #event {SCREEN RESIZE} {#split};
+#split;
+
+#action {^_^!???????ID:} {username}
+#action {??????} {password}
+
+
+#config mouse on
+
+#EVENT {CATCH IAC WILL MXP}
+{
+     #showme <118>SENDING DO MXP;
+     #send {\xFF\xFD\x5B\}
+}
+
+#EVENT {CATCH IAC DO MXP}
+{
+     #showme <118>SENDING WILL MXP;
+     #send {\xFF\xFB\x5B\}
+}
+
+#FUNCTION {mxp_link}
+{
+     #line sub esc #var result {\e]68;1;%1;%2\a\e[4m%3\e[24m}
+}
+
+#ACTION {~\e[4z<VERSION>}
+{
+     #send {\e[1z<VERSION MXP=1.0 CLIENT=TINTIN++ VERSION=2.02.04>}
+}
+
+#ACTION {~\e[4z<SUPPORT>}
+{
+     #send {\e[1z<SUPPORTS +SEND +COLOR>}
+}
+
+#EVENT {PRESSED LINK MXP MOUSE BUTTON ONE}
+{
+     #send {%4}
+}
+
+#SUBSTITUTE {~\e[4z<COLOR #%1>%2\e[4z</COLOR>} {<f%1>%2<900>}
+#SUBSTITUTE {~\e[4z<SEND HREF="%1">%2\e[4z</SEND>} {@mxp_link{MXP;%1;%2}}
+#SUBSTITUTE {~\e[4z{<RExits>|</RExits>|<RDesc>|</RDesc>|<PROMPT>|</PROMPT>|<RName>|</RName>}} {}
+#SUBSTITUTE {~\e[4z<RNum %d />} {}
+#SUBSTITUTE {&lt;} {<}
+#SUBSTITUTE {&gt;} {>}
+
+#EVENT {PROGRAM START}
+{
+    #nop Find out what OS you are running.;
+    #script {SYSTEM[OS]} {uname -o};
+    #script {SYSTEM[KERNEL]} {uname -s};
+    #script {SYSTEM[VERSION]} {tail /proc/version};
+    #switch {"$SYSTEM[VERSION][1]"}
+    {
+        #case {"%*Microsoft@Microsoft.com%*"}
+        {
+            #variable OS WSL
+        };
+        #case {"CYGWIN%*"}
+        {
+            #variable OS Cygwin
+        };
+        #default
+        {
+            #switch {"$SYSTEM[OS][1]"}
+            {
+                #case {"Android"}
+                {
+                    #variable OS Android
+                };
+                #case {"Cygwin"}
+                {
+                    #variable OS Cygwin
+                };
+                #case {"WSL"}
+                {
+                    #variable OS WSL
+                };
+                #case {"GNU/Linux"}
+                {
+                    #variable OS Linux
+                };
+                #default
+                {
+                    #switch {"$SYSTEM[KERNEL][1]"}
+                    {
+                        #case {"Linux"}
+                        {
+                            #variable OS Linux
+                        };
+                        #case {"CYGWIN%*"}
+                        {
+                            #variable OS Cygwin
+                        };
+                        #case {"Darwin"}
+                        {
+                            #variable OS Darwin
+                        };
+                        #default
+                        {
+                            #variable OS Unknown
+                        }
+                    }
+                }
+            }
+        }
+    };
+    #if {"$OS" == "WSL"}
+    {
+        #variable {sound_dir} {C:\sounds\}
+    };
+    #else
+    {
+        #variable {sound_dir} {~/sounds}
+    }
+}
+
+#EVENT {IAC WILL MSP}
+{
+    #send {\xFF\xFD\x5A\}
+}
+
+#ACTION {^!!SOUND({\S*}{.*})$}
+{
+    playsound %1;
+    #line gag
+}
+
+#ACTION {^!!MUSIC({\S*}{.*})$}
+{
+    #nop I cannot be bothered adding support for background music.;
+    #line gag
+}
+
+#ALIAS {playsound %1}
+{
+    #if {"%1" == "Off"}
+    {
+        #return
+    };
+    #switch {"$OS"}
+    {
+        #case {"{Android|Linux}"}
+        {
+            #if {"%1" == "%i%*.mp3"}
+            {
+                #system mpg123 $sound_dir/%1 &>/dev/null &
+            };
+            #elseif {"%1" == "%i%*.ogg"}
+            {
+                #system ogg123 $sound_dir/%1 &>/dev/null &
+            };
+            #elseif {"%1" == "%i%*.wav"}
+            {
+                #system play $sound_dir/%1 &>/dev/null &
+            };
+            #else
+            {
+                #showme PLAYSOUND: Unknown sound file: %1
+            }
+        };
+        #case {"Cygwin"}
+        {
+            #if {"%1" == "%i%*.wav"}
+            {
+                #system cat $sound_dir/%1 > /dev/dsp &
+            };
+            #else
+            {
+                #system cygstart $sound_dir/%1 &
+            }
+        };
+        #case {"Darwin"}
+        {
+            #system afplay $sound_dir/%1 &
+        };
+        #case {"WSL"}
+        {
+            #system {powershell.exe -c '(New-Object Media.SoundPlayer "${sound_dir}%1").PlaySync()' &}
+        }
+    }
+}
+
+#ALIAS {tts}
+{
+    #switch {"$OS"}
+    {
+        #case {"Android"}
+        {
+            #system {termux-tts-speak %0 &}
+        };
+        #case {"{Cygwin|Linux}"}
+        {
+            #system {espeak "%0" &}
+        };
+        #case {"Darwin"}
+        {
+            #system {say %0 &}
+        };
+        #case {"WSL"}
+        {
+            #nop $SpeechSynthesizer.SelectVoice("Microsoft Zira Desktop");
+            #nop $SpeechSynthesizer.rate=6;
+            #system {powershell.exe -c 'Add-Type ¨CAssemblyName System.Speech;$SpeechSynthesizer = New-Object ¨CTypeName System.Speech.Synthesis.SpeechSynthesizer;$SpeechSynthesizer.Speak("%0")' &}
+        }
+    }
+}
+
+#EVENT {SESSION CONNECTED}
+{
+     #variable TELNET[IAC]  \xFF;
+     #variable TELNET[DO]   \xFD;
+     #variable TELNET[MSSP] \x46;
+     #config {packet patch} {1};
+     #config {connect retry} {0};
+     #variable HOST {%1};
+     #variable IP {%2};
+     #variable MSSP_PORT {%3};
+     #loop {1} {&vars[]} {cnt}
+     {
+          #variable {$vars[$cnt]} {}
+     }
+}
+
+#VARIABLE {vars}
+{
+     {1} {PLAYERS}
+     {2} {UPTIME}
+     {3} {HOSTNAME}
+     {4} {PORT}
+     {5} {CRAWL DELAY}
+     {6} {CODEBASE}
+     {7} {CONTACT}
+     {8} {CREATED}
+     {9} {ICON}
+     {10} {IP}
+     {11} {LANGUAGE}
+     {12} {LOCATION}
+     {13} {MINIMUM AGE}
+     {14} {NAME}
+     {15} {WEBSITE}
+     {16} {FAMILY}
+     {17} {GENRE}
+     {18} {GAMEPLAY}
+     {19} {GAMESYSTEM}
+     {20} {INTERMUD}
+     {21} {STATUS}
+     {22} {SUBGENRE}
+     {23} {AREAS}
+     {24} {HELPFILES}
+     {25} {MOBILES}
+     {26} {OBJECTS}
+     {27} {ROOMS}
+     {28} {CLASSES}
+     {29} {LEVELS}
+     {30} {RACES}
+     {31} {SKILLS}
+     {32} {ANSI}
+     {33} {GMCP}
+     {34} {MCCP}
+     {35} {MCP}
+     {36} {MSDP}
+     {37} {MSP}
+     {38} {MXP}
+     {39} {PUEBLO}
+     {40} {UTF-8}
+     {41} {VT100}
+     {42} {XTERM 256 COLORS}
+     {43} {PAY TO PLAY}
+     {44} {PAY FOR PERKS}
+     {45} {HIRING BUILDERS}
+     {46} {HIRING CODERS}
+}
+#VARIABLE {nums}
+{
+     {ANSI} {}
+     {AREAS} {}
+     {CLASSES} {}
+     {CRAWL DELAY} {}
+     {CREATED} {}
+     {GMCP} {}
+     {HELPFILES} {}
+     {HIRING BUILDERS} {}
+     {HIRING CODERS} {}
+     {LEVELS} {}
+     {MCCP} {}
+     {MCP} {}
+     {MINIMUM AGE} {}
+     {MOBILES} {}
+     {MSDP} {}
+     {MSP} {}
+     {MXP} {}
+     {OBJECTS} {}
+     {PAY FOR PERKS} {}
+     {PAY TO PLAY} {}
+     {PUEBLO} {}
+     {RACES} {}
+     {ROOMS} {}
+     {SKILLS} {}
+     {UTF-8} {VT100}
+     {XTERM 256 COLORS} {}
+}
+#EVENT {IAC WILL MSSP}
+{
+     #send {$TELNET[IAC]$TELNET[DO]$TELNET[MSSP]\}
+}
+
+#EVENT {IAC SB MSSP}
+{
+     mssp_var {%0} {%1}
+}
+
+#EVENT {IAC SB MSSP IAC SE}
+{
+     #delay {0.5}{#showme {<178>Legend: <118>## <178>Incorrect data  <138>## <178>Incorrect capitalization  <168>## <178>Unknown data (possibly correct)};display}
+}
+
+#VARIABLE {families}
+{
+     {AberMUD} {}
+     {CoffeeMUD} {}
+     {Custom} {}
+     {DikuMUD} {}
+     {LPMud} {}
+     {MOO} {}
+     {MajorMUD} {}
+     {Mordor} {}
+     {Rapture} {}
+     {SocketMUD} {}
+     {TinyMUD} {}
+}
+#VARIABLE {genres}
+{
+     {Adult} {}
+     {Fantasy} {}
+     {Historical} {}
+     {Horror} {}
+     {Modern} {}
+     {None} {}
+     {Science Fiction} {}
+}
+#VARIABLE {gameplay}
+{
+     {Adventure} {}
+     {Educational} {}
+     {Hack and Slash} {}
+     {None} {}
+     {Player versus Player} {}
+     {Roleplaying} {}
+     {Simulation} {}
+     {Social} {}
+     {Strategy} {}
+}
+#VARIABLE {locations}
+{
+     {Australia} {}
+     {Belgium} {}
+     {Canada} {}
+     {China} {}
+     {Denmark} {}
+     {Estonia} {}
+     {Finland} {}
+     {France} {}
+     {Germany} {}
+     {Ireland} {}
+     {Japan} {}
+     {Mexico} {}
+     {Netherlands} {}
+     {New Zealand} {}
+     {Norway} {}
+     {Portugal} {}
+     {South Africa} {}
+     {Spain} {}
+     {Sweden} {}
+     {United Kingdom} {}
+     {United States} {}
+}
+#VARIABLE {languages}
+{
+     {Belgian} {}
+     {Chinese} {}
+     {Danish} {}
+     {Dutch} {}
+     {English} {}
+     {Finnish} {}
+     {French} {}
+     {German} {}
+     {Japanese} {}
+     {Norwegian} {}
+     {Spanish} {}
+     {Swedish} {}
+}
+#VARIABLE {networks}
+{
+     {I3} {}
+     {IMC2} {}
+}
+#VARIABLE {status}
+{
+     {Alpha} {}
+     {Closed Beta} {}
+     {Live} {}
+     {Open Beta} {}
+}
+#VARIABLE {subgenres}
+{
+     {Adventure} {}
+     {Ancient Rome} {}
+     {Anime} {}
+     {Dark Fantasy} {}
+     {Discworld} {}
+     {High Fantasy} {}
+     {Medieval Fantasy} {}
+     {Medieval Mythical} {}
+     {Multiverse} {}
+     {Mythical Fantasy} {}
+     {Naruto} {}
+     {None} {}
+     {Pokemon} {}
+     {Post-Apocalyptic} {}
+     {Pulp} {}
+     {Space Opera} {}
+     {Star Wars} {}
+     {Time Travel} {}
+     {World of Darkness} {}
+}
+#VARIABLE {UPTIME_ORIGINAL} {}
+
+#FUNCTION {chainlink}
+{
+     #variable result {};
+     #loop {1} {&%0[]} {cnt}
+     {
+          #if {$cnt == 1}
+          {
+               #variable result $%0[$cnt]
+          };
+          #else
+          {
+               #variable result $result, $%0[$cnt]
+          }
+     }
+}
+
+#ALIAS {display}
+{
+     #variable index 0;
+     #if {"$INTERMUD" != ""}
+     {
+          #variable INTERMUD @chainlink{INTERMUD}
+     };
+     #if {"$PORT" != ""}
+     {
+          #variable PORT @chainlink{PORT}
+     };
+     #else
+     {
+          #variable PORT $MSSP_PORT
+     };
+     #variable cnt 0;
+     #showme {\n\};
+     #showme {<088>};
+     #variable temp {};
+     #loop {1} {&vars[]} {cnt}
+     {
+          #variable var $vars[$cnt];
+          #variable color <178>;
+          #if {&nums[$var]}
+          {
+               #regexp {${$var}} {^%s{-|}%d%s$}
+               {
+                    #nop
+               };
+               #else
+               {
+                    #variable color <118>
+               }
+          };
+          #elseif {"$var" == "FAMILY"}
+          {
+               #if {&families[$FAMILY] == 0}
+               {
+                    #if {&families[%i$FAMILY] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "GAMEPLAY"}
+          {
+               #if {&gameplay[$GAMEPLAY] == 0}
+               {
+                    #if {&gameplay[%i$GAMEPLAY] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "GENRE"}
+          {
+               #if {&genres[$GENRE] == 0}
+               {
+                    #if {&genres[%i$GENRE] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "HOSTNAME"}
+          {
+               #if {"$HOST" != "%*$HOSTNAME%*" && "$HOST" != "%*localhost%*"}
+               {
+                    #if {"$HOST" != "%i%*$HOSTNAME%*"}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "IP"}
+          {
+               #if {"$IP" == "127.0.0.1"}
+               {
+                    #variable color <118>
+               }
+          };
+          #elseif {"$var" == "LANGUAGE"}
+          {
+               #if {&languages[$LANGUAGE] == 0}
+               {
+                    #if {&languages[%i$LANGUAGE] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "LOCATION"}
+          {
+               #if {&locations[$LOCATION] == 0}
+               {
+                    #if {&locations[%i$LOCATION] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "STATUS"}
+          {
+               #if {&status[$STATUS] == 0}
+               {
+                    #if {&status[%i$STATUS] == 0}
+                    {
+                         #variable color <118>
+                    };
+                    #else
+                    {
+                         #variable color <138>
+                    }
+               }
+          };
+          #elseif {"$var" == "SUBGENRE"}
+          {
+               #if {&subgenres[$SUBGENRE] == 0}
+               {
+                    #if {&subgenres[%i$SUBGENRE] == 0}
+                    {
+                         #variable color <168>
+                    };
+                    #else
+                    {
+                         #variable color <168>
+                    }
+               }
+          };
+          #elseif {"$var" == "UPTIME"}
+          {
+               #if {"$UPTIME" == ""}
+               {
+                    #variable color <118>;
+                    #variable {UPTIME} {$UPTIME_ORIGINAL}
+               }
+          };
+          #elseif {"$var" == "PLAYERS"}
+          {
+               #if {"$PLAYERS" == ""}
+               {
+                    #variable color <118>;
+                    #variable {PLAYERS} {0}
+               }
+          };
+          #elseif {"$var" == "ICON"}
+          {
+               #if {"$ICON" != "http%*"}
+               {
+                    #variable color <118>
+               }
+          };
+          #elseif {"$var" == "WEBSITE"}
+          {
+               #if {"$WEBSITE" != "http%*"}
+               {
+                    #variable color <118>
+               }
+          };
+          #format {temp} {<128>%+17s%s%+61s } {$var} {$color} {${$var}};
+          #showme {$temp}
+     }
+}
+
+#ALIAS {mssp_var}
+{
+     #if {"%1" == "UPTIME"}
+     {
+          #variable UPTIME_ORIGINAL {%2};
+          #if {"%2" != "%d"}
+          {
+               #variable {UPTIME} {}
+          };
+          #elseif {%2 < 1234567890 || %2 > 2345678901}
+          {
+               #variable {UPTIME} {}
+          };
+          #else
+          {
+               #format TIME %T;
+               #math TIME $TIME - %2;
+               #format {%1} {%m} {0.0 + $TIME / (60 * 60 * 24)}
+          }
+     };
+     #else
+     {
+          #if {"%2" == ""}
+          {
+               #nop
+          };
+          #else
+          {
+               #if {"%1" == "PORT"}
+               {
+                    #list {%1} {ins} {1} {%2}
+               };
+               #else
+               {
+                    #if {"%1" == "INTERMUD" || "%1" == "PORT"}
+                    {
+                         #if {&networks[%2] == 0}
+                         {
+                              #list {%1} {ins} {1} {<168>%2<178>}
+                         };
+                         #else
+                         {
+                              #list {%1} {ins} {1} {%2}
+                         }
+                    };
+                    #else
+                    {
+                         #format {%1} {%p} {%2}
+                    }
+               }
+          }
+     }
+}

@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-31 14:13:11
- * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-01 08:43:08
+ * @FilePath: /mysticism-mud/inherit/living/mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -17,12 +17,12 @@ protected mapping mxp_support_info;
 
 void MXP_test_init()
 {
-    MXP_write("<VERSION>");
+    MXP_write("VERSION");
 }
 
 void MXP_support_init()
 {
-    MXP_write("<SUPPORT>");
+    MXP_write("SUPPORT");
 
 }
 
