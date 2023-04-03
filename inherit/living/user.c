@@ -59,5 +59,5 @@ int into_cur_fight(object fob)
 {
     fight_ob = fob;
     if(fob != 0)
-        write(HBYEL "你已进入战斗状态!\n" NOR);
+        write(HBYEL "你已进入战斗状态!"NOR"\n");
 }

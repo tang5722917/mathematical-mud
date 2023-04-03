@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 14:37:50
+ * @LastEditTime: 2023-04-03 19:59:57
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  * 
@@ -31,9 +31,10 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     fight_round=0;
     if((ob1 !=0) && (ob2!=0))
     {
-        message("FIG",BRED "                                               
-                开始战斗！                     
-                                               " NOR,ob1+ob2);
+        message("FIG",BRED"                                                      "NOR+"\n"+
+                      BRED"                       开始战斗！                     "NOR"\n"
+                      BRED"                                                      "NOR"\n",
+        ob1+ob2);
     }
     else return ;
     if(fight_type == FIGHT_PVE){    //单个玩家对抗单个NPC PVE战斗
