@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-14 17:52:37
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 19:32:36
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-03 08:19:02
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
  * @Description: 新手引导的战斗过程对象
  * 
@@ -15,13 +15,11 @@ object mys;
 
 string * fight_init_user(object user)
 {   
-    
     string * str=({});
     str +=({"突然感觉体内涌现一股神秘的力量！"});
     mys = new(MYSTIC_PATH "other/mystic_init_help");
     user->add_mystic(mys);
     str +=({"同时脑海中有一个清晰的声音响起——“你要准备开始战斗”"});
-    str += 
     user->update_mystic();
     return str;
 }

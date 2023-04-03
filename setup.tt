@@ -1,17 +1,17 @@
-#nop ????tt????
+#nop 诡秘世界tt启动脚本
 
 #alias username mysticism
 #alias password 12345
 
-#nop ?? IP/???
-#ses mysticism-mud 127.0.0.1 2023;
+#nop 设置MUDLIB IP地址/PORT
+#ses mysticism-mud 127.0.0.1 2023
 
 #nop #event {SCREEN RESIZE} {#split};
 #split;
 
-#action {^_^!???????ID:} {username}
-#action {??????} {password}
-
+#ACTION {你感到有些头晕，} {
+     ask
+}
 
 #config mouse on
 
@@ -211,7 +211,7 @@
         {
             #nop $SpeechSynthesizer.SelectVoice("Microsoft Zira Desktop");
             #nop $SpeechSynthesizer.rate=6;
-            #system {powershell.exe -c 'Add-Type –AssemblyName System.Speech;$SpeechSynthesizer = New-Object –TypeName System.Speech.Synthesis.SpeechSynthesizer;$SpeechSynthesizer.Speak("%0")' &}
+            #system {powershell.exe -c 'Add-Type ¨CAssemblyName System.Speech;$SpeechSynthesizer = New-Object ¨CTypeName System.Speech.Synthesis.SpeechSynthesizer;$SpeechSynthesizer.Speak("%0")' &}
         }
     }
 }

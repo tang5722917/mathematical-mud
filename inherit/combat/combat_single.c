@@ -36,6 +36,26 @@ void create(object o1,object o2,object env)
     ob1 = o1;
     ob2 = o2;
     fight_env = env;
+    //战斗过程信息
+    fight_info = ({});
+    //ob1 手牌序列， PVE中的玩家
+    ob1_card = ({});
+    //ob2 手牌序列， PVE中的电脑
+    ob2_card = ({});
+    //ob1 状态序列， PVE中的玩家
+    ob1_status = ({});
+    //ob2 状态序列， PVE中的电脑
+    ob2_status = ({});
+    //ob1 装备序列， PVE中的玩家
+    ob1_equip = ({});
+    //ob2 装备序列， PVE中的电脑
+    ob2_equip = ({});
+    //ob1 召唤物序列， PVE中的玩家
+    ob1_summon = ({});
+    //ob2 召唤物序列， PVE中的电脑
+    ob2_summon = ({});
+    //公共物序列
+    env_obj = ({});    
 }
 //定义玩家的初始行为
 string * fight_init_user(object user){return 0;}

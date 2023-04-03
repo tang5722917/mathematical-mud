@@ -1,6 +1,6 @@
 @echo off
 color 02
-title X@Mud.Ren
+title MYSTICISM
 ::ª∑æ≥≈‰÷√
 set MUDLIB="%cd%"
 set DRIVER="%cd%\bin\driver.exe"
