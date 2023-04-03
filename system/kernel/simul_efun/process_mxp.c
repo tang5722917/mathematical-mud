@@ -1,17 +1,14 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:48:21
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-01 08:53:16
- * @FilePath: /mysticism-mud/system/kernel/simul_efun/process_mxp.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-03 11:39:43
+ * @FilePath: \mysticism-mud\system\kernel\simul_efun\process_mxp.c
  * @Description: MXP的 sefun
  *
  * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
-
-#ifndef MXP_H
 #include <mxp.h>
-#endif
 
 /*
 **   Function: process_mxp
@@ -97,4 +94,20 @@ public string process_mxp(string msg, int does_mxp) {
         }
     }
     return implode(processed_lines, "\n");
+}
+
+void MXP_write(string arg)
+{
+    if(USER_MXP)
+        efun::write(process_mxp(MXPTAG(arg), QueryMXP()));
+    else
+        efun::write(arg);
+}
+
+void MXP_message(string typ,string msg,object ob)
+{
+    if(USER_MXP)
+        message(typ,process_mxp(MXPTAG(msg),QueryMXP()),ob);
+    else
+        message(typ,msg,ob);
 }

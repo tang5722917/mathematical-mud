@@ -23,6 +23,9 @@
 #define MXP_ENDc '\x04'
 #define MXP_AMPc '\x05'
 
+#define Enable_MXP 1
+#define Disable_MXP 0
+
 /* constructs an MXP tag with < and > around it */
 
 #define MXPTAG(arg) sprintf("%s%s%s", MXP_BEG, arg, MXP_END)
@@ -30,9 +33,7 @@
 #define ESC1 "\x1B"  /* esc character */
 
 #define MXPMODE(arg) sprintf("%s[%dz", ESC1, arg)
-#define MXP_write(arg) efun::write(process_mxp(MXPTAG(arg), QueryMXP()))
-#define USER_MXP this_player()->mxp_status()
+#define USER_MXP this_player()->get_mxp_enable()
 
-#define MXP_message(typ,msg,ob) message(typ,process_mxp(MXPTAG(msg),QueryMXP()),ob)
-
+#define send_MXP(arg) efun::write(process_mxp(MXPTAG(arg), QueryMXP()));
 #endif // MXP_H

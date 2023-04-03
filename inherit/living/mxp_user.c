@@ -1,28 +1,29 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-01 08:43:08
- * @FilePath: /mysticism-mud/inherit/living/mxp_user.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-03 13:28:53
+ * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <mxp.h>
-#include <msp.h>
 #include <ansi.h>
+
+protected int mxp_enable;
 
 protected mapping mxp_version_info;
 protected mapping mxp_support_info;
 
 void MXP_test_init()
 {
-    MXP_write("VERSION");
+  send_MXP("VERSION");
 }
 
 void MXP_support_init()
 {
-    MXP_write("SUPPORT");
+  send_MXP("SUPPORT");
 
 }
 
@@ -55,4 +56,14 @@ int mxp_status()
 void MXP_info_get(string arg)
 {
 
+}
+
+void set_mxp_enable(int status)
+{
+    mxp_enable = status;
+}
+
+int get_mxp_enable()
+{
+    return mxp_enable;
 }

@@ -1,12 +1,13 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-28 00:12:46
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-01 07:40:45
- * @FilePath: /mysticism-mud/system/obj/start_mxp.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-03 11:58:10
+ * @FilePath: \mysticism-mud\system\obj\start_mxp.c
  * @Description: 玩家登录MXP检查
  * Copyright (c) 2023 by Tangzp email: tang5722917@163.com, All Rights Reserved.
  */
+#include <mxp.h>
 
 inherit _CONDITION_MOD;
 
@@ -27,18 +28,25 @@ void heart_beat_effect(object ob)
 // 结束状态时的效果
 void stop_effect(object ob)
 {
-#ifdef DEBUG_MYSTICISM
     mapping m;
-    string s;
+    ob->set_mxp_enable(Enable_MXP);
     m = ob->QueryMXPVersion();
-    if( sizeof(m)== 0 )
+    if( (sizeof(m)== 0) && USER_MXP)
     {
-        message("Info","目前客户端不支持MXP\n",ob);
+        message("Info","当前客户端不支持MXP\n",ob);
         return;
     }
-    s = m[1];
-    message("Info",s,ob);
-    s = ob->QueryMXPSupportInfo()[1];
-    message("Info",s,ob);
+    else
+        message("Info","当前客户端支持MXP\n",ob);
+#ifdef DEBUG_MYSTICISM
+    message("Info",m[1],ob);
+#endif
+    m = ob->QueryMXPSupportInfo();
+#ifdef DEBUG_MYSTICISM
+    if( sizeof(m)== 0)
+    {
+        return;
+    }
+    message("Info",m[1],ob);
 #endif
 }
