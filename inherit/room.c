@@ -10,7 +10,12 @@
  */
 inherit CORE_ROOM;
 inherit CORE_STD_TEST;
-protected int room_type=0;
+
+int get_room_type()
+{
+    return 0;
+}
+
 
 // 设置环境区域和坐标
 varargs void setArea(mixed area, int x, int y, int z, string name)
@@ -56,11 +61,6 @@ string Room_name()
     return sprintf("(%s)", name);
 }
 
-int get_room_type()
-{
-    return room_type;
-}
-
 int obs_num_in_room()
 {
     mapping obs;
@@ -79,8 +79,3 @@ object ob_in_room(string id)
     }
     return 0;
 }
-
-
-
-
-

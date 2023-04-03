@@ -44,6 +44,7 @@
 #define CORE_STD_TEST           PATH_DIR "inherit/test"
 #define CORE_STD_FIGHT_S        PATH_DIR "inherit/combat/combat_single"
 #define CORE_STD_FIGHT_M        PATH_DIR "inherit/combat/combat_multi"
+#define CORE_STD_SCRIPT         PATH_DIR "inherit/combat/combat_script"
 #define CORE_STD_CARD           PATH_DIR "inherit/card"
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living/living"

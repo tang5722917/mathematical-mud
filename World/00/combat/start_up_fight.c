@@ -2,9 +2,9 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-14 17:52:37
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 18:51:08
+ * @LastEditTime: 2023-04-03 19:03:34
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
- * @Description: 新手引导的战斗过程对象
+ * @Description: 新手引导的战斗对象
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
