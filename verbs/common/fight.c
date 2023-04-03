@@ -39,13 +39,25 @@ mixed do_fight_str(string str)
     ob = object_search_env(str,env);
     if (ob != 0)
     {
-        write("你向"+ob->honor_name(me,ob)+"发动攻击\n");
-        ob2 = ob->fight(me,ob);
-        ob1 = me->fight(me,ob);
-        fob = new(FIGHT_D,ob1,ob2,0,env);
-        me->into_cur_fight(fob);
-        return 1;
+        if(ob->is_fight_living()||
+        (me->query_status(file_name(ob)))&2
+        ||(me->temp_query_status(file_name(ob))&2))
+        {
+            write("状态"+ob->is_fight_living()+me->query_status(file_name(ob))+me->temp_query_status(file_name(ob))+"\n");
+            write("你向"+ob->honor_name(me,ob)+"发动攻击\n");
+            ob2 = ob->fight(me,ob);
+            ob1 = me->fight(me,ob);
+            fob = new(FIGHT_D,ob1,ob2,0,env);
+            me->into_cur_fight(fob);
+            return 1;
+        }
+        else
+        {
+            write("你想要攻击谁？\n");
+            return 0;
+        }
     }
+    write("你想要攻击谁？\n");
     return 0;
 }
 

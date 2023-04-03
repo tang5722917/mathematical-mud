@@ -50,6 +50,7 @@ void set_visible(int is_visible)
     living_visible = is_visible;
 }
 
+
 //look 接口函数，处理被look事件
 void look(object me,object env){}
 
@@ -82,6 +83,3 @@ void remove()
 {
     destruct(this_object());
 }
-
-
-

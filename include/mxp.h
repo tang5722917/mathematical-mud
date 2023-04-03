@@ -34,6 +34,7 @@
 
 #define MXPMODE(arg) sprintf("%s[%dz", ESC1, arg)
 #define USER_MXP this_player()->get_mxp_enable()
+#define MXP_USER(arg) arg->get_mxp_enable()
 
 #define send_MXP(arg) efun::write(process_mxp(MXPTAG(arg), QueryMXP()));
 #endif // MXP_H

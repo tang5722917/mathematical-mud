@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-31 19:17:44
+ * @LastEditTime: 2023-04-03 14:35:15
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗的基础类
  *               具体战斗继承该类
@@ -10,9 +10,9 @@
  */
 
 #include <ansi.h>
+#include  <combat.h>
 inherit INHERIT_PATH "combat/combat_base";
-#define USER 0
-#define ENV 1
+
 
 //战斗过程颜色控制
 string * print_color_fig(string * str,int type)

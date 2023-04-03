@@ -44,13 +44,3 @@ int is_quit_fight()
 int fight_end(object ob)
 {  
 }
-
-void print_fight_UI(string msg)
-{
-    MXP_message("FIG",msg,ob1);
-}
-
-void print_fight(string msg)
-{
-    message("FIG",msg,ob1);
-}

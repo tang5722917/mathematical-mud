@@ -2,16 +2,17 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 17:53:39
- * @FilePath: \mysticism-mud\inherit\status.c
+ * @LastEditTime: 2023-04-03 15:21:09
+ * @FilePath: \mysticism-mud\inherit\living\status.c
  * @Description: 玩家状态类
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
-
+//            0  ->  8
+//| VISIBLE | FIGHT | Get |
 #define VISIBLE 1   //不可见的object可见
 #define FIGHT   3   //不可战斗的object可以战斗
-#define GET     5  //不可获取的object可以获取
+#define GET     7  //不可获取的object可以获取
 
 protected mapping user_cur_status;
 protected nosave mapping temp_user_cur_status;
@@ -88,4 +89,3 @@ mixed modify_user_status(string status_name,int value,int type)
     else
     return me->temp_set_status(status_name, value);
 }
-
