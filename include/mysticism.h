@@ -34,6 +34,7 @@
 #define MYSTICISM_FIGHT_D  PATH_DIR "system/daemons/combat_d"
 #define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
 /* inherit 特性文件 */
+#define CORE_STD_PRE            PATH_DIR "inherit/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
 #define CORE_STD_PERSON         PATH_DIR "inherit/living/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/living/person_npc"

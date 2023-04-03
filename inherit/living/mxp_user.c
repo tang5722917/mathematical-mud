@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 13:28:53
+ * @LastEditTime: 2023-04-03 17:11:54
  * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
@@ -19,6 +19,7 @@ protected mapping mxp_support_info;
 void MXP_test_init()
 {
   send_MXP("VERSION");
+  write("\n");
 }
 
 void MXP_support_init()
@@ -28,9 +29,17 @@ void MXP_support_init()
 }
 
 public void SetMXPVersion(string s) {
+    string * str;
     if (!mxp_version_info)
         mxp_version_info = ([]);
     mxp_version_info[1] = s;
+    str=explode(s, " ");
+    if(sizeof(str)==3)
+    {
+        mxp_version_info["MXP"]=str[0][4..strlen(str[0])-1];
+        mxp_version_info["CLIENT"]=str[1][7..strlen(str[1])-1];
+        mxp_version_info["VERSION"]=str[2][8..strlen(str[2])-1];
+    }
     MXP_support_init();
 }
 

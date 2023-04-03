@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-14 17:52:37
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-03 08:19:02
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-03 18:51:08
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
  * @Description: 新手引导的战斗过程对象
  * 
@@ -12,7 +12,6 @@
 #include <game_world.h> 
 inherit CORE_STD_FIGHT_S;
 object mys;
-
 string * fight_init_user(object user)
 {   
     string * str=({});

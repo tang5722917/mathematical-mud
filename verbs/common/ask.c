@@ -38,10 +38,21 @@ mixed do_ask_str(string str)
     ob = object_search_env(str,env);
     if (ob != 0)
     {
-        msg("MAG", "$ME向"+ob->honor_name(me,ob)+"提出疑问。", me,ob);
-        ob->answer(me,env);
-        return 1;
+        if(ob->is_visible()
+        ||(me->query_status(file_name(ob)))&1
+        ||(me->temp_query_status(file_name(ob))&1))
+        {
+            msg("MAG", "$ME向"+ob->honor_name(me,ob)+"提出疑问。", me,ob);
+            ob->answer(me,env);
+            return 1;
+        }
+        else
+        {
+            write("你想要询问谁？\n");
+            return 0;
+        }
     }
+    write("你想要询问谁？\n");
     return 0;
 }
 

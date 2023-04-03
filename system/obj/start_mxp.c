@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-28 00:12:46
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 11:58:10
+ * @LastEditTime: 2023-04-03 17:11:19
  * @FilePath: \mysticism-mud\system\obj\start_mxp.c
  * @Description: 玩家登录MXP检查
  * Copyright (c) 2023 by Tangzp email: tang5722917@163.com, All Rights Reserved.
@@ -29,9 +29,15 @@ void heart_beat_effect(object ob)
 void stop_effect(object ob)
 {
     mapping m;
-    ob->set_mxp_enable(Enable_MXP);
     m = ob->QueryMXPVersion();
-    if( (sizeof(m)== 0) && USER_MXP)
+    if((sizeof(m)== 0)){
+        ob->set_mxp_enable(Disable_MXP);}
+    else
+    {
+        if(m["CLIENT"] =="Mudlet")
+            ob->set_mxp_enable(Enable_MXP);
+    }
+    if(!MXP_USER(ob))
     {
         message("Info","当前客户端不支持MXP\n",ob);
         return;

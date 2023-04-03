@@ -38,10 +38,21 @@ mixed do_search_str(string str)
     ob = object_search_env(str,env);
     if (ob != 0)
     {
-        msg("MAG", "$ME开始调查"+ob->short(), me,ob);
-        ob->search(me,env);
-        return 1;
+        if(ob->is_visible()
+        ||(me->query_status(file_name(ob)))&1
+        ||(me->temp_query_status(file_name(ob))&1))
+        {
+            msg("MAG", "$ME开始调查"+ob->short(), me,ob);
+            ob->search(me,env);
+            return 1;
+        }
+        else
+        {
+            write("你想要调查谁？\n");
+            return 0;
+        }
     }
+    write("你想要调查谁？\n");
     return 0;
 }
 

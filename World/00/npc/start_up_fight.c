@@ -42,3 +42,8 @@ string combat_env(object env)
 {
     return PATH_00_FIG "start_up_fight";
 }
+
+string honor_name(object me,object ob)
+{
+    return "模糊的光团";
+}

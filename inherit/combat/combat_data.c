@@ -21,10 +21,9 @@ protected object *ob2_summon;
 //公共物序列
 protected object *env_obj;
 
-/*
+
 string add_card(object *ob, object o)
 {
     ob += ({o});
     return "获得能力牌："+ o->card_name();
 }
-*/
