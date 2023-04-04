@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 14:35:15
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-04 08:42:38
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗的基础类
  *               具体战斗继承该类
@@ -51,10 +51,10 @@ string print_line(object *ob)
     int line_num = num / 6;
     string *str=allocate(6,"");
     if(num == 0)
-        return sprintf(" |%-50s| \n", "");
+        return sprintf(" |%-51s| \n", "");
     else
     {
-        return sprintf(" |%-9s%-8s%-8s%-8s%-8s%-9s| \n", str[0], str[1], str[2], str[3], str[4], str[5]);
+        return sprintf(" |%-9s%-8s%-8s%-8s%-9s%-9s| \n", str[0], str[1], str[2], str[3], str[4], str[5]);
     }
 }
 
@@ -62,23 +62,23 @@ string ob2_status(object ob2)
 {
     string msg;
     msg = HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += sprintf(" |%-50s| \n", "");
+    msg += sprintf(" |%-51s| \n", "");
     return msg;
 }
 
 string ob2_equip(object ob2)
 {
     string msg;
-    msg = " |--------------------------------------------------| \n" NOR;
-    msg += sprintf(" |%-50s| \n", "");
+    msg = " |---------------------------------------------------| \n" NOR;
+    msg += sprintf(" |%-51s| \n", "");
     return msg;
 }
 
 string ob2_cards(object ob2)
 {
     string msg;
-    msg = " |--------------------------------------------------| \n" NOR;
-    msg += sprintf(" |%-50s| \n", "对方手牌状态：未知");
+    msg = " |---------------------------------------------------| \n" NOR;
+    msg += sprintf(" |%-51s| \n", "对方手牌状态：未知");
     return msg;
 }
 
@@ -87,9 +87,9 @@ string out_area()
     string msg;
     msg = HIR "≡" HIR "----------------------------------------------------" HIR "≡\n" NOR;
     msg += print_line(ob2_summon);
-    msg += GRN " ----------------------------------------------------"  "\n" NOR;
+    msg += GRN " -----------------------------------------------------"  "\n" NOR;
     msg += print_line(env_obj);
-    msg += GRN" ----------------------------------------------------"  "\n" NOR;
+    msg += GRN" -----------------------------------------------------"  "\n" NOR;
     msg += print_line(ob1_summon);
     msg += HIR "≡" HIR "----------------------------------------------------" HIR "≡\n" NOR;
     return msg;
@@ -99,7 +99,7 @@ string ob1_cards(object ob1)
 {
     string msg;
     msg = print_line(ob1_card);
-    msg += " |--------------------------------------------------| \n" NOR;
+    msg += " |---------------------------------------------------| \n" NOR;
     return msg;
 }
 string ob1_equip(object ob1)
@@ -113,7 +113,7 @@ string ob1_equip(object ob1)
 string ob1_status(object ob1)
 {
     string msg;
-    msg = sprintf(" |%-22s%-14s%-14s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
+    msg = sprintf(" |%-22s%-14s%-15s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
     ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"));
     msg += print_line(ob1_status);
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;

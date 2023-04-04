@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 19:59:57
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-04 08:43:11
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  * 
@@ -33,7 +33,7 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     {
         message("FIG",BRED"                                                      "NOR+"\n"+
                       BRED"                       开始战斗！                     "NOR"\n"
-                      BRED"                                                      "NOR"\n",
+                      BRED"                                                      "NOR,
         ob1+ob2);
     }
     else return ;
