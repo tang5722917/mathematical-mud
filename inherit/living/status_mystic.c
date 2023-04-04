@@ -2,13 +2,13 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-24 19:31:18
+ * @LastEditTime: 2023-04-04 19:34:40
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
  * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
-
+#include <mxp.h>
 //存储非凡状态对象
 nosave protected object * living_mystic = allocate(11);
 //存储非凡状态编号
@@ -64,4 +64,14 @@ void update_mystic()
             living_mystic[i]->update_init_value(this_object());
         }
     }
+}
+
+string living_mystic_name()
+{
+    for(int i=0;i<=10;i++)
+    {
+        if(living_mystic[i]!=0)
+            return living_mystic[i]->print_mxp_name(MYSTIC);
+    }
+    return "无";
 }

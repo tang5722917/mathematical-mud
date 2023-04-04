@@ -2,8 +2,8 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-21 01:36:07
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-24 19:14:05
- * @FilePath: \mysticism-mud\World\base\mystic\other\mystic_init_help.c
+ * @LastEditTime: 2023-04-04 18:57:48
+ * @FilePath: \mysticism-mud\World\00\mystic\mystic_init_help.c
  * @Description:  初始新手指引中的非凡特性
  *                用于新手指引与测试开发
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved.
@@ -20,6 +20,11 @@ int mystic_rank()
 {
     return 10;
 }
+
+//非凡特性名称
+string mystic_name(){return "????";}
+//非凡特性short 介绍
+string mystic_short(){return "感觉身体上由一股莫名其妙的力量";}
 
 //定义非凡特性对数值的影响
 //hp

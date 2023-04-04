@@ -37,4 +37,10 @@
 #define MXP_USER(arg) arg->get_mxp_enable()
 
 #define send_MXP(arg) efun::write(process_mxp(MXPTAG(arg), QueryMXP()));
+
+#define MYSTIC   1
+#define CARD     2
+#define STATUS   3
+#define PROPERTY 4
+
 #endif // MXP_H

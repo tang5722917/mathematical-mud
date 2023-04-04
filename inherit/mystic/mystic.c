@@ -2,13 +2,13 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-21 18:09:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-24 19:23:34
+ * @LastEditTime: 2023-04-04 18:35:31
  * @FilePath: \mysticism-mud\inherit\mystic\mystic.c
  * @Description:  非凡能力基础类
  *
  * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved.
  */
-
+inherit _MXP;
 inherit INHERIT_PATH "mystic/mystic_value";
 /*
 序列编号 1-22
@@ -48,3 +48,11 @@ int mystic_id()
         return rank_num()*10+rank;
     else return 1000+rank_num();
 }
+
+//非凡特性名称
+string mystic_name(){return "";}
+//非凡特性short 介绍
+string mystic_short(){return "";}
+
+string mxp_name(){return mystic_name();}
+string mxp_explain(){return mystic_short();}

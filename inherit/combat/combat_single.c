@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 16:42:21
+ * @LastEditTime: 2023-04-04 17:10:53
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -52,11 +52,8 @@ string * fight_init_env(object env){return 0;}
 string * fight_end_user(object user){return 0;}
 //定义电脑的战斗结束时行为
 string * fight_end_env(object env){return 0;}
-object get_player1()
-{
-    return ob1;
-}
-
+object get_player1(){return ob1;}
+object get_player2(){return ob2;}
 //结束战斗
 int fight_end(object ob)
 {

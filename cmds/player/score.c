@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-21 17:56:45
+ * @LastEditTime: 2023-04-04 19:35:35
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -10,7 +10,7 @@
  */
 inherit CORE_CLEAN_UP;
 #include <ansi.h>
-
+#include <mxp.h>
 
 int top_list(string ob1, string ob2)
 {
@@ -32,7 +32,7 @@ string score(object me)
 
     msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + me->short(),
-                   "主要职业：" + chinese(my["vocation"]));
+                   "职业：" + chinese(my["vocation"]));
     msg += sprintf(" |%-34s%-16s| \n", " 生日:" + ctime(my["birthday"]), "性别：" + my["gender"]);
     msg += sprintf(" |%-50s| \n", "");
     msg += " |--------------------------------------------------| \n" NOR;
@@ -41,7 +41,7 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_attr("str"), "敏捷：" + me->query_attr("agi"),"灵性：" + me->query_attr("sen"));
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_attr("int"), "疯狂：" + me->query_attr("cra"), "幸运：" + me->query_attr("luk"));
-    msg += sprintf(" |%-50s| \n", "非凡特性："+me->query_attr("mys"));
+    msg += sprintf(" |%-116s%-20s| \n", "非凡特性："+me->living_mystic_name(),"非凡点数："+me->query_attr("mys"));
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");
@@ -96,20 +96,23 @@ string score_detail(object me)
 
 int main(object me, string arg)
 {
-    string msg;
-
+    string msg="";
+    if( MXP_USER(me) )
+        msg ="<!ELEMENT UI FLAG='UI'>\n<UI>";
     switch (arg)
     {
     case "-s":
-        msg = score_hp(me);
+        msg += score_hp(me);
         break;
     case "-a":
-        msg = score_detail(me);
+        msg += score_detail(me);
         break;
     default:
-        msg = score(me);
+        msg += score(me);
     }
-    write(msg);
+    if(MXP_USER(me))
+        msg += "</UI>";
+    MXP_message("Status",msg,me);
     return 1;
 }
 
