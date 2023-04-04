@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 18:48:43
+ * @LastEditTime: 2023-04-04 15:35:07
  * @FilePath: \mysticism-mud\inherit\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -33,3 +33,28 @@ string ob_name()
         debug_message("[" + ctime() + "]错误的"+ob_name()+"对象调用");
     return o;
  }
+
+
+ int load_path_object(string path)
+ {
+    string * str;
+    string s;
+    str=deep_path_list(path);
+    foreach (s in str)
+    {
+        if(!load_object(s))
+        {
+            return 0;
+            debug_message("[" + ctime() + "]错误的"+ob_name()+"对象调用");
+        }
+    }
+    return 1;
+ }
+
+void ob_load_end(int n)
+{
+    if(n)
+        debug_message("[" + ctime() + "]成功完成"+ob_name()+"加载");
+    else
+        debug_message("[" + ctime() + "]"+ob_name()+"加载失败");
+}

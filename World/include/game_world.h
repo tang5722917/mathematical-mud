@@ -17,9 +17,10 @@
 #define MYSTIC_PATH PATH_DIR "World/base/mystic/"
 
  //0.x版本游戏内容路径
-#define PATH_00 PATH_DIR "World/00/"
-#define PATH_00_NPC PATH_DIR "World/00/npc/"
-#define PATH_00_MAP PATH_DIR "World/00/map/"
-#define PATH_00_PRO PATH_DIR "World/00/property/"
-#define PATH_00_FIG PATH_DIR "World/00/combat/"
-#define PATH_00_SCR PATH_DIR "World/00/script/"
+#define PATH_00      PATH_DIR "World/00/"
+#define PATH_00_NPC  PATH_DIR "World/00/npc/"
+#define PATH_00_MAP  PATH_DIR "World/00/map/"
+#define PATH_00_PRO  PATH_DIR "World/00/property/"
+#define PATH_00_FIG  PATH_DIR "World/00/combat/"
+#define PATH_00_SCR  PATH_DIR "World/00/script/"
+#define PATH_00_MYH  PATH_DIR "World/00/mystic/"

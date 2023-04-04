@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 14:59:02
+ * @LastEditTime: 2023-04-04 16:42:21
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  *                提供单人战斗的UI
@@ -16,7 +16,7 @@ inherit INHERIT_PATH "combat/combat_UI";
 
 nosave protected object ob1;
 nosave protected object ob2;
-nosave protected object fight_env;
+nosave protected object fight_env,script;
 
 void create(object o1,object o2,object env)
 {
@@ -61,6 +61,7 @@ object get_player1()
 int fight_end(object ob)
 {
     string * str;
+    script->combat_event_end(ob1,ob2);
     str = fight_end_user(ob1);
     {
         str = print_color_fig(str,USER);
@@ -76,9 +77,10 @@ int fight_end(object ob)
     return 1;
 }
 
-int fight_init()
+int fight_init(object scr)
 {
     string * str;
+    script = scr;
     str = ({"你的对手为："+ ob2->short()});
     fight_info += str;
     str = fight_init_user(ob1);
@@ -92,6 +94,7 @@ int fight_init()
         str = print_color_fig(str,ENV);
         fight_info += str;
     }
+    script->combat_event_init(ob1,ob2);
     fight_info += ({"新的回合开始"});
     return sizeof(fight_info);
 }
@@ -128,4 +131,9 @@ void print_fight_UI(string msg)
 void print_fight(string msg)
 {
     message("FIG",msg,ob1);
+}
+
+void next_round(int fight_round)
+{
+    message("FIG","第"+fight_round+"回合出牌开始",ob1);
 }

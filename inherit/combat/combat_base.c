@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 11:35:04
+ * @LastEditTime: 2023-04-04 16:42:04
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  *              提供战斗效果/结果的判定框架
@@ -20,7 +20,7 @@ varargs object set_combat_script(object *ob1,object *ob2,int fight_type,object e
     {
         if((sizeof(ob1)==1) &&(sizeof(ob2)==1))  //1V1 PVE
         {
-            return ob2[0]->combat_script(env,rank);
+            return find_object(ob2[0]->combat_script(env,rank));
         }
     }
 }
@@ -28,7 +28,7 @@ varargs object set_combat_script(object *ob1,object *ob2,int fight_type,object e
 string fight_main_UI(int fight_time,int fight_round){return "";}
 
 //战斗开始时，第0回合，初始接口
-int fight_init(){return 0;}
+int fight_init(object script){return 0;}
 
 string print_one_fight()
 {

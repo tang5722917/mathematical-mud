@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-04 18:27:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 11:43:38
+ * @LastEditTime: 2023-04-04 14:53:28
  * @FilePath: \mysticism-mud\World\world_create.c
  * @Description: 
  * 
@@ -18,11 +18,11 @@ void init_daemons()
 
 void init_base()
 {
-    load_object(PATH_BASE "world_base_create.c");
+    load_object(PATH_BASE "world_base_create");
 }
 void init_00()
 {
-    load_object(PATH_00 "world_00_create.c");
+    load_object(PATH_00 "world_00_create");
 }
 
 

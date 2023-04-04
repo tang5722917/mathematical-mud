@@ -2,10 +2,10 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 11:22:28
+ * @LastEditTime: 2023-04-04 16:43:42
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
- * 
+ *                每一场战斗由此对象建立
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
  */
 
@@ -42,7 +42,7 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
         {
             ob1 ->start_fight();
             combat = new(ob2[0]->combat_env(),ob1[0],ob2[0],env);
-            script = combat->set_combat_script(*ob1,*ob2,fight_type,env);
+            script = combat->set_combat_script(ob1,ob2,fight_type,env);
         }
         else return;
     }
@@ -55,7 +55,7 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     else {   // PVP 战斗
         ;  //TBD
     }
-    combat->fight_init();
+    combat->fight_init(script);
     set_heart_beat(1);
 }
 
@@ -71,8 +71,9 @@ int combat_event(object fig)
         if (str == "新的回合开始")
         {
             fig->print_fight_UI(combat->fight_main_UI(fight_time,fight_round));
-            fig->next_round();
             fight_round += 1;
+            fig->next_round(fight_round);
+            script->combat_process_round(fight_round,combat);
         }
     }
     return fight_round+1;
@@ -81,11 +82,13 @@ int combat_event(object fig)
 void heart_beat( void )
 {
     fight_time += 1;  //时间加1s
+    script->combat_process(fight_time,fight_round,combat);
     if (combat_event(combat) == 0)
     {
         combat->fight_end();
         destruct(this_object());
     }
+    script->combat_process_time(fight_time,combat);
 }
 
 object combat_object()
