@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-04 08:43:11
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-04 11:22:28
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  * 
@@ -10,20 +10,17 @@
  */
 
 inherit CORE_CLEAN_UP;
-
+#include <combat.h>
 #include <ansi.h>
 
-#define FIGHT_PVE 0
-#define FIGHT_PVP 1
-
 //战斗计时(秒)
-protected nosave int fight_time=0;
+protected nosave int fight_time;
 //战斗回合
-protected nosave int fight_round=0;
+protected nosave int fight_round;
 
 
 //战斗对象
-protected nosave object combat;
+protected nosave object combat,script;
 
 varargs void create(object *ob1,object *ob2,int fight_type,object env)
 {
@@ -45,10 +42,11 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
         {
             ob1 ->start_fight();
             combat = new(ob2[0]->combat_env(),ob1[0],ob2[0],env);
+            script = combat->set_combat_script(*ob1,*ob2,fight_type,env);
         }
         else return;
     }
-    else
+    else             //多人PVE战斗
     {
         if(env != 0 && ob2[0]->combat_env() != 0)
             combat = new(ob2[0]->combat_env(),CORE_STD_FIGHT_M,ob1,ob2,env);
@@ -97,6 +95,7 @@ object combat_object()
 
 void combat_end()
 {
+
     combat->fight_end();
     destruct(combat);
     write("退出战斗!\n");

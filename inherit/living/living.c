@@ -72,12 +72,10 @@ void setup()
     CHAR_D->setup(this_object());
 }
 
-//接口，定义该生物的战斗程序，具体由子类实现
-string combat_env(object env)
-{
-    return 0;
-}
-
+//接口，定义该生物的战斗类型，具体由子类实现
+string combat_env(object env){return 0;}
+//接口，定义该生物的战斗脚本，具体由子类实现
+string combat_env(object env，int rank){return 0;}
 // 从游戏中移除这个生物
 void remove()
 {

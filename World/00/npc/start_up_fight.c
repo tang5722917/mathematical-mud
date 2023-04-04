@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 17:39:39
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-27 19:35:57
+ * @LastEditTime: 2023-04-04 11:27:39
  * @FilePath: \mysticism-mud\World\00\npc\start_up_fight.c
  * @Description: 初始玩家战斗NPC
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -41,6 +41,11 @@ object * fight(object me,object ob)
 string combat_env(object env)
 {
     return PATH_00_FIG "start_up_fight";
+}
+
+string combat_script(object env,int rank)
+{
+    return PATH_00_SCR "start_up_fight";
 }
 
 string honor_name(object me,object ob)

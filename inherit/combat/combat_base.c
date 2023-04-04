@@ -2,15 +2,28 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 11:12:48
+ * @LastEditTime: 2023-04-04 11:35:04
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  *              提供战斗效果/结果的判定框架
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
 #include <mxp.h>
+#include <combat.h>
 
 inherit INHERIT_PATH "combat/combat_data";
+
+
+varargs object set_combat_script(object *ob1,object *ob2,int fight_type,object env,int rank)
+{
+    if(fight_type == FIGHT_PVE)   //PVE
+    {
+        if((sizeof(ob1)==1) &&(sizeof(ob2)==1))  //1V1 PVE
+        {
+            return ob2[0]->combat_script(env,rank);
+        }
+    }
+}
 
 string fight_main_UI(int fight_time,int fight_round){return "";}
 

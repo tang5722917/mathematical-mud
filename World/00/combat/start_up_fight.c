@@ -22,6 +22,7 @@ string * fight_init_user(object user)
     user->update_mystic();
     return str;
 }
+
 string * fight_init_env(object env)
 {
     string * str=({});
