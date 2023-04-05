@@ -20,7 +20,8 @@
 /* 游戏目录 */
 #define PATH_DIR "/"
 #define INHERIT_PATH     PATH_DIR "inherit/"
-#define SOUND    PATH_DIR "World/src/sound"     
+#define SOUND    PATH_DIR         "World/src/sound/"     
+#define WORLD_PATH                PATH_DIR "World/"
 // 游戏driver版本
 #define VERSION "0.0.1"
 
@@ -66,8 +67,8 @@
 #define COMMAND_D   MYSTICISM_COMMAND_D
 
 // START_ROOM   游戏出生点
-#define START_ROOM  PATH_DIR "World/00/start_room"
-#define Game_World  PATH_DIR "World/world_create"
+#define START_ROOM  WORLD_PATH "00/start_room"
+#define Game_World  WORLD_PATH "world_create"
 
 // CMD_PATH_WIZ   巫师指令
 #define CMD_PATH_WIZ ({PATH_DIR "cmds/wizard/"})

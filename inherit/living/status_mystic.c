@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 19:34:40
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-06 05:35:27
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
@@ -71,7 +71,7 @@ string living_mystic_name()
     for(int i=0;i<=10;i++)
     {
         if(living_mystic[i]!=0)
-            return living_mystic[i]->print_mxp_name(MYSTIC);
+            return living_mystic[i]->print_mxp_name_all(MYSTIC);
     }
     return "无";
 }

@@ -1,8 +1,8 @@
 <!--
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-31 10:55:31
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-06 03:51:43
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
  * @Description:  游戏开发ToDo list
  *
@@ -25,6 +25,7 @@
 - [ ] 完成势力组织基本框架开发
 - [ ] 完成卡牌/状态的MXP显示框架开发
 - [ ] 完成ROOM/战斗MSP声音框架开发
+- [ ] 完成GMCP基本框架开发
 - [ ] 完成游戏运气/战斗概率事件基本框架开发
 - [ ] 完成任务基本框架开发
 - [ ] 完成玩家信息（状态/任务/剧情/背包）存档开发

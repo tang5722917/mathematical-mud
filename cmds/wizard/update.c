@@ -6,7 +6,7 @@ int help(object me);
 int main(object me, string file)
 {
     object env = environment(me), obj;
-
+    string * ob,s;
     if (!wizardp(me))
         return 0;
 
@@ -21,11 +21,24 @@ int main(object me, string file)
         return notify_fail(HIR "你不能在 VOID_OB 里重新编译 VOID_OB。\n" NOR);
 
     write("重新编译[" + file + "]:");
-
-    if (obj = find_object(file))
+    obj = find_object(file);
+    if (obj == 0)
+        cecho("错误的文件名");
+    else
     {
+        ob = deep_inherit_list(obj);
+        if(sizeof(ob)!=0)
+            foreach(s in ob)
+            {
+                destruct(find_object(s));
+            }
         destruct(obj);
     }
+    if(sizeof(ob)!=0)
+        foreach(s in ob)
+        {
+            load_object(s);
+        }    
     if (objectp(load_object(file)))
     {
         cecho("编译成功!");

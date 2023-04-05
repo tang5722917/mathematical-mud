@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 19:35:35
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-06 05:45:53
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -23,6 +23,23 @@ int top_list(string ob1, string ob2)
     return score2 - score1;
 }
 
+string mxp_sprintf(string * str,int width,object ob)
+{
+    string ps;
+    if(MXP_USER(ob))
+    {
+        if(width <= sizeof(str[1]))
+            return str[0];
+        else
+            return str[0]+repeat_string(" ",width-sizeof(str[1]));
+    }
+    else
+    {
+        ps = "%-"+width+"s";
+        return sprintf(ps,str[1]);
+    }
+}
+
 string score(object me)
 {
     string msg;
@@ -41,7 +58,7 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_attr("str"), "敏捷：" + me->query_attr("agi"),"灵性：" + me->query_attr("sen"));
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_attr("int"), "疯狂：" + me->query_attr("cra"), "幸运：" + me->query_attr("luk"));
-    msg += sprintf(" |%-116s%-20s| \n", "非凡特性："+me->living_mystic_name(),"非凡点数："+me->query_attr("mys"));
+    msg += " |非凡特性："+mxp_sprintf(me->living_mystic_name(),20,me)+sprintf("%-20s| \n","非凡点数："+me->query_attr("mys"));
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");

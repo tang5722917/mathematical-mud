@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 11:43:47
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 15:40:22
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-06 06:02:23
  * @FilePath: \mysticism-mud\World\base\world_base_create.c
  * @Description: 游戏全局资源预加载
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -18,5 +18,6 @@ string ob_name()
 
  void create()
  {
+    load_path_object(MYSTIC_PATH);
     ob_load_end(1);
  }
