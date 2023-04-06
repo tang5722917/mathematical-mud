@@ -10,8 +10,13 @@
  */
 
  //
-#define Know_how_version "0.0.1"
-#define World_version "0.0.1"
+#define Know_how_version  "0.0.1"
+#define World_version     "0.0.1"
+//World Time
+#define World_year        1349
+#define World_month       6
+#define World_day         18
+
 //基础游戏内容路径
 #define PATH_BASE PATH_DIR "World/base/"
 #define MYSTIC_PATH PATH_DIR "World/base/mystic/"

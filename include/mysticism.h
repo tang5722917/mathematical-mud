@@ -18,10 +18,11 @@
 #define MYSTICISM_SOUND 1
 
 /* 游戏目录 */
-#define PATH_DIR "/"
-#define INHERIT_PATH     PATH_DIR "inherit/"
-#define SOUND    PATH_DIR         "World/src/sound/"     
-#define WORLD_PATH                PATH_DIR "World/"
+#define PATH_DIR            "/"
+#define INHERIT_PATH        PATH_DIR "inherit/"
+#define SOUND               PATH_DIR "World/src/sound/"     
+#define WORLD_PATH          PATH_DIR "World/"
+
 // 游戏driver版本
 #define VERSION "0.0.1"
 
@@ -30,10 +31,11 @@
 #define SYSTEM_OBJ PATH_DIR "system/obj/pre_object"
 
 /* 守护进程 */
-#define MYSTICISM_LOGIN_D  PATH_DIR "system/daemons/login_d"
-#define MYSTICISM_CHAR_D   PATH_DIR "system/daemons/char_d"
-#define MYSTICISM_FIGHT_D  PATH_DIR "system/daemons/combat_d"
+#define MYSTICISM_LOGIN_D   PATH_DIR "system/daemons/login_d"
+#define MYSTICISM_CHAR_D    PATH_DIR "system/daemons/char_d"
+#define MYSTICISM_FIGHT_D   PATH_DIR "system/daemons/combat_d"
 #define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
+#define MYSTICISM_TIME_D    PATH_DIR "system/daemons/time_d"
 /* inherit 特性文件 */
 #define CORE_STD_PRE            PATH_DIR "inherit/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/room"
@@ -65,7 +67,7 @@
 #define CHAR_D      MYSTICISM_CHAR_D
 #define FIGHT_D     MYSTICISM_FIGHT_D
 #define COMMAND_D   MYSTICISM_COMMAND_D
-
+#define TIME_D      MYSTICISM_TIME_D
 // START_ROOM   游戏出生点
 #define START_ROOM  WORLD_PATH "00/start_room"
 #define Game_World  WORLD_PATH "world_create"

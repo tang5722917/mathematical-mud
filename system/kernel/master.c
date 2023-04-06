@@ -20,6 +20,9 @@ private object connect(int port)
 private void create()
 {
     debug_message("[" + ctime() + "]CORE_MASTER_OB->create()!");
+    preload(TIME_D);
+    find_object(TIME_D)->set_scale(1,0,1);
+    find_object(TIME_D)->reset_gametime(find_object(TIME_D)->query_realtime());
     preload(SYSTEM_OBJ);
     preload(Game_World);
 }
