@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-06 05:29:39
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-06 11:24:48
  * @FilePath: \mysticism-mud\inherit\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
@@ -12,8 +12,8 @@
 
 #include <mxp.h>
 
-string mxp_name(){return "手牌";}
-string mxp_explain(){return "打出手牌，并获得相关效果";}
+string mxp_name(){return "名称";}
+string mxp_explain(){return "对名称的解释";}
 
 string * print_mxp_name_all(int type) {
     string *str,s,c;
@@ -33,6 +33,8 @@ string * print_mxp_name_all(int type) {
         case PROPERTY:
             c += "green";
             break;
+        case OTHER:
+            c += "white";
     } 
     c +=">";
     s = c+"<A \"Card\" hint=\"名称：" + mxp_name() +" 效果："+ mxp_explain() + "\">"+mxp_name()+"</A></C>";
@@ -47,4 +49,21 @@ string print_mxp_name(int type) {
     if (MXP_USER(this_player()) == 1 )
         return str[0];
     else return str[1];
+}
+
+string mxp_sprintf(string * str,int width,object ob)
+{
+    string ps;
+    if(MXP_USER(ob))
+    {
+        if(width <= strwidth(str[1]))
+            return str[0];
+        else
+            return str[0]+repeat_string(" ",width-strwidth(str[1]));
+    }
+    else
+    {
+        ps = "%-"+width+"s";
+        return sprintf(ps,str[1]);
+    }
 }

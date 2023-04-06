@@ -1,14 +1,15 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-06 05:35:27
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-06 11:49:15
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
  * Copyright (c) 2023 by git config user.email, All Rights Reserved.
  */
 #include <mxp.h>
+#include <user.h>
 //存储非凡状态对象
 nosave protected object * living_mystic = allocate(11);
 //存储非凡状态编号
@@ -16,11 +17,11 @@ nosave protected object * living_mystic = allocate(11);
 protected mapping living_mystic_id;
 
 // 设置属性值
-int set_mys(int rank, int mys)
+mixed set_mys(int rank, string mys_ob)
 {
     if (!mapp(living_mystic_id))
         living_mystic_id = ([]);
-    return living_mystic_id[rank] = mys;
+    return living_mystic_id[rank] = mys_ob;
 }
 
 // 获取属性值
@@ -34,7 +35,7 @@ int query_mys(int rank)
 //rank 0-9 代表序列0-9， 10表示非序列途径加成
 void add_mystic(object mys)
 {
-    set_mys(mys->mystic_rank(),mys->mystic_id());
+    set_mys(mys->mystic_rank(),file_name(mys));
     living_mystic[mys->mystic_rank()]=mys;
 }
 
@@ -73,5 +74,5 @@ string living_mystic_name()
         if(living_mystic[i]!=0)
             return living_mystic[i]->print_mxp_name_all(MYSTIC);
     }
-    return "无";
+    return find_object(INIT_MYS)->print_mxp_name_all(MYSTIC);
 }

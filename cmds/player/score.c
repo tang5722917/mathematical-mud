@@ -1,16 +1,20 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-06 05:45:53
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-06 11:01:42
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
  * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved. 
  */
 inherit CORE_CLEAN_UP;
+inherit _MXP;
 #include <ansi.h>
 #include <mxp.h>
+
+string mxp_name(){return "score";}
+string mxp_explain(){return "该指令用于查看玩家状态";}
 
 int top_list(string ob1, string ob2)
 {
@@ -21,23 +25,6 @@ int top_list(string ob1, string ob2)
     score2 = my[ob2];
 
     return score2 - score1;
-}
-
-string mxp_sprintf(string * str,int width,object ob)
-{
-    string ps;
-    if(MXP_USER(ob))
-    {
-        if(width <= sizeof(str[1]))
-            return str[0];
-        else
-            return str[0]+repeat_string(" ",width-sizeof(str[1]));
-    }
-    else
-    {
-        ps = "%-"+width+"s";
-        return sprintf(ps,str[1]);
-    }
 }
 
 string score(object me)

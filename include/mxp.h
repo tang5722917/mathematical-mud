@@ -42,5 +42,6 @@
 #define CARD     2
 #define STATUS   3
 #define PROPERTY 4
+#define OTHER    10
 
 #endif // MXP_H

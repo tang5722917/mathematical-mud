@@ -1,5 +1,5 @@
 inherit CORE_CHAR_D;
-#define INIT_MYS WORLD_PATH "base/mystic/000_mortal"
+#include <user.h>
 
 // 初始化玩家角色
 void init_player(object user, mixed *data...)
@@ -15,7 +15,7 @@ void init_player(object user, mixed *data...)
     user->add_mystic(find_object(INIT_MYS));
     shout("欢迎新玩家！");
 }
-
+//初始化玩家登录
 void setup(object ob)
 {
 
