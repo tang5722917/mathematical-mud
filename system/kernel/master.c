@@ -49,7 +49,7 @@ mapping get_mud_stats(void)
     mssp["MSP"]="1";
     mssp["MSDP"] = "0";
     mssp["MCP"] = "0";
-    mssp["GMCP"] = "0";
+    mssp["GMCP"] = "1";
     mssp["MCCP"] = "0";
     mssp["LANGUAGE"] = "Chinese";
     mssp["LOCATION"] = "China";
