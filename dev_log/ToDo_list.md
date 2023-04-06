@@ -1,15 +1,21 @@
 <!--
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-06 03:51:43
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-06 13:36:16
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
  * @Description:  游戏开发ToDo list
  *
  * Copyright (c) 2023 by git config user.email, All Rights Reserved.
 -->
-# 1st ToDo list 2023/3/20
-***
+# Next ToDo list  
+## 游戏驱动  
+- [ ] 邮箱/邮件框架开发
+***  
+## 游戏内容  
+  
+***  
+# 1st ToDo list 2023/3/20  
 ## 游戏驱动
 - [ ] 基于mudcore 完成自定义指令开发
     - [ ] 基本行为指令  ask/search/look/say/use
