@@ -13,26 +13,26 @@ inherit INHERIT_PATH "living/msp_user" ;
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
 //user 战斗对象
-protected nosave object fight_ob = 0;
+protected nosave object fight_ob;
 
-//user status
-//是否正在战斗
-protected int user_status_fight=0;
-
+void create()
+{
+    living_setup();
+}
 
 int is_fight_user()
 {
-    return user_status_fight;
+    return query("user_fight");
 }
 
 int start_fight()
 {
-    return user_status_fight = 1;
+    return set("user_fight",1);
 }
 
 int end_fight()
 {
-    user_status_fight = 0;
+    set("user_fight",0);
 }
 
 

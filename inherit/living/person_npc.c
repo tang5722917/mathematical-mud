@@ -9,7 +9,3 @@
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
  */
 inherit  CORE_STD_PERSON;
-
-
-
-

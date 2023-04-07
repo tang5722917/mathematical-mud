@@ -7,49 +7,46 @@ inherit INHERIT_PATH "living/status_mystic" ;
 inherit INHERIT_PATH "living/status_affect" ;
 inherit CORE_STD_TEST;
 
-//living status
-//是否可以战斗
-protected int living_status_fight=0;
-//是否可以被复制
-protected int living_status_copy=0;
-//是否是一个复制的品
-protected int living_copy=0;
-// 该生物是否可见
-protected int living_visible=1;
-
-
 int is_fight_living()
 {
-    return living_status_fight;
+    return query("is_fight");
 }
 
 //0 不可以攻击，1可以攻击
 void set_fight_living(int is_fight_living)
 {
-    living_status_fight = is_fight_living;
+    set("is_fight",is_fight_living);
 }
 
 int is_copy_living()
 {
-    return living_status_copy;
+    return query("status_copy");
 }
 
 int is_copy()
 {
-    return living_copy;
+    return query("is_copy");
 }
 
 int is_visible()
 {
-    return living_visible;
+    return query("living_visible");
 }
 
 //0 默认不可见，1默认可见
 void set_visible(int is_visible)
 {
-    living_visible = is_visible;
+    set("living_visible",is_visible);
 }
 
+//init living status
+void living_setup()
+{
+    set_visible(1);      //默认可见
+    set_fight_living(0); //默认不可战斗
+    set("is_copy",0);    //默认不能复制
+    set("status_copy",0);//默认不是复制对象
+}
 
 //look 接口函数，处理被look事件
 void look(object me,object env){}

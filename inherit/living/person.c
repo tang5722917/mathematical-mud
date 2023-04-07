@@ -2,13 +2,6 @@ inherit _LIVING;
 
 #include <ansi.h>
 
-
-void create()
-{
-    living_visible=1;
-    living_status_fight=0;
-}
-
 //answer 接口函数，处理被ask事件
 void answer(object me,object env){write("不清楚你要问什么\n ");}
 
@@ -33,4 +26,3 @@ string honor_name(object me, object ob)
     else name = ob->query("name")+honor_name[0];
     return name;
 }
-
