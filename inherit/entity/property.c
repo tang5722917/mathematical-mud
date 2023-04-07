@@ -2,18 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-06 16:36:53
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-08 11:51:58
- * @FilePath: \mysticism-mud\inherit\property.c
+ * @LastEditTime: 2023-04-07 19:34:57
+ * @FilePath: \mysticism-mud\inherit\entity\property.c
  * @Description: 物品基类
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
+ inherit INHERIT_PATH "entity/entity";
 #include <ansi.h>
-
-inherit _NAME;
-inherit _MESSAGE;
-inherit _MOVE;
-inherit CORE_STD_TEST;
 
 protected mapping property;
 //是否可以移动ROOM

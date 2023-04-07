@@ -8,5 +8,12 @@
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
+#include <display>
+#include <mxp.h>
+inherit _MXP;
 
-l
+//输出一个方形输出框
+varargs string board_print(string info, int col,int type)
+{
+    ;
+}

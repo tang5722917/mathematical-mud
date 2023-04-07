@@ -26,3 +26,8 @@ string honor_name(object me, object ob)
     else name = ob->query("name")+honor_name[0];
     return name;
 }
+
+void person_setup()
+{
+    living_setup();
+}

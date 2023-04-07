@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 16:42:04
+ * @LastEditTime: 2023-04-07 19:28:36
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  *              提供战斗效果/结果的判定框架
@@ -12,7 +12,7 @@
 #include <combat.h>
 
 inherit INHERIT_PATH "combat/combat_data";
-
+inherit CORE_STD_TEST;
 
 varargs object set_combat_script(object *ob1,object *ob2,int fight_type,object env,int rank)
 {

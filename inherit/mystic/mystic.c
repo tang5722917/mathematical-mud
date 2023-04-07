@@ -2,14 +2,17 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-21 18:09:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-07 11:51:13
+ * @LastEditTime: 2023-04-07 19:26:08
  * @FilePath: \mysticism-mud\inherit\mystic\mystic.c
  * @Description:  非凡能力基础类
  *
  * Copyright (c) 2023 by Donald duck tang5722917@163.com, All Rights Reserved.
  */
 inherit _MXP;
+inherit CORE_STD_TEST;
 inherit INHERIT_PATH "mystic/mystic_value";
+inherit INHERIT_PATH "mystic/mystic_card";
+inherit INHERIT_PATH "mystic/mystic_status";
 /*
 序列编号 1-22
 1  占卜家	小丑	  魔术师    无面人   秘偶大师	诡法师	   古代学者	  奇迹师	诡秘侍者	愚者

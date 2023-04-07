@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 17:39:39
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 11:27:39
+ * @LastEditTime: 2023-04-07 19:54:28
  * @FilePath: \mysticism-mud\World\00\npc\start_up_fight.c
  * @Description: 初始玩家战斗NPC
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,6 +16,7 @@ void create()
 {
     set_name(YEL "神秘的光团"NOR,({"???"})  );
     set("long", HIC "这是一个神秘的光团，让人无法挪开视线\n可以尝试使用search或sh调查一下" NOR);
+    living_setup();
     set_visible(0);
     set_fight_living(0);
 }

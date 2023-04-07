@@ -15,11 +15,6 @@ nosave object *temp_object_list=({});
 //user 战斗对象
 protected nosave object fight_ob;
 
-void create()
-{
-    living_setup();
-}
-
 int is_fight_user()
 {
     return query("user_fight");
@@ -67,4 +62,14 @@ int into_cur_fight(object fob)
 varargs void version_boardcast(int v)
 {
     write("版本说明：最初版本\n");
+}
+
+void user_setup()
+{
+    person_setup();
+}
+
+void create()
+{
+    user_setup();
 }
