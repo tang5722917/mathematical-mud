@@ -63,3 +63,8 @@ int into_cur_fight(object fob)
     if(fob != 0)
         write(HBYEL "你已进入战斗状态!"NOR);
 }
+
+varargs void version_boardcast(int v)
+{
+    write("版本说明：最初版本\n");
+}

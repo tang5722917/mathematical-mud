@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-30 14:41:43
+ * @LastEditTime: 2023-04-07 10:45:57
  * @FilePath: \mysticism-mud\system\daemons\login_d.c
  * @Description: 
  * 
@@ -15,6 +15,7 @@ protected void welcome(object ob)
 {
     color_cat(MOTD);
     write("\n                               版本"VERSION);
+    write("\n游戏日历：" + TIME_D->game_time_description());
     write("\n^_^!请输入你的登录ID:");
     input_to("get_id", ob);
 }
@@ -40,5 +41,6 @@ void enter_world(object ob, object user)
     user->save(); // 保存玩家数据
     user->start_condition(file_name(SYS_OBJECT("start_mxp")),2,1);
     user->move(start_room);
+    user->version_boardcast();
     tell_room(start_room, user->short() + "连线进入这个世界。\n", ({user}));
 }
