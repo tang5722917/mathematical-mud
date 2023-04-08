@@ -1,6 +1,7 @@
 #include <ansi.h>
 inherit CORE_CLEAN_UP;
 
+#define SCALE   (1.0/10.0)
 string duration()
 {
     int t, d, h, m, s;
@@ -31,12 +32,18 @@ string duration()
 
 int main(object me, string arg)
 {
+    float value;
     string msg;
+    mapping r;
+    r = rusage();
+    value = SCALE * (r["utime"] + r["stime"]) / uptime();
     if (arg == "-v")
     {
+        write(NOR + WHT "\n\t\t         .__________ 系 统 资 讯 __________.\n");
         write("\nMUD 名称：" + MUD_NAME + "\n");
         write("驱动环境：" + __ARCH__ + "\n");
         write("驱动版本：" + __VERSION__ + "\n");
+        printf("CPU 使用占比：  %f %% 被这个 Mud 使用中\n", value);
         write("执行效率：" + query_load_average() + "\n");
         write("内存占用：" + memory_info() / 1024 / 1024 + "M\n");
         write("运行时间：" + duration() + "\n");
