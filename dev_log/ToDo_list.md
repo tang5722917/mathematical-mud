@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 14:29:18
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-06 16:22:41
+ * @LastEditTime: 2023-04-10 19:51:11
  * @FilePath: \mysticism-mud\dev_log\ToDo_list.md
  * @Description:  游戏开发ToDo list
  *
@@ -12,6 +12,8 @@
 ## 游戏驱动  
 - [ ] 邮箱/邮件框架开发
 - [ ] 完成任务基本框架开发
+- [ ] 添加时间time/日历cale指令并建立事件在时间/日历显示框架
+- [ ] 建立错误处理框架
 ***  
 ## 游戏内容  
   

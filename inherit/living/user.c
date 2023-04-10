@@ -61,7 +61,9 @@ int into_cur_fight(object fob)
 
 varargs void version_boardcast(int v)
 {
-    write("版本说明：最初版本\n");
+    object o;
+    o = load_object(_BOARD);
+    write("版本说明：最初版本\n"+o->board_print("Test",50));
 }
 
 void user_setup()
