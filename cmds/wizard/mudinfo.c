@@ -43,6 +43,7 @@ int main(object me, string arg)
         write("\nMUD 名称：" + MUD_NAME + "\n");
         write("驱动环境：" + __ARCH__ + "\n");
         write("驱动版本：" + __VERSION__ + "\n");
+        write("pcre库版本：" + pcre_version() + "\n");
         printf("CPU 使用占比：  %f %% 被这个 Mud 使用中\n", value);
         write("执行效率：" + query_load_average() + "\n");
         write("内存占用：" + memory_info() / 1024 / 1024 + "M\n");
