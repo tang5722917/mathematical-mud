@@ -38,6 +38,7 @@
 #define MYSTICISM_FIGHT_D   PATH_DIR "system/daemons/combat_d"
 #define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
 #define MYSTICISM_TIME_D    PATH_DIR "system/daemons/time_d"
+#define MYSTICISM_DB_D      PATH_DIR "system/daemons/db_d"
 /* inherit 特性文件 */
 #define CORE_STD_PRE            PATH_DIR "inherit/system/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/space/room"
@@ -72,6 +73,7 @@
 #define FIGHT_D     MYSTICISM_FIGHT_D
 #define COMMAND_D   MYSTICISM_COMMAND_D
 #define TIME_D      MYSTICISM_TIME_D
+#define DB_D        MYSTICISM_DB_D
 // START_ROOM   游戏出生点
 #define START_ROOM  WORLD_PATH "00/start_room"
 #define Game_World  WORLD_PATH "world_create"
