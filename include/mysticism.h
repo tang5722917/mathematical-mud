@@ -16,6 +16,8 @@
 
 //开启音乐 0 OFF | 1 ON
 #define MYSTICISM_SOUND 1
+//开启数据库 0 OFF | 1 ON
+#define MYSTICISM_DB 1
 
 /* 游戏目录 */
 #define PATH_DIR            "/"

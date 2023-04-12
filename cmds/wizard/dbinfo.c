@@ -7,6 +7,11 @@ int main(object me, string arg)
 {
     if (!wizardp(me))
         return 0;
+    if(MYSTICISM_DB == 0)
+    {
+        write("当前MUD不支持数据库功能\n");
+        return 1;
+    }
     if (arg == "-v")
     {
         ;
