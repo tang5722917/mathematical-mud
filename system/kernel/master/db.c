@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-12 18:10:48
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-13 14:02:39
+ * @LastEditTime: 2023-04-13 14:21:30
  * @FilePath: \mysticism-mud\system\kernel\master\db.c
  * @Description: 数据库初始化函数
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -11,7 +11,6 @@
  int init_sqlite3()
  {
     object ob,db;
-    string db_host,str, *s;
     mixed db_db,rows,*f,db_handle;
     mapping db_config=([]);
     ob = find_object(CORE_ENV_D);
@@ -21,9 +20,9 @@
         debug_message("[" + ctime() + "]数据库初始化失败");
         return 0;
     }
-    if(MYSTICISM_DB == 0)
+    if((MYSTICISM_DB == 0) || (ob->query("DB_enable") !=1))
     {
-        debug_message("[" + ctime() + "]当前PATH游戏配置不支持数据库功能");
+        debug_message("[" + ctime() + "]当前游戏配置不支持数据库功能");
         return 0;
     }
     debug_message("[" + ctime() + "]当前游戏数据类型："+ob->query("DB_TYPE"));
@@ -39,7 +38,10 @@
         db->setConnection(db_config);
         db->exec();
         if (stringp(db)) /* error */
+        {
             debug_message("[" + ctime() + "]数据库连接失败：" + db);
+            return 0;
+        }
         else
             debug_message("[" + ctime() + "]数据库连接成功：" + db);
     }
