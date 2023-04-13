@@ -59,20 +59,22 @@ void answer(object me,object env){write("你近视吗！这个东西怎么会回
 string honor_name(object me,object ob){return " 它";}
 //fight 战斗接口
 object * fight(object me,object ob){write("你怎么这么暴力，动不动就打架！\n "); return 0;}
+//接口，定义该生物的战斗类型，具体由子类实现
+string combat_env(object env){return 0;}
+//接口，定义该生物的战斗脚本，具体由子类实现
+string combat_script(object env,int rank){return 0;}
 
 // 角色激活  
 void setup()
 {
+
     seteuid(getuid(this_object()));
     set_heart_beat(1);
     enable_living(); // COMMAND 中定义的生物激活方法
     CHAR_D->setup(this_object());
 }
 
-//接口，定义该生物的战斗类型，具体由子类实现
-string combat_env(object env){return 0;}
-//接口，定义该生物的战斗脚本，具体由子类实现
-string combat_script(object env,int rank){return 0;}
+
 // 从游戏中移除这个生物
 void remove()
 {

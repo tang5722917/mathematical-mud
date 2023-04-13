@@ -8,7 +8,7 @@ inherit INHERIT_PATH "living/status_task_days" ;
 inherit INHERIT_PATH "living/status_task_main" ;
 inherit INHERIT_PATH "living/mxp_user" ;
 inherit INHERIT_PATH "living/msp_user" ;
-
+inherit INHERIT_PATH "living/user_monitor" ;
 #include <ansi.h>
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
@@ -66,12 +66,13 @@ varargs void version_boardcast(int v)
     write("版本说明：最初版本\n"+o->board_print("Test",50));
 }
 
+void user_env_config()
+{
+    object ob = find_object(CORE_ENV_D);
+    init_user_monitor(0,0,env("USER_MAX_INPUT"));
+}
 void user_setup()
 {
+    user_env_config();
     person_setup();
-}
-
-void create()
-{
-    user_setup();
 }

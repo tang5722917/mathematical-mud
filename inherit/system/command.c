@@ -20,6 +20,9 @@ mixed process_input(string arg)
         }
         return 1;
     }
+    if(!wizardp(me))
+        if(me->user_input())
+            return 1;
     if(!me->is_fight_user())
     {
         switch(arg)
