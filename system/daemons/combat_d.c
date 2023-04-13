@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 16:43:42
+ * @LastEditTime: 2023-04-13 18:32:14
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -68,7 +68,7 @@ int combat_event(object fig)
     str = fig->print_one_fight();
     if(str != 0){
         fig->print_fight(str);
-        if (str == "新的回合开始")
+        if (str == "本回合结束")
         {
             fig->print_fight_UI(combat->fight_main_UI(fight_time,fight_round));
             fight_round += 1;

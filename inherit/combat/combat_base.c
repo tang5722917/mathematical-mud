@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-07 19:28:36
+ * @LastEditTime: 2023-04-13 17:47:30
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  *              提供战斗效果/结果的判定框架
@@ -29,15 +29,18 @@ string fight_main_UI(int fight_time,int fight_round){return "";}
 
 //战斗开始时，第0回合，初始接口
 int fight_init(object script){return 0;}
+//结束战斗
+int fight_end(){return 0;}
+
 
 string print_one_fight()
 {
-    string str;
+    mixed * str;
     if(sizeof(fight_info) != 0)
     {
         str = fight_info[0];
         fight_info -= ({str});
-        return str;
+        return str[0];
     }
     else return 0;
 }
@@ -50,10 +53,4 @@ int is_quit_fight()
 #else 
     return is_quit_combat()
 #endif
-}
-
-
-//结束战斗
-int fight_end(object ob)
-{  
 }

@@ -2,17 +2,16 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 17:10:53
+ * @LastEditTime: 2023-04-13 18:34:37
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
- *                提供单人战斗的UI
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
 #include <ansi.h>
 #include <mxp.h>
 #include <combat.h>
 
-inherit INHERIT_PATH "combat/combat_UI";
+inherit INHERIT_PATH "combat/combat_UI_single";
 
 nosave protected object ob1;
 nosave protected object ob2;
@@ -45,19 +44,20 @@ void create(object o1,object o2,object env)
     env_obj = ({});    
 }
 //定义玩家的初始行为
-string * fight_init_user(object user){return 0;}
+mixed * fight_init_user(object user){return 0;}
 //定义电脑地初始行为
-string * fight_init_env(object env){return 0;}
+mixed * fight_init_env(object env){return 0;}
 //定义玩家的战斗结束时行为
-string * fight_end_user(object user){return 0;}
+mixed * fight_end_user(object user){return 0;}
 //定义电脑的战斗结束时行为
-string * fight_end_env(object env){return 0;}
+mixed * fight_end_env(object env){return 0;}
+
 object get_player1(){return ob1;}
 object get_player2(){return ob2;}
 //结束战斗
-int fight_end(object ob)
+int fight_end()
 {
-    string * str;
+    mixed * str;
     script->combat_event_end(ob1,ob2);
     str = fight_end_user(ob1);
     {
@@ -69,17 +69,15 @@ int fight_end(object ob)
         str = print_color_fig(str,ENV);
         fight_info += str;
     }
-    foreach(string s in fight_info)
-        write(s);
-    return 1;
+    return sizeof(fight_info);
 }
 
 int fight_init(object scr)
 {
-    string * str;
+    mixed * str;
     script = scr;
-    str = ({"你的对手为："+ ob2->short()});
-    fight_info += str;
+    str = ({"对手为："+ ob2->short(),ob1});
+    fight_info += ({str});
     str = fight_init_user(ob1);
     if (str != 0)
     {
@@ -92,7 +90,7 @@ int fight_init(object scr)
         fight_info += str;
     }
     script->combat_event_init(ob1,ob2);
-    fight_info += ({"新的回合开始"});
+    fight_info += ({({"本回合结束",0})});
     return sizeof(fight_info);
 }
 

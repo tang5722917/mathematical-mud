@@ -18,5 +18,5 @@ void init_player(object user, mixed *data...)
 //初始化玩家登录
 void setup(object ob)
 {
-
+    ob->user_setup();
 }

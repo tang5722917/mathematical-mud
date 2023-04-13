@@ -1,7 +1,7 @@
 inherit CORE_CLEAN_UP;
 
 //战斗过程信息
-protected string *fight_info;
+protected mixed *fight_info;
 //ob1 手牌序列， PVE中的玩家
 protected object *ob1_card;
 //ob2 手牌序列， PVE中的电脑

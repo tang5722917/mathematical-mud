@@ -1,49 +1,16 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-04 08:42:38
- * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
- * @Description: 战斗的基础类
- *               具体战斗继承该类
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-13 18:35:58
+ * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
+ * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
  */
 
 #include <ansi.h>
 #include  <combat.h>
 inherit INHERIT_PATH "combat/combat_base";
-
-
-//战斗过程颜色控制
-string * print_color_fig(string * str,int type)
-{
-    string s;
-    int n;
-    n = sizeof(str);
-    if(n == 0)
-        return 0;
-    if(type == USER )
-    {
-        for(int i =0;i < n ;i++)
-        {
-            s = str[i];
-            s = GRN + s + NOR;
-            str[i] = s;
-        } 
-        return str;
-    }
-    if(type == ENV )
-    {
-        for(int i =0;i < n ;i++)
-        {
-            s = str[i];
-            s = RED + s + NOR;
-            str[i] = s;
-        } 
-        return str;
-    }
-    return 0;
-}
 
 string print_line(object *ob)
 {
