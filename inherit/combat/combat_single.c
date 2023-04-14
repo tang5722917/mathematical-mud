@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-13 18:34:37
+ * @LastEditTime: 2023-04-14 18:41:16
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -12,10 +12,6 @@
 #include <combat.h>
 
 inherit INHERIT_PATH "combat/combat_UI_single";
-
-nosave protected object ob1;
-nosave protected object ob2;
-nosave protected object fight_env,script;
 
 void create(object o1,object o2,object env)
 {
@@ -44,53 +40,33 @@ void create(object o1,object o2,object env)
     env_obj = ({});    
 }
 //定义玩家的初始行为
-mixed * fight_init_user(object user){return 0;}
+int fight_init_user(object user){return 0;}
 //定义电脑地初始行为
-mixed * fight_init_env(object env){return 0;}
+int fight_init_env(object env){return 0;}
 //定义玩家的战斗结束时行为
-mixed * fight_end_user(object user){return 0;}
+int fight_end_user(object user){return 0;}
 //定义电脑的战斗结束时行为
-mixed * fight_end_env(object env){return 0;}
+int fight_end_env(object env){return 0;}
 
 object get_player1(){return ob1;}
 object get_player2(){return ob2;}
 //结束战斗
 int fight_end()
 {
-    mixed * str;
     script->combat_event_end(ob1,ob2);
-    str = fight_end_user(ob1);
-    {
-        str = print_color_fig(str,USER);
-        fight_info += str;
-    }    
-    str = fight_end_env(ob2);
-    if (str != 0){
-        str = print_color_fig(str,ENV);
-        fight_info += str;
-    }
+    fight_end_user(ob1);  
+    fight_end_env(ob2);
     return sizeof(fight_info);
 }
 
 int fight_init(object scr)
 {
-    mixed * str;
     script = scr;
-    str = ({"对手为："+ ob2->short(),ob1});
-    fight_info += ({str});
-    str = fight_init_user(ob1);
-    if (str != 0)
-    {
-        str = print_color_fig(str,USER);
-        fight_info += str;
-    }
-    str = fight_init_env(ob2);
-    if (str != 0){
-        str = print_color_fig(str,ENV);
-        fight_info += str;
-    }
+    add_f_info("对手为："+ ob2->short(),ob1);
+    fight_init_user(ob1);
+    fight_init_env(ob2);
     script->combat_event_init(ob1,ob2);
-    fight_info += ({({"本回合结束",0})});
+    add_f_info("本回合结束");
     return sizeof(fight_info);
 }
 
@@ -121,11 +97,6 @@ string fight_main_UI(int fight_time,int fight_round)
 void print_fight_UI(string msg)
 {
     MXP_message("FIG",msg,ob1);
-}
-
-void print_fight(string msg)
-{
-    message("FIG",msg,ob1);
 }
 
 void next_round(int fight_round)

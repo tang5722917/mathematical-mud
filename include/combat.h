@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 19:17:22
+ * @LastEditTime: 2023-04-14 18:26:08
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -11,10 +11,20 @@
 #define COMBAT_H
 
  //战斗中身份类型
-#define USER 0
-#define ENV 1
+#define COM   0 
+#define USER  1
+#define ENV   2
 
 #define FIGHT_PVE 0
 #define FIGHT_PVP 1
+
+#define F_INFO class f_info
+//定义结构体 f_info，用于记录每一条战斗记录
+class f_info {
+    object ob1;   //该行为发出对象,可以为0
+    object ob2;   //该行为目标对象,可以为0
+    string str;   //行为的描述
+}
+
 
 #endif // COMBAT_H

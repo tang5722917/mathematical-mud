@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-13 17:47:30
+ * @LastEditTime: 2023-04-14 18:44:56
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  *              提供战斗效果/结果的判定框架
@@ -33,14 +33,14 @@ int fight_init(object script){return 0;}
 int fight_end(){return 0;}
 
 
-string print_one_fight()
+F_INFO get_one_fight()
 {
-    mixed * str;
+    F_INFO str;
     if(sizeof(fight_info) != 0)
     {
         str = fight_info[0];
         fight_info -= ({str});
-        return str[0];
+        return str;
     }
     else return 0;
 }
