@@ -1,7 +1,7 @@
 inherit CORE_MASTER_OB;
 // 玩家连线入口方法，返回连线对象
 #include "master/parser.c"
-#include "master/db.c"
+#include "master/sys_d.c"
 private object connect(int port)
 {
     object login_ob;
@@ -20,14 +20,9 @@ private object connect(int port)
 private void create()
 {
     debug_message("[" + ctime() + "]CORE_MASTER_OB->create()!");
-    load_object(CORE_ENV_D);
-    debug_message("[" + ctime() + "]游戏env文件成功导入");
-    preload(TIME_D);
-    find_object(TIME_D)->set_scale(1,0,1);
-    find_object(TIME_D)->reset_gametime(find_object(TIME_D)->query_realtime());
     preload(SYSTEM_OBJ);
+    init_sys_d();    //初始化游戏服务进程
     preload(Game_World);
-    init_sqlite3();
 }
 
 // driver 启动测试

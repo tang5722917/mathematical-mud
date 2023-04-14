@@ -38,7 +38,7 @@
 #define MYSTICISM_FIGHT_D   PATH_DIR "system/daemons/combat_d"
 #define MYSTICISM_COMMAND_D PATH_DIR "system/daemons/command_d"
 #define MYSTICISM_TIME_D    PATH_DIR "system/daemons/time_d"
-#define MYSTICISM_DB_D      PATH_DIR "system/daemons/db_d"
+#define MYSTICISM_SYS_DB_D  PATH_DIR "system/daemons/db/sys_db_d"   
 /* inherit 特性文件 */
 #define CORE_STD_PRE            PATH_DIR "inherit/system/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/space/room"
@@ -61,19 +61,19 @@
 #define _MXP            PATH_DIR "inherit/display/mxp"
 #define _BOARD          PATH_DIR "inherit/display/board"
 #define _ERROR          PATH_DIR "inherit/system/error"
+#define _DB             PATH_DIR "inherit/system/db"
 // 游戏管理员账号
 #define WIZARD  "mysticism"
 
 // 游戏欢迎界面
 #define MOTD    PATH_DIR "World/src/front-page/MOTD1"
 
-/* 守护进程 */
+/* 守护进程 (覆盖用)*/
+#define TIME_D      MYSTICISM_TIME_D
 #define LOGIN_D     MYSTICISM_LOGIN_D
 #define CHAR_D      MYSTICISM_CHAR_D
 #define FIGHT_D     MYSTICISM_FIGHT_D
 #define COMMAND_D   MYSTICISM_COMMAND_D
-#define TIME_D      MYSTICISM_TIME_D
-#define DB_D        MYSTICISM_DB_D
 // START_ROOM   游戏出生点
 #define START_ROOM  WORLD_PATH "00/start_room"
 #define Game_World  WORLD_PATH "world_create"
