@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 18:39:59
+ * @LastEditTime: 2023-04-14 19:27:27
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -20,7 +20,6 @@ nosave protected object fight_env,script;
 string print_color_fig(F_INFO str,int type)
 {
     string s;
-    int n;
     if(str == 0)
         return 0;
     if(type == USER )

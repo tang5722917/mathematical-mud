@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 18:41:16
+ * @LastEditTime: 2023-04-14 20:35:38
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -15,29 +15,23 @@ inherit INHERIT_PATH "combat/combat_UI_single";
 
 void create(object o1,object o2,object env)
 {
+    object ob;
     ob1 = o1;
     ob2 = o2;
     fight_env = env;
     //战斗过程信息
     fight_info = ({});
-    //ob1 手牌序列， PVE中的玩家
-    ob1_card = ({});
-    //ob2 手牌序列， PVE中的电脑
-    ob2_card = ({});
-    //ob1 状态序列， PVE中的玩家
-    ob1_status = ({});
-    //ob2 状态序列， PVE中的电脑
-    ob2_status = ({});
-    //ob1 装备序列， PVE中的玩家
-    ob1_equip = ({});
-    //ob2 装备序列， PVE中的电脑
-    ob2_equip = ({});
-    //ob1 召唤物序列， PVE中的玩家
-    ob1_summon = ({});
-    //ob2 召唤物序列， PVE中的电脑
-    ob2_summon = ({});
     //公共物序列
-    env_obj = ({});    
+    env_obj = ({});
+    //建立战斗双方的数据类，并初始化
+    ob1_data = ({});
+    ob2_data = ({});
+    ob = new(FIG_DATA);
+    ob->init();
+    ob1_data +=({ob});
+    ob = new(FIG_DATA);
+    ob->init();
+    ob2_data +=({ob});
 }
 //定义玩家的初始行为
 int fight_init_user(object user){return 0;}

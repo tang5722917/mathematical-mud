@@ -2,10 +2,9 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 18:44:56
+ * @LastEditTime: 2023-04-14 20:00:58
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
- *              提供战斗效果/结果的判定框架
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
 #include <mxp.h>

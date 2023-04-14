@@ -68,7 +68,6 @@ varargs void version_boardcast(int v)
 
 void user_env_config()
 {
-    object ob = find_object(CORE_ENV_D);
     init_user_monitor(0,0,env("USER_MAX_INPUT"));
 }
 void user_setup()
