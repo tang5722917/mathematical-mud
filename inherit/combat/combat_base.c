@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 20:00:58
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-15 16:02:04
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -52,4 +52,11 @@ int is_quit_fight()
 #else 
     return is_quit_combat()
 #endif
+}
+
+void destruct_ob()
+{
+    foreach(object o in ob1_data){destruct(o);}
+    foreach(object o in ob2_data){destruct(o);}
+    destruct(this_object());
 }

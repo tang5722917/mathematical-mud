@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 20:35:38
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-15 16:05:10
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -15,7 +15,6 @@ inherit INHERIT_PATH "combat/combat_UI_single";
 
 void create(object o1,object o2,object env)
 {
-    object ob;
     ob1 = o1;
     ob2 = o2;
     fight_env = env;
@@ -26,12 +25,8 @@ void create(object o1,object o2,object env)
     //建立战斗双方的数据类，并初始化
     ob1_data = ({});
     ob2_data = ({});
-    ob = new(FIG_DATA);
-    ob->init();
-    ob1_data +=({ob});
-    ob = new(FIG_DATA);
-    ob->init();
-    ob2_data +=({ob});
+    add_new_fighter(ob1_data);
+    add_new_fighter(ob2_data);
 }
 //定义玩家的初始行为
 int fight_init_user(object user){return 0;}
@@ -50,7 +45,7 @@ int fight_end()
     script->combat_event_end(ob1,ob2);
     fight_end_user(ob1);  
     fight_end_env(ob2);
-    return sizeof(fight_info);
+    return length_fight_info();
 }
 
 int fight_init(object scr)
@@ -61,7 +56,7 @@ int fight_init(object scr)
     fight_init_env(ob2);
     script->combat_event_init(ob1,ob2);
     add_f_info("本回合结束");
-    return sizeof(fight_info);
+    return length_fight_info();
 }
 
 //定义战斗是否能退出， 默认不能退出
@@ -97,3 +92,6 @@ void next_round(int fight_round)
 {
     message("FIG","第"+fight_round+"回合出牌开始",ob1);
 }
+
+void msg_end(){
+    message("FIG",BGRN "战斗结束了!" NOR,ob1);}

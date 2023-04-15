@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-14 22:25:50
+ * @LastEditTime: 2023-04-15 16:04:21
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -59,6 +59,13 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     set_heart_beat(1);
 }
 
+void destruct_ob()
+{
+    combat->msg_end();
+    combat->destruct_ob();
+    destruct(this_object());
+}
+
 //处理一个战斗过程
 //返回值为0，表示战斗结束
 //非0值表示战斗回合数
@@ -83,11 +90,14 @@ void heart_beat( void )
 {
     fight_time += 1;  //时间加1s
     script->combat_process(fight_time,fight_round,combat);
-    if (combat_event(combat) == 0)
+    if ((combat_event(combat) == 0) &&(fight_time > 1))
     {
         combat->fight_end();
+        fight_time = -1;
     }
     script->combat_process_time(fight_time,combat);
+    if((combat->length_fight_info() == 0 ) &&(fight_time == 1))
+        destruct_ob();
 }
 
 object combat_object()
@@ -97,9 +107,5 @@ object combat_object()
 
 void combat_end()
 {
-
-    combat->fight_end();
-    destruct(combat);
-    write("退出战斗!\n");
-    destruct(this_object());
+    fight_round = -1;
 }
