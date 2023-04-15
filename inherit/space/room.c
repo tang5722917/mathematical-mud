@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-07 17:16:20
- * @FilePath: \mysticism-mud\inherit\room.c
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-14 22:09:08
+ * @FilePath: \mysticism-mud\inherit\space\room.c
  * @Description: 房间基类
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -13,9 +13,20 @@ inherit CORE_STD_TEST;
 
 int get_room_type()
 {
-    return 0;
+    return this_object()->query("room_type");
 }
 
+varargs void setup(int room_type)
+{
+    this_object()->set("room_type",room_type);
+    if(room_type == 0)
+        this_object()->set("no_clean_up",1);
+    else
+    {
+        this_object()->set("no_clean_up",0);
+    }
+    reset();
+}
 
 // 设置环境区域和坐标
 varargs void setArea(mixed area, int x, int y, int z, string name)

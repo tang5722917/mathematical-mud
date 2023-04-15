@@ -8,7 +8,7 @@
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <combat.h> 
-inherit CORE_CLEAN_UP;
+inherit _CLEAN_UP;
 
 //手牌序列
 nosave protected object *ob_card;

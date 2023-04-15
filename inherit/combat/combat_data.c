@@ -1,15 +1,15 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 20:08:42
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-14 22:30:37
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
  
 #include <combat.h> 
-inherit CORE_CLEAN_UP;
+inherit _CLEAN_UP;
 
 //战斗过程信息
 nosave protected mixed *fight_info;

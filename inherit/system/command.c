@@ -7,7 +7,7 @@ mixed process_input(string arg)
     object me;
     me = this_player();
 #ifdef DEBUG_MYSTICISM
-    debug_message("[" + ctime() + "]"+arg+"\n");
+    debug_message("[" + ctime() + "]"+arg);
 #endif
     if(arg[0] == 32)  //MXP 返回信息以数字32开头
     {
