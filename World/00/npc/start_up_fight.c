@@ -10,7 +10,7 @@
 
 #include <ansi.h>
 #include <game_world.h>
-inherit _LIVING ;
+inherit CORE_STD_NPC;
 
 void create()
 {

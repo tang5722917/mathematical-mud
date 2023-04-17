@@ -1,5 +1,5 @@
 #include <ansi.h>
-inherit  CORE_STD_NPC;
+inherit  CORE_STD_PERSON_NPC;
 
 protected void create()
 {
