@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-06 11:49:15
+ * @LastEditTime: 2023-04-18 16:11:52
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
@@ -41,11 +41,11 @@ void add_mystic(object mys)
 
 int delete_mystic(object mys)
 {
-    int id = mys->mystic_id();
-    int k,mid;
+    int rank = mys->mystic_rank();
+    mixed k,mid;
     foreach(k,mid in living_mystic_id)
     {
-        if( mid == id)
+        if( rank == k)
         {
             living_mystic[k] = 0;
             map_delete(living_mystic_id,k);

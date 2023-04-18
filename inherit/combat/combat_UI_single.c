@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-15 16:16:06
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-18 15:15:17
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -43,6 +43,7 @@ string print_color_fig(F_INFO str,int type)
     return 0;
 }
 
+//执行一条战斗指令的动作
 void print_fight(F_INFO msg)
 {
     int type;
@@ -53,4 +54,6 @@ void print_fight(F_INFO msg)
     else if(msg->ob1 == ob2)
         type = ENV;
     message("FIG",print_color_fig(msg,type),ob1);
+    if(msg->act)
+        perform(msg);
 }

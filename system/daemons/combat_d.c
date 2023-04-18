@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-18 03:46:54
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-18 15:44:02
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -89,15 +89,16 @@ int combat_event(object fig)
 
 void heart_beat( void )
 {
-    fight_time += 1;  //时间加1s
+    if(fight_time >= 0)
+        fight_time += 1;  //时间加1s
     script->combat_process(fight_time,fight_round,combat);
-    if ((combat_event(combat) == 0) &&(fight_time > 1))
+    if ((combat_event(combat) == 0) && (fight_time > 1))
     {
         combat->fight_end();
         fight_time = -1;
     }
     script->combat_process_time(fight_time,combat);
-    if((combat->length_fight_info() == 0 ) &&(fight_time == 1))
+    if((combat->length_fight_info() == 0 ) &&(fight_time < 0 ))
         destruct_ob();
 }
 

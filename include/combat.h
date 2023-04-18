@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-18 04:00:11
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-18 14:36:34
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -19,6 +19,17 @@
 
 #define FIGHT_PVE 0
 #define FIGHT_PVP 1
+
+//战斗中发生的事件
+#define None    0    //无动作
+#define ENT     1    //获得 手牌/状态/物品/召唤物等
+#define MYS     2    //非凡特性效果
+#define PUT     3    //使用 手牌/物品等
+#define ACT     4    //直接动作
+#define ENT_R   5    //失去手牌/状态/物品/召唤物等
+#define MYS_R   6    //失去非凡特性效果
+
+
 
 #define F_INFO class f_info
 //定义结构体 f_info，用于记录每一条战斗记录

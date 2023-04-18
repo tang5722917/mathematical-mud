@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
- * @LastEditors: Tangzp tang5722917@163.com
- * @LastEditTime: 2023-04-15 16:05:10
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-18 15:36:26
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -25,6 +25,8 @@ void create(object o1,object o2,object env)
     //建立战斗双方的数据类，并初始化
     ob1_data = ({});
     ob2_data = ({});
+    err = new(_ERR);
+    err->init(this_object());
     add_new_fighter(ob1_data);
     add_new_fighter(ob2_data);
 }
@@ -42,7 +44,7 @@ object get_player2(){return ob2;}
 //结束战斗
 int fight_end()
 {
-    script->combat_event_end(ob1,ob2);
+    script->combat_event_end(this_object(),ob1,ob2);
     fight_end_user(ob1);  
     fight_end_env(ob2);
     return length_fight_info();
@@ -54,7 +56,7 @@ int fight_init(object scr)
     add_f_info("对手为："+ ob2->short(),ob1);
     fight_init_user(ob1);
     fight_init_env(ob2);
-    script->combat_event_init(ob1,ob2);
+    script->combat_event_init(this_object(),ob1,ob2);
     add_f_info("本回合结束");
     return length_fight_info();
 }

@@ -61,7 +61,7 @@
 #define _MESSAGE        PATH_DIR "inherit/display/message"
 #define _MXP            PATH_DIR "inherit/display/mxp"
 #define _BOARD          PATH_DIR "inherit/display/board"
-#define _ERROR          PATH_DIR "inherit/system/error"
+#define _ERR            PATH_DIR "inherit/system/error"
 #define _DB             PATH_DIR "inherit/system/db"
 // 游戏管理员账号
 #define WIZARD  "mysticism"
