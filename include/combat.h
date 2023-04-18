@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 20:33:52
+ * @LastEditors: Tangzp tang5722917@163.com
+ * @LastEditTime: 2023-04-18 04:00:11
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -25,7 +25,7 @@
 class f_info {
     object ob1;   //该行为发出对象,可以为0
     object status; //发出的行为对象
-    int act;       //行为给与哪一方 1：ob1  2:ob2
+    int act;       //行为类型
     object ob2;   //该行为目标对象,可以为0
     string str;   //行为的描述
 }
