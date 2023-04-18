@@ -11,6 +11,10 @@ inherit INHERIT_PATH "entity/entity";
 inherit _DBASE;
 
 
+//召唤物名称
+string summon_name(){return "召唤物";}
+//召唤物short 介绍
+string summon_explain(){return "出现于战场之上，协助主人战胜对手";}
 
-string card_name(){return "召唤物";}
-string card_explain(){return "出现于战场之上，协助主人战胜对手";}
+string mxp_name(){return summon_name();}
+string mxp_explain(){return summon_explain();}

@@ -32,3 +32,8 @@ object *get_card(){return ob_card;}
 object *get_status(){return ob_status;}
 object *get_equip(){return ob_equip;}
 object *get_summon(){return ob_summon;}
+
+void add_entity(object o)
+{
+    ;
+}
