@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 19:46:49
+ * @LastEditTime: 2023-04-18 20:11:46
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -73,10 +73,7 @@ void perform(F_INFO msg)
     switch(msg->act)
     {
         case ENT:
-            if(msg->ob1 == ob1)
-                ob1_data->add_entity(msg->status);
-            else
-                ob2_data->add_entity(msg->status);
+            this_object()->get_ob_data(msg->ob1)->add_entity(msg->status);
             break;
         case MYS:
             o1->add_mystic(msg->status);
