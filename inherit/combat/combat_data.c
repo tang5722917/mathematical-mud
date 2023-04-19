@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 15:12:07
+ * @LastEditTime: 2023-04-19 16:56:17
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -17,8 +17,8 @@ nosave protected mixed *fight_info;
 nosave protected object *env_obj;
 //战斗双方living 队列
 nosave protected object *ob1_data,*ob2_data,err;
-
-varargs void add_f_info(string str, object ob1,int act,object status,object ob2)
+//执行一条战斗指令
+varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
 {
     F_INFO f;
     if(!act) //只有描述，没有具体的行为
@@ -39,4 +39,15 @@ varargs void add_new_fighter(object *o,int n)
     ob = new(FIG_DATA);
     ob->init();
     o += ({ob});}
+}
+//只有描述的战斗指令，用于战斗中的对话/说明等用途
+varargs void add_f_info(string s,object o)
+{
+    add_f_ins(s, o, None);
+}
+
+//获得手牌/手牌/状态/物品/召唤物等
+void add_f_ent(object s,object o)
+{
+    add_f_ins("", o, ENT, s);
 }

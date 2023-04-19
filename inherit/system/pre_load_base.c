@@ -2,13 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 15:35:07
- * @FilePath: \mysticism-mud\inherit\pre_load_base.c
+ * @LastEditTime: 2023-04-19 17:31:21
+ * @FilePath: \mysticism-mud\inherit\system\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
- nomask protected mapping SYS_OBJ;
+nomask protected mapping SYS_OBJ;
+nosave protected object *obj;
 string ob_name()
 {
     return "";
@@ -35,20 +36,27 @@ string ob_name()
  }
 
 
- int load_path_object(string path)
+object * load_path_object(string path)
  {
     string * str;
     string s;
+    object o,*ob;
+    ob = ({});
+    if(!arrayp(obj))
+        obj = ({});
     str=deep_path_list(path);
     foreach (s in str)
     {
-        if(!load_object(s))
+        o = load_object(s);
+        if(o == 0)
         {
             return 0;
             debug_message("[" + ctime() + "]错误的"+ob_name()+"对象调用");
         }
+        ob += ({o});
     }
-    return 1;
+    obj += ob;
+    return ob;
  }
 
 void ob_load_end(int n)

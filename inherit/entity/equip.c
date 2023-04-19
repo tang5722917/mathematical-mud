@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 19:53:24
+ * @LastEditTime: 2023-04-19 17:51:04
  * @FilePath: \mysticism-mud\inherit\entity\equip.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,6 +16,9 @@ inherit INHERIT_PATH "entity/entity";
 string equip_name(){return "装备";}
 //装备short 介绍
 string equip_explain(){return "佩戴在持有者身上，为持有者提供各种能力";}
+//装备id
+int equip_id(){return 20;}
 
+int entity_id(){return equip_id();}
 string mxp_name(){return equip_name();}
 string mxp_explain(){return equip_explain();}

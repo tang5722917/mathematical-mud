@@ -8,16 +8,14 @@
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 inherit INHERIT_PATH "entity/entity";
-inherit _DBASE;
 
+//技能名称
+string skill_name(){return "召唤物";}
+//技能short 介绍
+string skill_explain(){return "出现于战场之上，协助主人战胜对手";}
+//技能d
+int skill_id(){return 40;}
 
-//召唤物名称
-string summon_name(){return "召唤物";}
-//召唤物short 介绍
-string summon_explain(){return "出现于战场之上，协助主人战胜对手";}
-//召唤物id
-int summon_id(){return 10;}
-
-int entity_id(){return summon_id();}
-string mxp_name(){return summon_name();}
-string mxp_explain(){return summon_explain();}
+int entity_id(){return skill_id();}
+string mxp_name(){return skill_name();}
+string mxp_explain(){return skill_explain();}

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-06 16:36:53
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 20:04:25
+ * @LastEditTime: 2023-04-19 18:00:26
  * @FilePath: \mysticism-mud\inherit\entity\property.c
  * @Description: 玩家持有的带属性的物品基类
  *              
@@ -15,6 +15,19 @@
  inherit _CLEAN_UP;
  
 #include <ansi.h>
+
+
+//特殊物品名称
+string property_name(){return "特殊物品";}
+//装备short 介绍
+string property_explain(){return "特殊物品";}
+//装备id
+int property_id(){return 90;}
+
+int entity_id(){return property_id();}
+string mxp_name(){return property_name();}
+string mxp_explain(){return property_explain();}
+
 
 int is_move()
 {

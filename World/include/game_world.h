@@ -18,8 +18,10 @@
 #define World_day         18
 
 //基础游戏内容路径
-#define PATH_BASE PATH_DIR "World/base/"
-#define MYSTIC_PATH PATH_DIR "World/base/mystic/"
+#define PATH_BASE      PATH_DIR "World/base/"
+#define MYSTIC_PATH    PATH_DIR "World/base/mystic/"
+#define MYSTIC_CARD    PATH_DIR "World/base/card/"
+#define MYSTIC_SKILL   PATH_DIR "World/base/skill/"
 
  //0.x版本游戏内容路径
 #define PATH_00      PATH_DIR "World/00/"
