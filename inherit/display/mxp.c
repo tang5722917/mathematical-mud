@@ -2,8 +2,8 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-06 11:24:48
- * @FilePath: \mysticism-mud\inherit\mxp.c
+ * @LastEditTime: 2023-04-20 20:21:45
+ * @FilePath: \mysticism-mud\inherit\display\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -32,6 +32,12 @@ string * print_mxp_name_all(int type) {
             break;
         case PROPERTY:
             c += "green";
+            break;
+        case EQUIP:
+            c += "orange";
+            break;
+        case SUMMON:
+            c += "fuchsia";
             break;
         case OTHER:
             c += "white";

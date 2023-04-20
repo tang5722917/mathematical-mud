@@ -9,7 +9,9 @@
  * @Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
  */
 
- //
+#ifndef GAME_WORLD_H
+#define GAME_WORLD_H
+
 #define Know_how_version  "0.0.1"
 #define World_version     "0.0.1"
 //World Time
@@ -31,3 +33,5 @@
 #define PATH_00_FIG  PATH_DIR "World/00/combat/"
 #define PATH_00_SCR  PATH_DIR "World/00/script/"
 #define PATH_00_MYH  PATH_DIR "World/00/mystic/"
+
+#endif //GAME_WORLD

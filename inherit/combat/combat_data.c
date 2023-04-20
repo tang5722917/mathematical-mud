@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-19 16:56:17
+ * @LastEditTime: 2023-04-20 20:13:13
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -47,7 +47,17 @@ varargs void add_f_info(string s,object o)
 }
 
 //获得手牌/手牌/状态/物品/召唤物等
-void add_f_ent(object s,object o)
+void add_f_ent(string s,object o)
 {
-    add_f_ins("", o, ENT, s);
+    string str="";
+    object ob;
+    ob = find_object(s);
+    err->is_entity(ob);
+    if( inherits(CORE_STD_CARD,ob)  )
+        str += "获得手牌 "+ob->print_card_name();
+    else if( inherits(CORE_STD_EQUIP,ob)  )
+        str += "获得召唤物 "+ob->print_summon_name();
+    else if( inherits(CORE_STD_SUMMON,ob)  )
+        str += "获得装备 "+ob->print_equip_name();
+    add_f_ins(str, o, ENT, ob);
 }

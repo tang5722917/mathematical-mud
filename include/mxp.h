@@ -42,6 +42,8 @@
 #define CARD     2
 #define STATUS   3
 #define PROPERTY 4
+#define EQUIP    5
+#define SUMMON   6
 #define OTHER    10
 
 #endif // MXP_H
