@@ -2,14 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-19 17:31:21
+ * @LastEditTime: 2023-04-20 12:07:28
  * @FilePath: \mysticism-mud\inherit\system\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-
 nomask protected mapping SYS_OBJ;
 nosave protected object *obj;
+nosave protected object err;
 string ob_name()
 {
     return "";
@@ -36,12 +36,14 @@ string ob_name()
  }
 
 
-object * load_path_object(string path)
+varargs object * load_path_object(string path,string des)
  {
     string * str;
     string s;
     object o,*ob;
     ob = ({});
+    if( err->is_path(path))  //判读文件夹是否存在
+        return 0;
     if(!arrayp(obj))
         obj = ({});
     str=deep_path_list(path);
@@ -56,13 +58,21 @@ object * load_path_object(string path)
         ob += ({o});
     }
     obj += ob;
+    if( stringp(des) )
+        debug_message("[" + ctime() + "]成功加载"+ des +"对象数："+sizeof(ob));
     return ob;
  }
 
 void ob_load_end(int n)
 {
     if(n)
-        debug_message("[" + ctime() + "]成功完成"+ob_name()+"加载");
+        debug_message("[" + ctime() + "]成功完成"+ob_name()+"加载,共计对象数："+sizeof(obj));
     else
         debug_message("[" + ctime() + "]"+ob_name()+"加载失败");
+}
+
+void create()
+{
+    err = new(_ERR);
+    err->init(this_object());
 }
