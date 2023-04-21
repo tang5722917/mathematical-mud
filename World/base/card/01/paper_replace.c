@@ -12,3 +12,5 @@
 
  string card_name(){return "空气子弹";}
  string card_short(){return "通过空气子弹来攻击敌人，子弹的威力取决于灵性";}
+//1-card 01-对应非凡途径序号1占卜家 8-小丑 01编号
+int card_id(){return 101801;}

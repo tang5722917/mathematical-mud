@@ -55,6 +55,7 @@
 #define CORE_STD_CARD           PATH_DIR "inherit/entity/card"
 #define CORE_STD_EQUIP          PATH_DIR "inherit/entity/equip"
 #define CORE_STD_SUMMON         PATH_DIR "inherit/entity/summon"
+#define CORE_STD_STATUS         PATH_DIR "inherit/entity/status"
 /* inherit 特性文件 (覆盖用)*/
 #define _LIVING         PATH_DIR "inherit/living/living"
 #define _USER           PATH_DIR "inherit/living/user"

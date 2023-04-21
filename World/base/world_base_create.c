@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 11:43:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-20 11:55:36
+ * @LastEditTime: 2023-04-21 15:31:58
  * @FilePath: \mysticism-mud\World\base\world_base_create.c
  * @Description: 游戏全局资源预加载
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -23,6 +23,6 @@ string ob_name()
     ::create();
     ob_mystic = load_path_object(MYSTIC_PATH,"非凡特性");
     ob_card = load_path_object(MYSTIC_CARD,"卡片");
-    ob_skill = load_path_object(MYSTIC_SKILL,"技能");
+    //ob_skill = load_path_object(MYSTIC_SKILL,"技能");
     ob_load_end(1);
  }

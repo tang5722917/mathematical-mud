@@ -21,17 +21,17 @@
 
 //基础游戏内容路径
 #define PATH_BASE      PATH_DIR "World/base/"
-#define MYSTIC_PATH    PATH_DIR "World/base/mystic/"
-#define MYSTIC_CARD    PATH_DIR "World/base/card/"
-#define MYSTIC_SKILL   PATH_DIR "World/base/skill/"
+#define MYSTIC_PATH    PATH_BASE "mystic/"
+#define MYSTIC_CARD    PATH_BASE "card/"
+#define MYSTIC_SKILL   PATH_BASE "skill/"
 
  //0.x版本游戏内容路径
 #define PATH_00      PATH_DIR "World/00/"
-#define PATH_00_NPC  PATH_DIR "World/00/npc/"
-#define PATH_00_MAP  PATH_DIR "World/00/map/"
-#define PATH_00_PRO  PATH_DIR "World/00/property/"
-#define PATH_00_FIG  PATH_DIR "World/00/combat/"
-#define PATH_00_SCR  PATH_DIR "World/00/script/"
-#define PATH_00_MYH  PATH_DIR "World/00/mystic/"
-
+#define PATH_00_NPC  PATH_00 "npc/"
+#define PATH_00_MAP  PATH_00 "map/"
+#define PATH_00_PRO  PATH_00 "property/"
+#define PATH_00_FIG  PATH_00 "combat/"
+#define PATH_00_SCR  PATH_00 "script/"
+#define PATH_00_MYH  PATH_00 "mystic/"
+#define PATH_00_STA  PATH_00 "status/"
 #endif //GAME_WORLD
