@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-14 19:56:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 20:08:07
+ * @LastEditTime: 2023-04-21 16:23:30
  * @FilePath: \mysticism-mud\inherit\combat\combat_fighter_data.c
  * @Description: 战斗living数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -35,5 +35,24 @@ object *get_summon(){return ob_summon;}
 
 void add_entity(object o)
 {
-    ;
+    if( inherits(CORE_STD_CARD,o)  )
+        ob_card += ({o});
+    else if( inherits(CORE_STD_EQUIP,o)  )
+        ob_equip += ({o});
+    else if( inherits(CORE_STD_SUMMON,o)  )
+        ob_summon += ({o});
+    else if( inherits(CORE_STD_STATUS,o)  )
+        ob_status += ({o});
+}
+
+void remove_entity(object o)
+{
+    if( inherits(CORE_STD_CARD,o)  )
+        ob_card -= ({o});
+    else if( inherits(CORE_STD_EQUIP,o)  )
+        ob_equip -= ({o});
+    else if( inherits(CORE_STD_SUMMON,o)  )
+        ob_summon -= ({o});
+    else if( inherits(CORE_STD_STATUS,o)  )
+        ob_status -= ({o});
 }

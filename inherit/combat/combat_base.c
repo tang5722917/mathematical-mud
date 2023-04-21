@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 20:11:46
+ * @LastEditTime: 2023-04-21 16:17:58
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -84,6 +84,7 @@ void perform(F_INFO msg)
         case ACT:
             break;
         case ENT_R:
+            this_object()->get_ob_data(msg->ob1)->remove_entity(msg->status);
             break;
         case MYS_R:
             o1->delete_mystic(msg->status);
