@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-08 18:05:06
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 15:36:26
+ * @LastEditTime: 2023-04-21 20:37:20
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description:  单人战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -74,13 +74,13 @@ string fight_main_UI(int fight_time,int fight_round)
     if( MXP_USER(ob1) )
         msg +="<!ELEMENT UI FLAG='UI'>\n<UI>";
     msg +="第" + fight_round + "回合   |地点："+fight_env->short()+"\n";
-    msg += ob2_status(ob2);
-    msg += ob2_equip(ob2);
-    msg += ob2_cards(ob2);
-    msg += out_area();
-    msg += ob1_cards(ob1);
-    msg += ob1_equip(ob1);
-    msg += ob1_status(ob1);
+    msg += ob2_s_status();
+    msg += ob2_s_equip();
+    msg += ob2_s_cards();
+    msg += out_s_area();
+    msg += ob1_s_cards();
+    msg += ob1_s_equip();
+    msg += ob1_s_status();
     if(MXP_USER(ob1))
         msg += "</UI>";
     return msg;

@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 20:13:20
+ * @LastEditTime: 2023-04-21 20:35:04
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -64,4 +64,17 @@ object get_ob_data(object ob)
         return ob1_data[0];
     else
         return ob2_data[0];
+}
+string ob2_s_status(){return ::ob2_status(({ob2}));}
+string ob2_s_equip(){return ::ob2_equip(({ob2}));}
+string ob2_s_cards(){return ::ob2_cards(({ob2}));}
+string out_s_area(){return ::out_area(({ob1}),({ob2}));}
+string ob1_s_cards(){return ::ob1_cards(({ob1}));}
+string ob1_s_equip(){return ::ob1_equip(({ob1}));}
+string ob1_s_status(){return ::ob1_status(({ob1}));}
+
+string print_ob1_ent(object *obs)
+{
+    object ob = obs[0];
+    return "";
 }

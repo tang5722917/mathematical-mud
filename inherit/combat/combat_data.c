@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-21 16:21:44
+ * @LastEditTime: 2023-04-21 20:36:39
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -32,12 +32,11 @@ varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
 
 int length_fight_info(){return sizeof(fight_info);}
 
-varargs void add_new_fighter(object *o,int n)
+varargs void add_new_fighter(object *o,string ob_name,int n)
 {
     object ob;
     if(!n){
-    ob = new(FIG_DATA);
-    ob->init();
+    ob = new(FIG_DATA,ob_name);
     o += ({ob});}
 }
 //只有描述的战斗指令，用于战斗中的对话/说明等用途
