@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-21 20:35:04
+ * @LastEditTime: 2023-04-24 17:18:58
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -19,24 +19,23 @@ nosave protected object fight_env,script;
 //战斗过程颜色控制
 string print_color_fig(F_INFO str,int type)
 {
-    string s;
+    string s=str->str;
     if(str == 0)
         return 0;
+    if((str->act == ENT)||(str->act == ENT_R))
+        s += str->status->print_name(ob1);
     if(type == USER )
     {
-        s = str->str;
         s = GRN + "你："+ s + NOR;
         return s;
     }
     if(type == ENV )
     {
-        s = str->str;
         s = RED +str->ob1->id_list()[0] +"："+ s + NOR;
         return s;
     }
     if(type == COM )
     {
-        s = str->str;
         s = BYEL + s + NOR;
         return s;
     }
@@ -54,8 +53,6 @@ void print_fight(F_INFO msg)
     else if(msg->ob1 == ob2)
         type = ENV;
     message("FIG",print_color_fig(msg,type),ob1);
-    if(msg->act)
-        perform(msg);
 }
 
 object get_ob_data(object ob)
@@ -65,16 +62,26 @@ object get_ob_data(object ob)
     else
         return ob2_data[0];
 }
-string ob2_s_status(){return ::ob2_status(({ob2}));}
-string ob2_s_equip(){return ::ob2_equip(({ob2}));}
-string ob2_s_cards(){return ::ob2_cards(({ob2}));}
-string out_s_area(){return ::out_area(({ob1}),({ob2}));}
-string ob1_s_cards(){return ::ob1_cards(({ob1}));}
-string ob1_s_equip(){return ::ob1_equip(({ob1}));}
-string ob1_s_status(){return ::ob1_status(({ob1}));}
+string ob2_s_status(){return ::ob2_status(ob2_data[0]->get_status());}
+string ob2_s_equip(){return ::ob2_equip(ob2_data[0]->get_equip());}
+string ob2_s_cards(){return ::ob2_cards(ob2_data[0]->get_card());}
+string out_s_area(){return ::out_area(ob1_data[0]->summon(),ob2_data->summon());}
+string ob1_s_cards(){return ::ob1_cards(ob1_data[0]->get_card());}
+string ob1_s_equip(){return ::ob1_equip(ob1_data[0]->get_status());}
+string ob1_s_status(){return ::ob1_status(ob1_data[0]->get_status());}
+string ob1_s_status_data(){
+    string msg;
+    msg = sprintf(" |%-22s%-14s%-15s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
+    ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"));
+    return msg;
+}
 
 string print_ob1_ent(object *obs)
 {
-    object ob = obs[0];
-    return "";
+    string str="";
+    if(obs != 0)
+    {
+        str += print_line(obs);
+    }
+    return str;
 }

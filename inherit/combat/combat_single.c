@@ -1,19 +1,20 @@
 /*
  * @Author: Donald duck tang5722917@163.com
- * @Date: 2023-03-08 18:05:06
+ * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-21 20:37:20
+ * @LastEditTime: 2023-04-24 14:34:21
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
- * @Description:  单人战斗基类
- * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ * @Description: PVE 1v1 战斗基类
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
 #include <ansi.h>
 #include <mxp.h>
 #include <combat.h>
 
 inherit INHERIT_PATH "combat/combat_UI_single";
 
-void create(object o1,object o2,object env)
+void init(object o1,object o2,object env)
 {
     ob1 = o1;
     ob2 = o2;
@@ -27,8 +28,8 @@ void create(object o1,object o2,object env)
     ob2_data = ({});
     err = new(_ERR);
     err->init(this_object());
-    add_new_fighter(ob1_data);
-    add_new_fighter(ob2_data);
+    ob1_data += ({add_new_fighter(ob1)});
+    ob2_data += ({add_new_fighter(ob2)});
 }
 //定义玩家的初始行为
 int fight_init_user(object user){return 0;}
@@ -80,6 +81,7 @@ string fight_main_UI(int fight_time,int fight_round)
     msg += out_s_area();
     msg += ob1_s_cards();
     msg += ob1_s_equip();
+    msg += ob1_s_status_data();
     msg += ob1_s_status();
     if(MXP_USER(ob1))
         msg += "</UI>";

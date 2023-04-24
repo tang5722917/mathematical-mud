@@ -18,7 +18,7 @@ string equip_name(){return "装备";}
 string equip_explain(){return "佩戴在持有者身上，为持有者提供各种能力";}
 //装备id
 int equip_id(){return 20;}
-string print_equip_name(){return print_mxp_name(5);}
+string print_equip_name(object user){return print_mxp_name(5,user);}
 int entity_id(){return equip_id();}
 string mxp_name(){return equip_name();}
 string mxp_explain(){return equip_explain();}

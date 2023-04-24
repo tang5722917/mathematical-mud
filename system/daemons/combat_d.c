@@ -41,7 +41,8 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
         if(env != 0 && ob2[0]->combat_env() != 0)
         {
             ob1 ->start_fight();
-            combat = new(ob2[0]->combat_env(),ob1[0],ob2[0],env);
+            combat = new(ob2[0]->combat_env());
+            combat->init(ob1[0],ob2[0],env);
             script = combat->set_combat_script(ob1,ob2,fight_type,env);
         }
         else return;

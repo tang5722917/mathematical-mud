@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-20 20:21:45
+ * @LastEditTime: 2023-04-24 16:59:30
  * @FilePath: \mysticism-mud\inherit\display\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
@@ -50,9 +50,9 @@ string * print_mxp_name_all(int type) {
     return str;
 }
 
-string print_mxp_name(int type) {
+string print_mxp_name(int type,object user) {
     string *str = print_mxp_name_all(type);
-    if (MXP_USER(this_player()) == 1 )
+    if (MXP_USER(user) == 1 )
         return str[0];
     else return str[1];
 }
