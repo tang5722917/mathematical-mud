@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:07:00
+ * @LastEditTime: 2023-04-24 17:32:07
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -38,10 +38,6 @@ F_INFO get_one_fight()
     if(sizeof(fight_info) != 0)
     {
         str = f_info_copy(fight_info[0]);
-        if(str->act){
-            ob = str->status;
-            debug_message("data2345 ："+ ob->print_name(this_object()->get_player1()) );
-        }
         fight_info -= ({fight_info[0]});
         return str;
     }
@@ -67,7 +63,7 @@ void destruct_ob()
 
 void perform(F_INFO msg)
 {   
-    object o1,o2;
+    object o1,o2,ob_user;
     err->is_living(msg->ob1);
     o1 = msg->ob1;
     if(msg->ob2 != 0){
@@ -77,9 +73,9 @@ void perform(F_INFO msg)
     switch(msg->act)
     {
         case ENT:
-           
-            
-            //ot ->add_entity(msg->status);
+            ob_user = this_object()->get_ob_data(o1);
+            debug_message("string msg" + msg->str);
+            ob_user ->add_entity(msg->status);
             break;
         case MYS:
             o1->add_mystic(msg->status);

@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:18:58
+ * @LastEditTime: 2023-04-24 18:16:42
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -53,6 +53,8 @@ void print_fight(F_INFO msg)
     else if(msg->ob1 == ob2)
         type = ENV;
     message("FIG",print_color_fig(msg,type),ob1);
+    if(msg->act)
+        perform(msg);
 }
 
 object get_ob_data(object ob)
@@ -67,21 +69,21 @@ string ob2_s_equip(){return ::ob2_equip(ob2_data[0]->get_equip());}
 string ob2_s_cards(){return ::ob2_cards(ob2_data[0]->get_card());}
 string out_s_area(){return ::out_area(ob1_data[0]->summon(),ob2_data->summon());}
 string ob1_s_cards(){return ::ob1_cards(ob1_data[0]->get_card());}
-string ob1_s_equip(){return ::ob1_equip(ob1_data[0]->get_status());}
+string ob1_s_equip(){return ::ob1_equip(ob1_data[0]->get_equip());}
 string ob1_s_status(){return ::ob1_status(ob1_data[0]->get_status());}
 string ob1_s_status_data(){
     string msg;
-    msg = sprintf(" |%-22s%-14s%-15s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
-    ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"));
+    msg = sprintf(" |%-22s%-14s%-14s%-11s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
+    ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"),"疯狂"+ob1->query_attr("cra"));
     return msg;
 }
 
-string print_ob1_ent(object *obs)
+string print_ob1_ent(object *obs,int type)
 {
     string str="";
     if(obs != 0)
     {
-        str += print_line(obs);
+        str += print_line(obs,ob1,type);
     }
     return str;
 }
