@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 15:44:02
+ * @LastEditTime: 2023-04-26 18:04:39
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -40,7 +40,7 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
     {
         if(env != 0 && ob2[0]->combat_env() != 0)
         {
-            ob1 ->start_fight();
+            ob1 ->start_fight(this_object());
             combat = new(ob2[0]->combat_env());
             combat->init(ob1[0],ob2[0],env);
             script = combat->set_combat_script(ob1,ob2,fight_type,env);
@@ -111,4 +111,10 @@ object combat_object()
 void combat_end()
 {
     fight_round = -1;
+}
+
+//调用出牌判定静态类处理出牌动作
+int put_card_d(int *n_card)
+{
+    ;
 }

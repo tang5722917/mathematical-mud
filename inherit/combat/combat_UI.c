@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 18:28:32
+ * @LastEditTime: 2023-04-26 16:13:23
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -16,7 +16,7 @@ inherit INHERIT_PATH "combat/combat_base";
 string print_line(object *ob,object ob_user,int type)
 {
     object o;
-    int line_num,num = sizeof(ob);
+    int n,line_num,num = sizeof(ob);
     string s="";
     string *str=allocate(3,"");
     line_num = num / 3;
@@ -26,10 +26,11 @@ string print_line(object *ob,object ob_user,int type)
     {
         for(int i=0; i<= line_num ;i ++){
             for(int j=0; j<=2; j++){
-                if(i*3+j < num )
+                n = i*3+j;
+                if(n < num )
                 {
-                    o = ob[i*3+j];
-                    str[j] = o->mxp_sprintf(o->print_mxp_name_all(type),20,ob_user);
+                    o = ob[n];
+                    str[j] = n+"."+o->mxp_sprintf(o->print_mxp_name_all(type),20,ob_user);
                 }
                 else str[j] = "--";
             }

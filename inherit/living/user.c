@@ -14,19 +14,25 @@ inherit INHERIT_PATH "living/user_monitor" ;
 nosave object *temp_object_list=({});
 //user 战斗对象
 protected nosave object fight_ob;
-
+//该玩家是否在战斗过程中
 int is_fight_user()
 {
     return query("user_fight");
 }
 
-int start_fight()
+int start_fight(object fob)
 {
-    return set("user_fight",1);
+    if(fob != 0)
+    {
+        write(HBYEL "你已进入战斗状态!"NOR);
+        return set("user_fight",1);
+    }
+    return 0;
 }
 
 int end_fight()
 {
+    fight_ob = 0;
     set("user_fight",0);
 }
 
@@ -54,9 +60,12 @@ object fight_object()
 
 int into_cur_fight(object fob)
 {
-    fight_ob = fob;
     if(fob != 0)
-        write(HBYEL "你已进入战斗状态!"NOR);
+    {
+        fight_ob = fob;
+        write(HBYEL "你已进入战斗场景"NOR);
+    }
+    return 0;
 }
 
 varargs void version_boardcast(int v)

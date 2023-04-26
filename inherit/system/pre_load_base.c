@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-20 12:07:28
+ * @LastEditTime: 2023-04-26 18:07:22
  * @FilePath: \mysticism-mud\inherit\system\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,7 +22,13 @@ string ob_name()
         SYS_OBJ = ([]);
      o = load_object(obj_path);
      if(o == 0)
+     {
         debug_message("[" + ctime() + "]导入"+ob_name()+"对象错误");
+        return;
+     }
+     if(!arrayp(obj))
+        obj = ({});
+     obj += ({o});
      SYS_OBJ[obj_name]=o;
  }
 

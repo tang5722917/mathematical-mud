@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:32:07
+ * @LastEditTime: 2023-04-24 18:31:30
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -74,7 +74,6 @@ void perform(F_INFO msg)
     {
         case ENT:
             ob_user = this_object()->get_ob_data(o1);
-            debug_message("string msg" + msg->str);
             ob_user ->add_entity(msg->status);
             break;
         case MYS:

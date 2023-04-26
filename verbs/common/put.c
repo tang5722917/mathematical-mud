@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-15 18:09:45
+ * @LastEditTime: 2023-04-26 17:51:52
  * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
@@ -42,7 +42,7 @@ mixed can_put()
 
 mixed can_put_str(string str)
 {
-    string *item;
+    string *item,*strs;
     int n=0;
     if(! this_player()->is_fight_user())
         return "目前不在战斗当中\n";
@@ -53,9 +53,12 @@ mixed can_put_str(string str)
         {   
             if((s[0] != 0) )
             {
-                if((strlen(s) != 1)|| (s[0] < 48) || (s[0] > 57))
-                    return "错误地出牌指令！\n";
-                write(s+"\n");
+                //使用正则表达式判断输入是否为纯数字
+                strs = pcre_match_all(s,"\\D" ); 
+                if(sizeof(strs))
+                {
+                    return "请输入有效地出牌指令\n";
+                }
                 n++;
             }
         }
@@ -67,7 +70,27 @@ mixed can_put_str(string str)
 
 mixed do_put_str(string str)
 {
-    write(str + "\n");
+    string *strs;
+    int *ins,n;
+    object fo;
+    ins = ({});
+    //使用正则表达式判获取数字
+    strs = pcre_match_all(str,"\\d+" ); 
+    foreach(string *st in strs)
+    {
+        n = to_int(st[0]);
+        foreach(int i in ins)
+        {
+            if(i == n)
+                {
+                    write(HBRED "输入的出牌号码不可重复\n" NOR);
+                    return 0;
+                }
+        }
+        ins += ({n});
+    }
+    fo = this_player()->fight_object();
+    fo ->
     return 1;
 }
 

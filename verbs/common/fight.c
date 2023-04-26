@@ -47,7 +47,6 @@ mixed do_fight_str(string str)
             ob2 = ob->fight(me,ob);
             ob1 = me->fight(me,ob);
             fob = new(FIGHT_D,ob1,ob2,0,env);
-            me->into_cur_fight(fob);
             return 1;
         }
         else

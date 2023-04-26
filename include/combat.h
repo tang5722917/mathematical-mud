@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:13:29
+ * @LastEditTime: 2023-04-26 17:57:25
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,7 +10,8 @@
 #ifndef COMBAT_H
 #define COMBAT_H
 
-#define FIG_DATA INHERIT_PATH"combat/combat_fighter_data"
+#define FIG_DATA        INHERIT_PATH"combat/combat_fighter_data"
+#define PUT_CARD_D      INHERIT_PATH"combat/combat_d/put_card_d"
 
  //战斗中身份类型
 #define COM   0 
