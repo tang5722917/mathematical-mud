@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 18:16:42
+ * @LastEditTime: 2023-04-26 19:32:18
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -56,6 +56,8 @@ void print_fight(F_INFO msg)
     if(msg->act)
         perform(msg);
 }
+
+object get_ob1_data(){return ob1_data[0];}
 
 object get_ob_data(object ob)
 {

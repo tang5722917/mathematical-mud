@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 17:51:52
+ * @LastEditTime: 2023-04-26 19:23:10
  * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
@@ -90,7 +90,7 @@ mixed do_put_str(string str)
         ins += ({n});
     }
     fo = this_player()->fight_object();
-    fo ->
+    fo -> put_card_d(ins);
     return 1;
 }
 

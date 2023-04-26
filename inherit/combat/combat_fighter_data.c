@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-14 19:56:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 14:31:21
+ * @LastEditTime: 2023-04-26 19:39:45
  * @FilePath: \mysticism-mud\inherit\combat\combat_fighter_data.c
  * @Description: 战斗living数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -31,7 +31,7 @@ void init(object ob)
 
 object *get_card(){return ob_card;}
 object *get_status(){return ob_status;}
-object *pget_equi(){return ob_equip;}
+object *get_equi(){return ob_equip;}
 object *get_summon(){return ob_summon;}
 
 void add_entity(object o)

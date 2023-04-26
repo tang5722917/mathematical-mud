@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 16:13:23
+ * @LastEditTime: 2023-04-26 19:38:34
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -30,7 +30,7 @@ string print_line(object *ob,object ob_user,int type)
                 if(n < num )
                 {
                     o = ob[n];
-                    str[j] = n+"."+o->mxp_sprintf(o->print_mxp_name_all(type),20,ob_user);
+                    str[j] = n+"."+o->mxp_sprintf(o->print_mxp_name_all(type),18,ob_user);
                 }
                 else str[j] = "--";
             }

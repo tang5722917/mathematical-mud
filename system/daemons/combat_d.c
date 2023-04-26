@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 18:04:39
+ * @LastEditTime: 2023-04-26 19:26:55
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -116,5 +116,7 @@ void combat_end()
 //调用出牌判定静态类处理出牌动作
 int put_card_d(int *n_card)
 {
-    ;
+    object o;
+    o = find_object(PUT_CARD_D);
+    o->put_card(combat,n_card);
 }
