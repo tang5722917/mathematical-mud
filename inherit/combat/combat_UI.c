@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 11:41:26
+ * @LastEditTime: 2023-04-27 19:19:41
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -100,6 +100,7 @@ string ob1_status(object *ob)
     msg += print_ob1_ent(ob,STATUS);
     msg += HIC "≡ " HIY "└─────────────────────────────────────────────────────────────┘" HIC "≡\n" NOR;
     msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
-    msg += "<数字x> 为0-9数字，p 后面的每一个数字代表相应的手牌，最多10张 ";
+    msg += "《数字x》 为代表卡牌数字，p 后面的每一个数字代表相应的手牌。\n";
+    msg += "只输入“p”表示跳过本回合";
     return msg;
 }

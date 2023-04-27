@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:11:19
+ * @LastEditTime: 2023-04-27 18:38:22
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -82,4 +82,18 @@ void remove_f_ent(string s,object o)
     else if( inherits(CORE_STD_STATUS,ob)  )
         str += "失去状态 ";
     add_f_ins(str, o, ENT_R, ob);
+}
+
+//使用手牌
+void put_f_ent(string s,object o)
+{
+    string str="";
+    object ob;
+    ob = find_object(s);
+    err->is_entity(ob);
+    if( inherits(CORE_STD_CARD,ob)  )
+    {
+        str += "使用手牌 ";
+        add_f_ins(str, o, PUT, ob);
+    }
 }

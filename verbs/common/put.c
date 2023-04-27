@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 19:23:10
+ * @LastEditTime: 2023-04-27 19:13:05
  * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
@@ -25,8 +25,10 @@
 
 mixed do_put()
 {
-    //object me = this_player();
-    write("你想出什么牌？\n");
+    object fo;
+    write("你已跳过本回合\n");
+    fo = this_player()->fight_object();
+    fo -> put_card_d(0);
     return 1;
 }
 
@@ -66,13 +68,17 @@ mixed can_put_str(string str)
             return 1;
         else return "没有有效地出牌指令\n"; 
     }
+    return 1;
 }
 
 mixed do_put_str(string str)
 {
     string *strs;
-    int *ins,n;
+    int *ins,n,card_n;
     object fo;
+    fo = this_player()->fight_object();
+    //获取当前手牌数量
+    card_n = fo->get_card_num(this_player());
     ins = ({});
     //使用正则表达式判获取数字
     strs = pcre_match_all(str,"\\d+" ); 
@@ -87,10 +93,14 @@ mixed do_put_str(string str)
                     return 0;
                 }
         }
+        if(n >= card_n)
+        {
+            write(HBRED "输入的出牌号码不正确\n" NOR);
+            return 0;
+        }
         ins += ({n});
     }
-    fo = this_player()->fight_object();
-    fo -> put_card_d(ins);
+    fo -> put_card_d(ins,this_player());
     return 1;
 }
 

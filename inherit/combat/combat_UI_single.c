@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 11:42:53
+ * @LastEditTime: 2023-04-27 18:48:08
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -22,7 +22,7 @@ string print_color_fig(F_INFO str,int type)
     string s=str->str;
     if(str == 0)
         return 0;
-    if((str->act == ENT)||(str->act == ENT_R))
+    if((str->act == ENT)||(str->act == ENT_R)||(str->act == PUT))
         s += str->status->print_name(ob1);
     if(type == USER )
     {
@@ -83,4 +83,10 @@ string ob1_s_status_data(){
 string print_ob1_ent(object *obs,int type)
 {
     return print_line(obs,ob1,type);
+}
+
+//获取user手牌数量
+int get_card_num(object user)
+{
+    return ob1_data[0]->get_num_card();
 }
