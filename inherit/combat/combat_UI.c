@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 04:07:11
+ * @LastEditTime: 2023-04-27 11:41:26
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -21,7 +21,7 @@ string print_line(object *ob,object ob_user,int type)
     string *str=allocate(3,"");
     line_num = num / 3;
     if(num == 0)
-        s += sprintf(" |%-61s| \n", "");
+        s += sprintf("  |%-61s| \n", "");
     else
     {
         for(int i=0; i<= line_num ;i ++){
@@ -34,7 +34,7 @@ string print_line(object *ob,object ob_user,int type)
                 }
                 else str[j] = "--";
             }
-            s += sprintf(" |%-20s%-20s%-20s | \n", str[0], str[1], str[2]);
+            s += sprintf("  |%-20s%-20s%-20s | \n", str[0], str[1], str[2]);
         }
     }
     return s;
@@ -45,52 +45,52 @@ string print_ob1_ent(object *obs,int type){return "";}
 string ob2_status(object *ob)
 {
     string msg;
-    msg = HIC "≡" HIY "┌─────────────────────────────────────────────────────────────┐" HIC "≡\n" NOR;
-    msg += sprintf(" |%-61s| \n", "");
+    msg = HIC "≡ " HIY "┌─────────────────────────────────────────────────────────────┐" HIC "≡\n" NOR;
+    msg += sprintf("  |%-61s| \n", "");
     return msg;
 }
 
 string ob2_equip(object *ob)
 {
     string msg;
-    msg = HIC "≡"HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += sprintf(" |%-61s| \n", "");
+    msg = HIC "≡ "HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
+    msg += sprintf("  |%-61s| \n", "");
     return msg;
 }
 
 string ob2_cards(object *ob)
 {
     string msg;
-    msg =HIC "≡" "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += sprintf(" |%-61s| \n", "对方手牌状态：未知");
+    msg =HIC "≡ " "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
+    msg += sprintf("  |%-61s| \n", "对方手牌状态：未知");
     return msg;
 }
 
 string out_area(object *ob_1,object *ob_2)
 {
     string msg;
-    msg = HIR "≡" HIR"╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
-    //msg += print_line(ob2_data->get_summon());
-    msg += GRN " ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
-    //msg += print_line(env_obj);
-    msg += GRN" ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
-    msg += msg += print_ob1_ent(ob_1,SUMMON);
-    msg += HIR "≡" HIR "╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
+    msg = HIR "≡ " HIR"╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
+    msg += sprintf("  |%-61s| \n", "");
+    msg += GRN "  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
+    msg += sprintf("  |%-61s| \n", "");
+    msg += GRN"  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
+    msg += print_ob1_ent(ob_1,SUMMON);
+    msg += HIR "≡ " HIR "╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
     return msg;
 }
 
 string ob1_cards(object *ob)
 {
     string msg="";
-    msg = msg += print_ob1_ent(ob,CARD);
-    msg +=HIC "≡" "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
+    msg = print_ob1_ent(ob,CARD);
+    msg +=HIC "≡ " "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
     return msg;
 }
 string ob1_equip(object *ob)
 {
     string msg="";
-    msg += msg += print_ob1_ent(ob,EQUIP);
-    msg += HIC "≡" HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
+    msg += print_ob1_ent(ob,EQUIP);
+    msg += HIC "≡ " HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
     return msg;
 }
 
@@ -98,7 +98,7 @@ string ob1_status(object *ob)
 {
     string msg="";
     msg += print_ob1_ent(ob,STATUS);
-    msg += HIC "≡" HIY "└─────────────────────────────────────────────────────────────┘" HIC "≡\n" NOR;
+    msg += HIC "≡ " HIY "└─────────────────────────────────────────────────────────────┘" HIC "≡\n" NOR;
     msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
     msg += "<数字x> 为0-9数字，p 后面的每一个数字代表相应的手牌，最多10张 ";
     return msg;
