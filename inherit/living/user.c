@@ -24,7 +24,7 @@ int start_fight(object fob)
 {
     if(fob != 0)
     {
-        write(HBYEL "你已进入战斗状态!"NOR);
+        write(HBYEL "你已进入战斗状态!\n"NOR);
         fight_ob = fob;
         return set("user_fight",1);
     }
