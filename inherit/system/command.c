@@ -1,3 +1,12 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-04-11 19:12:19
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-04-28 16:39:55
+ * @FilePath: \mysticism-mud\inherit\system\command.c
+ * @Description: 玩家输入指令处理
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ */
 
 #include <ansi.h>
 inherit  CORE_COMMAND;
@@ -7,7 +16,7 @@ mixed process_input(string arg)
     object me;
     me = this_player();
 #ifdef DEBUG_MYSTICISM
-    debug_message("[" + ctime() + "]"+arg);
+    debug_message("[" + ctime() + "]["+ me->parse_command_id_list()[0] + "]:" +arg);
 #endif
     if(arg[0] == 32)  //MXP 返回信息以数字32开头
     {

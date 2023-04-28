@@ -8,8 +8,6 @@
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 inherit INHERIT_PATH "entity/entity";
-inherit _DBASE;
-
 
 //召唤物名称
 string summon_name(){return "召唤物";}

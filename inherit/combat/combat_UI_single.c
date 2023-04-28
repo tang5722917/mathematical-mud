@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 18:48:08
+ * @LastEditTime: 2023-04-28 19:22:50
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -24,7 +24,7 @@ string print_color_fig(F_INFO str,int type)
         return 0;
     if((str->act == ENT)||(str->act == ENT_R)||(str->act == PUT))
         s += str->status->print_name(ob1);
-    if(type == USER )
+    if(type == USER1 )
     {
         s = GRN + "你："+ s + NOR;
         return s;
@@ -49,7 +49,7 @@ void print_fight(F_INFO msg)
     if(msg->ob1 == 0)
         type = COM;
     else if(msg->ob1 == ob1)
-        type = USER;
+        type = USER1;
     else if(msg->ob1 == ob2)
         type = ENV;
     message("FIG",print_color_fig(msg,type),ob1);

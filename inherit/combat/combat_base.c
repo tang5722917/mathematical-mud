@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 18:58:25
+ * @LastEditTime: 2023-04-28 17:21:15
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -58,6 +58,7 @@ void destruct_ob()
 {
     foreach(object o in ob1_data){destruct(o);}
     foreach(object o in ob2_data){destruct(o);}
+    foreach(object o in ob_summon){o->remove();}
     destruct(this_object());
 }
 
@@ -80,7 +81,10 @@ void perform(F_INFO msg)
             o1->add_mystic(msg->status);
             o1->update_mystic();
             break;
+        case SUM:
+            break;
         case PUT:
+            load_object(PER_CARD_D)->perform(o1,msg->status,this_object());
             break;
         case ACT:
             break;
@@ -90,6 +94,8 @@ void perform(F_INFO msg)
         case MYS_R:
             o1->delete_mystic(msg->status);
             o1->update_mystic();
+            break;
+        case SUM_R:
             break;
         default: break;
     }

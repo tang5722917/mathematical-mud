@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-14 19:56:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 19:14:21
+ * @LastEditTime: 2023-04-28 16:45:17
  * @FilePath: \mysticism-mud\inherit\combat\combat_fighter_data.c
  * @Description: 战斗living数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,8 +16,6 @@ nosave protected object *ob_card;
 nosave protected object *ob_status;
 //装备序列
 nosave protected object *ob_equip;
-//召唤物序列
-nosave protected object *ob_summon;
 
 nosave protected object user_ob;
 void init(object ob)
@@ -25,7 +23,6 @@ void init(object ob)
     ob_card=({});
     ob_status=({});
     ob_equip=({});
-    ob_summon=({});
     user_ob = ob;
 }
 
@@ -34,12 +31,10 @@ int get_num_card(){return sizeof(ob_card);}
 object *get_card(){return ob_card;}
 object *get_status(){return ob_status;}
 object *get_equi(){return ob_equip;}
-object *get_summon(){return ob_summon;}
 
 void remove_card(object *obs){ob_card -= obs;}
 void remove_status(object *obs){ob_status -= obs;}
 void remove_equi(object *obs){ob_equip -= obs;}
-void remove_summon(object *obs){ob_summon -= obs;}
 
 void add_entity(object o)
 {
@@ -47,8 +42,6 @@ void add_entity(object o)
         ob_card += ({o});
     else if( inherits(CORE_STD_EQUIP,o)  )
         ob_equip += ({o});
-    else if( inherits(CORE_STD_SUMMON,o)  )
-        ob_summon += ({o});
     else if( inherits(CORE_STD_STATUS,o)  )
         ob_status += ({o});
 }
@@ -59,8 +52,6 @@ void remove_entity(object o)
         ob_card -= ({o});
     else if( inherits(CORE_STD_EQUIP,o)  )
         ob_equip -= ({o});
-    else if( inherits(CORE_STD_SUMMON,o)  )
-        ob_summon -= ({o});
     else if( inherits(CORE_STD_STATUS,o)  )
         ob_status -= ({o});
 }
