@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-28 17:21:15
- * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-29 03:10:06
+ * @FilePath: /mysticism-mud/inherit/combat/combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
@@ -19,7 +19,7 @@ varargs object set_combat_script(object *ob1,object *ob2,int fight_type,object e
     {
         if((sizeof(ob1)==1) &&(sizeof(ob2)==1))  //1V1 PVE
         {
-            return load_object(ob2[0]->combat_script(env,rank));
+            return find_object(ob2[0]->combat_script(env,rank));
         }
     }
 }

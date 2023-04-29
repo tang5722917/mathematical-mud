@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 19:12:26
- * @FilePath: \mysticism-mud\system\daemons\combat_d.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-29 10:34:54
+ * @FilePath: /mysticism-mud/system/daemons/combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -64,8 +64,8 @@ void destruct_ob()
 {
     combat->msg_end();
     combat->destruct_ob();
-    destruct(script);
     destruct(this_object());
+    return;
 }
 
 //处理一个战斗过程
@@ -100,7 +100,11 @@ void heart_beat( void )
     }
     script->combat_process_time(fight_time,combat);
     if((combat->length_fight_info() == 0 ) &&(fight_time < 0 ))
+    {
+        set_heart_beat(0);
         destruct_ob();
+        return;
+    }
 }
 
 object combat_object()
