@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 19:13:05
- * @FilePath: \mysticism-mud\verbs\common\put.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-04-29 12:32:49
+ * @FilePath: /mysticism-mud/verbs/common/put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -89,7 +89,7 @@ mixed do_put_str(string str)
         {
             if(i == n)
                 {
-                    write(HBRED "输入的出牌号码不可重复\n" NOR);
+                    write(HBRED "输入的出牌号码不可重复"+NOR+"\n");
                     return 0;
                 }
         }
