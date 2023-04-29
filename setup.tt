@@ -4,6 +4,9 @@
 #alias username mysticism
 #alias password 12345
 
+#nop 设置tt++游戏脚本PATH
+#variable {tt_path} {../mysticism-mud-tintin}
+
 #nop 设置MUDLIB IP地址/PORT
 #ses mysticism-mud 127.0.0.1 2023;
 
@@ -13,3 +16,5 @@
 #action {请输入你的登录ID} {username};
 #action {请输入密码}{password}
 #class login_in close
+
+#read {$tt_path/init.tt};
