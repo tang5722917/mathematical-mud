@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-28 17:09:05
+ * @LastEditTime: 2023-05-04 18:14:14
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -13,6 +13,7 @@
 #define FIG_DATA        INHERIT_PATH"combat/combat_fighter_data"
 #define PUT_CARD_D      INHERIT_PATH"combat/combat_d/put_card_d"
 #define PER_CARD_D      INHERIT_PATH"combat/combat_d/perform_card_d"
+#define ADD_SUMMON_D    INHERIT_PATH"combat/combat_d/perform_add_summon_d"
 
  //战斗中身份类型
 #define COM   0 
@@ -42,6 +43,13 @@ class f_info {
     int act;       //行为类型
     object status; //发出的行为对象
     object ob2;   //该行为目标对象,可以为0
+}
+#define P_CARD class put_card
+//定义结构体 put_card，用于记录出牌顺序
+class put_card {
+    object card;   //card对象
+    object user;   //出牌user
+    int speed;     //出牌speed
 }
 
 #endif // COMBAT_H

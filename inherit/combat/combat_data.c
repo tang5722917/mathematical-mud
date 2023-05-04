@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-04 16:40:29
+ * @LastEditTime: 2023-05-04 18:31:23
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -13,6 +13,8 @@ inherit _CLEAN_UP;
 
 //战斗过程信息
 nosave protected mixed *fight_info;
+//出牌队列
+nosave protected mixed *put_card_query;
 //公共物品队列
 nosave protected object *env_obj;
 //战斗双方living 队列
@@ -31,6 +33,35 @@ varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
     }
     fight_info +=({f});
 }
+//在出牌序列添加一张牌
+void add_put_card(object card,object user,int speed)
+{
+    P_CARD p;
+    p = new(P_CARD,card:card,user:user,speed:speed);
+    put_card_query +=({p});
+}
+
+P_CARD p_card_copy(P_CARD p){
+    return new(P_CARD,card:p->card,user:p->user,speed:p->speed);}
+//对出牌序列进行排序，按照speed从大到小
+void sort_put_card_query()
+{
+
+}
+//得到出牌序列中最优先的牌
+P_CARD get_put_card()
+{
+    P_CARD p;
+    if(put_card_query != 0)
+    {
+        p= p_card_copy(put_card_query[0]);
+        p_card_copy -=({put_card_query[0]});
+        return p;
+    }
+    else return 0;
+}
+
+
 
 F_INFO f_info_copy(F_INFO f){
     return new(F_INFO,str:f->str,ob1:f->ob1,status:f->status,act:f->act,ob2:f->ob2);}

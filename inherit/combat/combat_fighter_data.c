@@ -16,15 +16,23 @@ nosave protected object *ob_card;
 nosave protected object *ob_status;
 //装备序列
 nosave protected object *ob_equip;
-
+//所属的user
 nosave protected object user_ob;
+//是否完成出牌
+nosave protected int end_round;
+
 void init(object ob)
 {
     ob_card=({});
     ob_status=({});
     ob_equip=({});
     user_ob = ob;
+    end_round = 0;
 }
+
+void end_round(){end_round = 1;}
+void start_round(){end_round = 0;}
+int get_put_round(){return end_round;}
 
 int get_num_card(){return sizeof(ob_card);}
 

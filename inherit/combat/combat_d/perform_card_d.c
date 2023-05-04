@@ -11,7 +11,6 @@
 //获得对方object
 
 
-
 int perform(object user,object card_ob,object combat)
 {
     //获得Card效果类型
@@ -28,6 +27,7 @@ int perform(object user,object card_ob,object combat)
                 
                 break;
             case 4:       //物理攻击
+
                 break;
             case 5:       //非凡攻击
                 break;
