@@ -11,7 +11,7 @@
 #include <game_world.h>
 inherit CORE_STD_PRE;
 
-protected object *ob_mystic,*ob_card,*ob_skill;
+protected object *ob_mystic,*ob_card,*ob_skill,*ob_summon;
 
 string ob_name()
 {
@@ -23,6 +23,7 @@ string ob_name()
     ::create();
     ob_mystic = load_path_object(MYSTIC_PATH,"非凡特性");
     ob_card = load_path_object(MYSTIC_CARD,"卡片");
+    ob_summon = load_path_object(MYSTIC_SUMMON,"召唤物");
     //ob_skill = load_path_object(MYSTIC_SKILL,"技能");
     ob_load_end(1);
  }

@@ -10,10 +10,10 @@
  */
 #include <card.h>
 
-string card_name(){return "纸人替身";}
-string card_short(){return "放置一个生命为1的纸人，抵挡一次攻击";}
-//1-card 01-对应非凡途径序号1占卜家 7-魔术师 01编号
-int card_id(){return 101701;}
+string card_name(){return "空气子弹";}
+string card_short(){return "通过空气子弹来攻击敌人，子弹的威力取决于灵性";}
+//1-card 01-对应非凡途径序号1占卜家 8-小丑 01编号
+int card_id(){return 101801;}
 
-//卡片类型： 单体攻击
+//卡片类型： 单体物理攻击
 int *perform_type(){return ({CATTACK1});}
