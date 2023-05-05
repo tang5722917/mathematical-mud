@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 14:34:21
+ * @LastEditTime: 2023-05-05 14:44:17
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description: PVE 1v1 战斗基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -76,6 +76,7 @@ string fight_main_UI(int fight_time,int fight_round)
         msg +="<!ELEMENT UI FLAG='UI'>\n<UI>";
     msg +="第" + fight_round + "回合   |地点："+fight_env->short()+"\n";
     msg += ob2_s_status();
+    msg += ob2_s_status_data();
     msg += ob2_s_equip();
     msg += ob2_s_cards();
     msg += out_s_area();

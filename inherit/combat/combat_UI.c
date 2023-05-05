@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-27 19:19:41
+ * @LastEditTime: 2023-05-05 14:36:36
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -41,12 +41,13 @@ string print_line(object *ob,object ob_user,int type)
 }
 
 string print_ob1_ent(object *obs,int type){return "";}
+string print_ob2_ent(object *obs,int type){return "";}
 
 string ob2_status(object *ob)
 {
     string msg;
     msg = HIC "≡ " HIY "┌─────────────────────────────────────────────────────────────┐" HIC "≡\n" NOR;
-    msg += sprintf("  |%-61s| \n", "");
+    msg += print_ob2_ent(ob,STATUS);
     return msg;
 }
 
@@ -54,7 +55,7 @@ string ob2_equip(object *ob)
 {
     string msg;
     msg = HIC "≡ "HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += sprintf("  |%-61s| \n", "");
+    msg += print_ob2_ent(ob,EQUIP);
     return msg;
 }
 
@@ -62,7 +63,7 @@ string ob2_cards(object *ob)
 {
     string msg;
     msg =HIC "≡ " "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += sprintf("  |%-61s| \n", "对方手牌状态：未知");
+    msg = print_ob2_ent(ob,CARD);
     return msg;
 }
 
@@ -70,7 +71,7 @@ string out_area(object *ob_1,object *ob_2)
 {
     string msg;
     msg = HIR "≡ " HIR"╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
-    msg += sprintf("  |%-61s| \n", "");
+    msg += print_ob2_ent(ob_2,SUMMON);
     msg += GRN "  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
     msg += sprintf("  |%-61s| \n", "");
     msg += GRN"  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;

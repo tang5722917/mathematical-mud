@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-04 18:31:23
+ * @LastEditTime: 2023-05-05 13:15:40
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -37,30 +37,35 @@ varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
 void add_put_card(object card,object user,int speed)
 {
     P_CARD p;
+    if(!put_card_query)
+        put_card_query = ({});
     p = new(P_CARD,card:card,user:user,speed:speed);
     put_card_query +=({p});
 }
 
 P_CARD p_card_copy(P_CARD p){
     return new(P_CARD,card:p->card,user:p->user,speed:p->speed);}
+
 //对出牌序列进行排序，按照speed从大到小
 void sort_put_card_query()
 {
-
+    put_card_query = sort_array(put_card_query,(: $2->speed > $1->speed :) );
 }
+
 //得到出牌序列中最优先的牌
 P_CARD get_put_card()
 {
     P_CARD p;
-    if(put_card_query != 0)
+    if((put_card_query != 0) && (sizeof(put_card_query)>0))
     {
         p= p_card_copy(put_card_query[0]);
-        p_card_copy -=({put_card_query[0]});
+        put_card_query -=({put_card_query[0]});
         return p;
     }
     else return 0;
 }
-
+//清空出牌序列
+void clear_card_query(){put_card_query = ({});}
 
 
 F_INFO f_info_copy(F_INFO f){

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-26 17:55:39
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-04 17:55:59
+ * @LastEditTime: 2023-05-05 13:22:23
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\put_card_d.c
  * @Description: 处理出牌操作
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -34,7 +34,7 @@ int put_card(object combat,int *n_card,object user)
     }
     perform(combat,put_ob_card,user);
     o_data->end_round();
-    //combat->add_f_info("本回合结束");
+    combat->add_f_info("本回合结束");
     o_data->remove_card(put_ob_card);
     return 0;
 }
