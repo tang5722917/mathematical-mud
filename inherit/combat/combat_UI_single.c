@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 15:03:40
+ * @LastEditTime: 2023-05-05 15:27:50
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -82,9 +82,8 @@ string ob1_s_status_data(){
 
 string ob2_s_status_data(){
     string msg="";
-    if(wizardp(ob1))
-        msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob2->short(),"血气"+ob2->query_attr("hp")+"/"+ob2->query_attr("max_hp")
-        ,"精力"+ob2->query_attr("mp")+"/"+ob2->query_attr("max_mp"),"疯狂:"+ob2->query_attr("cra"));
+    msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob2->short(),"血气"+ob2->query_attr("hp")+"/"+ob2->query_attr("max_hp")
+    ,"精力"+ob2->query_attr("mp")+"/"+ob2->query_attr("max_mp"),"疯狂:"+ob2->query_attr("cra"));
     return msg;
 }
 

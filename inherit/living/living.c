@@ -5,6 +5,7 @@ inherit CORE_LIVING ;
 inherit INHERIT_PATH "living/status_value" ;
 inherit INHERIT_PATH "living/status_mystic" ;
 inherit INHERIT_PATH "living/status_affect" ;
+inherit INHERIT_PATH "living/status_card" ;
 inherit CORE_STD_TEST;
 
 int is_fight_living()
