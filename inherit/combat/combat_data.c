@@ -67,10 +67,6 @@ P_CARD get_put_card()
 //清空出牌序列
 void clear_card_query(){put_card_queue->clear();}
 
-
-F_INFO f_info_copy(F_INFO f){
-    return new(F_INFO,str:f->str,ob1:f->ob1,status:f->status,act:f->act,ob2:f->ob2);}
-
 int length_fight_info(){return sizeof(fight_info);}
 
 object add_new_fighter(object ob_user)

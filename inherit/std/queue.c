@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-06 11:14:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 14:43:14
+ * @LastEditTime: 2023-05-06 18:56:59
  * @FilePath: \mysticism-mud\inherit\std\queue.c
  * @Description: 队列数据结构基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,6 +22,7 @@
  }
 
 //type 0 需要copy，1不需要copy
+//buffer/class/object/array 需要copy
 varargs mixed pop(int type)
  {
     mixed q;
