@@ -66,6 +66,7 @@
 #define _BOARD          PATH_DIR "inherit/display/board"
 #define _ERR            PATH_DIR "inherit/system/error"
 #define _DB             PATH_DIR "inherit/system/db"
+#define _QUEUE          PATH_DIR "inherit/std/queue"
 // 游戏管理员账号
 #define WIZARD  "mysticism"
 

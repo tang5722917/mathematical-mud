@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 13:15:40
+ * @LastEditTime: 2023-05-06 14:46:03
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -14,7 +14,7 @@ inherit _CLEAN_UP;
 //战斗过程信息
 nosave protected mixed *fight_info;
 //出牌队列
-nosave protected mixed *put_card_query;
+nosave protected mixed put_card_queue;
 //公共物品队列
 nosave protected object *env_obj;
 //战斗双方living 队列
@@ -37,35 +37,35 @@ varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
 void add_put_card(object card,object user,int speed)
 {
     P_CARD p;
-    if(!put_card_query)
-        put_card_query = ({});
+    if(!put_card_queue)
+        put_card_queue = new(_QUEUE,file_name(user)+"put_card");
     p = new(P_CARD,card:card,user:user,speed:speed);
-    put_card_query +=({p});
+    put_card_queue->push(p);
 }
 
-P_CARD p_card_copy(P_CARD p){
-    return new(P_CARD,card:p->card,user:p->user,speed:p->speed);}
-
-//对出牌序列进行排序，按照speed从大到小
-void sort_put_card_query()
+int put_card_sort(P_CARD p1,P_CARD p2)
 {
-    put_card_query = sort_array(put_card_query,(: $2->speed > $1->speed :) );
+    if((p1->speed) < (p2->speed)) return 1;
+    else if(p1->speed == p2->speed) return 0;
+    else return -1;
+}
+//对出牌序列进行排序，按照speed从大到小
+void sort_put_card_queue()
+{
+    put_card_queue->sort("put_card_sort",this_object());
 }
 
-//得到出牌序列中最优先的牌
+//得到出牌序列中speed最高的牌
 P_CARD get_put_card()
 {
-    P_CARD p;
-    if((put_card_query != 0) && (sizeof(put_card_query)>0))
+    if((put_card_queue != 0) && (put_card_queue->length()>0))
     {
-        p= p_card_copy(put_card_query[0]);
-        put_card_query -=({put_card_query[0]});
-        return p;
+        return put_card_queue->pop();
     }
     else return 0;
 }
 //清空出牌序列
-void clear_card_query(){put_card_query = ({});}
+void clear_card_query(){put_card_queue->clear();}
 
 
 F_INFO f_info_copy(F_INFO f){
