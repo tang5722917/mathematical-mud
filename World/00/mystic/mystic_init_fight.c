@@ -8,7 +8,7 @@
  *                用于新手指引与测试开发
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved.
  */
-
+#include <game_world.h> 
 inherit CORE_STD_MYSTIC;
 //非凡特性编号101
 int rank_num()
@@ -43,3 +43,8 @@ int cra_val(){return 10;}
 int luk_val(){return 5;}
 //luk
 int mys_val(){return 0;}
+
+void create()
+{
+    mystic_card(MYSTIC_CARD "12/fire_ball");
+}

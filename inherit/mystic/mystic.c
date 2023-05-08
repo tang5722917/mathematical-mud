@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-21 18:09:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-07 19:26:08
+ * @LastEditTime: 2023-05-08 11:42:14
  * @FilePath: \mysticism-mud\inherit\mystic\mystic.c
  * @Description:  非凡能力基础类
  *
@@ -39,6 +39,7 @@ inherit INHERIT_PATH "mystic/mystic_status";
 22 怪物	    机器	  幸运儿    灾祸教士   赢家	   厄运法师	   混乱行者	   先知	      水银之蛇	命运之轮
 */
 // 返回该非凡特性编号
+
 int rank_num()
 {
     return 0;

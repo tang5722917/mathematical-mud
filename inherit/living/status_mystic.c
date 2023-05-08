@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 16:11:52
+ * @LastEditTime: 2023-05-08 15:23:30
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
@@ -58,11 +58,14 @@ int delete_mystic(object mys)
 void update_mystic()
 {
     this_object()->update_base_value();
+    this_object()->clear_card_ob();
     for(int i=10;i>=0;i--)
     {
         if(living_mystic[i] !=0)
         {
             living_mystic[i]->update_init_value(this_object());
+            if(living_mystic[i]->get_card_ob())
+                this_object()->add_card_ob(living_mystic[i]->get_card_ob());
         }
     }
 }
