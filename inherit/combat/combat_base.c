@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-08 15:20:26
+ * @LastEditTime: 2023-05-08 17:33:32
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -82,7 +82,6 @@ void perform(F_INFO msg)
             o1->add_mystic(msg->status);
             o1->update_mystic();
             o1->update_card_q();
-            message("Test",o1->get_card_list(),o1);
             break;
         case SUM:
             break;

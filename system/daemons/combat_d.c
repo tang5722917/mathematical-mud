@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-29 10:34:54
- * @FilePath: /mysticism-mud/system/daemons/combat_d.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-08 19:08:04
+ * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -17,7 +17,8 @@ inherit CORE_CLEAN_UP;
 protected nosave int fight_time;
 //战斗回合
 protected nosave int fight_round;
-
+//是否出过手牌
+protected nosave int is_put;
 
 //战斗对象
 protected nosave object combat,script;
@@ -79,10 +80,17 @@ int combat_event(object fig)
         fig->print_fight(str);
         if (str->str == "本回合结束")
         {
-            fig->print_fight_UI(combat->fight_main_UI(fight_time,fight_round));
-            fight_round += 1;
-            fig->next_round(fight_round);
+            if( fight_round > 0)
+                script->combat_event_round(combat);
             script->combat_process_round(fight_round,combat);
+            fight_round += 1;
+            is_put = 1;
+        }
+        if((fig->length_fight_info() == 0) && is_put)
+        {
+            fig->print_fight_UI(combat->fight_main_UI(fight_time,fight_round));
+            fig->next_round(fight_round);
+            is_put = 0;
         }
     }
     return fight_round+1;

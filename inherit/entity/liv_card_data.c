@@ -12,11 +12,9 @@
 
 nosave protected CARD_ASSIGN * card_q;
 
-void add_card(string s_card,int weight,int luk)  //weight >0 default 10
+void add_card(string card,int weight,int luk)  //weight >0 default 10
 {
-    object card;
     CARD_ASSIGN c;
-    card = load_object(s_card);
     c = new(CARD_ASSIGN,card:card,weight:weight,luk:luk);
     if(card_q == 0)
         card_q = ({});
