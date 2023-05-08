@@ -1,10 +1,10 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-06 19:09:53
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 19:19:29
- * @FilePath: \mysticism-mud\World\base\card\12\lightning.c
- * @Description: 闪电攻击Card
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-05-06 20:53:12
+ * @FilePath: /mysticism-mud/World/base/card/12/fire_ball.c
+ * @Description: 火球攻击Card
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <card.h>
