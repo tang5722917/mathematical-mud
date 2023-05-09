@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 14:59:56
+ * @LastEditTime: 2023-05-09 17:20:34
  * @FilePath: \mysticism-mud\inherit\entity\card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,7 +10,7 @@
 inherit INHERIT_PATH "entity/entity";
 
 #include <ansi.h>
-
+#include <attack.h>
 //卡牌名称
 string card_name(){return "";}
 //卡牌short 介绍
@@ -39,7 +39,7 @@ object * perform_buff1(){return 0;}   //给予己方状态BUFF
 object * perform_buff2(){return 0;}   //给予对方状态BUFF
 object * perform_summon(){return 0;}  //召唤物品
 
-object * perform_attack1(){return 0;}  //完成物理HP攻击
+mapping perform_attack1(){return 0;}  //完成物理HP攻击
 //完成物理HP攻击  
 //注，所有带有火/水/风/格斗等属性的攻击都属于物理ming攻击。
 //base 基础攻击参数    hit 基础命中率       property  攻击属性

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-06 11:01:42
+ * @LastEditTime: 2023-05-09 18:09:47
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -27,15 +27,23 @@ int top_list(string ob1, string ob2)
     return score2 - score1;
 }
 
-string score(object me)
+string score(object player)
 {
-    string msg;
+    object me,f;
+    string msg="";
     mapping my;
+    if(player->is_fight_user())
+    {
+        f = player->fight_object();
+        me = f->combat_object()->get_ob_data(player);
+        msg += HIY "目前处于战斗当中" NOR "\n";
+    }
+    else
+        me = player;
+    my = player->query_entire_dbase();
 
-    my = me->query_entire_dbase();
-
-    msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + me->short(),
+    msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
+    msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + player->short(),
                    "职业：" + chinese(my["vocation"]));
     msg += sprintf(" |%-34s%-16s| \n", " 生日:" + ctime(my["birthday"]), "性别：" + my["gender"]);
     msg += sprintf(" |%-50s| \n", "");
@@ -45,7 +53,7 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-15s%-15s%-20s| \n", "力量：" + me->query_attr("str"), "敏捷：" + me->query_attr("agi"),"灵性：" + me->query_attr("sen"));
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_attr("int"), "疯狂：" + me->query_attr("cra"), "幸运：" + me->query_attr("luk"));
-    msg += " |非凡特性："+mxp_sprintf(me->living_mystic_name(),20,me)+sprintf("%-20s| \n","非凡点数："+me->query_attr("mys"));
+    msg += " |非凡特性："+mxp_sprintf(me->living_mystic_name(),20,player)+sprintf("%-20s| \n","非凡点数："+me->query_attr("mys"));
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
     msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");

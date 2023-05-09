@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-09 14:19:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 14:59:45
+ * @LastEditTime: 2023-05-09 17:15:49
  * @FilePath: \mysticism-mud\World\include\attack.h
  * @Description: 定义攻击类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -26,7 +26,7 @@ class attack_p{
 }
 
 #define A_VALUE class attack_value
-class value {
+class attack_value {
     int hp;
     int mp;
     int str;
@@ -37,6 +37,7 @@ class value {
     int luk;
     int mys;
 }
+
 A_VALUE get_living_value(int hp,int mp,int str,int agi,int sen,int intt,int cra,int luk,int mys)
 {
     return new(A_VALUE,hp:hp,mp:mp,str:str,agi:agi,sen:sen,intt:intt,cra:cra,luk:luk,mys:mys);

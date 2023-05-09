@@ -2,12 +2,17 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-14 19:56:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-28 16:45:17
+ * @LastEditTime: 2023-05-09 18:02:57
  * @FilePath: \mysticism-mud\inherit\combat\combat_fighter_data.c
  * @Description: 战斗living数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <combat.h> 
+inherit INHERIT_PATH "living/status_value" ;
+inherit INHERIT_PATH "living/status_mystic" ;
+inherit INHERIT_PATH "living/status_affect" ;
+inherit INHERIT_PATH "living/status_card" ;
+inherit INHERIT_PATH "living/mxp_user" ;
 inherit _CLEAN_UP;
 
 //手牌序列
@@ -20,13 +25,22 @@ nosave protected object *ob_equip;
 nosave protected object user_ob;
 //是否完成出牌
 nosave protected int end_round;
-
+//将living 类中的战斗相关数据copy到战斗fighter_data中
+//战斗全程只对fighter_data进行修改
 void init(object ob)
 {
     ob_card=({});
     ob_status=({});
     ob_equip=({});
     user_ob = ob;
+    living_value = copy(ob->get_living_value());
+    living_mystic = copy(ob->get_living_mystic());
+    living_mystic_id = copy(ob->get_living_mystic_id());
+    card_ob = copy(ob->get_card_ob());
+    card_q = copy(ob->get_card_q());
+    mxp_version_info = copy(QueryMXPVersion());
+    mxp_support_info = copy(QueryMXPSupportInfo());
+    mxp_enable = get_mxp_enable();
     end_round = 0;
 }
 

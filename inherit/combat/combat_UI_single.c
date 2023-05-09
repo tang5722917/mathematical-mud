@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 15:27:50
+ * @LastEditTime: 2023-05-09 17:03:27
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -58,7 +58,7 @@ void print_fight(F_INFO msg)
 }
 
 object get_ob1_data(){return ob1_data[0];}
-
+object get_ob2_data(){return ob2_data[0];}
 object get_ob_data(object ob)
 {
     if(ob == ob1)
@@ -75,15 +75,15 @@ string ob1_s_equip(){return ::ob1_equip(ob1_data[0]->get_equip());}
 string ob1_s_status(){return ::ob1_status(ob1_data[0]->get_status());}
 string ob1_s_status_data(){
     string msg;
-    msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob1->short(),"血气"+ob1->query_attr("hp")+"/"+ob1->query_attr("max_hp")
-    ,"精力"+ob1->query_attr("mp")+"/"+ob1->query_attr("max_mp"),"疯狂:"+ob1->query_attr("cra"));
+    msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob1->short(),"血气"+ob1_data[0]->query_attr("hp")+"/"+ob1_data[0]->query_attr("max_hp")
+    ,"精力"+ob1_data[0]->query_attr("mp")+"/"+ob1_data[0]->query_attr("max_mp"),"疯狂:"+ob1_data[0]->query_attr("cra"));
     return msg;
 }
 
 string ob2_s_status_data(){
     string msg="";
-    msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob2->short(),"血气"+ob2->query_attr("hp")+"/"+ob2->query_attr("max_hp")
-    ,"精力"+ob2->query_attr("mp")+"/"+ob2->query_attr("max_mp"),"疯狂:"+ob2->query_attr("cra"));
+    msg = sprintf("  |%-22s%-14s%-14s%-11s| \n", ob2->short(),"血气"+ob2_data[0]->query_attr("hp")+"/"+ob2_data[0]->query_attr("max_hp")
+    ,"精力"+ob2_data[0]->query_attr("mp")+"/"+ob2_data[0]->query_attr("max_mp"),"疯狂:"+ob2_data[0]->query_attr("cra"));
     return msg;
 }
 

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 14:46:03
+ * @LastEditTime: 2023-05-09 18:08:45
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -87,7 +87,7 @@ void add_f_ent(string s,object o)
 {
     string str="";
     object ob;
-    ob = find_object(s);
+    ob = load_object(s);
     err->is_entity(ob);
     if( inherits(CORE_STD_CARD,ob)  )
         str += "获得手牌 ";

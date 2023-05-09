@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-08 16:30:48
+ * @LastEditTime: 2023-05-09 16:53:27
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
@@ -23,6 +23,9 @@ mixed set_mys(int rank, string mys_ob)
         living_mystic_id = ([]);
     return living_mystic_id[rank] = mys_ob;
 }
+
+object * get_living_mystic(){return living_mystic;}
+mapping get_living_mystic_id(){return living_mystic_id;}
 
 // 获取属性值
 int query_mys(int rank)

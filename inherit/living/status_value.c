@@ -2,6 +2,7 @@
 //存储数值型状态
 protected mapping living_value;
 
+mapping get_living_value(){return living_value;}
 
 // 设置属性值
 int set_attr(string attr, int value)
@@ -77,5 +78,3 @@ void update_base_value()
     set_attr("luk", query_attr("base_luk")); // 当前幸运
     set_attr("mys", 0);       // 当前非凡
 }
-
-

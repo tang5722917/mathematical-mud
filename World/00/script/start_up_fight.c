@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:58:16
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-08 19:10:26
+ * @LastEditTime: 2023-05-09 18:13:34
  * @FilePath: \mysticism-mud\World\00\script\start_up_fight.c
  * @Description: 新手引导的战斗流程对象
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -35,13 +35,14 @@ inherit CORE_STD_SCRIPT;
 
 
  //combat_process_round_*  代表第*轮发生的事件
- combat_process_round_1(object f,object ob1,object ob2)
+ combat_process_round_1(object f,object o1,object o2)
  {
     
  }
 //每一轮固定发生事件
  combat_event_round_pve_s(object f,object o1,object o2)
  {
-      f->add_f_ent(o1->get_one_card(),o1); 
-      f->add_f_ent(o1->get_one_card(),o1); 
+   object user_data = f-> get_ob_data(o1);
+   f->add_f_ent(user_data->get_one_card(),o1); 
+   f->add_f_ent(user_data->get_one_card(),o1); 
  }

@@ -12,6 +12,9 @@
 protected object *card_ob;
 nosave protected mapping card_q;
 
+object * get_card_ob(){return card_ob;}
+mapping get_card_q(){return card_q;}
+
 string get_one_card()
 {
     string card;

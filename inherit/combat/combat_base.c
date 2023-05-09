@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 03:40:08
- * @FilePath: /mysticism-mud/inherit/combat/combat_base.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 18:04:50
+ * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
  */
@@ -77,16 +77,16 @@ void perform(F_INFO msg)
         err->is_living(msg->ob2);
         o2 = msg->ob2;
     }
+    ob_user = this_object()->get_ob_data(o1);
     switch(msg->act)
     {
         case ENT:
-            ob_user = this_object()->get_ob_data(o1);
             ob_user ->add_entity(msg->status);
             break;
         case MYS:
-            o1->add_mystic(msg->status);
-            o1->update_mystic();
-            o1->update_card_q();
+            ob_user->add_mystic(msg->status);
+            ob_user->update_mystic();
+            ob_user->update_card_q();
             break;
         case SUM:
             break;
@@ -99,8 +99,8 @@ void perform(F_INFO msg)
             this_object()->get_ob_data(msg->ob1)->remove_entity(msg->status);
             break;
         case MYS_R:
-            o1->delete_mystic(msg->status);
-            o1->update_mystic();
+            ob_user->delete_mystic(msg->status);
+            ob_user->update_mystic();
             break;
         case SUM_R:
             break;
