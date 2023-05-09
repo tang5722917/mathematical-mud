@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-04 16:23:44
- * @FilePath: \mysticism-mud\inherit\entity\card.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 03:41:44
+ * @FilePath: /mysticism-mud/inherit/entity/card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -17,7 +17,8 @@ string card_name(){return "";}
 string card_short(){return "";}
 //卡牌id
 int card_id(){return 10;}
-
+//Card 战斗效果说明
+string card_effect_descript(){return "";}
 string print_card_name(object user){return print_mxp_name(2,user);}
 
 int entity_id(){return card_id();}
@@ -26,7 +27,7 @@ string mxp_explain(){return card_short();}
 
 //Card 执行相关接口
 int *perform_type(){return 0;}
-//Card 效果说明
+//Card 详细说明
 string *perform_type_str(){return 0;}
 
 object * perform_buff1(){return 0;}   //给予己方状态BUFF

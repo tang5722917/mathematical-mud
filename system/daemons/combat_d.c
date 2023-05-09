@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-08 19:08:04
- * @FilePath: \mysticism-mud\system\daemons\combat_d.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 03:48:11
+ * @FilePath: /mysticism-mud/system/daemons/combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -129,7 +129,7 @@ void combat_end()
 int put_card_d(int *n_card,object user)
 {
     object o;
-    o = find_object(PUT_CARD_D);
+    o = load_object(PUT_CARD_D);
     if(n_card == 0)
     {
         o->put_card_d_pass(combat);
