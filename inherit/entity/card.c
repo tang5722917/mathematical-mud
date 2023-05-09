@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 03:41:44
- * @FilePath: /mysticism-mud/inherit/entity/card.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 14:59:56
+ * @FilePath: \mysticism-mud\inherit\entity\card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -30,10 +30,30 @@ int *perform_type(){return 0;}
 //Card 详细说明
 string *perform_type_str(){return 0;}
 
+A_VALUE put_card_loss_mp(int mp)
+{
+    return get_living_value(0,mp,0,0,0,0,0,0,0);
+}
+
 object * perform_buff1(){return 0;}   //给予己方状态BUFF
 object * perform_buff2(){return 0;}   //给予对方状态BUFF
 object * perform_summon(){return 0;}  //召唤物品
-mapping  perform_attack1(){return 0;}  //完成物理HP攻击
+
+object * perform_attack1(){return 0;}  //完成物理HP攻击
+//完成物理HP攻击  
+//注，所有带有火/水/风/格斗等属性的攻击都属于物理ming攻击。
+//base 基础攻击参数    hit 基础命中率       property  攻击属性
+//type 单体/范围攻击  1为单体， 大于1的数表示攻击最大目标数
+//attack_type1 最基础的攻击类型，消耗mp
+mapping  attack_type1(float base,int hit,int property,int type,int mp ) 
+{
+    mapping m = ([]);
+    m["attack_base"] = new(ATTACK_P,base:base,hit:hit,property:property,type:type);
+    m["attack_loss"] = put_card_loss_mp(mp);
+    return m;
+}
+//完成非凡HP攻击  
+//注，没有物理属性的攻击，如诅咒/生命偷窃等。
 mapping  perform_attack2(){return 0;}  //完成非凡HP攻击
 mapping  perform_value1(){return 0;}  //对己方的属性进行改变
 mapping  perform_value2(){return 0;}   //对对方的属性进行改变

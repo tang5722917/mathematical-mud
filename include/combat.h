@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 08:39:27
- * @FilePath: /mysticism-mud/include/combat.h
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 10:20:03
+ * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -15,6 +15,8 @@
 #define PER_CARD_D      INHERIT_PATH"combat/combat_d/perform_card_d"
 #define SUMMON_ADD_D    INHERIT_PATH"combat/combat_d/summon_add_d"
 #define ATTACK_P_D      INHERIT_PATH"combat/combat_d/perform_attack_p_d"
+#define ATTACK_M_D      INHERIT_PATH"combat/combat_d/perform_attack_m_d"
+#define BUFF_ADD_D      INHERIT_PATH"combat/combat_d/buff_status_add_d"
  //战斗中身份类型
 #define COM   0 
 #define USER1 1
