@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 18:04:50
+ * @LastEditTime: 2023-05-09 19:14:33
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -68,6 +68,14 @@ void destruct_ob()
     destruct(this_object());
 }
 
+void update_all_card_q()
+{
+    foreach(object ob in ob1_data)
+        ob->update_card_q();
+    foreach(object ob in ob2_data)
+        ob->update_card_q();
+}
+
 void perform(F_INFO msg)
 {   
     object o1,o2,ob_user;
@@ -101,6 +109,7 @@ void perform(F_INFO msg)
         case MYS_R:
             ob_user->delete_mystic(msg->status);
             ob_user->update_mystic();
+            ob_user->update_card_q();
             break;
         case SUM_R:
             break;

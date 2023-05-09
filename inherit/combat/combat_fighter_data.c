@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-14 19:56:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 18:02:57
+ * @LastEditTime: 2023-05-09 18:47:34
  * @FilePath: \mysticism-mud\inherit\combat\combat_fighter_data.c
  * @Description: 战斗living数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -12,7 +12,6 @@ inherit INHERIT_PATH "living/status_value" ;
 inherit INHERIT_PATH "living/status_mystic" ;
 inherit INHERIT_PATH "living/status_affect" ;
 inherit INHERIT_PATH "living/status_card" ;
-inherit INHERIT_PATH "living/mxp_user" ;
 inherit _CLEAN_UP;
 
 //手牌序列
@@ -38,9 +37,6 @@ void init(object ob)
     living_mystic_id = copy(ob->get_living_mystic_id());
     card_ob = copy(ob->get_card_ob());
     card_q = copy(ob->get_card_q());
-    mxp_version_info = copy(QueryMXPVersion());
-    mxp_support_info = copy(QueryMXPSupportInfo());
-    mxp_enable = get_mxp_enable();
     end_round = 0;
 }
 
