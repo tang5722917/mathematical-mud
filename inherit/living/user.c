@@ -85,3 +85,7 @@ void user_setup()
     user_env_config();
     person_setup();
 }
+
+void remove()
+{
+}

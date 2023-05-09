@@ -1,9 +1,9 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 03:48:11
- * @FilePath: /mysticism-mud/system/daemons/combat_d.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-09 19:54:38
+ * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -100,13 +100,11 @@ void heart_beat( void )
 {
     if(fight_time >= 0)
         fight_time += 1;  //时间加1s
-    script->combat_process(fight_time,fight_round,combat);
     if ((combat_event(combat) == 0) && (fight_time > 1))
     {
         combat->fight_end();
         fight_time = -1;
     }
-    script->combat_process_time(fight_time,combat);
     if((combat->length_fight_info() == 0 ) &&(fight_time < 0 ))
     {
         set_heart_beat(0);
@@ -132,10 +130,10 @@ int put_card_d(int *n_card,object user)
     o = load_object(PUT_CARD_D);
     if(n_card == 0)
     {
-        o->put_card_d_pass(combat);
+        o->put_card_d_pass(combat,script);
         return 1;
     }
-    o->put_card(combat,n_card,user);
+    o->put_card(combat,n_card,user,script);
     return 1;
 }
 //获取user手牌数量
