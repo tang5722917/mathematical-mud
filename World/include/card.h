@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-20 19:55:12
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 14:23:00
+ * @LastEditTime: 2023-05-12 17:26:06
  * @FilePath: \mysticism-mud\World\include\card.h
  * @Description: CARD 定义头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -17,6 +17,7 @@
 inherit CORE_STD_CARD;
 
 //定义Card执行效果类型
+#define CCARD     0           //特殊Card技能
 #define CBUFF1    1           //给予己方状态BUFF
 #define CBUFF2    2           //给予对方状态BUFF
 #define CSUMMON   3           //召唤物品

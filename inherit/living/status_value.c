@@ -28,8 +28,16 @@ int query_add_attr(string attr,int value)
     return living_value[attr] = old + value;
 }
 
+// 属性值改变
+int query_sub_attr(string attr,int value)
+{
+    int old;
+    old = living_value[attr];
+    return living_value[attr] = old - value;
+}
+
 // 属性值比例变化
-int query_sub_attr(string attr,float value)
+int query_rat_attr(string attr,float value)
 {
     int old;
     old = living_value[attr];

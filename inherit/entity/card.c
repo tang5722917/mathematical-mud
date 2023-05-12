@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 17:20:34
+ * @LastEditTime: 2023-05-12 17:24:44
  * @FilePath: \mysticism-mud\inherit\entity\card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -42,13 +42,13 @@ object * perform_summon(){return 0;}  //召唤物品
 mapping perform_attack1(){return 0;}  //完成物理HP攻击
 //完成物理HP攻击  
 //注，所有带有火/水/风/格斗等属性的攻击都属于物理ming攻击。
-//base 基础攻击参数    hit 基础命中率       property  攻击属性
+//base 基础攻击参数  fix固定伤害数值  hit 基础命中率       property  攻击属性
 //type 单体/范围攻击  1为单体， 大于1的数表示攻击最大目标数
 //attack_type1 最基础的攻击类型，消耗mp
-mapping  attack_type1(float base,int hit,int property,int type,int mp ) 
+mapping  attack_type1(float base,int fix,int hit,int property,int type,int mp ) 
 {
     mapping m = ([]);
-    m["attack_base"] = new(ATTACK_P,base:base,hit:hit,property:property,type:type);
+    m["attack_base"] = new(ATTACK_P,base:base,fix:fix,hit:hit,property:property,type:type);
     m["attack_loss"] = put_card_loss_mp(mp);
     return m;
 }
@@ -67,16 +67,19 @@ string *get_perform_type()
     s_result = ({});
     foreach(int i in perform_q){
         s = "";
-        if( i/7 == 0)
+        if( i/8 == 0)
         {
             str = "单体技能";
         }
         else
         {
-            str = "群体技能 最大目标数："+ i/7;
+            str = "群体技能 最大目标数："+ i/8;
         }
-        switch(i%7)
+        switch(i%8)
         {
+            case 0:
+                s += "特殊效果 "+str ;
+                break;
             case 1:
                 s += "己方BUFF "+str ;
                 break;

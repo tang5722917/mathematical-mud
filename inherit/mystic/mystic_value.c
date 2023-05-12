@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-20 18:10:25
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-24 19:21:37
+ * @LastEditTime: 2023-05-12 17:03:17
  * @FilePath: \mysticism-mud\inherit\mystic\mystic_value.c
  * @Description: 处理非凡特性对数值的影响
  *
@@ -50,22 +50,22 @@ int value_mys()
 
 void update_init_value(object living)
 {
-    living->query_sub_attr("max_hp",hp_per());
+    living->query_rat_attr("max_hp",hp_per());
     living->query_add_attr("max_hp",hp_val());
-    living->query_sub_attr("max_mp",mp_per());
+    living->query_rat_attr("max_mp",mp_per());
     living->query_add_attr("max_mp",mp_val());
-    living->query_sub_attr("max_int",int_per());
+    living->query_rat_attr("max_int",int_per());
     living->query_add_attr("max_int",int_val());
-    living->query_sub_attr("max_cra",cra_per());
+    living->query_rat_attr("max_cra",cra_per());
     living->query_add_attr("max_cra",cra_val());
 
-    living->query_sub_attr("str",str_per());
+    living->query_rat_attr("str",str_per());
     living->query_add_attr("str",str_val());
-    living->query_sub_attr("agi",agi_per());
+    living->query_rat_attr("agi",agi_per());
     living->query_add_attr("agi",agi_val());
-    living->query_sub_attr("sen",sen_per());
+    living->query_rat_attr("sen",sen_per());
     living->query_add_attr("sen",sen_val());
-    living->query_sub_attr("luk",luk_per());
+    living->query_rat_attr("luk",luk_per());
     living->query_add_attr("luk",luk_val());
 
     living->set_attr("hp", living->query_attr("max_hp"));   // 当前HP

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-06 19:09:53
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 15:03:14
+ * @LastEditTime: 2023-05-12 15:59:11
  * @FilePath: \mysticism-mud\World\base\card\12\fire_ball.c
  * @Description: 火球攻击Card
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,4 +22,4 @@ int *perform_type(){return ({CATTACK1});}
 //属性： 火 基础命中：95   单体攻击
 //攻击消耗mp 10
 mapping  perform_attack1(){
-    return attack_type1(1.8,95,A_FIRE,1,10);}
+    return attack_type1(1.8,0,95,A_FIRE,1,10);}

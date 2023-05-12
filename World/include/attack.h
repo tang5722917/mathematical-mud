@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-09 14:19:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 17:15:49
+ * @LastEditTime: 2023-05-12 15:56:11
  * @FilePath: \mysticism-mud\World\include\attack.h
  * @Description: 定义攻击类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -11,15 +11,16 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-#define A_WATER   1  //水属性
-#define A_WIND    2  //风属性
-#define A_FIRE    3  //火属性
+#define A_WATER   2  //水属性
+#define A_WIND    4  //风属性
+#define A_FIRE    6  //火属性
 
 //base 基础攻击参数    hit 基础命中率       property  攻击属性
 //type 单体/范围攻击  1为单体， 大于1的数表示攻击最大目标数
 #define ATTACK_P class attack_p
 class attack_p{
     float base;
+    int fix;
     int hit;
     int property;
     int type;

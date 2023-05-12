@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 18:08:45
+ * @LastEditTime: 2023-05-12 19:49:42
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -68,7 +68,7 @@ P_CARD get_put_card()
 void clear_card_query(){put_card_queue->clear();}
 
 int length_fight_info(){return sizeof(fight_info);}
-
+void clear_fight_info(){fight_info = ({});}
 object add_new_fighter(object ob_user)
 {
     object ob;
