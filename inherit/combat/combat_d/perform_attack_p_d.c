@@ -2,7 +2,7 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-09 02:46:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 17:10:48
+ * @LastEditTime: 2023-05-12 18:49:35
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\perform_attack_p_d.c
  * @Description: 处理物理攻击效果
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,7 +10,7 @@
 #include <attack.h>
 #include <combat.h>
 #include <ansi.h>
-string attack_effect(object user , object target,ATTACK_P p,object card_ob)
+string attack_effect(object user , object target,ATTACK_P p,object card_ob,object combat)
 {
     string s="";
     int damage;
@@ -39,7 +39,7 @@ string attack_effect(object user , object target,ATTACK_P p,object card_ob)
     {
         str += card_ob->card_effect_descript();
         str +="\n"+load_object(ATTACK_LOSS)->attack_loss(user[0],card_m["attack_loss"],card_ob);
-        str += attack_effect(user[0],user[1], card_m["attack_base"],card_ob);
+        str += attack_effect(user[0],user[1], card_m["attack_base"],card_ob,combat);
     }
     else{}   //群体物理伤害
     return str;

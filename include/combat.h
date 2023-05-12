@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 14:18:47
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 16:55:59
+ * @LastEditTime: 2023-05-12 17:42:31
  * @FilePath: \mysticism-mud\include\combat.h
  * @Description: 战斗相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -19,6 +19,7 @@
 #define BUFF_ADD_D      INHERIT_PATH"combat/combat_d/buff_status_add_d"
 #define ATTACK_LOSS     INHERIT_PATH"combat/combat_d/perform_attack_loss_d"
 #define ATTACK_HIT      INHERIT_PATH"combat/combat_d/perform_hit_d"
+#define COMBAT_JUDGE    INHERIT_PATH"combat/combat_d/combat_judge_d"
  //战斗中身份类型
 #define COM   0 
 #define USER1 1

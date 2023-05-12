@@ -46,8 +46,10 @@ object get_player2(){return ob2;}
 int fight_end()
 {
     script->combat_event_end(this_object(),ob1,ob2);
+    ob1->end_fight();
     fight_end_user(ob1);  
     fight_end_env(ob2);
+    
     return length_fight_info();
 }
 

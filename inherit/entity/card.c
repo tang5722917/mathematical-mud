@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 15:58:06
+ * @LastEditTime: 2023-05-12 17:24:44
  * @FilePath: \mysticism-mud\inherit\entity\card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -67,16 +67,19 @@ string *get_perform_type()
     s_result = ({});
     foreach(int i in perform_q){
         s = "";
-        if( i/7 == 0)
+        if( i/8 == 0)
         {
             str = "单体技能";
         }
         else
         {
-            str = "群体技能 最大目标数："+ i/7;
+            str = "群体技能 最大目标数："+ i/8;
         }
-        switch(i%7)
+        switch(i%8)
         {
+            case 0:
+                s += "特殊效果 "+str ;
+                break;
             case 1:
                 s += "己方BUFF "+str ;
                 break;

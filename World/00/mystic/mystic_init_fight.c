@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-21 01:36:07
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 14:24:29
+ * @LastEditTime: 2023-05-12 18:46:59
  * @FilePath: \mysticism-mud\World\00\mystic\mystic_init_fight.c
  * @Description:  初始新手指引中敌人的非凡特性
  *                用于新手指引与测试开发
@@ -28,7 +28,7 @@ string mystic_short(){return "感觉拥有神秘的力量";}
 
 //定义非凡特性对数值的影响
 //hp
-int hp_val(){return 300;}
+int hp_val(){return 50;}
 //mp
 int mp_val(){return 100;}
 //str
