@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-22 11:08:22
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-11 20:37:27
+ * @LastEditTime: 2023-05-12 15:59:35
  * @FilePath: \mysticism-mud\World\base\card\01\air_attack.c
  * @Description:  空气炮
  * 
@@ -22,4 +22,4 @@ int *perform_type(){return ({CATTACK1});}
 //属性： 风 基础命中：100   单体攻击
 //攻击消耗mp 10
 mapping  perform_attack1(){
-    return attack_type1(1.0,100,A_WIND,1,10);}
+    return attack_type1(1.0,0,100,A_WIND,1,10);}

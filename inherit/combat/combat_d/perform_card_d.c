@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-28 16:11:04
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-11 20:43:38
+ * @LastEditTime: 2023-05-12 17:09:46
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\perform_card_d.c
  * @Description: 处理Card执行效果
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -17,8 +17,8 @@ object * get_target_ob(object user,object combat,int type )
         if(type)
         {
             if(user == combat->get_player1())
-                return ({combat->get_player1(),combat->get_player2()});
-            else return ({combat->get_player2(),combat->get_player1()});
+                return ({combat->get_ob1_data(),combat->get_ob2_data()});
+            else return ({combat->get_ob2_data(),combat->get_ob1_data()});
         }
         else return ({user});
     }

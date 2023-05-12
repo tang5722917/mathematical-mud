@@ -7,6 +7,8 @@
  * @Description: 处理非凡攻击效果
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+#include <attack.h>
+#include <combat.h>
 
  string attack_m(object *user,object card_ob,object combat)
  {
