@@ -2,7 +2,7 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-09 02:46:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 18:49:35
+ * @LastEditTime: 2023-05-15 19:51:52
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\perform_attack_p_d.c
  * @Description: 处理物理攻击效果
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
@@ -21,7 +21,7 @@ string attack_effect(object user , object target,ATTACK_P p,object card_ob,objec
         else
             damage = to_int(user-> query_attr("sen") * p->base) + p->fix;
         target-> query_sub_attr("hp",damage);
-        s +=WHT + card_ob->card_name() + "造成伤害："+ damage + NOR "\n";
+        s +=WHT + card_ob->card_name() + "对"+ target->name() +"造成伤害："+ damage + NOR "\n";
         return s;
     }
     else

@@ -73,3 +73,5 @@ void remove_entity(object o)
     else if( inherits(CORE_STD_STATUS,o)  )
         ob_status -= ({o});
 }
+
+string name(){return user_ob->name();}

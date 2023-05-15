@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-15 11:35:29
+ * @LastEditTime: 2023-05-15 19:05:28
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,6 +22,23 @@ nosave protected object *ob1_data,*ob2_data,err;
 //战场召唤物序列
 nosave protected object *ob_summon1,*ob_summon2;
 //执行一条战斗指令
+
+int length_ob_summon1(){return sizeof(ob_summon1);}
+int length_ob_summon2(){return sizeof(ob_summon2);}
+int length_env_obj(){return sizeof(env_obj);}
+
+object get_summon_data(int type)
+{
+    if(type == 1)
+    {
+        return ob_summon1[0];
+    }
+    else
+    {
+        return ob_summon2[0];
+    }
+}
+
 varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
 {
     F_INFO f;
@@ -69,6 +86,7 @@ void clear_card_query(){put_card_queue->clear();}
 
 int length_fight_info(){return sizeof(fight_info);}
 void clear_fight_info(){fight_info = ({});}
+//新建一个战斗living 数据
 object add_new_fighter(object ob_user)
 {
     object ob;
