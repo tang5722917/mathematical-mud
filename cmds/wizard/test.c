@@ -16,6 +16,9 @@ int help(object me);
 
 int main(object me, string file)
 {
+    object ob;
+    ob = new(INHERIT_PATH "entity/summon_data");
+    /*
     //测试出牌序列依据speed排序
     object ob;
     P_CARD p;
@@ -29,7 +32,9 @@ int main(object me, string file)
     ob->sort_put_card_queue();
     while(p = ob->get_put_card())
         write(p->card->print_card_name(me) +"speed:"+p->speed+"\n");
-    return 1;
+    */
+
+        return 1;
 }
 
 int help(object me)

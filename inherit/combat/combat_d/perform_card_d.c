@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-28 16:11:04
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 18:16:24
+ * @LastEditTime: 2023-05-15 13:12:21
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\perform_card_d.c
  * @Description: 处理Card执行效果
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -39,7 +39,7 @@ int perform(object user,object card_ob,object combat)
             case 2:       //敌方BUFF
                 break;
             case 3:       //召唤
-                card_effect = load_object(SUMMON_ADD_D)->add_summon(get_target_ob(user,combat,0),card_ob,combat);
+                card_effect = load_object(SUMMON_ADD_D)->add_summon(user,card_ob,combat);
                 break;
             case 4:       //物理攻击
                 card_effect = load_object(ATTACK_P_D)->attack_p(get_target_ob(user,combat,1),card_ob,combat);

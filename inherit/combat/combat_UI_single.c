@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 17:03:27
+ * @LastEditTime: 2023-05-15 14:28:57
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -66,10 +66,18 @@ object get_ob_data(object ob)
     else
         return ob2_data[0];
 }
+int combat_user_group(object ob)
+{
+    if(ob == ob1)
+    return 1;
+else
+    return 2;
+}
+
 string ob2_s_status(){return ::ob2_status(ob2_data[0]->get_status());}
 string ob2_s_equip(){return ::ob2_equip(ob2_data[0]->get_equip());}
 string ob2_s_cards(){return ::ob2_cards(ob2_data[0]->get_card());}
-string out_s_area(){return ::out_area(ob1_data[0]->summon(),ob2_data[0]->summon());}
+string out_s_area(){return ::out_area();}
 string ob1_s_cards(){return ::ob1_cards(ob1_data[0]->get_card());}
 string ob1_s_equip(){return ::ob1_equip(ob1_data[0]->get_equip());}
 string ob1_s_status(){return ::ob1_status(ob1_data[0]->get_status());}
@@ -88,6 +96,11 @@ string ob2_s_status_data(){
 }
 
 string print_ob1_ent(object *obs,int type)
+{
+    return print_line(obs,ob1,type);
+}
+
+string print_common_ent(object *obs,int type)
 {
     return print_line(obs,ob1,type);
 }

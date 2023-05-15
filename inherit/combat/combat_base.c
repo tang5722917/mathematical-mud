@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 19:30:09
+ * @LastEditTime: 2023-05-15 14:55:24
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -63,7 +63,9 @@ void destruct_ob()
 {
     foreach(object o in ob1_data){destruct(o);}
     foreach(object o in ob2_data){destruct(o);}
-    foreach(object o in ob_summon){o->remove();}
+    foreach(object o in env_obj){o->remove();}
+    foreach(object o in ob_summon1){o->remove();}
+    foreach(object o in ob_summon2){o->remove();}
     put_card_queue->remove();
     destruct(this_object());
 }
@@ -116,4 +118,22 @@ void perform(F_INFO msg)
         default: break;
     }
     load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+}
+
+//加入一个召唤物
+void add_summon(int type,mapping status,object card,object user,object summon)
+{
+    object summon_data;
+    summon_data = new(INHERIT_PATH "entity/summon_data");
+    summon_data->init(type,status,card,user,summon);
+    if((type>0) &&(type <10))
+    {
+        if(this_object()->combat_user_group(user) == 1)
+            ob_summon1 += ({summon_data});
+        else
+            ob_summon2 += ({summon_data});
+    }
+    else if((type>10) &&(type <30))
+    {}
+    else {}
 }

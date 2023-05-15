@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-07 19:14:13
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-13 19:11:30
- * @FilePath: /mysticism-mud/inherit/entity/summon.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-15 14:52:03
+ * @FilePath: \mysticism-mud\inherit\entity\summon.c
  * @Description: 召唤物基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -32,14 +32,15 @@ int summon_luk(){return 0;}
 int summon_mys(){return 0;}
 int summon_type(){return 0;}
 ATTACK_P summon_attack_p(){
-    return new(ATTACK_P,0,0,0,0);
+    ATTACK_P p = get_attack_p(0,0,0,0,0);
+    return p;
 }
 A_VALUE summon_attack_value(){
-    return new(A_VALUE,summon_hp(),summon_mp(),summon_str(),summon_agi()
+    return get_living_value(summon_hp(),summon_mp(),summon_str(),summon_agi()
         ,summon_sen(),summon_int(),summon_cra(),summon_luk(),summon_mys());
 }
 mapping summon_status(){
-    mapping m;
+    mapping m=([]);
     m["value"] = summon_attack_value();
     m["attack_p"] = summon_attack_p();
     return m;
