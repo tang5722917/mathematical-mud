@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 19:07:16
+ * @LastEditTime: 2023-05-15 14:04:12
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -42,6 +42,7 @@ string print_line(object *ob,object ob_user,int type)
 
 string print_ob1_ent(object *obs,int type){return "";}
 string print_ob2_ent(object *obs,int type){return "";}
+string print_common_ent(object *obs,int type){return "";}
 
 string ob2_status(object *ob)
 {
@@ -67,15 +68,15 @@ string ob2_cards(object *ob)
     return msg;
 }
 
-string out_area(object *ob_1,object *ob_2)
+string out_area()
 {
     string msg;
     msg = HIR "≡ " HIR"╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
-    msg += print_ob2_ent(ob_2,SUMMON);
+    msg += print_common_ent(ob_summon2,SUMMON);
     msg += GRN "  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
     msg += sprintf("  |%-61s| \n", "");
     msg += GRN"  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
-    msg += print_ob1_ent(ob_1,SUMMON);
+    msg += print_common_ent(ob_summon1,SUMMON);
     msg += HIR "≡ " HIR "╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
     return msg;
 }

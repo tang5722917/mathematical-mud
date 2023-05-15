@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-09 14:19:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 15:56:11
+ * @LastEditTime: 2023-05-15 10:59:07
  * @FilePath: \mysticism-mud\World\include\attack.h
  * @Description: 定义攻击类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -42,5 +42,9 @@ class attack_value {
 A_VALUE get_living_value(int hp,int mp,int str,int agi,int sen,int intt,int cra,int luk,int mys)
 {
     return new(A_VALUE,hp:hp,mp:mp,str:str,agi:agi,sen:sen,intt:intt,cra:cra,luk:luk,mys:mys);
+}
+ATTACK_P get_attack_p(float base,int fix,int hit,int property,int type)
+{
+    return new(ATTACK_P,base:base,fix:fix,hit:hit,property:property,type:type);
 }
 #endif  //ATTACK_H

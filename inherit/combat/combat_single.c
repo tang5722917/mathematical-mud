@@ -23,6 +23,9 @@ void init(object o1,object o2,object env)
     fight_info = ({});
     //公共物序列
     env_obj = ({});
+    //召唤物物序列
+    ob_summon1 = ({});
+    ob_summon2 = ({});
     //建立战斗双方的数据类，并初始化
     ob1_data = ({});
     ob2_data = ({});
