@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 15:12:37
+ * @LastEditTime: 2023-05-16 15:54:29
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -68,7 +68,8 @@ void destruct_ob()
     foreach(object o in env_obj){o->remove();}
     foreach(object o in ob_summon1){o->remove();}
     foreach(object o in ob_summon2){o->remove();}
-    put_card_queue->remove();
+    if(objectp(put_card_queue))
+        destruct(put_card_queue);
     destruct(this_object());
 }
 

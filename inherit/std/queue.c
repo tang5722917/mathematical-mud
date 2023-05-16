@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-06 11:14:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 18:56:59
+ * @LastEditTime: 2023-05-16 15:37:57
  * @FilePath: \mysticism-mud\inherit\std\queue.c
  * @Description: 队列数据结构基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -41,4 +41,4 @@ varargs mixed pop(int type)
         queue = sort_array(queue, fun , ob);
 } 
  void clear(){queue = ({});}
- void remove(){destruct();}
+ void remove(){destruct(this_object());}

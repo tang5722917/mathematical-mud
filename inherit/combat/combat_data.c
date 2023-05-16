@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 13:21:54
+ * @LastEditTime: 2023-05-16 15:33:22
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -14,7 +14,7 @@ inherit _CLEAN_UP;
 //战斗过程信息
 nosave protected mixed *fight_info;
 //出牌队列
-nosave protected mixed put_card_queue;
+nosave protected object put_card_queue;
 //公共物品队列
 nosave protected object *env_obj;
 //战斗双方living 队列
