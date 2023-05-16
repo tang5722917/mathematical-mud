@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-15 14:55:24
+ * @LastEditTime: 2023-05-16 09:05:13
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -56,7 +56,8 @@ int is_quit_fight()
 
 void print_info(string s)
 {
-    message("Combat",s,this_object()->get_player1());
+    if(s!=0 && sizeof(s)>0)
+        message("Combat",s,this_object()->get_player1());
 }
 
 void destruct_ob()
@@ -79,7 +80,8 @@ void update_all_card_q()
 }
 
 void perform(F_INFO msg)
-{   
+{
+    mixed * judge;   
     object o1,o2,ob_user;
     err->is_living(msg->ob1);
     o1 = msg->ob1;
@@ -117,7 +119,8 @@ void perform(F_INFO msg)
             break;
         default: break;
     }
-    load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+    judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+    this_object()->print_info(judge[1]);
 }
 
 //加入一个召唤物

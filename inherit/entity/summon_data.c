@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-28 16:49:25
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-15 19:18:38
+ * @LastEditTime: 2023-05-16 08:58:05
  * @FilePath: \mysticism-mud\inherit\entity\summon_data.c
  * @Description: 召唤物属性类，处理战斗过程中召唤物的数值变化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -38,6 +38,13 @@ varargs void init(int type_in,mapping status,object c,object u,object su)
 
 mixed query(string key){return dbase->query(key);}
 void set(string key,mixed value){dbase->set(key,value);}
+
+int get_hp()
+{
+    A_VALUE v = dbase->query("value");
+    return v->hp;
+}
+
 int remove()
 {
     if(dbase)
@@ -53,7 +60,7 @@ string * print_mxp_name_all(int type) {
     return summon->print_mxp_name_all(type);
 }
 string name(){return summon->summon_name();}
-
+string user_name(){return user->name();}
 void query_sub_attr(string str,int damage)
 {
     A_VALUE v;

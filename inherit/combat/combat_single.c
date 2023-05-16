@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 14:44:17
+ * @LastEditTime: 2023-05-16 09:12:25
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description: PVE 1v1 战斗基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -105,3 +105,11 @@ void next_round(int fight_round)
 
 void msg_end(){
     message("FIG",BGRN "战斗结束了!" NOR,ob1);}
+
+string win_str1(){
+    return HBGRN "恭喜你战胜对手"NOR;
+}
+
+string win_str2(){
+    return HBRED "很遗憾你失败了，请再次挑战"NOR;
+}
