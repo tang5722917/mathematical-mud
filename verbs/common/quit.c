@@ -35,7 +35,6 @@
             if(ob->is_quit_fight() != 0)
             {
                 me->fight_object()->combat_end();
-                me->end_fight();
             }
             else
             {

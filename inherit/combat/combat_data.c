@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 04:03:06
+ * @LastEditTime: 2023-05-16 13:21:54
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -27,11 +27,12 @@ int length_ob_summon1(){return sizeof(ob_summon1);}
 int length_ob_summon2(){return sizeof(ob_summon2);}
 int length_env_obj(){return sizeof(env_obj);}
 object *get_ob_summon1(){return ob_summon1;}
+object *get_ob_summon2(){return ob_summon2;}
+object *get_ob_env(){return env_obj;}
+
 void *remove_summon1(object ob){ob_summon1-=({ob});}
 void *remove_summon2(object ob){ob_summon2-=({ob});}
 void *remove_env_obj(object ob){env_obj-=({ob});}
-object *get_ob_summon2(){return ob_summon2;}
-object *get_ob_env(){return env_obj;}
 object get_summon_data(int type)
 {
     if(type == 1)
@@ -54,6 +55,7 @@ varargs void add_f_ins(string str, object ob1,int act,object status,object ob2)
             f = new(F_INFO,str:str,ob1:ob1,status:status,act:act,ob2:ob2);
     }
     fight_info +=({f});
+    //debug_message(f->str);  //查看行为序列
 }
 //在出牌序列添加一张牌
 void add_put_card(object card,object user,int speed)

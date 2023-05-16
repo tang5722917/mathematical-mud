@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 09:12:25
+ * @LastEditTime: 2023-05-16 10:34:03
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description: PVE 1v1 战斗基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -49,10 +49,9 @@ object get_player2(){return ob2;}
 int fight_end()
 {
     script->combat_event_end(this_object(),ob1,ob2);
-    ob1->end_fight();
     fight_end_user(ob1);  
     fight_end_env(ob2);
-    
+    ob1->end_fight();
     return length_fight_info();
 }
 

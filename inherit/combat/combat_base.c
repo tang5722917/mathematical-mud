@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 09:05:13
+ * @LastEditTime: 2023-05-16 15:12:37
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -39,6 +39,7 @@ F_INFO get_one_fight()
     {
         str = copy(fight_info[0]);
         fight_info -= ({fight_info[0]});
+        //debug_message("执行：" + str->str + "剩余指令数：" + length_fight_info());  //查看行为行为执行
         return str;
     }
     else return 0;
@@ -104,8 +105,12 @@ void perform(F_INFO msg)
             break;
         case PUT:
             load_object(PER_CARD_D)->perform(o1,msg->status,this_object());
+            judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+            this_object()->print_info(judge[1]);
             break;
         case ACT:
+            judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+            this_object()->print_info(judge[1]);
             break;
         case ENT_R:
             this_object()->get_ob_data(msg->ob1)->remove_entity(msg->status);
@@ -119,8 +124,6 @@ void perform(F_INFO msg)
             break;
         default: break;
     }
-    judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
-    this_object()->print_info(judge[1]);
 }
 
 //加入一个召唤物

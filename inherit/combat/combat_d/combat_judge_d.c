@@ -2,20 +2,19 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-12 17:16:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 09:13:59
+ * @LastEditTime: 2023-05-16 15:16:33
  * @FilePath: \mysticism-mud\inherit\combat\combat_d\combat_judge_d.c
  * @Description: 战斗结果判定
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <ansi.h>
 
-int perform_combat_result(object combat,int result)
+void perform_combat_result(object combat,int result)
 {
     object c;
     c = combat->get_player1()->fight_object();
     combat->clear_fight_info();
     c->combat_end();
-    return 1;
 }
 
 int hp_check_user(object *user)
@@ -42,7 +41,8 @@ string summon_check(object combat)
         foreach(object s in combat->get_ob_summon1()){
             if(is_hp_empty(s)){
                 combat->remove_summon1(s);
-                str += BYEL+ s->user_name()+"的"+s->name()+"消失了"+NOR;
+                str += BCYN+ s->user_name()+"的"+s->name()+"消失了"+NOR;
+                s->remove();
             }
         }
     }
@@ -52,6 +52,7 @@ string summon_check(object combat)
             if(is_hp_empty(s)){
                 combat->remove_summon2(s);
                 str += BBLU + s->user_name()+"的"+s->name()+"消失了"+NOR;
+                s->remove();
             }
         }
     }

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-28 16:49:25
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 08:58:05
+ * @LastEditTime: 2023-05-16 13:13:49
  * @FilePath: \mysticism-mud\inherit\entity\summon_data.c
  * @Description: 召唤物属性类，处理战斗过程中召唤物的数值变化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -47,7 +47,7 @@ int get_hp()
 
 int remove()
 {
-    if(dbase)
+    if(objectp(dbase))
         destruct(dbase);
     destruct(this_object());
     return 1;
