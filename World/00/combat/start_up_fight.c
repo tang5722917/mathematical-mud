@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-14 17:52:37
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-18 14:17:08
+ * @LastEditTime: 2023-05-16 20:02:48
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
  * @Description: 新手引导的战斗对象
  * 
@@ -10,6 +10,8 @@
  */
 
 #include <game_world.h> 
+
+#define First_ROOM PATH_00_MAP "1/0_0_1"
 inherit CORE_STD_FIGHT_S;
 
 int fight_init_user(object user)
@@ -31,4 +33,12 @@ int fight_end_user(object user)
 int fight_end_env(object env)
 {
     add_f_info("身影缓缓消失",env);
+}
+
+// 定义战斗胜利后的奖励与剧情
+void end_event(object result_ob)
+{
+    debug_message( sprintf("%O",this_player() ));
+    if(result_ob->get_result()== 1)
+        this_player()->move(First_ROOM);
 }

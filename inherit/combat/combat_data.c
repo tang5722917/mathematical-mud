@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 15:33:22
+ * @LastEditTime: 2023-05-16 19:24:52
  * @FilePath: \mysticism-mud\inherit\combat\combat_data.c
  * @Description: 战斗数据基础类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -21,7 +21,10 @@ nosave protected object *env_obj;
 nosave protected object *ob1_data,*ob2_data,err;
 //战场召唤物序列
 nosave protected object *ob_summon1,*ob_summon2;
-//执行一条战斗指令
+//用于记录战斗信息的对象
+nosave object combat_result_ob;
+
+object get_combat_result_ob(){return combat_result_ob;}
 
 int length_ob_summon1(){return sizeof(ob_summon1);}
 int length_ob_summon2(){return sizeof(ob_summon2);}
@@ -33,6 +36,7 @@ object *get_ob_env(){return env_obj;}
 void *remove_summon1(object ob){ob_summon1-=({ob});}
 void *remove_summon2(object ob){ob_summon2-=({ob});}
 void *remove_env_obj(object ob){env_obj-=({ob});}
+//获取召唤物目标
 object get_summon_data(int type)
 {
     if(type == 1)

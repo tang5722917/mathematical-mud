@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 10:34:03
+ * @LastEditTime: 2023-05-16 19:06:42
  * @FilePath: \mysticism-mud\inherit\combat\combat_single.c
  * @Description: PVE 1v1 战斗基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -33,7 +33,9 @@ void init(object o1,object o2,object env)
     err->init(this_object());
     ob1_data += ({add_new_fighter(ob1)});
     ob2_data += ({add_new_fighter(ob2)});
+    combat_result_ob = new(INHERIT_PATH "combat/combat_result_data");
 }
+
 //定义玩家的初始行为
 int fight_init_user(object user){return 0;}
 //定义电脑地初始行为

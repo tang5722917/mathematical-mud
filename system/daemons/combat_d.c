@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 19:27:39
+ * @LastEditTime: 2023-05-16 19:21:21
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -108,6 +108,7 @@ void heart_beat( void )
     if((combat->length_fight_info() == 0 ) &&(fight_time < 0 ))
     {
         set_heart_beat(0);
+        load_object(INHERIT_PATH "combat/combat_d/combat_end_d")->combat_end_act(combat);
         destruct_ob();
         return;
     }

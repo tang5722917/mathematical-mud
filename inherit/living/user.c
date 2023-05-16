@@ -14,6 +14,8 @@ inherit INHERIT_PATH "living/user_monitor" ;
 nosave object *temp_object_list=({});
 //user 战斗对象
 protected nosave object fight_ob;
+//user 上一场战斗结果对象
+protected nosave object last_fight;
 //该玩家是否在战斗过程中
 int is_fight_user()
 {

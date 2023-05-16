@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 15:54:29
+ * @LastEditTime: 2023-05-16 19:12:30
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -81,9 +81,16 @@ void update_all_card_q()
         ob->update_card_q();
 }
 
-void perform(F_INFO msg)
+void combat_end_judge()
 {
     mixed * judge;   
+    judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
+    this_object()->print_info(judge[1]);
+    combat_result_ob->set_result(judge[0]);
+}
+
+void perform(F_INFO msg)
+{
     object o1,o2,ob_user;
     err->is_living(msg->ob1);
     o1 = msg->ob1;
@@ -106,12 +113,10 @@ void perform(F_INFO msg)
             break;
         case PUT:
             load_object(PER_CARD_D)->perform(o1,msg->status,this_object());
-            judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
-            this_object()->print_info(judge[1]);
+            combat_end_judge();
             break;
         case ACT:
-            judge = load_object(COMBAT_JUDGE)->perform_combat_judge(this_object());
-            this_object()->print_info(judge[1]);
+            combat_end_judge();
             break;
         case ENT_R:
             this_object()->get_ob_data(msg->ob1)->remove_entity(msg->status);
