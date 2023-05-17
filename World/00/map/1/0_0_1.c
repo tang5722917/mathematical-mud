@@ -2,8 +2,8 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-16 19:30:32
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 19:36:04
- * @FilePath: \mysticism-mud\World\00\room\hei_ye_jiao_hui\lian_jin_shi.c
+ * @LastEditTime: 2023-05-17 02:00:09
+ * @FilePath: \mysticism-mud\World\00\map\1\0_0_1.c
  * @Description: 廷根 黑夜教会/职业小队地图 - 炼金室
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -24,8 +24,6 @@
      set("no_drop", 1); // 是否禁止丢弃
      set("no_fight", 1); // 是否禁止战斗
      set("objects",([
-         PATH_00_NPC  "start_up_npc":1,
-         PATH_00_NPC  "start_up_fight":1
      ]));
  
      setup();

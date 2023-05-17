@@ -80,7 +80,8 @@ varargs void version_boardcast(int v)
 
 void user_env_config()
 {
-    init_user_monitor(0,0,env("USER_MAX_INPUT"));
+    init_user_monitor(0,0,env("USER_MAX_INPUT"));  //玩家输入限制
+    u_msg = ({});                                  //初始化USER_MSG
 }
 void user_setup()
 {

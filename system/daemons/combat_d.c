@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-11 13:22:42
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 19:21:21
+ * @LastEditTime: 2023-05-17 02:13:29
  * @FilePath: \mysticism-mud\system\daemons\combat_d.c
  * @Description:  战斗守护类
  *                每一场战斗由此对象建立
@@ -63,7 +63,6 @@ varargs void create(object *ob1,object *ob2,int fight_type,object env)
 
 void destruct_ob()
 {
-    combat->msg_end();
     combat->destruct_ob();
     destruct(this_object());
     return;
