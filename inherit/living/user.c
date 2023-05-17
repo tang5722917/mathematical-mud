@@ -9,6 +9,7 @@ inherit INHERIT_PATH "living/status_task_main" ;
 inherit INHERIT_PATH "living/mxp_user" ;
 inherit INHERIT_PATH "living/msp_user" ;
 inherit INHERIT_PATH "living/user_monitor" ;
+inherit INHERIT_PATH "living/user_message" ;
 #include <ansi.h>
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
@@ -81,7 +82,9 @@ varargs void version_boardcast(int v)
 void user_env_config()
 {
     init_user_monitor(0,0,env("USER_MAX_INPUT"));  //玩家输入限制
-    u_msg = ({});                                  //初始化USER_MSG
+    init_user_meaage();                            //初始化USER_MSG
+    init_user_task_main();
+    init_user_task_days();
 }
 void user_setup()
 {

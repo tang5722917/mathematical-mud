@@ -7,3 +7,13 @@
  * @Description: 用于记录管理玩家主线任务（只能进行一次）
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
+protected mapping user_task_main; 
+
+varargs init_user_task_main(mapping m)
+{
+    if(mapp(m))
+        user_task_main = m;
+    else
+        user_task_main = ([]);
+}

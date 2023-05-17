@@ -1,12 +1,11 @@
 /*
  * @Author: Donald duck tang5722917@163.com
- * @Date: 2023-03-14 17:52:37
+ * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-17 02:14:12
+ * @LastEditTime: 2023-05-17 11:31:30
  * @FilePath: \mysticism-mud\World\00\combat\start_up_fight.c
  * @Description: 新手引导的战斗对象
- * 
- * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
 #include <game_world.h> 
@@ -39,6 +38,8 @@ int fight_end_env(object env)
 void end_event(object result_ob,object user)
 {
     msg_end();
+    add_f_info("朦胧之中好像听见有人叫你的名字",user);
+    add_f_info("此时你回想起一些东西",user);
     debug_message( sprintf("%O",this_player() ));
     if(result_ob->get_result()== 1)
         user->move(First_ROOM);

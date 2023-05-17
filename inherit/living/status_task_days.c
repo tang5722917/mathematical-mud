@@ -7,3 +7,13 @@
  * @Description: 用于记录管理玩家日常任务（可重复进行）
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
+protected mapping user_task_day; 
+
+varargs init_user_task_days(mapping m)
+{
+    if(mapp(m))
+        user_task_day = m;
+    else
+        user_task_day = ([]);
+}

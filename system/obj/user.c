@@ -2,7 +2,6 @@
 inherit CORE_USER_OB;
 
 protected mapping user_data;
-protected USER_MSG *u_msg;
 
 void create()
 {
@@ -49,12 +48,6 @@ void user_input_monitor()
     input_num = 0;
 }
 
-
-void user_output_info()
-{
-    load_object(LIV_NPC_MSG)->user_output_info(this_object());
-}
-
 // 玩家心跳事件
 void heart_beat()
 {
@@ -79,5 +72,5 @@ void heart_beat()
     //玩家监控函数
     user_input_monitor();
     //玩家1s显示逐行信息
-    user_output_info();
+    user_output_one();
 }

@@ -5,6 +5,9 @@ title MYSTICISM
 set MUDLIB="%cd%"
 set DRIVER="%cd%\bin\driver.exe"
 set CONFIG="%cd%\config.cfg"
+::删除旧log文件
+cd %MUDLIB%\log
+del error_handler
 ::运行游戏
 :START
 cd %MUDLIB%
