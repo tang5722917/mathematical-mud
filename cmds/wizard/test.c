@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-06 14:48:18
+ * @LastEditTime: 2023-05-17 15:34:00
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,8 +16,12 @@ int help(object me);
 
 int main(object me, string file)
 {
-    object ob;
-    ob = new(INHERIT_PATH "entity/summon_data");
+    object user=me;
+    user->set_choice_command(-1);
+    //add_info("朦胧之中好像听见有人叫你的名字",user);
+    //add_info("此时你回想起一些东西",user);
+    //if(result_ob->get_result()== 1)
+    //    user->move(First_ROOM);
     /*
     //测试出牌序列依据speed排序
     object ob;

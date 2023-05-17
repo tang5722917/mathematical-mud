@@ -25,6 +25,8 @@ mixed can_fight()
         return "没有询问的对象\n";
     if(this_player()->is_fight_user())
         return "已经在战斗当中\n";
+    if(this_player()->is_choice_command())
+        return ("请输入选项数字。\n ");
     else
         return 1;
 }

@@ -67,6 +67,8 @@ mixed can_go_str(string dir, string arg)
 {
     if(this_player()->is_fight_user())
         return "战斗当中不要随便乱跑\n";
+    if(this_player()->is_choice_command())
+        return ("请输入选项数字。\n ");
     else
         return 1;
 }
@@ -243,12 +245,3 @@ int help(object me)
 HELP );
     return 1;
 }
-
-
-
-
-
-
-
-
-

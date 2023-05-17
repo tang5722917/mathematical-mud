@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-03-17 14:40:01
+ * @LastEditTime: 2023-05-17 15:25:59
  * @FilePath: \mysticism-mud\verbs\common\quit.c
  * @Description:  quit(q) 指令
  *               退出战斗或某些场景
@@ -45,7 +45,8 @@
     }
     else 
         write("没有需要退出地场景！\n");
-
+    if(this_player()->is_choice_command())
+        return ("请输入选项数字。\n ");
     return 1;
 }
 

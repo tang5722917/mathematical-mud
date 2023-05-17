@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-13 13:53:13
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-04-29 12:32:49
- * @FilePath: /mysticism-mud/verbs/common/put.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-17 15:26:17
+ * @FilePath: \mysticism-mud\verbs\common\put.c
  * @Description:  put -- 出牌指令
  *                put(p) + 数字序列，表示打出该数字序列手牌
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -36,6 +36,8 @@ mixed can_put()
 {
     if(! this_player()->is_fight_user())
         return "目前不在战斗当中\n";
+    if(this_player()->is_choice_command())
+        return ("请输入选项数字。\n ");
     else
         return 1;
 }

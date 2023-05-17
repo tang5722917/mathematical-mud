@@ -22,7 +22,12 @@ int is_fight_user()
 {
     return query("user_fight");
 }
-
+int is_choice_command(){
+    return query("choice_command");
+}
+void set_choice_command(int value){
+    set("choice_command",value);
+}
 int start_fight(object fob)
 {
     if(fob != 0)
@@ -39,8 +44,6 @@ int end_fight()
     fight_ob = 0;
     set("user_fight",0);
 }
-
-
 
 int is_temp_object_user()
 {
