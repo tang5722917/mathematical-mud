@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-11 19:12:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-17 17:04:55
+ * @LastEditTime: 2023-05-18 09:23:00
  * @FilePath: \mysticism-mud\inherit\system\command.c
  * @Description: 玩家输入指令处理
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -114,6 +114,11 @@ mixed process_input(string arg)
             case "k":
             case "bag":
             case "b":
+            case "put":
+            case "p":
+            case "quit":
+            case "q":
+                break;
             default:
                 write(RED"战斗当中不支持该命令"+arg+"\n " NOR);
                 return 1;
