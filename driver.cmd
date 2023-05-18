@@ -8,6 +8,8 @@ set CONFIG="%cd%\config.cfg"
 ::删除旧log文件
 cd %MUDLIB%\log
 del error_handler
+del log_error
+del log
 ::运行游戏
 :START
 cd %MUDLIB%

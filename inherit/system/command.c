@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-11 19:12:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-18 09:23:00
+ * @LastEditTime: 2023-05-18 19:57:20
  * @FilePath: \mysticism-mud\inherit\system\command.c
  * @Description: 玩家输入指令处理
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -14,7 +14,7 @@ inherit  CORE_COMMAND;
 
 mixed process_input(string arg)
 {
-    object me,env,ob;
+    object me,env;
     string arg_l;
     mixed *s_pcre;
     me = this_player();
@@ -39,7 +39,6 @@ mixed process_input(string arg)
     //指令第一个空格之前部分
     s_pcre = pcre_match_all(arg,"[0-9a-z]+"); 
     arg_l = s_pcre[0][0];
-    ob = load_object(USER_IN_NUM);
     if(!me->is_fight_user())
     {
         switch(arg_l)
@@ -55,8 +54,8 @@ mixed process_input(string arg)
             case "8":
             case "9":
                 if(me->is_choice_command()) {
-                    if(ob->user_input_number(me,env,to_int(arg)));
-                        return 1;
+                    me->input_choice_command(to_int(arg));
+                    return 1;
                 }
                 write("输入的数字没有特别的含义。\n ");
                 return 1;
@@ -65,14 +64,16 @@ mixed process_input(string arg)
                 break;
             case "y":
             case "Y":
-                if(ob->user_choice_confirm(me,env))
+                if(me->choice_confirm())
                     return 1;
                 else {  
-                    write("没有什么需要确认\n ");
-                    return 1;
+                        write("没有什么需要确认\n ");
+                        return 1;
                     }
             default:
                 if(me->is_choice_command()){
+                    if(me->is_choice_confirm())
+                        return 1;
                     write("请输入选项数字。\n ");
                     return 1;
                 }
@@ -94,8 +95,8 @@ mixed process_input(string arg)
             case "8":
             case "9":
                 if(me->is_choice_command()) {
-                    if(ob->user_input_number(me,env,to_int(arg)));
-                        return 1;
+                    me->input_choice_command(to_int(arg));
+                    return 1;
                 }
                 write("输入的数字没有特别的含义。\n ");
                 return 1;
@@ -104,11 +105,11 @@ mixed process_input(string arg)
                 break;
             case "y":
             case "Y":
-                if(ob->user_choice_confirm(me,env))
+                if(me->choice_confirm())
                     return 1;
                 else {  
-                    write("没有什么需要确认\n ");
-                    return 1;
+                        write("没有什么需要确认\n ");
+                        return 1;
                     }
             case "know":
             case "k":
@@ -120,6 +121,12 @@ mixed process_input(string arg)
             case "q":
                 break;
             default:
+                if(me->is_choice_command()){
+                    if(me->is_choice_confirm())
+                        return 1;
+                    write("请输入选项数字。\n ");
+                    return 1;
+                }
                 write(RED"战斗当中不支持该命令"+arg+"\n " NOR);
                 return 1;
         }

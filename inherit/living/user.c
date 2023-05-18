@@ -8,6 +8,7 @@ inherit INHERIT_PATH "living/status_task_days" ;
 inherit INHERIT_PATH "living/status_task_main" ;
 inherit INHERIT_PATH "living/mxp_user" ;
 inherit INHERIT_PATH "living/msp_user" ;
+inherit INHERIT_PATH "living/user_task_base" ;
 inherit INHERIT_PATH "living/user_monitor" ;
 inherit INHERIT_PATH "living/user_message" ;
 #include <ansi.h>
@@ -22,12 +23,14 @@ int is_fight_user()
 {
     return query("user_fight");
 }
+//玩家是否需要确认
 int is_choice_command(){
     return query("choice_command");
 }
 void set_choice_command(int value){
     set("choice_command",value);
 }
+
 int start_fight(object fob)
 {
     if(fob != 0)
