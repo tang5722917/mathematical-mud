@@ -25,6 +25,7 @@
 #define MYSTIC_CARD    PATH_BASE "card/"
 #define MYSTIC_SKILL   PATH_BASE "skill/"
 #define MYSTIC_SUMMON  PATH_BASE "summon/"
+#define MYSTIC_RELIGION PATH_BASE "religion/"
  //0.x版本游戏内容路径
 #define PATH_00      PATH_DIR "World/00/"
 #define PATH_00_NPC  PATH_00 "npc/"
@@ -34,4 +35,8 @@
 #define PATH_00_SCR  PATH_00 "script/"
 #define PATH_00_MYH  PATH_00 "mystic/"
 #define PATH_00_STA  PATH_00 "status/"
+
+//教派势力
+#define RELIGION_NIGHT_D     MYSTIC_RELIGION "night/night_religion_d"
+
 #endif //GAME_WORLD

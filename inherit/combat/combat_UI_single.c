@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-15 14:28:57
+ * @LastEditTime: 2023-05-19 19:07:15
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI_single.c
  * @Description: 提供单人战斗的UI
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -21,6 +21,7 @@ void disable_user_command(){
 void enable_user_command(){
     ob1->enable_command();
 }
+object get_fight_env(){return fight_env;}
 //战斗过程颜色控制
 string print_color_fig(F_INFO str,int type)
 {
