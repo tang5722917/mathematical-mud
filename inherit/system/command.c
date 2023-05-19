@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-11 19:12:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-18 19:57:20
+ * @LastEditTime: 2023-05-19 12:01:50
  * @FilePath: \mysticism-mud\inherit\system\command.c
  * @Description: 玩家输入指令处理
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -39,6 +39,16 @@ mixed process_input(string arg)
     //指令第一个空格之前部分
     s_pcre = pcre_match_all(arg,"[0-9a-z]+"); 
     arg_l = s_pcre[0][0];
+    switch(arg_l)  //
+    {
+        case ("update"):
+        return 0;
+    }
+    if(me->is_command_busy())
+    {
+        message("SYS","请不要这么着急的输入命令^_^",me);
+        return 1;
+    }
     if(!me->is_fight_user())
     {
         switch(arg_l)
@@ -54,13 +64,13 @@ mixed process_input(string arg)
             case "8":
             case "9":
                 if(me->is_choice_command()) {
+                    if(me->is_choice_confirm())
+                        return 1;
                     me->input_choice_command(to_int(arg));
                     return 1;
                 }
                 write("输入的数字没有特别的含义。\n ");
                 return 1;
-                break;
-            case "update":
                 break;
             case "y":
             case "Y":
@@ -95,13 +105,13 @@ mixed process_input(string arg)
             case "8":
             case "9":
                 if(me->is_choice_command()) {
+                    if(me->is_choice_confirm())
+                        return 1;
                     me->input_choice_command(to_int(arg));
                     return 1;
                 }
                 write("输入的数字没有特别的含义。\n ");
                 return 1;
-                break;
-            case "update":
                 break;
             case "y":
             case "Y":

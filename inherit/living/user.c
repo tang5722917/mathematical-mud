@@ -30,7 +30,16 @@ int is_choice_command(){
 void set_choice_command(int value){
     set("choice_command",value);
 }
-
+//是否允许玩家输入指令
+int is_command_busy(){
+    return query("is_command_busy");
+}
+void enable_command(){
+    set("is_command_busy",0);
+}
+void disable_command(){
+    set("is_command_busy",1);
+}
 int start_fight(object fob)
 {
     if(fob != 0)
@@ -87,6 +96,7 @@ varargs void version_boardcast(int v)
 
 void user_env_config()
 {
+    enable_command();
     init_user_monitor(0,0,env("USER_MAX_INPUT"));  //玩家输入限制
     init_user_meaage();                            //初始化USER_MSG
     init_user_task_main();

@@ -42,13 +42,17 @@ void newbie_choice(object ob)
     ob->add_choice_title_info(str);
     str = "    请选择你的出生地点：\n";
     ch += ({str});
-    str = "    0  鲁恩 -- 廷根\n";
+    str = "    0  鲁恩 \n";
     ch += ({({str,0})});
     ob->add_choice(ch);
     str  = "    请选择你信仰的神灵：\n";
     ch  = ({str});
     str = "    0  黑夜女神\n";
     ch += ({({str,0})});
+    str = "    1  风暴之主\n";
+    ch += ({({str,1})});
+    str = "    2  蒸汽之神\n";
+    ch += ({({str,2})});
     ob->add_choice(ch);
 }
 

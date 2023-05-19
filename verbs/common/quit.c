@@ -45,8 +45,6 @@
     }
     else 
         write("没有需要退出地场景！\n");
-    if(this_player()->is_choice_command())
-        return ("请输入选项数字。\n ");
     return 1;
 }
 

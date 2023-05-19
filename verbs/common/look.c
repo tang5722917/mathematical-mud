@@ -27,8 +27,6 @@ mixed can_look()
     {
         return "请专心致志地战斗，不要东张西望！\n";
     }
-    if(this_player()->is_choice_command())
-        return ("请输入选项数字。\n ");
     else
         return 1;
 }

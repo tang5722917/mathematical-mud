@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-03 15:21:09
+ * @LastEditTime: 2023-05-19 11:56:44
  * @FilePath: \mysticism-mud\inherit\living\status.c
  * @Description: 玩家状态类
  * 
@@ -17,14 +17,6 @@
 protected mapping user_cur_status;
 protected nosave mapping temp_user_cur_status;
 
-// 设置属性值
-mixed set_status(string status, mixed value)
-{
-    if (!mapp(user_cur_status))
-        user_cur_status = ([]);
-    return user_cur_status[status] = value;
-}
-
 // 获取属性值
 mixed query_status(string status)
 {
@@ -35,6 +27,16 @@ mixed query_status(string status)
         return 0;
     data = user_cur_status[status];
     return data;
+}
+
+// 设置属性值
+mixed set_status(string status, mixed value)
+{
+    int t;
+    if (!mapp(user_cur_status))
+        user_cur_status = ([]);
+    t = query_status(status);
+    return user_cur_status[status] = t | value;
 }
 
 //删除属性
@@ -49,14 +51,6 @@ int delete_status(string status)
     }
 }
 
-// 设置临时属性值
-mixed temp_set_status(string status, mixed value)
-{
-    if (!mapp(temp_user_cur_status))
-    temp_user_cur_status = ([]);
-    return temp_user_cur_status[status] = value;
-}
-
 // 获取临时属性值
 mixed temp_query_status(string status)
 {
@@ -67,6 +61,16 @@ mixed temp_query_status(string status)
         return 0;
     data = temp_user_cur_status[status];
     return data;
+}
+
+// 设置临时属性值
+mixed temp_set_status(string status, mixed value)
+{
+    int t;
+    if (!mapp(temp_user_cur_status))
+        temp_user_cur_status = ([]);
+    t = temp_query_status(status);
+    return temp_user_cur_status[status] = t | value;
 }
 
 //删除临时属性
@@ -87,5 +91,5 @@ mixed modify_user_status(string status_name,int value,int type)
     if (type)
         return me->set_status(status_name, value);
     else
-    return me->temp_set_status(status_name, value);
+        return me->temp_set_status(status_name, value);
 }

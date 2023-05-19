@@ -15,7 +15,12 @@ inherit INHERIT_PATH "combat/combat_UI";
 nosave protected object ob1;
 nosave protected object ob2;
 nosave protected object fight_env,script;
-
+void disable_user_command(){
+    ob1->disable_command();
+}
+void enable_user_command(){
+    ob1->enable_command();
+}
 //战斗过程颜色控制
 string print_color_fig(F_INFO str,int type)
 {

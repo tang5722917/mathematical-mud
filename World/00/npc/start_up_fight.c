@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 17:39:39
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-05 14:30:22
+ * @LastEditTime: 2023-05-19 11:58:31
  * @FilePath: \mysticism-mud\World\00\npc\start_up_fight.c
  * @Description: 初始玩家战斗NPC
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -28,7 +28,7 @@ void search(object me,object env)
 这时你的脑海中响起一个声音，“与它战斗吧！\n (使用fight或f命令攻击指定目标，请输入f ???)
 不过在这之前请先使用score(sc)查看一下自身状态");
     ob = this_object();
-    me->modify_user_status(file_name(ob),3,0);
+    me->modify_user_status(file_name(ob),2,0);
 }
 
 object * fight(object me,object ob)
