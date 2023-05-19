@@ -42,6 +42,7 @@
 /* inherit 特性文件 */
 #define CORE_STD_PRE            PATH_DIR "inherit/system/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/space/room"
+#define CORE_STD_AREA           PATH_DIR "inherit/space/area"
 #define CORE_STD_PERSON         PATH_DIR "inherit/living/person"
 #define CORE_STD_NPC            PATH_DIR "inherit/living/living_npc"
 #define CORE_STD_PERSON_NPC     PATH_DIR "inherit/living/person_npc"

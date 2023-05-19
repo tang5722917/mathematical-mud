@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-17 19:45:39
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-19 19:34:11
- * @FilePath: \mysticism-mud\inherit\task\task_action\task_choice.c
+ * @LastEditors: Donald Duck tang5722917@163.com
+ * @LastEditTime: 2023-05-20 05:55:01
+ * @FilePath: /mysticism-mud/inherit/task/task_action/task_choice.c
  * @Description:  用于实现任务中的选项动作
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -142,8 +142,8 @@ void choice_next_item()
 
 void task_confirm()
 {
-    evaluate(do_confirm,choice_result,user);
     message("CHI",HBGRN "成功完成选择确认" NOR,user);
+    evaluate(do_confirm,choice_result,user);
     user->set_choice_command(0);
     destruct();
 }
