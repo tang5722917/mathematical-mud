@@ -64,6 +64,7 @@
 #define _COMMAND        PATH_DIR "inherit/system/command"
 #define _MESSAGE        PATH_DIR "inherit/display/message"
 #define _MXP            PATH_DIR "inherit/display/mxp"
+#define _MOVE           PATH_DIR "inherit/space/move"
 #define _BOARD          PATH_DIR "inherit/display/board"
 #define _ERR            PATH_DIR "inherit/system/error"
 #define _DB             PATH_DIR "inherit/system/db"

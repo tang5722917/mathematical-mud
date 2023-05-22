@@ -2,7 +2,7 @@
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-04 18:27:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-04 14:53:28
+ * @LastEditTime: 2023-05-22 14:23:37
  * @FilePath: \mysticism-mud\World\world_create.c
  * @Description: 
  * 
@@ -10,7 +10,16 @@
  */
 
 #include <game_world.h> 
-
+/*
+*第一卷：小丑
+*第二卷：无面人
+*第三卷：旅行家
+*第四卷：不死者
+*第五卷：红祭司
+*第六卷：逐光者
+*第七卷：倒吊人
+*第八卷：愚者
+*/
 void init_daemons()
 {
     new(FIGHT_D,0,0);
