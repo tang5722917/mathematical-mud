@@ -35,7 +35,7 @@
 #define PATH_00_SCR  PATH_00 "script/"
 #define PATH_00_MYH  PATH_00 "mystic/"
 #define PATH_00_STA  PATH_00 "status/"
-
+#define PATH_00_TAK  PATH_00 "task/"
 //教派势力
 #define RELIGION_NIGHT_D     MYSTIC_RELIGION "night/night_religion_d"
 

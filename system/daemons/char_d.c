@@ -13,6 +13,7 @@ void init_player(object user, mixed *data...)
     user->set("wlv", 0);     // 世界等级
     user->set_living_base_value(100,100,10,10,10,100,0,0,175);
     user->add_mystic(find_object(INIT_MYS));
+    user->set("space_room",START_ROOM);
     shout("欢迎新玩家！");
 }
 //初始化玩家登录
