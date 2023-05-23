@@ -2,15 +2,16 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-16 19:30:32
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 15:18:44
+ * @LastEditTime: 2023-05-23 19:57:17
  * @FilePath: \mysticism-mud\World\00\map\1\map_0_0_3.c
  * @Description: 廷根 黑夜教会/职业小队地图 - 队长办公室
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <ansi.h>
 #include <game_world.h>
- 
- inherit CORE_STD_ROOM;
+#include <world_map.h>
+#include "area_1.h"
+inherit AREA_1 "area_1_map";
  
  void create()
  {

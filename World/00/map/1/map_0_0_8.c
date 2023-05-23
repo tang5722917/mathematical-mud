@@ -9,8 +9,9 @@
  */
 #include <ansi.h>
 #include <game_world.h>
- 
- inherit CORE_STD_ROOM;
+#include <world_map.h>
+#include "area_1.h"
+inherit AREA_1 "area_1_map";
  
  void create()
  {

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 18:07:22
+ * @LastEditTime: 2023-05-23 20:31:51
  * @FilePath: \mysticism-mud\inherit\system\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -53,13 +53,17 @@ varargs object * load_path_object(string path,string des)
     if(!arrayp(obj))
         obj = ({});
     str=deep_path_list(path);
+    
     foreach (s in str)
     {
-        o = load_object(s);
+        //debug_message(sprintf("%O  %O" ,s,sizeof(pcre_match_all(s,"(\\.h)"))));
+        if( sizeof(pcre_match_all(s,"(\\.h)")) == 0)
+            o = load_object(s);
+        else continue;
         if(o == 0)
         {
-            return 0;
             debug_message("[" + ctime() + "]错误的"+ob_name()+"对象调用");
+            return 0;
         }
         ob += ({o});
     }
