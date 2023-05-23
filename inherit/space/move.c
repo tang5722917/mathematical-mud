@@ -64,7 +64,10 @@ varargs int move(mixed dest, int raw)
     {
         command("look");
     }
-    me->set("space_room",dest);
+    if(stringp(dest))
+        me->set("space_room",dest);
+    else if(objectp(dest))
+        me->set("space_room",file_name(dest));
     return 1;
 }
 
