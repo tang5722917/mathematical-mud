@@ -7,9 +7,9 @@
  * @Description: 像USER中导入各个版本主线任务头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-#ifndef TASK_V_H
-#define TASK_V_H
+#ifndef TASK_M_H
+#define TASK_M_H
 
-inherit  PATH_00_TAK "main_task_00";
 
-#endif  //TASK_V_H
+
+#endif  //TASK_M_H

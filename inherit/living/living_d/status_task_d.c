@@ -7,8 +7,3 @@
  * @Description: Task基类的一些方法
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-
-void init_user_task(object ob)
-{
-    object *obs;
-}

@@ -12,9 +12,9 @@
  protected mapping day_task_00; 
  nosave protected object day_task_list_00;
  
- void init()
+ void day_task_00_init()
  {
-     if(mapp(day_task_00))
+     if(!mapp(day_task_00))
         day_task_00 = ([]);
     day_task_list_00 = load_object(PATH_00_TAK "day_task_d_00");
  }

@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-16 19:30:32
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-20 10:39:46
- * @FilePath: /mysticism-mud/World/00/map/1/0_0_1.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-23 09:25:06
+ * @FilePath: \mysticism-mud\World\00\map\1\map_0_0_1.c
  * @Description: 廷根 黑夜教会/职业小队地图 - 休息室
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -24,6 +24,9 @@
      set("no_drop", 0); // 是否禁止丢弃
      set("no_fight", 1); // 是否禁止战斗
      set("no_sleep",1);   //是否可以休息
+     set("exits",([ 
+        "southwest" : PATH_00_MAP "1/map_0_0_2"
+     ]));
      set("objects",([
 
      ]));
