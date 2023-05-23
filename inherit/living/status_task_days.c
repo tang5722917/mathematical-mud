@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-06 16:15:58
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 03:11:36
+ * @LastEditTime: 2023-05-23 11:43:23
  * @FilePath: \mysticism-mud\inherit\living\status_task_days.c
  * @Description: 用于记录管理玩家日常任务（可重复进行）
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -11,8 +11,8 @@
 #include <task_day.h>
 
 inherit  PATH_00_TAK "day_task_00";
-
-protected mapping user_task_day; 
+nosave protected object *task_day;
+protected mapping user_task_day;      //存储正在进行的task
 
 void init_user_task_days()
 {
