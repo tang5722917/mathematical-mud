@@ -2,7 +2,7 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-20 05:55:52
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 19:55:37
+ * @LastEditTime: 2023-05-24 18:57:25
  * @FilePath: \mysticism-mud\World\00\map\1\area_1.c
  * @Description: 区域1，鲁恩/廷根/ 黑荆棘安保公司-圣塞琳娜教堂
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,27 +10,26 @@
 #include <ansi.h>
 #include <game_world.h>
 inherit CORE_STD_AREA;
-protected string area_map = 
-HBGRN"地上"NOR"
-                        "BCYN"红月亮街"NOR"
+/*
+                        红月亮街
                            |
                         教堂广场
                            |  (圣塞琳娜教堂)
 (通往教堂地下)告解室 —— 教堂大厅 —— 教堂休息室
-"YEL"------------------------------------------------------"NOR"
+------------------------------------------------------
                  队长办公室  休息室
                        |   /
 (通往地下一层)办公室—— 走廊 —— 会计室
                        |
                       前台（黑荆棘安保公司）
                        |
-                    "BCYN"佐特兰街"NOR"
+                    佐特兰街
                        |
-                    "BCYN"贝西克街"NOR"
+                    贝西克街
                        |
                     猎犬酒吧
-"HBYEL"--------------------------------------------"NOR"
-"HBGRN"地下一层"NOR"
+--------------------------------------------
+地下
                   教堂地下
                      |
             查尼斯门值守室 停尸房
@@ -38,5 +37,43 @@ HBGRN"地上"NOR"
           武器室 —— 走廊 —— 材料与文献库
                      |
                    炼金室
-";
-string get_area_map(){return area_map;}
+*/
+mixed * get_area_room_obs()
+{
+   mixed * obs = ({
+      ({
+         "廷根市","黑夜女神信仰区域"
+      }),
+      ({
+         ({"圣塞琳娜教堂",3,3}),
+         ({PATH_00_MAP "1/map_0_1_4",0,1}),
+         ({PATH_00_MAP "1/map_0_1_3",1,1}),
+         ({PATH_00_MAP "1/map_0_1_2",2,0}),
+         ({PATH_00_MAP "1/map_0_1_1",2,1}),
+         ({PATH_00_MAP "1/map_0_1_5",2,2})
+      }),
+      ({
+         ({"黑荆棘安保公司",3,6}),
+         ({PATH_00_MAP "1/map_0_0_3",0,1}),
+         ({PATH_00_MAP "1/map_0_0_1",0,2}),
+         ({PATH_00_MAP "1/map_0_0_6",1,0}),
+         ({PATH_00_MAP "1/map_0_0_2",1,1}),
+         ({PATH_00_MAP "1/map_0_0_4",1,2}),
+         ({PATH_00_MAP "1/map_0_0_5",2,1}),
+         ({PATH_00_MAP "1/map_0_0_7",3,1}),
+         ({PATH_00_MAP "1/map_0_0_8",4,1}),
+         ({PATH_00_MAP "1/map_0_0_9",5,1})
+      }),
+      ({
+         ({"地下",3,4}),
+         ({PATH_00_MAP "1/map_1_1_3",0,1}),
+         ({PATH_00_MAP "1/map_1_1_2",1,1}),
+         ({PATH_00_MAP "1/map_1_1_4",1,2}),
+         ({PATH_00_MAP "1/map_1_1_6",2,0}),
+         ({PATH_00_MAP "1/map_1_1_1",2,1}),
+         ({PATH_00_MAP "1/map_1_1_5",2,2}),
+         ({PATH_00_MAP "1/map_1_1_7",3,1})
+      })
+   });
+   return obs;
+}

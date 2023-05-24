@@ -16,3 +16,7 @@ inherit CORE_STD_ROOM;
 void show_map_info(object user){
     message("MAP",load_object(AREA_1_OB)->get_area_map(),user);
 }
+
+mixed *get_map_info(){
+    return load_object(AREA_1_OB)->get_area_room_obs();
+}

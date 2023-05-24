@@ -19,7 +19,7 @@ inherit AREA_1 "area_1_map";
      set("long", "一条不长的走廊。\n");
      set("dq", 1); // 设置所属世界
      set("outdoors", 0); // 设置是否户外
-     setArea(2, 0, 0, 1,"黑荆棘安保公司"); // 设置所属地区和x,y,z坐标
+     setArea(1, 0, 0, 2,"黑荆棘安保公司"); // 设置所属地区和x,y,z坐标
      set("no_get", 0); // 是否禁止拾起
      set("no_drop", 0); // 是否禁止丢弃
      set("no_fight", 1); // 是否禁止战斗

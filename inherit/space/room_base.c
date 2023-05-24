@@ -1,9 +1,9 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
- * @LastEditors: Donald Duck tang5722917@163.com
- * @LastEditTime: 2023-05-20 06:36:21
- * @FilePath: /mysticism-mud/inherit/space/room_base.c
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-24 11:40:16
+ * @FilePath: \mysticism-mud\inherit\space\room_base.c
  * @Description: ROOM基类扩展
  * 
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -29,7 +29,7 @@ varargs void setup(int room_type)
 }
 
 // 设置环境区域和坐标
-varargs void setArea(mixed area, int x, int y, int z, string name)
+varargs void setArea(mixed area, int z, int y, int x, string name)
 {
     set("area", area);
     set("zone", ([
@@ -39,11 +39,6 @@ varargs void setArea(mixed area, int x, int y, int z, string name)
         "name":name,
         "visible":1
     ]));
-}
-
-varargs void set_area(mixed area, int x, int y, int z, string name)
-{
-    setArea(area, x, y, z, name);
 }
 
 // 获取区域坐标
@@ -89,4 +84,16 @@ object ob_in_room(string id)
             return ob;
     }
     return 0;
+}
+
+//获取ROOM short name
+string get_room_name(){
+    return query("short");
+}
+
+//获取 ROOM AREA Z Y X 
+int * get_room_azyx()
+{
+    mapping coordinate = query("zone");
+    return ({query("area"),coordinate["z"],coordinate["y"],coordinate["x"]});
 }

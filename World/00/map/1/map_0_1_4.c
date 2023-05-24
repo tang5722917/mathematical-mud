@@ -19,7 +19,7 @@ inherit AREA_1 "area_1_map";
      set("long", "\n");
      set("dq", 1); // 设置所属世界
      set("outdoors", 1); // 设置是否户外
-     setArea(4, 1, 0, 1,"北区"); // 设置所属地区和x,y,z坐标
+     setArea(1, 0, 1, 4,"北区"); // 设置所属地区和x,y,z坐标
      set("no_get", 0); // 是否禁止拾起
      set("no_drop", 0); // 是否禁止丢弃
      set("no_fight", 1); // 是否禁止战斗
