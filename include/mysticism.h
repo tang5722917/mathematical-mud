@@ -12,7 +12,7 @@
 #define MYSTICISM_H
 
 //开启调试模式
-#define DEBUG_MYSTICISM
+//#define DEBUG_MYSTICISM
 
 //开启音乐 0 OFF | 1 ON
 #define MYSTICISM_SOUND 1

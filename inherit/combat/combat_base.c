@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-09 14:35:54
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-16 19:12:30
+ * @LastEditTime: 2023-05-24 23:45:35
  * @FilePath: \mysticism-mud\inherit\combat\combat_base.c
  * @Description:战斗基类
  * Copyright (c) 2023 by git config user.email, All Rights Reserved. 
@@ -51,7 +51,7 @@ int is_quit_fight()
 #ifdef DEBUG_MYSTICISM
     return 1;
 #else 
-    return is_quit_combat()
+    return this_object()->is_quit_combat();
 #endif
 }
 
