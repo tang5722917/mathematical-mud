@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-12 18:10:48
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-14 11:40:09
+ * @LastEditTime: 2023-05-25 17:07:03
  * @FilePath: \mysticism-mud\system\kernel\master\sys_d.c
  * @Description: 游戏服务进程初始化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -66,10 +66,18 @@
 
 int init_sys_d()
 {
+    object ob;
     load_object(CORE_ENV_D);
     debug_message("[" + ctime() + "]游戏env文件成功导入");
-    preload(TIME_D);
-    find_object(TIME_D)->set_scale(1,0,1);
-    find_object(TIME_D)->reset_gametime(find_object(TIME_D)->query_realtime());
+    //时间初始化
+    ob = load_object(TIME_D);
+    ob->set_scale(1,0,1);
+    ob->reset_gametime(find_object(TIME_D)->query_realtime());
+    ob->process_gametime(ob->query_gametime());
     init_sql_sys_db();
+    //天气初始化
+    ob = load_object(NATURE_D);
+    ob->event_midnight();
+    ob->select_day_phase();
+    ob->update_day_phase();
 }

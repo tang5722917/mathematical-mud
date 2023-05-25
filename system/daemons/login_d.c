@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-17 10:19:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-22 17:37:42
+ * @LastEditTime: 2023-05-25 16:35:05
  * @FilePath: \mysticism-mud\system\daemons\login_d.c
  * @Description: 
  * 
@@ -40,7 +40,7 @@ void enter_world(object ob, object user)
     user->add("login_times", 1);
     user->save(); // 保存玩家数据
     user->start_condition(file_name(SYS_OBJECT("start_mxp")),2,1);
-    user->move(user->query("space_room"));
     user->version_boardcast();
+    user->move(user->query("space_room"));
     tell_room(start_room, user->short() + "连线进入这个世界。\n", ({user}));
 }
