@@ -217,12 +217,12 @@ int look_room(object me, object env)
     {
         return env->do_look(me);
     }
-
     str = sprintf(HIC + "%s" + NOR + "%s\n    %s" + NOR,
                   env->short(), wizardp(me) ? " - " + env : env->Room_name(),
                   sort_string(env->long(), 72, 4));
     // env->long());
-
+    if( env->query("outdoors") )
+        str += load_object(NATURE_D)->outdoor_room_description()+NOR "\n";
     if (mapp(exits = env->query("exits")))
     {
         dirs = keys(exits);

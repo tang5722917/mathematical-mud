@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 20:04:59
+ * @LastEditTime: 2023-05-25 16:29:45
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,25 +10,24 @@
 #include <ansi.h>
 #include <combat.h> 
 #include <game_world.h> 
+#include <localtime.h>
 inherit CORE_CLEAN_UP;
 
 int help(object me);
 
-void test_ff(function f)
+mixed *query_localtime()
 {
-    evaluate(f,"Success test!");
-}
-
-void test_f(string s)
-{
-    debug_message(s);
+    return TIME_D->query_game_time();
 }
 
 int main(object me, string arg)
 {
     string * str;
-    str = pcre_match_all(arg,".h");
-    write(sprintf("%O",str));
+    object n =load_object(NATURE_D);
+    load_object(NATURE_D)->event_midnight();
+    n->select_day_phase();
+    load_object(NATURE_D)->update_day_phase();
+    write(sprintf("%O",n->outdoor_room_description()));
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)
@@ -37,7 +36,7 @@ int main(object me, string arg)
     //测试出牌序列依据speed排序
     object ob;
     P_CARD p;
-    write("fprint("%O",file);
+    write("sprintf("%O",file);
     write("测试开始\n");
     ob = new(CORE_STD_FIGHT_S);
     ob->add_put_card(load_object(MYSTIC_CARD "01/air_attack"),me,2);

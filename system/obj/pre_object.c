@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-29 16:13:08
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-26 18:13:59
+ * @LastEditTime: 2023-05-25 16:46:01
  * @FilePath: \mysticism-mud\system\obj\pre_object.c
  * @Description: 预加载的系统Obect
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
