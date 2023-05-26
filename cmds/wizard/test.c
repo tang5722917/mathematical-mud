@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-25 16:29:45
+ * @LastEditTime: 2023-05-26 18:53:17
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,7 +10,7 @@
 #include <ansi.h>
 #include <combat.h> 
 #include <game_world.h> 
-#include <localtime.h>
+
 inherit CORE_CLEAN_UP;
 
 int help(object me);
@@ -23,11 +23,15 @@ mixed *query_localtime()
 int main(object me, string arg)
 {
     string * str;
-    object n =load_object(NATURE_D);
-    load_object(NATURE_D)->event_midnight();
-    n->select_day_phase();
-    load_object(NATURE_D)->update_day_phase();
-    write(sprintf("%O",n->outdoor_room_description()));
+    object ob = load_object(INHERIT_PATH "/task/task_action/task_story");
+    object des = load_object(PATH_00_NPC "citizen_0");
+    str = ({
+        "Test1",
+        "Test2",
+        "Test3"
+    });
+    ob ->start_task_story(me,str,des);
+
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)
