@@ -30,6 +30,7 @@
 #define PATH_00      PATH_DIR "World/00/"
 #define PATH_00_NPC  PATH_00 "npc/"
 #define PATH_00_MAP  PATH_00 "map/"
+#define PATH_00_AREA PATH_00 "area/"
 #define PATH_00_PRO  PATH_00 "property/"
 #define PATH_00_FIG  PATH_00 "combat/"
 #define PATH_00_SCR  PATH_00 "script/"

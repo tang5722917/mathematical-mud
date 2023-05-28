@@ -2,13 +2,14 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-20 05:55:52
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-24 18:57:25
- * @FilePath: \mysticism-mud\World\00\map\1\area_1.c
+ * @LastEditTime: 2023-05-28 15:37:39
+ * @FilePath: \mysticism-mud\World\00\area\1\area_1.c
  * @Description: 区域1，鲁恩/廷根/ 黑荆棘安保公司-圣塞琳娜教堂
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <ansi.h>
 #include <game_world.h>
+#include "../../map/1/area_1.h"
 inherit CORE_STD_AREA;
 /*
                         红月亮街
@@ -38,6 +39,28 @@ inherit CORE_STD_AREA;
                      |
                    炼金室
 */
+
+nosave private mixed *NPC_list = ({
+   ({PATH_00_NPC "luoshan",PATH_00_MAP "1/map_0_0_5"})
+});
+
+nosave protected object *NPC_obs;
+
+void init()
+{
+   object ob;
+   NPC_obs = ({});
+   foreach(mixed *npc in NPC_list)
+   {
+      ob = new(npc[0]);
+      ob->move(find_object(npc[1]));
+      NPC_obs += ({file_name(ob)});
+   }
+}
+
+object * get_area_npc_obs(){
+   return NPC_obs;}
+
 mixed * get_area_room_obs()
 {
    mixed * obs = ({
