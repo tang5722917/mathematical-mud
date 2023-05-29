@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-26 18:53:17
+ * @LastEditTime: 2023-05-29 16:24:25
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -21,17 +21,7 @@ mixed *query_localtime()
 }
 
 int main(object me, string arg)
-{
-    string * str;
-    object ob = load_object(INHERIT_PATH "/task/task_action/task_story");
-    object des = load_object(PATH_00_NPC "citizen_0");
-    str = ({
-        "Test1",
-        "Test2",
-        "Test3"
-    });
-    ob ->start_task_story(me,str,des);
-
+{    
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-10 19:53:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-20 20:31:21
+ * @LastEditTime: 2023-05-29 17:59:45
  * @FilePath: \mysticism-mud\inherit\system\error.c
  * @Description: 错误处理基类,整合常见错误类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -15,7 +15,8 @@ private string *err_arr=({
     "传入的对象引用为0",
     "对象非living类及其子类",
     "输入的文件夹路径不存在",
-    "对象非entity类及其子类"
+    "对象非entity类及其子类",
+    "状态机转换状态不存在"
 });
 
 void init(object ob)
@@ -70,6 +71,13 @@ int is_path(string path)
         throw("错误原因："+ err_arr[2] + " : " + path);
     };
     debug_message("[" + ctime() + "]错误所在的对象："+err_ob);
-    debug_message("[" + ctime() + "]"+err);    
+    debug_message("[" + ctime() + "]"+err); 
+    return 1;
+}
+
+int invalid_state(object ob,int num)
+{
+    debug_message("[" + ctime() + "]错误所在的对象："+file_name(ob));
+    debug_message("[" + ctime() + "]"+err_arr[4]+"状态编号："+ num);    
     return 1;
 }

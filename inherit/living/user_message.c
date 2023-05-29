@@ -39,5 +39,5 @@ void user_output_one()
         if(inherits(_MXP, u_msg->ob))
             str += "【"+ u_msg->ob->print_name(this_object()) +"】:";
     str += u_msg->str;
-    message("USER",str,this_object());
+    msg("USER",str,this_object());
 }

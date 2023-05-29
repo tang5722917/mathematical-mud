@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-17 19:52:51
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-26 18:08:41
+ * @LastEditTime: 2023-05-29 11:18:13
  * @FilePath: \mysticism-mud\inherit\task\task_action\task_story.c
  * @Description: 任务中的剧情环节
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -17,4 +17,10 @@ varargs void start_task_story(object user,string *str,object des,object entity,o
         user->add_user_info(s,des);
     }
 }
- 
+
+//日常短对话
+varargs void npc_tell(object user,string str,object des)
+{
+    user->disable_command();
+    user->add_user_info(str,des);
+}
