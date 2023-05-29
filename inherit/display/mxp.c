@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-29 11:41:14
+ * @LastEditTime: 2023-05-29 19:52:08
  * @FilePath: \mysticism-mud\inherit\display\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
@@ -42,15 +42,19 @@ string * print_mxp_name_all(int type) {
             break;
         case LIV_1:
             c += "white BACK=green";
-            title = "备注";
+            title = "外貌";
             break;
         case LIV_2:
             c += "white BACK=orange";
-            title = "备注";
+            title = "外貌";
             break;
         case LIV_3:
             c += "white BACK=red";
-            title = "备注";
+            title = "外貌";
+            break;
+        case MXP_MAP:
+            c += "black BACK=white";
+            title = "介绍";
             break;
         case OTHER:
             c += "white";

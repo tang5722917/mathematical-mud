@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-26 13:49:48
+ * @LastEditTime: 2023-05-29 18:44:34
  * @FilePath: \mysticism-mud\inherit\living\mxp_user.c
  * @Description: MXP 状态类
  *               用于记录客户端MXP返回的信息
@@ -17,6 +17,7 @@ protected mapping mxp_version_info;
 protected mapping mxp_support_info;
 
 void MXP_info_clear(){
+  mxp_enable = 0;
   mxp_version_info = ([]);
   mxp_support_info = ([]);
 }

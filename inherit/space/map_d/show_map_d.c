@@ -2,8 +2,8 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-24 10:10:44
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-24 19:20:52
- * @FilePath: \mysticism-mud\inherit\space\map_d\show__map_d.c
+ * @LastEditTime: 2023-05-29 20:04:21
+ * @FilePath: \mysticism-mud\inherit\space\map_d\show_map_d.c
  * @Description: 输出地图数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -11,19 +11,25 @@
 #include <mxp.h> 
 #include <game_world.h> 
 
- string map_line(mixed * map_line, int x,int width,object env)
+ string map_line(mixed * map_line, int x,int width,object env,object user)
  {
-     string str="",room_name;
-     string width_s = "%|"+width+"s";
+     string str="",room_name="";
+     string width_s = "%-"+width+"s";
      mapping exits;
      object ob;
      for(int i=0;i<x;i++)
      {
-         if(map_line[i] != 0){
-             ob = map_line[i];
-             room_name = ob->get_room_name();
-             if(ob == env)
-                 room_name = BRED + room_name + NOR;
+        room_name="";
+        if(map_line[i] != 0){
+            ob = map_line[i];
+            if(ob == env){
+                room_name += repeat_string(" ",(width - sizeof(ob->mxp_name()))/2-1);
+                room_name += BRED + ob->get_room_name() + NOR;
+            }
+            else{
+                room_name +=  repeat_string(" ",(width - sizeof(ob->mxp_name()))/2-1);
+                room_name += ob->mxp_sprintf(ob->print_mxp_name_all(MXP_MAP),width,user);
+             }
              str += sprintf(width_s,room_name);
              if(i < x-1)
                  if(map_line[i+1] != 0){
@@ -64,14 +70,14 @@
      return str+"\n";
  }
  
- string map_matrix(mixed * map_data, int x, int y, int width,object env)
+ string map_matrix(mixed * map_data, int x, int y, int width,object env,object user)
  {
      string str="";
      mixed *map_line;
      for(int i=0;i<y;i++)
      {
          map_line = map_data[i];
-         str += map_line(map_line, x,width,env);
+         str += map_line(map_line, x,width,env,user);
          if(i < y-1)
              str += map_line_connect(map_line,map_data[i+1],x,width);
      }
@@ -112,7 +118,7 @@ string show_map(object me)
              x = map_show_info[2];
              room_line[y][x] = o;
          }
-         show_map += map_matrix(room_line, x1, y1, 7, env);
+         show_map += map_matrix(room_line, x1, y1, 8, env,me);
          if(j < sizeof(obs)-1)
              show_map +=YEL"--------------------------------------------"NOR"\n";
      }

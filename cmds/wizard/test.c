@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-29 16:24:25
+ * @LastEditTime: 2023-05-29 19:49:29
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -21,7 +21,8 @@ mixed *query_localtime()
 }
 
 int main(object me, string arg)
-{    
+{
+    write(environment(me)->print_name(me));
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)
