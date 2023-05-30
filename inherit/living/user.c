@@ -128,7 +128,7 @@ void user_env_config()
     set_choice_command(0);
     set_status_copy(0);
     init_user_monitor(0,0,env("USER_MAX_INPUT"));  //玩家输入限制
-    init_user_meaage();                            //初始化USER_MSG
+    init_user_message();                            //初始化USER_MSG
     init_user_task_main();
     init_user_task_days();
 }

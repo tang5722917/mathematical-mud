@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:58:15
+ * @LastEditTime: 2023-05-29 19:52:08
  * @FilePath: \mysticism-mud\inherit\display\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
@@ -17,6 +17,7 @@ string mxp_explain(){return "对名称的解释";}
 
 string * print_mxp_name_all(int type) {
     string *str,s,c;
+    string title = "效果";
     str = ({});
     c = "<C FORE=";
     switch(type)
@@ -39,11 +40,28 @@ string * print_mxp_name_all(int type) {
         case SUMMON:
             c += "fuchsia";
             break;
+        case LIV_1:
+            c += "white BACK=green";
+            title = "外貌";
+            break;
+        case LIV_2:
+            c += "white BACK=orange";
+            title = "外貌";
+            break;
+        case LIV_3:
+            c += "white BACK=red";
+            title = "外貌";
+            break;
+        case MXP_MAP:
+            c += "black BACK=white";
+            title = "介绍";
+            break;
         case OTHER:
             c += "white";
+            break;
     } 
     c +=">";
-    s = c+"<A \"Card\" hint=\"名称：" + mxp_name() +" 效果："+ mxp_explain() + "\">"+mxp_name()+"</A></C>";
+    s = c+"<A \"Card\" hint=\"名称：" + mxp_name() +" "+title+"："+ mxp_explain() + "\">"+mxp_name()+"</A></C>";
     str += ({s});
     str += ({mxp_name()});
     str += ({mxp_explain()});

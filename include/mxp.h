@@ -44,6 +44,9 @@
 #define PROPERTY 4
 #define EQUIP    5
 #define SUMMON   6
+#define LIV_1    7  //友善
+#define LIV_2    8  //中立
+#define LIV_3    9  //敌对
 #define OTHER    10
-
+#define MXP_MAP  11 
 #endif // MXP_H

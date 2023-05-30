@@ -59,6 +59,9 @@
 #define CORE_STD_SUMMON         PATH_DIR "inherit/entity/summon"
 #define CORE_STD_STATUS         PATH_DIR "inherit/entity/status"
 /* inherit 特性文件 (覆盖用)*/
+#define _BOARD          PATH_DIR "inherit/display/board"
+#define _ERR            PATH_DIR "inherit/system/error"
+#define _DB             PATH_DIR "inherit/system/db"
 #define _LIVING         PATH_DIR "inherit/living/living"
 #define _USER           PATH_DIR "inherit/living/user"
 #define _USER_QUEST     PATH_DIR "inherit/task/user_quest"
@@ -66,10 +69,9 @@
 #define _MESSAGE        PATH_DIR "inherit/display/message"
 #define _MXP            PATH_DIR "inherit/display/mxp"
 #define _MOVE           PATH_DIR "inherit/space/move"
-#define _BOARD          PATH_DIR "inherit/display/board"
-#define _ERR            PATH_DIR "inherit/system/error"
-#define _DB             PATH_DIR "inherit/system/db"
 #define _QUEUE          PATH_DIR "inherit/std/queue"
+#define _STATE          PATH_DIR "inherit/std/state"
+#define _STATE_M        PATH_DIR "inherit/std/state_machine"
 // 游戏管理员账号
 #define WIZARD  "mysticism"
 

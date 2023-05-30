@@ -1,3 +1,12 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-04-04 19:43:10
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-05-28 16:43:11
+ * @FilePath: \mysticism-mud\inherit\living\living.c
+ * @Description: LIV 基类
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ */
 #include <dbase.h>
 #include <ansi.h>
 
@@ -7,7 +16,13 @@ inherit INHERIT_PATH "living/status_mystic" ;
 inherit INHERIT_PATH "living/status_affect" ;
 inherit INHERIT_PATH "living/status_card" ;
 inherit INHERIT_PATH "living/status_skill" ;
+inherit _MXP;
 inherit CORE_STD_TEST;
+//MXP 显示
+string mxp_name(){return id_list()[0];}
+string mxp_explain(){return long();}
+
+string print_name(object user,object des){return print_mxp_name(7,user);}
 
 int is_fight_living()
 {
@@ -65,6 +80,9 @@ object * fight(object me,object ob){write("你怎么这么暴力，动不动就�
 string combat_env(object env){return 0;}
 //接口，定义该生物的战斗脚本，具体由子类实现
 string combat_script(object env,int rank){return 0;}
+
+//事件接口，表示欢迎
+void wellcome_user(object me){return;}
 
 // 角色激活  
 void setup()

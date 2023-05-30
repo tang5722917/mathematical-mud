@@ -52,5 +52,7 @@ void heart_beat()
     //玩家监控函数
     user_input_monitor();
     //玩家1s显示逐行信息
-    user_output_one();
+    if(user_msg_length()){
+        user_output_one();
+    }
 }
