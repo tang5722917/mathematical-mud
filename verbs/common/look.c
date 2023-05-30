@@ -1,4 +1,5 @@
 inherit _VERB;
+#include <mxp.h> 
 #include <ansi.h>
 
 inherit PATH_DIR "verbs/inherit/obj_func";
@@ -230,10 +231,14 @@ int look_room(object me, object env)
         if (sizeof(dirs) == 0)
             str += "    这里没有任何明显的出路。\n";
         else if (sizeof(dirs) == 1)
-            str += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
-        else
-            str += sprintf("    这里明显的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n",
-                           implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs) - 1]);
+            str += "    这里唯一的出口是 " + exits[dirs[0]]->print_mxp_name(MXP_MAP,me,dirs[0]) + "。\n";
+        else{
+            str += "    这里明显的出口是 ";
+            foreach(string k, object ob in exits){
+                str += ob->print_mxp_name(MXP_MAP,me,k)+" ";
+            }
+            str += "\n";
+        }
     }
     else
     {
