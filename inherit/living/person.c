@@ -1,6 +1,8 @@
 inherit _LIVING;
 
 #include <ansi.h>
+//人形生物才拥有阵营属性
+inherit _CAMP;
 
 //answer 接口函数，处理被ask事件
 void answer(object me,object env){write("不清楚你要问什么\n ");}
