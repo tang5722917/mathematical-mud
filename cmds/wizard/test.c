@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-30 18:43:49
+ * @LastEditTime: 2023-05-31 19:11:11
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -21,7 +21,11 @@ mixed *query_localtime()
 
 int main(object me, string arg)
 {
-    me->addCamp(MYSTIC_RELIGION "night/night_religion_d");
+    string str;
+    str = load_object(_BOARD)->board_print("从北京华虹NEC，历经一系列变迁，到现在，在公司工作了二十几年，\n这些年，与大家一起开发产品，一起加班，一起旅游，一起在忘年会上表演节目，一起吃饭喝酒，一起讨论大家的活动计划，
+作为工会成员，一起分享大家结婚生子的幸福和欢乐，也一起分担失去亲人的忧伤与痛苦，等等等等，
+如果上面这些有的同事还不曾与我一起经历，那么至少近两年多来，每月一次操办大家的生日庆祝活动，一起唱过生日歌。",20);
+    write(str);
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)

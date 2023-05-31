@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-11 19:12:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-19 12:01:50
+ * @LastEditTime: 2023-05-31 14:33:44
  * @FilePath: \mysticism-mud\inherit\system\command.c
  * @Description: 玩家输入指令处理
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -37,7 +37,12 @@ mixed process_input(string arg)
         if(me->user_input())
             return 1;
     //指令第一个空格之前部分
-    s_pcre = pcre_match_all(arg,"[0-9a-z]+"); 
+    s_pcre = pcre_match_all(arg,"[0-9a-zA-Z]+"); 
+    if(!sizeof(s_pcre))
+    {
+        write("请输入正确的指令！");
+        return 1;
+    }
     arg_l = s_pcre[0][0];
     switch(arg_l)  //
     {

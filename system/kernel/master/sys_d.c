@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-12 18:10:48
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-25 17:07:03
+ * @LastEditTime: 2023-05-31 14:25:47
  * @FilePath: \mysticism-mud\system\kernel\master\sys_d.c
  * @Description: 游戏服务进程初始化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -78,6 +78,4 @@ int init_sys_d()
     //天气初始化
     ob = load_object(NATURE_D);
     ob->event_midnight();
-    ob->select_day_phase();
-    ob->update_day_phase();
 }
