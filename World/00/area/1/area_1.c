@@ -2,7 +2,7 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-20 05:55:52
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-28 15:37:39
+ * @LastEditTime: 2023-06-07 08:12:54
  * @FilePath: \mysticism-mud\World\00\area\1\area_1.c
  * @Description: 区域1，鲁恩/廷根/ 黑荆棘安保公司-圣塞琳娜教堂
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
@@ -41,7 +41,8 @@ inherit CORE_STD_AREA;
 */
 
 nosave private mixed *NPC_list = ({
-   ({PATH_00_NPC "luoshan",PATH_00_MAP "1/map_0_0_5"})
+   ({PATH_00_NPC "luoshan",PATH_00_MAP "1/map_0_0_5"}),
+   ({PATH_00_NPC "dengeng",PATH_00_MAP "1/map_0_0_3"})
 });
 
 nosave protected object *NPC_obs;
@@ -54,12 +55,12 @@ void init()
    {
       ob = new(npc[0]);
       ob->move(find_object(npc[1]));
-      NPC_obs += ({file_name(ob)});
+      NPC_obs += ({file_name(copy(ob))});
    }
 }
 
-object * get_area_npc_obs(){
-   return NPC_obs;}
+object get_area_npc_obs(int n){
+   return NPC_obs[n];}
 
 mixed * get_area_room_obs()
 {
