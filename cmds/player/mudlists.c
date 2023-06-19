@@ -20,8 +20,8 @@ int main(object me, string arg)
     //    Place mudlist into alphabetical format
     muds = sort_array(keys(mud_list), 1);
     // debug_message(sprintf("%O", muds));
-    output = WHT BBLU " MUDLIB                   MUD名称                  国际网路位址        端口\n" NOR
-                      "---------------------------------------------------------------------------\n";
+    output = WHT BBLU " MUDLIB                   MUD名称                  国际网路位址        端口    人数\n" NOR
+                      "---------------------------------------------------------------------------------\n";
 
     // Loop through mud list and store one by one
     for (loop = 0, size = sizeof(muds); loop < size; loop++)
@@ -40,10 +40,12 @@ int main(object me, string arg)
         if (stringp(mud_list[mudn]["ZONE"]))
             name += "(" + mud_list[mudn]["ZONE"] + ")";
 
-        output += sprintf(" %-25s%-25s%-20s%-5s" NOR + "\n",
+        output += sprintf(" %-25s%-25s%-20s%-5s%-5s" NOR + "\n",
                           vis_mudn, name,
                           mud_list[mudn]["HOSTADDRESS"],
-                          mud_list[mudn]["PORT"]);
+                          mud_list[mudn]["PORT"],
+                          mud_list[mudn]["USERS"]
+                        );
     }
     output += "---------------------------------------------------------------------------\n";
 

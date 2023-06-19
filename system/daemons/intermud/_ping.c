@@ -64,8 +64,8 @@ void receive_request(mapping info)
         "VERSION"   :   MUDLIB_VERSION,
         "ENCODING"  :   MUDLIB_LOCALE,
         "PORTUDP"   :   "" + INTERMUD_D->query_udp_port(),
-        "PORT"      :   MUD_PORT,
-        "USERS"     :   user_num,
+        "PORT"      :   "" + MUD_PORT,
+        "USERS"     :   "" + user_num,
     ]));
 
 #ifdef VERBOSE
