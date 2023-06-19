@@ -10,6 +10,9 @@ cd %MUDLIB%\log
 del error_handler
 del log_error
 del log
+cd \intermud
+del traffic.log
+del udp.log
 ::‘À––”Œœ∑
 :START
 cd %MUDLIB%

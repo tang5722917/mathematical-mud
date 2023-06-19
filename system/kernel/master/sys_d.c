@@ -2,17 +2,11 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-12 18:10:48
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-20 04:12:22
+ * @LastEditTime: 2023-06-20 05:11:24
  * @FilePath: \mysticism-mud\system\kernel\master\sys_d.c
  * @Description: 游戏服务进程初始化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-
-#define MUDLIST_SERVER "118.190.104.241"
-#define MUDLIST_SERVER_PORT 5567
-#define INTERMUD_MUD_NAME "MYSTICISM-MUD"
-#define __PORT__ 2023
-#define MUDLIB_NAME "诡秘世界"
 
  int init_sql_sys_db()
  {
@@ -75,7 +69,7 @@ int init_sys_d()
     object ob;
     load_object(CORE_ENV_D);
     debug_message("[" + ctime() + "]游戏env文件成功导入");
-    load_object(CORE_INTERMUD_D);
+    load_object(INTERMUD_D);
     //时间初始化
     ob = load_object(TIME_D);
     ob->set_scale(1,0,1);
