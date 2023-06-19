@@ -47,10 +47,7 @@ int main(object me, string arg)
     }
     output += "---------------------------------------------------------------------------\n";
 
-    if (objectp(me))
-        me->start_more(output);
-    else
-        write(output + "\n");
+    write(output + "\n");
 
     return 1;
 }

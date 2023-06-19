@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-12 18:10:48
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-17 02:33:01
+ * @LastEditTime: 2023-06-20 04:12:22
  * @FilePath: \mysticism-mud\system\kernel\master\sys_d.c
  * @Description: 游戏服务进程初始化
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -10,7 +10,9 @@
 
 #define MUDLIST_SERVER "118.190.104.241"
 #define MUDLIST_SERVER_PORT 5567
-
+#define INTERMUD_MUD_NAME "MYSTICISM-MUD"
+#define __PORT__ 2023
+#define MUDLIB_NAME "诡秘世界"
 
  int init_sql_sys_db()
  {
