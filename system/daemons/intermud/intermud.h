@@ -25,7 +25,7 @@
 #define MUDLIST_UPDATE_INTERVAL 1800
 
 #define INTERMUD_UDP_PORT (MUD_PORT + 4)
-#define INTERMUD_SERVICE(x) CORE_INTERMUD_SERVICE(x)
+#define INTERMUD_SERVICE(x) MYSTICISM_INTERMUD_SERVICE(x)
 
 #define SECURED_INTERMUD_EVENT                        \
     if (previous_object() != load_object(INTERMUD_D)) \
