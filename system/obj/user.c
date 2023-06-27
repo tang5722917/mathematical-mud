@@ -6,6 +6,15 @@ void create()
     seteuid(0); // export_uid
 }
 
+// 角色激活
+void setup()
+{
+    seteuid(getuid(this_object()));
+    set_heart_beat(1);
+    enable_living();
+    check_autotest();
+    CHAR_D->setup(this_object());
+}
 
 // 从游戏中移除这个角色
 void remove()

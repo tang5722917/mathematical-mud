@@ -77,8 +77,8 @@
 #define _STATE          PATH_DIR "inherit/std/state"
 #define _STATE_M        PATH_DIR "inherit/std/state_machine"
 // 游戏管理员账号
-#define WIZARD  "mysticism"
-
+#define WIZARD    "mysticism"
+#define AUTOTEST  "autotest"  //自动化测试账号
 // 游戏欢迎界面
 #define MOTD    PATH_DIR "World/src/front-page/MOTD1"
 

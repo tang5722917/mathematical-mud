@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-11 19:12:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-31 14:33:44
+ * @LastEditTime: 2023-06-27 18:16:33
  * @FilePath: \mysticism-mud\inherit\system\command.c
  * @Description: 玩家输入指令处理
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -148,4 +148,15 @@ mixed process_input(string arg)
         return COMMAND_D->default_alias(arg);
     }
 
+}
+
+void check_autotest()
+{
+    object me = this_player();
+    if (userp(me) && getuid(me) == AUTOTEST)
+    {
+        enable_wizard();
+        set("autotest",1);
+    }
+    else set("autotest",0);
 }
