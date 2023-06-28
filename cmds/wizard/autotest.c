@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-06-27 17:21:08
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-27 19:49:46
+ * @LastEditTime: 2023-06-28 19:20:31
  * @FilePath: \mysticism-mud\cmds\wizard\autotest.c
  * @Description: driver自动测试命令
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -13,17 +13,28 @@
 inherit CORE_CLEAN_UP;
 
 int help(object me);
+
 int test_arg(string arg)
 {
-    string * strs;
+    string * strs,*test_data;
     strs = pcre_match_all(arg,"\\D" );
     if(sizeof(strs))
         return 0;
-    else return 1;
+    else
+    {
+        test_data = get_dir(TEST_DATA);
+        foreach (string s in test_data)
+        {
+            if(s == (arg + ".c"))
+                return 1;
+        }
+        return 0;
+    }
 }
 
 int main(object me, string arg)
 {
+    object test_ob;
     string str;
     if(me->query("autotest"))
     {
@@ -32,8 +43,11 @@ int main(object me, string arg)
         {
             if(arg == "all")
                 write("将要进行MUD完整测试集测试\n");
-            else if(test_arg(arg))
+            else if(test_arg(arg)){
                 write("将要进行"+arg+"号测试\n");
+                test_ob = load_object(TEST_DATA + arg);
+                test_ob->test_main();
+            }
             else
                 write("请输入有效测试内容\n");
         }

@@ -24,7 +24,7 @@
 #define INHERIT_PATH        PATH_DIR "inherit/"
 #define SOUND               PATH_DIR "World/src/sound/"     
 #define WORLD_PATH          PATH_DIR "World/"
-
+#define TEST_DATA           PATH_DIR "test/test_data/"
 // 游戏driver版本
 #define VERSION "0.0.1"
 
@@ -76,6 +76,7 @@
 #define _QUEUE          PATH_DIR "inherit/std/queue"
 #define _STATE          PATH_DIR "inherit/std/state"
 #define _STATE_M        PATH_DIR "inherit/std/state_machine"
+#define _TEST_DATA      PATH_DIR "test/test_inherit/test_base"
 // 游戏管理员账号
 #define WIZARD    "mysticism"
 #define AUTOTEST  "autotest"  //自动化测试账号
