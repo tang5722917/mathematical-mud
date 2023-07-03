@@ -24,3 +24,13 @@ void event_wellcome_user(object ob,object me){
     str = honor_name(this_object(),me) + " 欢迎回来";
     TASK_S->npc_tell(me,str,this_object());
 }
+
+
+answer(object user,object env)
+{
+    {write("你可以向我提出以下问题：
+mail          -  关于信箱邮件。
+newspaper     -  关于廷根的报纸。
+heijingji     -  关于黑荆棘安保公司。
+dating        -  关于队长或其他队员的信息");}
+}
