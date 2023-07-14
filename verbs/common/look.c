@@ -220,7 +220,7 @@ int look_room(object me, object env)
     }
     str = sprintf(HIC + "%s" + NOR + "%s\n    %s" + NOR,
                   env->short(), wizardp(me) ? " - " + env : env->Room_name(),
-                  sort_string(env->long(), 72, 4));
+                  env->long());
     // env->long());
     if( env->query("outdoors") )
         str += load_object(NATURE_D)->outdoor_room_description()+NOR "\n";

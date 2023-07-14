@@ -2,7 +2,7 @@
  * @Author: Donald Duck tang5722917@163.com
  * @Date: 2023-05-20 05:55:52
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-07 08:12:54
+ * @LastEditTime: 2023-07-14 20:14:34
  * @FilePath: \mysticism-mud\World\00\area\1\area_1.c
  * @Description: 区域1，鲁恩/廷根/ 黑荆棘安保公司-圣塞琳娜教堂
  * Copyright (c) 2023 by Donald Duck email: tang5722917@163.com, All Rights Reserved.
@@ -24,7 +24,7 @@ inherit CORE_STD_AREA;
                        |
                       前台（黑荆棘安保公司）
                        |
-                    佐特兰街
+         杂货铺 ——  佐特兰街 —— 公寓  
                        |
                     贝西克街
                        |
@@ -86,7 +86,9 @@ mixed * get_area_room_obs()
          ({PATH_00_MAP "1/map_0_0_5",2,1}),
          ({PATH_00_MAP "1/map_0_0_7",3,1}),
          ({PATH_00_MAP "1/map_0_0_8",4,1}),
-         ({PATH_00_MAP "1/map_0_0_9",5,1})
+         ({PATH_00_MAP "1/map_0_0_9",5,1}),
+         ({PATH_00_MAP "1/map_0_0_10",3,0}),
+         ({PATH_00_MAP "1/map_0_0_11",3,2})
       }),
       ({
          ({"地下",3,4}),

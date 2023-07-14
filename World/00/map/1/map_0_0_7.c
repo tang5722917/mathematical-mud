@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-16 19:30:32
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 14:48:58
+ * @LastEditTime: 2023-07-14 20:33:33
  * @FilePath: \mysticism-mud\World\00\map\1\map_0_0_7.c
  * @Description: 廷根 黑夜教会/职业小队地图 - 佐特兰街
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -26,7 +26,9 @@ inherit AREA_1 "area_1_map";
      set("no_sleep",0);   //是否可以休息
      set("exits",([ 
         "north" : PATH_00_MAP "1/map_0_0_5",
-        "south" : PATH_00_MAP "1/map_0_0_8"
+        "south" : PATH_00_MAP "1/map_0_0_8",
+        "west"  : PATH_00_MAP "1/map_0_0_10",
+        "east"  : PATH_00_MAP "1/map_0_0_11"
      ]));
      set("objects",([
         
