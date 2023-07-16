@@ -15,7 +15,7 @@
 #include "mudlib.h"
 #include "intermud.h"
 
-#define VERBOSE
+//#define VERBOSE
 
 inherit CORE_CLEAN_UP;
 inherit CORE_DBASE;

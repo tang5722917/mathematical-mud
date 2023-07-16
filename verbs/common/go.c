@@ -91,6 +91,18 @@ int do_room_move(object me, object env, string dir)
     mapping exit;
     mixed dest;
     int result;
+    object home_init;
+    if(dir == "home")
+    {
+        if(me->home_check_access(env))
+        {
+            home_init = new(env->get_player_home());
+            home_init->room_init();
+            if (!me->move(home_init->init_room()))
+                return notify_fail("移动失败！\n");
+        }
+        return 1;
+    }
 
     if (!mapp(exit = env->query("exits")) || undefinedp(exit[dir]))
     {

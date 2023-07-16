@@ -11,6 +11,7 @@ inherit INHERIT_PATH "living/user_task_base" ;
 inherit INHERIT_PATH "living/user_monitor" ;
 inherit INHERIT_PATH "living/user_message" ;
 inherit INHERIT_PATH "living/user_storage" ;
+inherit INHERIT_PATH "living/user_room.c" ;
 #include <ansi.h>
 //临时显示在玩家眼前的对象
 nosave object *temp_object_list=({});
