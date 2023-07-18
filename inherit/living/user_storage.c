@@ -4,7 +4,7 @@
  * @LastEditors: Donald duck tang5722917@163.com
  * @LastEditTime: 2023-07-03 16:55:19
  * @FilePath: \mysticism-mud\inherit\living\user_storage.c
- * @Description: 个人物品储存类
+ * @Description: 个人物品储存类  -- 操作方法
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-02-23 10:02:15
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 18:09:47
+ * @LastEditTime: 2023-07-18 05:24:59
  * @FilePath: \mysticism-mud\cmds\player\score.c
  * @Description: 
  * 
@@ -55,9 +55,7 @@ string score(object player)
     msg += sprintf(" |%-15s%-15s%-20s| \n", "理性：" + me->query_attr("int"), "疯狂：" + me->query_attr("cra"), "幸运：" + me->query_attr("luk"));
     msg += " |非凡特性："+mxp_sprintf(me->living_mystic_name(),20,player)+sprintf("%-20s| \n","非凡点数："+me->query_attr("mys"));
     msg += sprintf(" |%-30s%-20s| \n", "对战(胜/败/平):" + my["exp_win"]+" / "+ my["exp_fal"] +" / "+ my["exp_equ"], "世界等级：" + my["wlv"]);
-    msg += sprintf(" |%-30s%-20s| \n", "金钱：" + my["coin"], "银行存款：" + my["exp"]);
     msg += sprintf(" |%-50s| \n", "");
-
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += YEL "  提示：使用 score -s 查看简略状态。\n" NOR;
     msg += YEL "  提示：使用 score -a 查看详细个人状况。\n" NOR;

@@ -1,5 +1,5 @@
 inherit _LIVING;
-
+inherit INHERIT_PATH "living/person_money" ;
 #include <ansi.h>
 //人形生物才拥有阵营属性
 inherit _CAMP;
