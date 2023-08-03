@@ -13,6 +13,6 @@
 #define AREA_MAP_1 PATH_00_MAP "1/"
 
 //base
-#define LODGING MYSTIC_ROOM "lodging/"
-
+#define LODGING  MYSTIC_ROOM "lodging/"
+#define SHOP_S   MYSTIC_ROOM "shop/grocery_base"
 #endif // COMBAT_H

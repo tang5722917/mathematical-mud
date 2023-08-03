@@ -13,7 +13,7 @@
 #include "area_1.h"
 inherit AREA_1 "area_1_map";
  
- void create()
+void create()
  {
      set("short", "佐特兰街");
      set("long", "\n");

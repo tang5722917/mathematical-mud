@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-16 19:30:32
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-07-14 20:29:13
+ * @LastEditTime: 2023-08-03 19:51:22
  * @FilePath: \mysticism-mud\World\00\map\1\map_0_0_10.c
  * @Description: 廷根 黑夜教会/职业小队地图 - 杂货铺
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -12,6 +12,7 @@
 #include <world_map.h>
 #include "area_1.h"
 inherit AREA_1 "area_1_map";
+inherit SHOP_S;
 
 void create()
 {
@@ -30,8 +31,7 @@ void create()
 
     ]));
     set("objects",([
-       
     ]));
-
     setup();
+    shop_init();
 }

@@ -133,6 +133,8 @@ int show_look(int arg,object me,object ob)
         return 1;
     if(me->temp_query_status(file_name(ob)) & 1 == 1)
         return 1;
+    if(ob->env_display())
+        return 1;
     if (ob->is_visible() == 0)
         return 0;
     else return 1;
