@@ -5,13 +5,13 @@ inherit _CLEAN_UP;
 int main(object me, string arg)
 {
     object ob;
-
+    object env = environment()
     if (!wizardp(me))
         return 0;
 
     if (!arg)
     {
-        printf("%O\n", all_inventory(me));
+        printf("%O\n", all_inventory(env));
     }
     else if (ob = load_object(arg))
     {

@@ -18,6 +18,8 @@ object object_search_env(string str,object env)
         if (str == (ob->query("id")))
             if (ob->is_visible())
                 return ob;
+            if(ob->env_display())
+                return ob;
             if(me->query_status(file_name(ob)) & 1 == 1)
                 return ob;
             if(me->temp_query_status(file_name(ob)) & 1 == 1)
