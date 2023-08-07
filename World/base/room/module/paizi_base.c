@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-08-03 19:36:37
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-04 18:31:32
+ * @LastEditTime: 2023-08-07 17:42:38
  * @FilePath: \mysticism-mud\World\base\room\module\paizi_base.c
  * @Description:  牌子组件，用来在建筑物前放置一个牌子
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -31,4 +31,39 @@ void print_paizi(string str,int col)
     string s;
     s = board_print(str, col);
     set("long", s);
+}
+
+string paizi_list(string id){
+    string str ="list "+id+"   ---  查看本店物品 \n";
+    return str;
+}
+
+string paizi_buy(string id){
+    string str = "buy "+id+"  ---  购买物品 \n";
+    return str;
+}
+
+string paizi_sell(string id){
+    string str = "sell "+id+"  ---  出售物品 \n";
+    return str;
+}
+string paizi_cmd(string * cmds,string id)
+{
+    string s="";
+    foreach (string str in cmds)
+    {
+        switch (str)
+        {
+            case "list":
+                s += paizi_list(id);
+                break;
+            case "buy":
+                s += paizi_buy(id);
+                break;
+            case "sell":
+                s += paizi_sell(id);
+                break;
+        }
+    }
+    return s;
 }
