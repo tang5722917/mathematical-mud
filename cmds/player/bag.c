@@ -2,16 +2,18 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-07-04 20:04:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-07-06 16:51:43
+ * @LastEditTime: 2023-08-08 18:24:55
  * @FilePath: \mysticism-mud\cmds\player\bag.c
  * @Description: 查看背包指令
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
+
 #include <ansi.h>
-#include <map.h> 
-#include <game_world.h> 
+#include <mxp.h>
+#include <bag.h>
 inherit CORE_CLEAN_UP;
+inherit _MXP;
 
 int help(object me)
 {
@@ -27,20 +29,32 @@ pu   --  普通物品
 cai  --  各种原始材料
 mys  --  非凡物品
 task --  任务物品
-te   --  特殊物品
+spc  --  特殊物品
 KNOW );
     return 1;
 }
 
 string show_bag(string *bag)
 {
-    string s="";
-    return s;
+    string msg="";
+    int bag_sum = 0;
+    int bag_use = 0;
+    string bag_status =BGRN "正常" NOR;
+    msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
+    msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
+    msg += sprintf("%-40s%-10s\n", "背包总容量/已用容量:" + bag_sum +" / "+ bag_use, "状态："+bag_status);
+    return msg;
 }
 
 int main(object me, int arg )
 {
-    string *bag = ({});
-    show_bag(bag);
+    string *bag ,msg="";
+    bag = me->
+    if( MXP_USER(me) )
+        msg ="<!ELEMENT UI FLAG='UI'>\n<UI>";
+    msg += show_bag(bag);
+    if(MXP_USER(me))
+        msg += "</UI>";
+    MXP_message("Status",msg,me);
     return 1;
 }
