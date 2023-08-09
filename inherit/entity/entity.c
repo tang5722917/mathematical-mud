@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-07 19:29:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-24 17:17:28
+ * @LastEditTime: 2023-08-09 20:49:22
  * @FilePath: \mysticism-mud\inherit\entity\entity.c
  * @Description:  物品基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -26,6 +26,7 @@ string print_status_name(object user);
 *3  Summon
 *4  Skill
 *5  Status
+*6  Materials
 */
 int entity_id(){return 0;}
 varargs string print_name(object user,object ob)
@@ -43,5 +44,7 @@ varargs string print_name(object user,object ob)
         str += ob->print_summon_name(user);
     else if( inherits(CORE_STD_STATUS,ob)  )
         str += ob->print_status_name(user);
+    else if( inherits(CORE_STD_MATERIALS,ob)  )
+        str += ob->print_materials_name(user);
     return str;
 }

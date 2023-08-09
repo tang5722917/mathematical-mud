@@ -61,6 +61,7 @@
 #define CORE_STD_EQUIP          PATH_DIR "inherit/entity/equip"
 #define CORE_STD_SUMMON         PATH_DIR "inherit/entity/summon"
 #define CORE_STD_STATUS         PATH_DIR "inherit/entity/status"
+#define CORE_STD_MATERIALS      PATH_DIR "inherit/entity/materials"
 #define CORE_STD_STORAGE        PATH_DIR "inherit/entity/storage"
 #define CORE_STD_MYROOM         PATH_DIR "inherit/space/myroom_base"
 #define CORE_STD_MYAREA         PATH_DIR "inherit/space/myarea_base"
