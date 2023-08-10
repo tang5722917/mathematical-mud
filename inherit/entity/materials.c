@@ -2,13 +2,14 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-08-09 20:07:27
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-09 20:51:56
+ * @LastEditTime: 2023-08-10 14:40:17
  * @FilePath: \mysticism-mud\inherit\entity\materials.c
  * @Description: 无非凡特性实体基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 
 inherit INHERIT_PATH "entity/entity";
+inherit INHERIT_PATH "entity/space_entity";
 
 //物品名称
 string materials_name(){return "实体";}

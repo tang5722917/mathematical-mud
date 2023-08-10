@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-06-27 17:21:08
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-28 19:20:31
+ * @LastEditTime: 2023-08-10 18:58:05
  * @FilePath: \mysticism-mud\cmds\wizard\autotest.c
  * @Description: driver自动测试命令
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -46,7 +46,7 @@ int main(object me, string arg)
             else if(test_arg(arg)){
                 write("将要进行"+arg+"号测试\n");
                 test_ob = load_object(TEST_DATA + arg);
-                test_ob->test_main();
+                test_ob->test_main(me);
             }
             else
                 write("请输入有效测试内容\n");
