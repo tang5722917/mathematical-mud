@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-10 19:53:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-29 17:59:45
+ * @LastEditTime: 2023-08-15 12:58:14
  * @FilePath: \mysticism-mud\inherit\system\error.c
  * @Description: 错误处理基类,整合常见错误类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,7 +16,9 @@ private string *err_arr=({
     "对象非living类及其子类",
     "输入的文件夹路径不存在",
     "对象非entity类及其子类",
-    "状态机转换状态不存在"
+    "状态机转换状态不存在",
+    "dbase 中插入重复key值",
+    "dbase 中不存在该项属性"
 });
 
 void init(object ob)
@@ -78,6 +80,24 @@ int is_path(string path)
 int invalid_state(object ob,int num)
 {
     debug_message("[" + ctime() + "]错误所在的对象："+file_name(ob));
-    debug_message("[" + ctime() + "]"+err_arr[4]+"状态编号："+ num);    
+    debug_message("[" + ctime() + "]"+err_arr[4]+" 状态编号："+ num);    
+    return 1;
+}
+
+int repeat_dbase(object ob,string key)
+{
+    if(!ob->definedp(key))
+        return 0;
+    debug_message("[" + ctime() + "]错误所在的对象："+file_name(ob));
+    debug_message("[" + ctime() + "]"+err_arr[5]+" 插入key值："+ key);    
+    return 1;
+}
+
+int miss_dbase(object ob,string key)
+{
+    if(ob->definedp(key))
+        return 0;
+    debug_message("[" + ctime() + "]错误所在的对象："+file_name(ob));
+    debug_message("[" + ctime() + "]"+err_arr[6]+" 查找属性值："+ key);    
     return 1;
 }

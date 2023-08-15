@@ -25,10 +25,12 @@
 #define PATH_BASE        PATH_DIR "World/base/"
 #define MYSTIC_PATH      PATH_BASE "mystic/"
 #define MYSTIC_CARD      PATH_BASE "card/"
+#define MYSTIC_MATERIALS PATH_BASE "materials/"
 #define MYSTIC_SKILL     PATH_BASE "skill/"
 #define MYSTIC_SUMMON    PATH_BASE "summon/"
 #define MYSTIC_RELIGION  PATH_BASE "religion/"
 #define MYSTIC_ROOM      PATH_BASE "room/"
+
  //0.x版本游戏内容路径
 #define PATH_00      PATH_DIR "World/00/"
 #define PATH_00_NPC  PATH_00 "npc/"

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 18:35:03
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-23 20:31:51
+ * @LastEditTime: 2023-08-15 12:47:27
  * @FilePath: \mysticism-mud\inherit\system\pre_load_base.c
  * @Description: 预加载基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -71,7 +71,7 @@ varargs object * load_path_object(string path,string des)
     if( stringp(des) )
         debug_message("[" + ctime() + "]成功加载"+ des +"对象数："+sizeof(ob));
     return ob;
- }
+}
 
 void ob_load_end(int n)
 {

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-07 19:29:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-09 20:49:22
+ * @LastEditTime: 2023-08-15 13:14:15
  * @FilePath: \mysticism-mud\inherit\entity\entity.c
  * @Description:  物品基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -29,6 +29,7 @@ string print_status_name(object user);
 *6  Materials
 */
 int entity_id(){return 0;}
+int id_num(){return entity_id();}
 varargs string print_name(object user,object ob)
 {
     string str = "";

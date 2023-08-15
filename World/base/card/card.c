@@ -7,3 +7,5 @@
  * @Description: card list 总类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
+inherit _LIST;
