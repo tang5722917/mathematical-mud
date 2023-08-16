@@ -33,3 +33,7 @@ void person_setup()
 {
     living_setup();
 }
+
+void add_camp(string camp){
+    set("camp",camp);
+}

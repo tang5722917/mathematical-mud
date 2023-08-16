@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-30 17:19:41
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-30 17:19:59
+ * @LastEditTime: 2023-08-15 14:29:10
  * @FilePath: \mysticism-mud\inherit\camp\camp_base.c
  * @Description: 阵营基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -30,7 +30,7 @@ int getHate() { return -101; }
 // Auto Kill 時，所要喊的話,$ME為NPC, $YOU為player
 string getHateMsg()
 {
-    return HIR "$ME高声喊道：身為"+getName()+"中的一员，实在是看不惯$YOU的作风！今天就要$YOU消失！\n" NOR;
+    return HIR "$ME高声喊道：身为"+getName()+"中的一员，实在是看不惯$YOU的作风！今天就要$YOU消失！\n" NOR;
 }
 
 // 玩家在敵對陣營的聲望高於多少時會被Auto kill, 預設的值是 100
@@ -39,5 +39,5 @@ int getAdvHate() { return 100; }
 // 目對敵對陣營時Auto kill要喊的話, $ME為NPC, $YOU為player
 string getAdvHateMsg()
 {
-    return "";
+    return HIR "$ME高声喊道：身为"+getName()+"中的一员，实在是看不惯$YOU的作风！今天就要$YOU消失！\n" NOR;
 }
