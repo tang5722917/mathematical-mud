@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-07-14 20:03:40
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-08 15:38:23
+ * @LastEditTime: 2023-08-25 19:51:23
  * @FilePath: \mysticism-mud\World\base\room\shop\grocery_base.c
  * @Description: 小型杂货铺基类
  *               只有一个小型商店 + 1个店员
@@ -19,6 +19,6 @@ void shop_init(string paizi_s,string * cmds, string id)
     string paizi_cmds = paizi->paizi_cmd(cmds,id);
     paizi->print_paizi(paizi_s+paizi_cmds,40);
     paizi->move(this_object());
-    add_shop_item("面粉", 0, 0, 1);
-    debug_message(this_object()->list_handle());
+    //add_shop_item("面粉", 0, 0, 1);
+    //debug_message(this_object()->list_handle());
 }

@@ -11,22 +11,12 @@
 #ifndef MYSTICISM_H
 #define MYSTICISM_H
 
-//开启调试模式
-#define DEBUG_MYSTICISM
-
-//开启音乐 0 OFF | 1 ON
-#define MYSTICISM_SOUND 1
-//开启数据库 0 OFF | 1 ON
-#define MYSTICISM_DB 1
-
 /* 游戏目录 */
 #define PATH_DIR            "/"
 #define INHERIT_PATH        PATH_DIR "inherit/"
 #define SOUND               PATH_DIR "World/src/sound/"     
 #define WORLD_PATH          PATH_DIR "World/"
 #define TEST_DATA           PATH_DIR "test/test_data/"
-// 游戏driver版本
-#define VERSION "0.0.1"
 
 /* 核心对象 */
 #define MYSTICISM_LOGIN_OB PATH_DIR "system/obj/login"
@@ -83,11 +73,6 @@
 #define _STATE          PATH_DIR "inherit/std/state"
 #define _STATE_M        PATH_DIR "inherit/std/state_machine"
 #define _TEST_DATA      PATH_DIR "test/test_inherit/test_base"
-// 游戏管理员账号
-#define WIZARD    "mysticism"
-#define AUTOTEST  "autotest"  //自动化测试账号
-// 游戏欢迎界面
-#define MOTD    PATH_DIR "World/src/front-page/MOTD1"
 
 /* 守护进程 (覆盖用)*/
 #define TIME_D      MYSTICISM_TIME_D
@@ -110,11 +95,5 @@
 /* 核心对象 (覆盖用)*/
 #define VOID_OB     PATH_DIR "system/obj/void"
 #define USER_OB     PATH_DIR "system/obj/user"
-
-//intermud
-#define MUDLIST_SERVER "118.190.104.241"
-#define MUDLIST_SERVER_PORT 5567
-#define INTERMUD_MUD_NAME "MYSTICISM-MUD"
-#define MUDLIB_NAME "诡秘世界"
 
 #endif

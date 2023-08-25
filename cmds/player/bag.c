@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-07-04 20:04:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-08 18:24:55
+ * @LastEditTime: 2023-08-25 19:46:23
  * @FilePath: \mysticism-mud\cmds\player\bag.c
  * @Description: 查看背包指令
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -49,7 +49,7 @@ string show_bag(string *bag)
 int main(object me, int arg )
 {
     string *bag ,msg="";
-    bag = me->
+    bag = me->get_bag_list();
     if( MXP_USER(me) )
         msg ="<!ELEMENT UI FLAG='UI'>\n<UI>";
     msg += show_bag(bag);

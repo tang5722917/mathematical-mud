@@ -15,7 +15,7 @@
 // 游戏初始配置头文件
 #include <mysticism.h>
 #include <pre_object.h>
-// todo
+#include <config.h>
 
 // 引用框架头文件(放在最后)
 #include <mudcore.h>
