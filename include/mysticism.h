@@ -65,6 +65,7 @@
 #define _LIST           PATH_DIR "inherit/std/list"
 #define _USER           PATH_DIR "inherit/living/user"
 #define _USER_QUEST     PATH_DIR "inherit/task/user_quest"
+#define _USER_GMCP      PATH_DIR "inherit/living/gmcp_user"
 #define _COMMAND        PATH_DIR "inherit/system/command"
 #define _MESSAGE        PATH_DIR "inherit/display/message"
 #define _MXP            PATH_DIR "inherit/display/mxp"
@@ -82,6 +83,7 @@
 #define COMMAND_D   MYSTICISM_COMMAND_D
 #define NATURE_D    MYSTICISM_NATURE_D
 #define INTERMUD_D  MYSTICISM_INTERMUD_D
+
 // START_ROOM   游戏出生点
 #define START_ROOM  WORLD_PATH "00/start_room"
 #define Game_World  WORLD_PATH "world_create"
