@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-09-04 11:34:28
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-04 19:15:09
+ * @LastEditTime: 2023-09-05 02:35:32
  * @FilePath: \mysticism-mud\inherit\living\gmcp_user.c
  * @Description: GCMP 状态类
  *               记录玩家客户端GCMP状态
@@ -50,10 +50,9 @@ varargs void sendGMCP(mapping data, mixed *modules...)
 
 private void gmcp_enable()
 {
-    message("system", "<GMCP negotiation enabled>\n", this_object());
-    sendGMCP((["mud_name":MUD_NAME,"mud_version":VERSION]), "MYS", "Hello");
-    if (!mapp(gmcp_info))
-        gmcp_info = ([]);
+    message("system", "GMCP negotiation enabled\n", this_object());
+    sendGMCP((["mud_name":MUD_NAME,"mud_version":VERSION]), "Core", "Hello");
+    gmcp_info = ([]);
 }
 
 void init_gmcp()
@@ -61,17 +60,6 @@ void init_gmcp()
     if (!has_gmcp())
         return;
     gmcp_enable();
-
-     // Mudlet Client
-    if (env("GUI"))
-    {
-        sendGMCP((["version":env("GUI.version"), "url":env("GUI.url")]), "Client", "GUI");
-    }
-    if (sizeof(env("Map")))
-    {
-        sendGMCP((["url":env("Map")]), "Client", "Map");
-    }
-
     if (wizardp(this_player()))
     {
         add_action("dump_gmcp_log", "gmcp_log");
@@ -81,6 +69,7 @@ void init_gmcp()
 // gmcp - provides an interface to GMCP data received from the client
 void gmcp(string req)
 {
-    debug_message(req);
+    if()
+        debug_message(req);
     log_gmcp("Received: " + req);
 }

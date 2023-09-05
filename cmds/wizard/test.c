@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-27 17:48:28
+ * @LastEditTime: 2023-09-05 01:35:10
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -44,7 +44,7 @@ int main(object me, string arg)
     while(p = ob->get_put_card())
         write(p->card->print_card_name(me) +"speed:"+p->speed+"\n");
     */
-
+    me->sendGMCP((["mud_name":MUD_NAME,"mud_version":VERSION]), "Core", "Hello");
         return 1;
 }
 
