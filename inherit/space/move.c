@@ -1,3 +1,13 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-05-24 08:43:05
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2023-09-05 23:37:20
+ * @FilePath: \mysticism-mud\inherit\space\move.c
+ * @Description: 角色移动控制接口
+ * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ */
+
 /**
  * 角色移动控制接口
  */
@@ -57,7 +67,7 @@ varargs int move(mixed dest, int raw)
     // GMCP
     if (interactive(me))
     {
-        me->gmcp("Room.Info.Get");
+        //me->gmcp("Room.Info.Get");
     }
     // 玩家对象自动look
     if (interactive(me) && living(me) && !raw)

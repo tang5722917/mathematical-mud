@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-09-04 11:34:28
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-05 02:35:32
+ * @LastEditTime: 2023-09-10 02:40:03
  * @FilePath: \mysticism-mud\inherit\living\gmcp_user.c
  * @Description: GCMP 状态类
  *               记录玩家客户端GCMP状态
@@ -10,9 +10,40 @@
  */
 
 #define GMCP_LOG 10
-
+#define GMCP_Deal load_object(PATH_DIR "inherit/living/living_d/gmcp_deal_d")
 nosave string *gmcp_log = ({});
 protected mapping gmcp_info;
+
+void gmcp_info_init(mapping info)
+{
+    gmcp_info["client"] = info["client"];
+    gmcp_info["gui"] = info["gui"];
+    gmcp_info["version"] = info["version"];
+    gmcp_info["max_mud_version"]  = info["max_mud_version"];
+    gmcp_info["min_mud_version"]  = info["min_mud_version"];
+    gmcp_info["enable"] = 0;           //gmcp 判定初始化
+}
+
+void gmcp_enable(int enable){
+    if(enable)
+        gmcp_info["enable"] = 1;
+    else gmcp_info["enable"] = 0;
+}
+
+int get_gmcp_enable(){
+    return gmcp_info["enable"];
+}
+
+mapping get_gmcp_info(){
+    return gmcp_info;
+}
+
+int get_gmcp_enable()
+{
+    if(( gmcp_info["gui"]=="MYSTICISM_AUTO_TEST") || ( gmcp_info["gui"]=="MYSTICISM_MUD"))
+        return 1;
+    else return 0;
+}
 
 protected int dump_gmcp_log()
 {
@@ -69,7 +100,12 @@ void init_gmcp()
 // gmcp - provides an interface to GMCP data received from the client
 void gmcp(string req)
 {
-    if()
-        debug_message(req);
+
+    GMCP_Deal->gmcp_deal(req,this_object(),environment());
+#ifdef DEBUG_MYSTICISM
+    if(DEBUG_GMCP_enable)
+        debug_message("[" + ctime() + "] [GMCP]"+ req+" \n");
+#endif
+    debug_message(req);
     log_gmcp("Received: " + req);
 }

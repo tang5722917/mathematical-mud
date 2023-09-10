@@ -16,7 +16,8 @@
 
 //开启调试模式
 #define DEBUG_MYSTICISM
-
+//开启GMCP调试模式，打印接收到的GMCP指令
+#define DEBUG_GMCP_enable 0
 //开启音乐 0 OFF | 1 ON
 #define MYSTICISM_SOUND 1
 //开启数据库 0 OFF | 1 ON
