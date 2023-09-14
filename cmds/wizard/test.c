@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-05 01:35:10
+ * @LastEditTime: 2023-09-15 04:52:11
  * @FilePath: \mysticism-mud\cmds\wizard\test.c
  * @Description: 用于临时测试
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,8 +22,7 @@ mixed *query_localtime()
 int main(object me, string arg)
 {
     string str;
-    str = load_object(_BOARD)->board_print("sdfsd",20);
-    write(str);
+
     //add_info("朦胧之中好像听见有人叫你的名字",user);
     //add_info("此时你回想起一些东西",user);
     //if(result_ob->get_result()== 1)
@@ -44,8 +43,8 @@ int main(object me, string arg)
     while(p = ob->get_put_card())
         write(p->card->print_card_name(me) +"speed:"+p->speed+"\n");
     */
-    me->sendGMCP((["mud_name":MUD_NAME,"mud_version":VERSION]), "Core", "Hello");
-        return 1;
+    dump_prog(me,2,"/debug.txt");
+    return 1;
 }
 
 int help(object me)

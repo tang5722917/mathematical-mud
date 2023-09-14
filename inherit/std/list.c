@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-08-14 18:07:57
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-15 13:33:17
+ * @LastEditTime: 2023-09-15 05:47:52
  * @FilePath: \mysticism-mud\inherit\std\list.c
  * @Description: List 基类，用于存储类<索引 - 对象>
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -36,12 +36,15 @@ int add_list_path(object * obj)
         if(inherits(base_o,ob))
             if(!err->repeat_dbase(id_obj,""+ob->id_num()))
             {
-                id_obj->set(""+ob->card_id(),ob);
+                id_obj->set(""+ob->id_num(),ob);
                 ob_name = ob_abb_name(ob);
                 name_obj->set(ob_name,ob);
             }
     }
 }
+
+//添加list 属性
+int 
 
 //输入对象名，返回静态对象
 object get_object_name(string prop)

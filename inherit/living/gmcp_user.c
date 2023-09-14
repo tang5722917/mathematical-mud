@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-09-04 11:34:28
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-10 02:40:03
+ * @LastEditTime: 2023-09-11 07:28:57
  * @FilePath: \mysticism-mud\inherit\living\gmcp_user.c
  * @Description: GCMP 状态类
  *               记录玩家客户端GCMP状态
@@ -12,7 +12,7 @@
 #define GMCP_LOG 10
 #define GMCP_Deal load_object(PATH_DIR "inherit/living/living_d/gmcp_deal_d")
 nosave string *gmcp_log = ({});
-protected mapping gmcp_info;
+mapping gmcp_info;
 
 void gmcp_info_init(mapping info)
 {
@@ -24,7 +24,7 @@ void gmcp_info_init(mapping info)
     gmcp_info["enable"] = 0;           //gmcp 判定初始化
 }
 
-void gmcp_enable(int enable){
+void set_enable(int enable){
     if(enable)
         gmcp_info["enable"] = 1;
     else gmcp_info["enable"] = 0;
@@ -38,7 +38,7 @@ mapping get_gmcp_info(){
     return gmcp_info;
 }
 
-int get_gmcp_enable()
+int status_gmcp_enable()
 {
     if(( gmcp_info["gui"]=="MYSTICISM_AUTO_TEST") || ( gmcp_info["gui"]=="MYSTICISM_MUD"))
         return 1;
