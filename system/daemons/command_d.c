@@ -4,7 +4,8 @@ private nosave mapping MYS_aliases = ([
     "sc":"score",
     "b":"bag",
     "qu":"quest",
-    "ma":"mail"
+    "ma":"mail",
+    "t" :"task"
 ]);
 
 void create()

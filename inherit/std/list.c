@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-08-14 18:07:57
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-16 20:15:25
+ * @LastEditTime: 2023-09-19 11:51:07
  * @FilePath: \mysticism-mud\inherit\std\list.c
  * @Description: List 基类，用于存储类<索引 - 对象>
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -60,7 +60,7 @@ int add_list_ob(object ob)
 
 //添加list 属性
 mixed set_list_prop(string prop,mixed value ){
-    return list_prop->set(prop, data);
+    return list_prop->set(prop, value);
 }
 
 //取得list 属性
