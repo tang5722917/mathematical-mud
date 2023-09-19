@@ -2,12 +2,12 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-18 15:05:46
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-18 19:57:48
+ * @LastEditTime: 2023-09-19 08:00:40
  * @FilePath: \mysticism-mud\inherit\living\user_task_base.c
  * @Description: 与任务有关的一些基本支持
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
-
+inherit inherit INHERIT_PATH "living/user_machine";
 nosave protected object task_choice;
 
 void task_choice_start(object ch_ob)
