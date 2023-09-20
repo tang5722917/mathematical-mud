@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-29 15:37:07
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-29 17:34:33
+ * @LastEditTime: 2023-09-20 18:30:20
  * @FilePath: \mysticism-mud\inherit\std\state.c
  * @Description:  有限状态机基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -25,5 +25,13 @@ string get_state_str(){return dbase->query("state_str");}
 
 mixed state_query(mixed key){return dbase->query(key);}
 mixed state_set(mixed key,mixed value){return dbase->set(key,value);}
+
+object next_state(object event)
+{
+    object ob = dbase->query("event")[event->id()];
+    if(!objectp(ob))
+        return 0;
+    return ob;
+}
 
 varargs void enter_state_do(object ob,object user){} //进入该状态时的行为

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-03 10:48:29
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-26 16:27:32
+ * @LastEditTime: 2023-09-20 18:48:46
  * @FilePath: \mysticism-mud\include\user.h
  * @Description: USER 相关头文件
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -22,5 +22,7 @@ class user_msg{
     object entity;  //msg 附加物品
     object other;
 }
+
+#define USER_ERR        this_player()->get_user_err()
 
 #endif

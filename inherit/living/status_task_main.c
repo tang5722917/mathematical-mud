@@ -2,14 +2,15 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-06 16:15:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-19 18:13:52
+ * @LastEditTime: 2023-09-20 18:51:01
  * @FilePath: \mysticism-mud\inherit\living\status_task_main.c
  * @Description: 用于记录管理玩家主线任务（只能进行一次）
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
 #include <game_world.h>
 #include <task_main.h>
-
+#include <user.h>
+inherit INHERIT_PATH "living/user_machine";
 inherit  PATH_00_TAK "main_task_00";
 protected mapping user_task_main;    //存储正在进行的task
 
@@ -29,4 +30,8 @@ int add_task(object task)
         write("做事要一心一意，接受这么多的任务你干的过来吗！");
         return 0;
     }
+}
+
+int task_state_change(string task, object state, object event){
+    return USER_ERR->print(state_change(user_task_main, task, state, event));
 }

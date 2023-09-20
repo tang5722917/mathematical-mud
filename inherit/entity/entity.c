@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-07 19:29:13
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-15 13:14:15
+ * @LastEditTime: 2023-09-20 18:27:34
  * @FilePath: \mysticism-mud\inherit\entity\entity.c
  * @Description:  物品基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -18,15 +18,16 @@ string print_card_name(object user);
 string print_equip_name(object user);
 string print_summon_name(object user);
 string print_status_name(object user);
-
+string print_materials_name(object user);
 /*开头数字代表类型
-*9  继承自property特殊物品
 *1  Card
 *2  Equit
 *3  Summon
 *4  Skill
 *5  Status
 *6  Materials
+*7  继承自property特殊物品
+*9  非物品类id
 */
 int entity_id(){return 0;}
 int id_num(){return entity_id();}

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-10 19:53:19
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-08-15 12:58:14
+ * @LastEditTime: 2023-09-20 17:41:36
  * @FilePath: \mysticism-mud\inherit\system\error.c
  * @Description: 错误处理基类,整合常见错误类型
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -99,5 +99,14 @@ int miss_dbase(object ob,string key)
         return 0;
     debug_message("[" + ctime() + "]错误所在的对象："+file_name(ob));
     debug_message("[" + ctime() + "]"+err_arr[6]+" 查找属性值："+ key);    
+    return 1;
+}
+
+mixed print(mixed input)
+{
+    if(!stringp(input))
+        return 0;
+    debug_message("[" + ctime() + "]错误所在的对象："+ err_ob);
+    debug_message("[" + ctime() + "]"+ input);    
     return 1;
 }

@@ -21,6 +21,8 @@ protected nosave object fight_ob;
 protected nosave object last_fight;
 //当前user 临时状态
 nosave protected mapping user_data;
+//错误处理
+nosave object err;
 
 // 设置属性值
 int set_user(string attr, int value)
@@ -115,6 +117,10 @@ int into_cur_fight(object fob)
     return 0;
 }
 
+object get_user_err(){
+    return err;
+}
+
 varargs void version_boardcast(int v)
 {
     object o;
@@ -133,6 +139,8 @@ void user_env_config()
     init_user_message();                            //初始化USER_MSG
     init_user_task_main();
     init_user_task_days();
+    err = new(_ERR);
+    err->init(this_object());
 }
 void user_setup()
 {
