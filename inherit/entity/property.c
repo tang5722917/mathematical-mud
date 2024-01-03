@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-06 16:36:53
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-04-19 18:00:26
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-01-03 18:07:17
  * @FilePath: \mysticism-mud\inherit\entity\property.c
  * @Description: 玩家持有的带属性的物品基类
  *              
@@ -20,14 +20,14 @@
 //特殊物品名称
 string property_name(){return "特殊物品";}
 //装备short 介绍
-string property_explain(){return "特殊物品";}
+string property_explain(){return "可以储存其他物品的特殊物品";}
 //装备id
 int property_id(){return 90;}
 
 int entity_id(){return property_id();}
 string mxp_name(){return property_name();}
 string mxp_explain(){return property_explain();}
-
+string print_mxp_other(object user){return print_mxp_name(10,user);}
 
 int is_move()
 {

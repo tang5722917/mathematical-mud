@@ -169,8 +169,10 @@ string desc_of_objects(object *obs)
 
         for (i = 0; i < sizeof(obs); i++)
         {
-            short_name = obs[i]->short() + is_fight(obs[i]) ;
-
+            if(inherits(_LIVING,obs[i]))
+                 short_name = obs[i]->short() + is_fight(obs[i]) ;
+            else if(inherits(PATH_DIR "inherit/entity/entity",obs[i]))
+                short_name = obs[i]->common_name();
             list[short_name] += obs[i]->query_temp("amount") ? obs[i]->query_temp("amount") : 1;
             unit[short_name] = obs[i]->query("unit") ? obs[i]->query("unit") : "个";
         }

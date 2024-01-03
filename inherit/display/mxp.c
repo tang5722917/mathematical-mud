@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-21 19:50:11
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-30 15:56:23
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-01-03 19:14:58
  * @FilePath: \mysticism-mud\inherit\display\mxp.c
  * @Description: MXP输出基类
  *               提供MXP输出函数
@@ -22,33 +22,33 @@ varargs string * print_mxp_name_all(int type, string input_str) {
     c = "<C FORE=";
     switch(type)
     {
-        case MYSTIC:
+        case MXP_MYSTIC:
             c += "cyan";
             break;
-        case CARD:
+        case MXP_CARD:
             c += "aqua";
             break;
-        case STATUS:
+        case MXP_STATUS:
             c += "gold";
             break;
-        case PROPERTY:
+        case MXP_PROPERTY:
             c += "green";
             break;
-        case EQUIP:
+        case MXP_EQUIP:
             c += "orange";
             break;
-        case SUMMON:
+        case MXP_SUMMON:
             c += "fuchsia";
             break;
-        case LIV_1:
+        case MXP_LIV_1:
             c += "white BACK=green";
             title = "介绍";
             break;
-        case LIV_2:
+        case MXP_LIV_2:
             c += "white BACK=orange";
             title = "介绍";
             break;
-        case LIV_3:
+        case MXP_LIV_3:
             c += "white BACK=red";
             title = "介绍";
             break;
@@ -56,7 +56,7 @@ varargs string * print_mxp_name_all(int type, string input_str) {
             c += "black BACK=white";
             title = "介绍";
             break;
-        case OTHER:
+        case MXP_OTHER:
             c += "white";
             break;
     } 

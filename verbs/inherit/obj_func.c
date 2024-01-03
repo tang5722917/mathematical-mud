@@ -1,3 +1,13 @@
+/*
+ * @Author: Donald duck tang5722917@163.com
+ * @Date: 2023-03-03 18:22:14
+ * @LastEditors: Donald duck tang5722917@163.com
+ * @LastEditTime: 2024-01-03 20:04:01
+ * @FilePath: \mysticism-mud\verbs\inherit\obj_func.c
+ * @Description: 
+ * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ */
+
 #include <ansi.h>
 
 object object_search_env(string str,object env)

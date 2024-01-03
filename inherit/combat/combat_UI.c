@@ -1,8 +1,8 @@
 /*
  * @Author: Tangzp tang5722917@163.com
  * @Date: 2023-03-16 22:24:00
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-15 14:04:12
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-01-03 19:21:06
  * @FilePath: \mysticism-mud\inherit\combat\combat_UI.c
  * @Description: 战斗UI 基类
  * Copyright (c) 2023 by tang5722917@163.com, All Rights Reserved. 
@@ -48,7 +48,7 @@ string ob2_status(object *ob)
 {
     string msg;
     msg = HIC "≡ " HIY "┌─────────────────────────────────────────────────────────────┐" HIC "≡\n" NOR;
-    msg += print_ob2_ent(ob,STATUS);
+    msg += print_ob2_ent(ob,MXP_STATUS);
     return msg;
 }
 
@@ -56,7 +56,7 @@ string ob2_equip(object *ob)
 {
     string msg;
     msg = HIC "≡ "HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += print_ob2_ent(ob,EQUIP);
+    msg += print_ob2_ent(ob,MXP_EQUIP);
     return msg;
 }
 
@@ -64,7 +64,7 @@ string ob2_cards(object *ob)
 {
     string msg;
     msg =HIC "≡ " "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
-    msg += print_ob2_ent(ob,CARD);
+    msg += print_ob2_ent(ob,MXP_CARD);
     return msg;
 }
 
@@ -72,11 +72,11 @@ string out_area()
 {
     string msg;
     msg = HIR "≡ " HIR"╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
-    msg += print_common_ent(ob_summon2,SUMMON);
+    msg += print_common_ent(ob_summon2,MXP_SUMMON);
     msg += GRN "  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
     msg += sprintf("  |%-61s| \n", "");
     msg += GRN"  ╞═════════════════════════════════════════════════════════════╡"  "\n" NOR;
-    msg += print_common_ent(ob_summon1,SUMMON);
+    msg += print_common_ent(ob_summon1,MXP_SUMMON);
     msg += HIR "≡ " HIR "╞═════════════════════════════════════════════════════════════╡" HIR "≡\n" NOR;
     return msg;
 }
@@ -84,14 +84,14 @@ string out_area()
 string ob1_cards(object *ob)
 {
     string msg="";
-    msg = print_ob1_ent(ob,CARD);
+    msg = print_ob1_ent(ob,MXP_CARD);
     msg +=HIC "≡ " "╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
     return msg;
 }
 string ob1_equip(object *ob)
 {
     string msg="";
-    msg += print_ob1_ent(ob,EQUIP);
+    msg += print_ob1_ent(ob,MXP_EQUIP);
     msg += HIC "≡ " HIY"╞═════════════════════════════════════════════════════════════╡" HIC "≡\n" NOR;
     return msg;
 }
@@ -99,7 +99,7 @@ string ob1_equip(object *ob)
 string ob1_status(object *ob)
 {
     string msg="";
-    msg += print_ob1_ent(ob,STATUS);
+    msg += print_ob1_ent(ob,MXP_STATUS);
     msg += HIC "≡ " HIY "└─────────────────────────────────────────────────────────────┘" HIC "≡\n" NOR;
     msg += "请选择出牌顺序（p + 数字0 + 数字1 + .....）注意请用空格分隔数字 \n";
     msg += "《数字x》 为代表卡牌数字，p 后面的每一个数字代表相应的手牌。\n";

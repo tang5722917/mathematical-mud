@@ -1,12 +1,13 @@
 /*
  * @Author: Donald duck tang5722917@163.com
- * @Date: 2023-04-07 19:29:13
+ * @Date: 2023-05-09 20:05:57
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-09-20 18:27:34
+ * @LastEditTime: 2024-01-03 20:04:21
  * @FilePath: \mysticism-mud\inherit\entity\entity.c
- * @Description:  物品基类
- * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ * @Description: entity基类
+ * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
 
 inherit CORE_STD_TEST;
 inherit _MXP;
@@ -19,6 +20,7 @@ string print_equip_name(object user);
 string print_summon_name(object user);
 string print_status_name(object user);
 string print_materials_name(object user);
+string print_mxp_other(object user);
 /*开头数字代表类型
 *1  Card
 *2  Equit
@@ -27,7 +29,8 @@ string print_materials_name(object user);
 *5  Status
 *6  Materials
 *7  继承自property特殊物品
-*9  非物品类id
+*8  Common  //公共物品
+*9  保留
 */
 int entity_id(){return 0;}
 int id_num(){return entity_id();}
@@ -48,5 +51,7 @@ varargs string print_name(object user,object ob)
         str += ob->print_status_name(user);
     else if( inherits(CORE_STD_MATERIALS,ob)  )
         str += ob->print_materials_name(user);
+    else
+        str += ob->print_mxp_other(user);
     return str;
 }

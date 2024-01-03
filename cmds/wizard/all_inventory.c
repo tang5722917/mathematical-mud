@@ -5,7 +5,7 @@ inherit _CLEAN_UP;
 int main(object me, string arg)
 {
     object ob;
-    object env = environment()
+    object env = environment(me);
     if (!wizardp(me))
         return 0;
 

@@ -38,15 +38,15 @@
 
 #define send_MXP(arg) efun::write(process_mxp(MXPTAG(arg), QueryMXP()));
 
-#define MYSTIC   1
-#define CARD     2
-#define STATUS   3
-#define PROPERTY 4
-#define EQUIP    5
-#define SUMMON   6
-#define LIV_1    7  //友善
-#define LIV_2    8  //中立
-#define LIV_3    9  //敌对
-#define OTHER    10
+#define MXP_MYSTIC   1
+#define MXP_CARD     2
+#define MXP_STATUS   3
+#define MXP_PROPERTY 4
+#define MXP_EQUIP    5
+#define MXP_SUMMON   6
+#define MXP_LIV_1    7  //友善
+#define MXP_LIV_2    8  //中立
+#define MXP_LIV_3    9  //敌对
+#define MXP_OTHER    10
 #define MXP_MAP  11 
 #endif // MXP_H

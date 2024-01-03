@@ -1,8 +1,8 @@
 /*
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-03 18:22:14
- * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-09 16:53:27
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-01-03 19:17:26
  * @FilePath: \mysticism-mud\inherit\living\status_mystic.c
  * @Description: Living 类中非凡特性接口
  *
@@ -80,7 +80,7 @@ string living_mystic_name()
     for(int i=0;i<=10;i++)
     {
         if(living_mystic[i]!=0)
-            return living_mystic[i]->print_mxp_name_all(MYSTIC);
+            return living_mystic[i]->print_mxp_name_all(MXP_MYSTIC);
     }
-    return find_object(INIT_MYS)->print_mxp_name_all(MYSTIC);
+    return find_object(INIT_MYS)->print_mxp_name_all(MXP_MYSTIC);
 }

@@ -1,15 +1,17 @@
 /*
  * @Author: Donald duck tang5722917@163.com
- * @Date: 2023-05-16 19:30:32
+ * @Date: 2023-05-23 14:43:20
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-06-07 08:12:20
+ * @LastEditTime: 2024-01-03 20:04:08
  * @FilePath: \mysticism-mud\World\00\map\1\map_0_0_5.c
- * @Description: 廷根 黑夜教会/职业小队地图 - 前台
- * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
+ * @Description: 前台
+ * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+
 #include <ansi.h>
 #include <game_world.h>
 #include <world_map.h>
+#include <world_obj.h>
 #include "area_1.h"
 inherit AREA_1 "area_1_map";
  
@@ -28,9 +30,9 @@ inherit AREA_1 "area_1_map";
         "north" : PATH_00_MAP "1/map_0_0_2",
         "south" : PATH_00_MAP "1/map_0_0_7"
      ]));
-     set("objects",([
+     set("objects",([ Mailbox_Common : 1
      ]));
- 
+
      setup();
  }
 
