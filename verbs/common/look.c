@@ -85,7 +85,10 @@ mixed do_look_at_obj(object ob)
     }
     else
     {
-        printf("%s\n", ob->long());
+        if(inherits(_LIVING,ob))
+            printf("%s\n", ob->long());
+        else if(inherits(PATH_DIR "inherit/entity/entity",ob))
+            printf("%s\n", ob->common_short()+"\n"+ob->entity_description());
     }
 
     return 1;
@@ -157,23 +160,28 @@ string desc_of_objects(object *obs)
 {
     int i;
     string str;
-    mapping list, unit;
+    mapping list, unit, list_num;
     string short_name;
     string *ob;
-
+    object me = this_player();
     if (obs && sizeof(obs) > 0)
     {
         str = "";
-        list = ([]);
+        list_num = ([]);
         unit = ([]);
-
+        list = ([]);
+        
         for (i = 0; i < sizeof(obs); i++)
         {
-            if(inherits(_LIVING,obs[i]))
-                 short_name = obs[i]->short() + is_fight(obs[i]) ;
-            else if(inherits(PATH_DIR "inherit/entity/entity",obs[i]))
+            if(inherits(_LIVING,obs[i])){
+                 short_name = obs[i]->short();
+                 list[short_name] = obs[i]->print_name(me) + is_fight(obs[i]) ;
+            }
+            else if(inherits(PATH_DIR "inherit/entity/entity",obs[i])){
                 short_name = obs[i]->common_name();
-            list[short_name] += obs[i]->query_temp("amount") ? obs[i]->query_temp("amount") : 1;
+                list[short_name] = obs[i]->print_mxp_name(MXP_OTHER,me, obs[i]->mxp_name()) ;
+            }
+            list_num[short_name] += obs[i]->query_temp("amount") ? obs[i]->query_temp("amount") : 1;
             unit[short_name] = obs[i]->query("unit") ? obs[i]->query("unit") : "个";
         }
 
@@ -181,10 +189,10 @@ string desc_of_objects(object *obs)
         for (i = 0; i < sizeof(ob); i++)
         {
             str += "  ";
-            if (list[ob[i]] > 1)
-                str += list[ob[i]] + unit[ob[i]] + ob[i]+ "\n";
+            if (list_num[ob[i]] > 1)
+                str += list_num[ob[i]] + unit[ob[i]] + list[ob[i]]+ "\n";
             else
-                str += ob[i]+ "\n";
+                str += list[ob[i]]+ "\n";
         }
         return str;
     }
@@ -260,8 +268,7 @@ mixed do_look_at_str(string str, string arg)
     object me = this_player();
     object env = environment(me);
     mapping exits = env->query("exits");
-    string tar = list_all_inventory_of_object(me, env);
-    tell_object(me, tar);
+
     if (str == "here")
     {
         return do_look();

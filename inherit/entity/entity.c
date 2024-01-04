@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-09 20:05:57
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2024-01-03 20:04:21
+ * @LastEditTime: 2024-01-04 18:21:31
  * @FilePath: \mysticism-mud\inherit\entity\entity.c
  * @Description: entity基类
  * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -34,6 +34,8 @@ string print_mxp_other(object user);
 */
 int entity_id(){return 0;}
 int id_num(){return entity_id();}
+string entity_description(){return "";}
+string id_look(){return "Entity";}
 varargs string print_name(object user,object ob)
 {
     string str = "";

@@ -21,3 +21,6 @@ string print_materials_name(object user){return print_mxp_name(10,user);}
 int entity_id(){return materials_id();}
 string mxp_name(){return materials_name();}
 string mxp_explain(){return materials_explain();}
+
+string materials_description(){return "材料的详细用途";}
+string entity_description(){return materials_description();}

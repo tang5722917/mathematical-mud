@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-03-27 15:24:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-12 17:24:44
+ * @LastEditTime: 2024-01-04 18:23:46
  * @FilePath: \mysticism-mud\inherit\entity\card.c
  * @Description: 卡牌实现基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -20,6 +20,7 @@ int card_id(){return 10;}
 //Card 战斗效果说明
 string card_effect_descript(){return "";}
 string print_card_name(object user){return print_mxp_name(2,user);}
+string entity_description(){return card_effect_descript();}
 
 int entity_id(){return card_id();}
 string mxp_name(){return card_name();}

@@ -33,8 +33,8 @@
 #define MYSTICISM_INTERMUD_D             PATH_DIR "system/daemons/intermud/i2d"
 #define MYSTICISM_INTERMUD_SERVICE(x)    (PATH_DIR "system/daemons/intermud/_" + x)
 /* inherit 特性文件 */
-#define CORE_STD_CAMP           PATH_DIR "inherit/entity/common"
-#define CORE_STD_COMMON         PATH_DIR "inherit/camp/camp"
+#define CORE_STD_CAMP           PATH_DIR "inherit/camp/camp"
+#define CORE_STD_COMMON         PATH_DIR "inherit/entity/common"
 #define CORE_STD_PRE            PATH_DIR "inherit/system/pre_load_base"
 #define CORE_STD_ROOM           PATH_DIR "inherit/space/room"
 #define CORE_STD_AREA           PATH_DIR "inherit/space/area"

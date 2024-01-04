@@ -24,3 +24,5 @@ string print_status_name(object user){return print_mxp_name(3,user);}
 int entity_id(){return status_id();}
 string mxp_name(){return status_name();}
 string mxp_explain(){return status_short();}
+string status_description(){return "该状态的详细介绍";}
+string entity_description(){return status_description();}

@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-04-04 19:43:10
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-28 16:43:11
+ * @LastEditTime: 2024-01-04 11:01:14
  * @FilePath: \mysticism-mud\inherit\living\living.c
  * @Description: LIV 基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -19,10 +19,14 @@ inherit INHERIT_PATH "living/status_skill" ;
 inherit _MXP;
 inherit CORE_STD_TEST;
 //MXP 显示
-string mxp_name(){return id_list()[0];}
+string mxp_name(){return this_object()->short();}
 string mxp_explain(){return long();}
 
-string print_name(object user,object des){return print_mxp_name(7,user);}
+string print_name(object user,object des){
+    object living = this_object();
+    object env = environment();
+    return print_mxp_name(user->get_status_camp_type(user,env,living),user);
+}
 
 int is_fight_living()
 {

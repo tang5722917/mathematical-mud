@@ -22,3 +22,5 @@ string print_equip_name(object user){return print_mxp_name(5,user);}
 int entity_id(){return equip_id();}
 string mxp_name(){return equip_name();}
 string mxp_explain(){return equip_explain();}
+string equip_description(){return "可装备道具的详细用途";}
+string entity_description(){return equip_description();}

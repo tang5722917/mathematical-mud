@@ -16,6 +16,7 @@ varargs void start_task_story(object user,string *str,object des,object entity,o
     {
         user->add_user_info(s,des);
     }
+    user->enable_command();
 }
 
 //日常短对话
@@ -23,4 +24,5 @@ varargs void npc_tell(object user,string str,object des)
 {
     user->disable_command();
     user->add_user_info(str,des);
+    user->enable_command();
 }

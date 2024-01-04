@@ -2,8 +2,8 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-30 16:39:00
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-30 17:18:07
- * @FilePath: \mysticism-mud\inherit\camp\camp.c
+ * @LastEditTime: 2024-01-04 11:01:43
+ * @FilePath: \mysticism-mud\inherit\living\status_camp.c
  * @Description: 阵营基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
@@ -249,4 +249,14 @@ int hasCamp(string c)
     if (undefinedp(camp[c]))
         return 0;
     return 1;
+}
+/*
+#define MXP_LIV_1    7  //友善
+#define MXP_LIV_2    8  //中立
+#define MXP_LIV_3    9  //敌对
+*/
+// 返回阵营大致态度 友善  -  中立 -  敌对
+int get_status_camp_type(object user,object env,object living)
+{
+    return 7;
 }
