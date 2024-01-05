@@ -1,0 +1,17 @@
+#/system/obj/user.c
+dbase (["condition":([]),"exp_equ":0,"last_saved_at":1704359767,"title":"普通人","gender":"男性","last_login_at":1704359767,"exp_fai":0,"space_room":"/World/00/start_room","login_times":1,"status_copy":0,"is_copy":0,"name":"测试","vocation":"无业","birthday":1704359767,"next_space_room":"/World/00/start_room","living_visible":1,"exp_win":0,"is_fight":0,"autotest":1,"wlv":0,"id":"autotest","last_login_ip":"127.0.0.1",])
+living_value (["base_str":10,"int":100,"base_hp":100,"max_mys":175,"max_hp":100,"hp":100,"mys":0,"base_mp":100,"max_mp":100,"mp":100,"str":10,"base_cra":0,"base_agi":10,"base_sen":10,"max_cra":0,"base_luk":0,"cra":0,"agi":10,"base_int":100,"sen":10,"luk":0,"max_int":100,])
+living_mystic_id ([10:"/World/base/mystic/000_mortal",])
+money ([])
+camp ([])
+gmcp_info ([])
+day_task_00 ([])
+user_task_day ([])
+main_task_00 ([])
+user_task_main ([])
+mxp_enable 1
+mxp_version_info (["MXP":"1.0","CLIENT":"Mudlet","VERSION":"4.17.2",1:"MXP=1.0 CLIENT=Mudlet VERSION=4.17.2",])
+mxp_support_info ([1:"+a +a.href +a.hint +b +br +color +color.fore +color.back +font +font.color +font.back +i +music +music.fname +music.v +music.l +music.p +music.c +music.t +music.u +send +send.href +send.hint +send.prompt +sound +sound.fname +sound.v +sound.l +sound.p +sound.t +sound.u +u +var +var.publish",])
+user_storage ({})
+user_bag ({({"base_bag",}),({"",}),({"",}),({"",}),({"",}),})
+room_info ({})
