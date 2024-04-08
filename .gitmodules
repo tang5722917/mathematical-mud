@@ -1,3 +1,6 @@
 [submodule "mudcore"]
 	path = mudcore
 	url =https://github.com/tang5722917/mudcore
+[submodule "lpc_atest"]
+	path = lpc_atest
+	url = https://gitee.com/tangdk/lpc_atest
