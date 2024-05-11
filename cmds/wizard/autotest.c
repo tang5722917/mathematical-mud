@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-06-27 17:21:08
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2024-01-05 19:29:40
+ * @LastEditTime: 2024-01-08 13:49:31
  * @FilePath: \mysticism-mud\cmds\wizard\autotest.c
  * @Description: driver自动测试命令
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -43,8 +43,6 @@ string test_arg(string arg,object me)
 
 int main(object me, string arg)
 {
-    object test_ob;
-    string str;
     string test_feedback;
     if(me->query("autotest"))
     {
@@ -74,8 +72,9 @@ int help(object me)
 关于autotest中【string】为参数变量，格式为 前缀+变量字符串，eg:
 str_【字符串变量】,int_【整型变量】,obj_【对象变量】
 
-autotest  dbase 【prop】【value】 完成对user dbase中prop属性value的更改
-autotest  update  完成存档修改并重新载入玩家对象
+autotest load 【存档名】           读取【存档名】存档
+autotest  dbase 【prop】【value】  完成对user dbase中prop属性value的更改
+autotest  update                  完成存档修改并重新载入玩家对象
 HELP );
     return 1;
 }
