@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-24 10:10:44
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-29 20:04:21
+ * @LastEditTime: 2024-04-22 17:02:33
  * @FilePath: \mysticism-mud\inherit\space\map_d\show_map_d.c
  * @Description: 输出地图数据
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -101,6 +101,8 @@ string show_map(object me)
      string show_map;
      mixed *room_line ;
      int x,y,x1,y1;
+     if (obs == 0)
+        return 0;
      show_map =HBWHT+BLK+obs[0][0]+NOR+"-"+HBCYN+obs[0][1]+NOR + "\n";
      show_map +=BRED +"   "+NOR+"-"+ "当前玩家所在地" + "\n";
      for(int j=1;j<sizeof(obs);j++)

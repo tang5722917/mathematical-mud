@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-05 12:32:21
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2023-05-24 19:20:01
+ * @LastEditTime: 2024-04-22 16:44:05
  * @FilePath: \mysticism-mud\cmds\player\map.c
  * @Description: 显示区域地图
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -16,8 +16,12 @@ int help(object me);
 
 int main(object me, string arg)
 {
+    string str;
     object ob = load_object(MAP_SHOW_D);
-    write( ob->show_map(me));
+    str = ob->show_map(me);
+    if(stringp(str))
+        write( str );
+    else write( "当前区域无地图" );
     return 1;
 }
 
