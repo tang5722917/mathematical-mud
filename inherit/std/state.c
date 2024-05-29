@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-29 15:37:07
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2024-05-11 19:07:06
+ * @LastEditTime: 2024-05-29 19:13:37
  * @FilePath: \mysticism-mud\inherit\std\state.c
  * @Description:  有限状态机基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -39,14 +39,90 @@ int state_build(mapping state)
 int is_state_name(string str){return (str == state_data["name"]);}
 //得到本状态名称
 string state_name(){return state_data["name"];}
+//判断是否为本状态名称
+int is_state(string str){return (state_data["name"] == str);}
 //得到状态信息
 string state_info(){
     string str="";
     str += "State name: " + state_data["name"];
     return str;}
-//状态转换：
+
+varargs mixed before(object ob){
+    object o;
+    if(state_data["before"])
+    {    
+        if(objectp(ob)) o = ob; 
+        else o = this_object();
+        return call_other(o,state_data["before"]);
+    }
+}
+
+varargs mixed after(object ob){
+    object o;
+    if(state_data["after"])
+    {    
+        if(objectp(ob)) o = ob; 
+        else o = this_object();
+        return call_other(o,state_data["after"]);
+    }
+}
+
+varargs mixed on_enter(object ob){
+    object o;
+    if(state_data["on_enter"])
+    {    
+        if(objectp(ob)) o = ob; 
+        else o = this_object();
+        return call_other(o,state_data["on_enter"]);
+    }
+}
+
+varargs mixed on_exit(object ob){
+    object o;
+    if(state_data["on_exit"])
+    {
+        if(objectp(ob)) o = ob; 
+        else o = this_object();
+        return call_other(o,state_data["on_exit"]);
+    }
+}
+
+varargs mixed exit(){
+    object o;
+    string str = "on_exit_" + state_data["name"];
+    return call_other(this_object(),str);
+}
+
+varargs mixed enter(){
+    object o;
+    string str = "on_enter_" + state_data["name"];
+    return call_other(this_object(),str);
+}
+
+//典型状态转换：
 //`before`属性 -> `on_exit`属性 -> `on_exit_{stateName}`
 //`on_enter`属性 -> `on_enter_{stateName}`方法 -> `after`属性
+varargs mixed typ_exit(object ob)
+{
+    object o;
+    if(objectp(ob)) o = ob; 
+    else o = this_object();
+    before(o);
+    on_exit(o);
+    exit(o);
+    return 1;
+}
+
+varargs mixed typ_enter(object ob)
+{
+    object o;
+    if(objectp(ob)) o = ob; 
+    else o = this_object();
+    on_enter(o);
+    enter(o);
+    after(o);
+    return 1;
+}
 
 //自定义状态变量
 mixed set(string prop, mixed data){
