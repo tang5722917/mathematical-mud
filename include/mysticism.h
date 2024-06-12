@@ -99,4 +99,11 @@
 #define VOID_OB     PATH_DIR "system/obj/void"
 #define USER_OB     PATH_DIR "system/obj/user"
 
+/*定义单元测试工具路径*/
+#define LPC_ATEST_PATH PATH_DIR "lpc_atest/"
+/*定义单元测试进程*/
+#define ATEST_D        LPC_ATEST_PATH "lpc_atest"
+/*定义单元测试路径*/
+#define ATEST_PATH PATH_DIR "test/unit_case/"
+
 #endif
