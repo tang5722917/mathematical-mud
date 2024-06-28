@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2023-05-29 15:37:07
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2024-05-29 19:13:37
+ * @LastEditTime: 2024-06-28 19:17:40
  * @FilePath: \mysticism-mud\inherit\std\state.c
  * @Description:  有限状态机基类
  * Copyright (c) 2023 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -88,13 +88,11 @@ varargs mixed on_exit(object ob){
 }
 
 varargs mixed exit(){
-    object o;
     string str = "on_exit_" + state_data["name"];
     return call_other(this_object(),str);
 }
 
 varargs mixed enter(){
-    object o;
     string str = "on_enter_" + state_data["name"];
     return call_other(this_object(),str);
 }

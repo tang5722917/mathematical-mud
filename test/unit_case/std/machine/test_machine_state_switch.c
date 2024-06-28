@@ -2,7 +2,7 @@
  * @Author: Donald duck tang5722917@163.com
  * @Date: 2024-05-31 18:10:51
  * @LastEditors: Donald duck tang5722917@163.com
- * @LastEditTime: 2024-06-12 19:39:12
+ * @LastEditTime: 2024-06-26 20:33:42
  * @FilePath: \mysticism-mud\test\unit_case\std\machine\test_machine_state_switch.c
  * @Description: 
  * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
@@ -35,14 +35,16 @@ int test_state_switch()
         (["trigger" : "sublimate" ,  "source" : "solid",  "dest": "gas"])
     });
     ob1 = new_state(state1);
-    ob3 = new_state(state2);
-    ob2 = new_state(state3);
+    ob2 = new_state(state2);
+    ob3 = new_state(state3);
     ma = new(_STATE_M);
     ma-> machine_init( ({ob1,ob2,ob3}) );
     ma->machine_build(switch_stat);
-    TEST_ASSERT_EQUAL_STRING(ma->get_current_state()->state_info(),"");
+    TEST_ASSERT_EQUAL_STRING("State name: solid", ma->get_current_state()->state_info());
+    TEST_ASSERT_EQUAL_OBJECT(ob1, ma->get_current_state());
     ma->trigger("melt");
-    TEST_ASSERT_EQUAL_STRING(ma->get_current_state()->state_info(),"");
+    TEST_ASSERT_EQUAL_STRING("State name: liquid",ma->get_current_state()->state_info());
+    TEST_ASSERT_EQUAL_OBJECT(ob2,ma->get_current_state());
 
     return 1;
 }

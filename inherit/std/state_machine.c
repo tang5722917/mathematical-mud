@@ -62,6 +62,9 @@ object get_current_state(){
     return state;
 }
 
+//得到状态数量
+int get_size_state(){return sizeof(machine_data["State"]);}
+
 //转换状态至状态名
 int do_switch_state_name(string name)
 {

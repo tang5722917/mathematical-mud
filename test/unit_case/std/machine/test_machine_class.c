@@ -7,8 +7,10 @@
  * @Description: 
  * Copyright (c) 2024 by Donald duck email: tang5722917@163.com, All Rights Reserved.
  */
+inherit LPC_ATEST_PATH "lpc_atest_unit";
 
 int main()
 {
-    
+    ATEST_BEGIN();
+    ATEST_END();
 }
